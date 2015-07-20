@@ -18,9 +18,12 @@ class Admin extends MY_Controller {
     function index()
     {
         $data[''] = '';
-        $data['top_navbar1'] = 'home/navbar_view1';
-        $data['content_page'] = 'home/v_admin';
-        $data['main_footer'] = 'home/footer_view1';
+        $data['admin_title'] = 'Dashboard';
+        $data['admin_subtitle'] = 'Overall Statistics';
+        $data['admin_navbar'] = 'admin/header';
+        $data['admin_sidebar'] = 'admin/sidebar';
+        $data['admin_content'] = 'admin/v_admin';
+        $data['admin_footer'] = 'admin/footer';
         
         
         $this->template->call_admin_template($data);
