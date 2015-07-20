@@ -22,7 +22,9 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/css/animate.css'?>">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/css/bootstrap.min.css'?>">
-    <link href="<?php echo base_url().'assets/datatables/css/data-table.css" rel="stylesheet'?>" />
+    
+    <link href="<?php echo base_url(); ?>assets/js/DataTables-1.10.2/css/data-table.css" rel="stylesheet" />
+
     <link href="<?php echo base_url(). 'assets/css/admin.css'?>" rel="stylesheet">
 
 </head>
@@ -66,14 +68,20 @@
    <script type="text/javascript" charset="utf-8" src="<?php echo base_url().'assets/sweetalert/lib/sweet-alert.js'?>"></script>
    <script type="text/javascript" charset="utf-8" src="<?php echo base_url().'assets/js/jquery.validationEngine-en.js'?>"></script>
    <script type="text/javascript" charset="utf-8" src="<?php echo base_url().'assets/js/jquery.validationEngine.js'?>"></script>
-   <script type="text/javascript" src="<?php echo base_url().'assets/js/scrollup.min.js'?>"></script>
+   <script type="text/javascript"src="<?php echo base_url() .'assets/js/scrollUp.min.js'?>"></script>
    <script type="text/javascript" src="<?php echo base_url().'assets/js/bootstrap.min.js'?>"></script>
-   <script src="<?php echo base_url(); ?>assets/datatables/js/jquery.dataTables.js"></script>
-   <script src="<?php echo base_url(); ?>assets/datatables/js/data-table.js"></script>
+   <script src="<?php echo base_url(); ?>assets/js/DataTables-1.10.2/js/jquery.dataTables.js"></script>
+  <script src="<?php echo base_url(); ?>assets/js/DataTables-1.10.2/js/data-table.js"></script>
     <script src="<?php echo base_url(). 'assets/js/raphael.min.js'?>"></script>
     <script src="<?php echo base_url(). 'assets/js/morris.min.js'?>"></script>
     <script src="<?php echo base_url(). 'assets/js/morris-data.js'?>"></script>
+    <script>
+            $('#category-table').dataTable();
+            $('#orders-table').dataTable();
 
+            $('.dataTables_filter input').addClass('form-control').attr('placeholder','Search');
+            $('.dataTables_length select').addClass('form-control');
+    </script>
    <script type="text/javascript" src="<?php echo base_url().'assets/js/admin.js'?>"></script>
 
 </body>

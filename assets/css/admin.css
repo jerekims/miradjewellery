@@ -238,3 +238,11 @@ ul.alert-dropdown {
      .table>thead:first-child>tr:first-child>th{
     text-align: center;
 }
+
+ .centered{
+    text-align: center;
+ }
+
+ .success{
+    background-color: #40d47e;
+ }
