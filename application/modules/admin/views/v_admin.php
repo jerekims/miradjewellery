@@ -111,8 +111,9 @@
                 </div>
                 <!-- /.row -->
                 <div class="row">
+
                   <div class="col-lg-12">
-                   <h2>Bordered Table</h2>
+                   <h2>Categories</h2>
                    <div class="table-responsive">
                      <div class="table-toolbar">
                        <div class="btn-group pull-right">
@@ -129,17 +130,16 @@
                           <th>#</th>
                           <th>Category Name</th>
                           <th>Category Status</th>
-                          <th>View</th>
-                          <th>Edit</th>
-                          <th>Delete</th>
+                          <th colspan="3">Actions</th>
                         </tr>
                       </thead>
                         <tr>
 				          <td>1</td>
-				          <td>23</td>
-				          <td>34</td>
-				          <td>45</td>
-				          <td>56</td>
+				          <td>Necklace</td>
+				          <td><span class="label label-success">Active</span></td>
+				          <td><i class="fa fa-eye"> View</i></td>
+				          <td><i class="fa fa-pencil"> Edit</i></td>
+				          <td><i class="fa fa-trash"></i> Delete</td>
 				
 				        </tr>
                      </table>
@@ -150,6 +150,8 @@
 
             </div>
             <!-- /.container-fluid -->
+
+        </div>
 
         </div>
         <!-- /#page-wrapper -->
