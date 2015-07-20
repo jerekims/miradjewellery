@@ -1,0 +1,293 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans|Roboto|Oswald|Lato|Droid+Sans|PT+Sans|Source+Sans+Pro|Open+Sans+Condensed:300|Roboto+Condensed|Droid+Serif|Ubuntu|Raleway|Montserrat|PT+Sans+Narrow|Roboto+Slab|Lobster|Arimo|Yanone+Kaffeesatz|Lora|Bitter);
+
+html, body {
+    padding:0;
+    margin:0;
+}
+
+/*Navigation CSS*/
+
+.navbar-default{
+  /*margin-left: 250px;*/
+}
+
+.top-navigation{
+    border-radius: 0;
+
+}
+
+.navbar-nav>li>.dropdown-menu>li{
+  width: 100%;
+  /*background-color: #1abc9c;*/
+}
+
+.navbar-nav>li>.dropdown-menu>li:hover{
+  background-color: #FFFFFF;
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form{
+  color:#1abc9c;
+  width:100%;
+}
+
+  
+/*.dropdown:hover .dropdown-menu {
+display: block;
+}*/
+
+
+.dropdown-menu>li>a{
+    color:#FFFFFF;
+    background-color: #1abc9c;
+    
+}
+
+.dropdown-menu>li>a:hover{
+    color:#FFFFFF;
+    background-color: #1abc9c;
+    
+}
+
+
+.navbar-default .navbar-nav .open .dropdown-menu>li>a{
+  background-color: #1abc9c;
+  color:#000000;
+}
+
+.navbar-nav>li>.dropdown-menu>li:hover{
+  background-color: #1abc9c;
+}
+
+.top-nav-ul{
+  background-color: #1abc9c;
+  /*float:left !important;*/
+  /*margin-left: 100px;*/
+}
+
+.dropdown-menu>li>a:hover{
+    color: #FFFFFF;
+    background-color:#000000;
+}
+
+.dropdbut{
+  font-size:2rem;
+}
+
+nav .brand-logo{
+  margin-left: 25px;
+    text-decoration: none;
+}
+
+.navbar-fixed nav{
+  /*height: 70px;*/
+}
+
+nav ul a{
+  margin-top: 10px;
+  font-size: 18px;
+  font-family: "Open+Sans";
+  color:#FFFFFF;
+}
+
+.nav .open>a, .nav .open>a:focus, .nav .open>a:hover{
+  border-color: #1abc9c;
+}
+
+nav ul li:hover, nav ul li.active{
+  background-color: #1abc9c;
+}
+
+.navbar-nav>li>.dropdown-menu{
+  background-color: #1abc9c;
+}
+
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover{
+  color:#000000;
+  background-color: #16a085;
+  /*border-color: #FFFFFF;*/
+}
+
+.navbar-default .navbar-nav>li>a{
+  color:#FFFFFF;
+  font-family: "Open+Sans";
+}
+
+nav ul a:hover{
+  font-size: 18px;
+  /*font-family: "Roboto";*/
+  text-decoration: none;
+  border-bottom: 4px solid #ecf0f1;
+  color:#000000;
+  /*z-index: 999999;*/
+}
+
+.navbar-default{
+  background-color:rgba(26, 188, 156,1.0);
+  border-color:rgba(26, 188, 156,1.0);
+}
+
+
+
+
+
+.side-nav.fixed{
+  margin-top: 200px;
+}
+
+
+
+
+
+
+
+
+
+
+/*Footer CSS*/
+
+footer.page-footer{
+  margin-top:0px;
+  border-top:0px;
+  height: 200px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  bottom:0;
+}
+
+.copyright{
+  height:30px;
+  margin-top: 10px;
+  bottom: 0;
+    background-color: #00B28F;
+    color:#FFFFFF;
+}
+
+.indint{
+   margin-top: 0px;
+   margin-bottom: 0px;
+}
+
+div.vertical-line{
+  width: 0px; /* Use only border style */
+  height: 180px;
+  float: left; 
+  border: 1px inset; /* This is default border style for <hr> tag */
+  margin-right: 10px;
+  /*margin-top: 5px;*/
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: 0;
+  top:5px;
+}
+
+.home-footer{
+  margin:inherit;
+}
+
+.home-footer-title{
+  height: 150px;
+  margin-top: 5px;
+  font-family: "Ubuntu";
+}
+
+.limited{
+  margin-top:5px ;
+  margin-bottom: 10px;
+  font-size: 17px;
+  letter-spacing: 5px;
+}
+
+.idc{
+  margin-top:0px ;
+  margin-bottom: 0px;
+}
+
+.reach{
+  margin: 5px;
+  font-size: 15px;
+}
+
+.home-contacts-title{
+    margin-top: 10px;
+    font-family: "Montserrat","PT+Sans";
+    text-decoration: underline;
+}
+
+.social-contacts{
+  font-size: 20px;
+  
+}
+
+a.social{
+  color:#000000;
+}
+
+a.social:hover{
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.social{
+  margin-left: 15px;
+}
+
+.social-icon{
+  padding-right: 20px;
+  padding-right: 15px;
+}
+
+.facebook{
+  color:rgba(41, 128, 185,1.0);
+  font-weight: bold;
+}
+
+.googleplus{
+  color:rgba(231, 76, 60,1.0);
+  font-weight: bold;
+}
+
+.twitter{
+  color:#2980b9;
+  font-weight: bold;
+}
+
+.instagram{
+  color:#993300;
+  font-weight: bold;
+}
+
+.reserve{
+  padding-top:5px;
+}
+
+.mail{
+    letter-spacing: 3px;
+}
+
+  header, main, footer {
+    padding-left: 240px;
+  }
+
+  @media only screen and (max-width : 992px) {
+    header, main, footer {
+      padding-left: 0;
+    }
+  }
+
+/*Gallery Body*/
+
+.gallery-body{
+    /*margin-top: 25px;*/
+
+  }
+
+ .gal-sidebar{
+    /*margin-top:25px;*/
+    
+  }
+
+  .gal-content{
+   /* margin-left: 0;
+    margin-left:25*/0px;
+  }
+
