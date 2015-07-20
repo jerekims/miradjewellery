@@ -22,7 +22,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/css/animate.css'?>">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/css/bootstrap.min.css'?>">
-    <link href="<?php echo base_url(); ?>assets/datatables/css/data-table.css" rel="stylesheet" />
+    <link href="<?php echo base_url().'assets/datatables/css/data-table.css" rel="stylesheet'?>" />
     <link href="<?php echo base_url(). 'assets/css/admin.css'?>" rel="stylesheet">
 
 </head>

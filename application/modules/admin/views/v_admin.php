@@ -112,8 +112,10 @@
                 <!-- /.row -->
                 <div class="row">
 
+                 <div class="col-lg-12"><hr/></div>
+
                   <div class="col-lg-12">
-                   <h2>Categories</h2>
+                   <h2 class="table-title">Categories</h2>
                    <div class="table-responsive">
                      <div class="table-toolbar">
                        <div class="btn-group pull-right">
@@ -140,15 +142,76 @@
 				          <td><i class="fa fa-eye"> View</i></td>
 				          <td><i class="fa fa-pencil"> Edit</i></td>
 				          <td><i class="fa fa-trash"></i> Delete</td>
-				
+				        </tr>
+				        <tr>
+				          <td>2</td>
+				          <td>Ring</td>
+				          <td><span class="label label-danger">Deactivate</span></td>
+				          <td><i class="fa fa-eye"> View</i></td>
+				          <td><i class="fa fa-pencil"> Edit</i></td>
+				          <td><i class="fa fa-trash"></i> Delete</td>
 				        </tr>
                      </table>
                    </div>
                  </div>
-               
+                </div>
                 <!-- /.row -->
 
-            </div>
+                <div class="row">
+
+                 <div class="col-lg-12"><hr/></div>
+                 
+                  <div class="col-lg-12">
+                   <h2 class="table-title">Orders</h2>
+                   <div class="table-responsive">
+                     <div class="table-toolbar">
+                       <div class="btn-group pull-right">
+                         <button data-toggle="dropdown" class="btn dropdown-toggle success">Tools <span class="caret"></span></button>
+                         <ul class="dropdown-menu">
+                           <li><a href="<?php echo base_url(). 'estate/allestates/pdf'?>">Save as PDF</a></li>
+                           <li class="download"><a href="<?php echo base_url(). 'estate/allestates/excel'?>">Export to Excel</a></li>
+                         </ul>
+                       </div>
+                     </div>
+                     <table id="data-table" class="table table-striped table-bordered">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>Order No</th>
+                          <th>Product ID</th>
+                          <th>Product Price</th>
+                          <th>Customer ID</th>
+                          <th>Date Ordered</th>
+                          <th colspan="3">Actions</th>
+                        </tr>
+                      </thead>
+                        <tr>
+				          <td>1</td>
+				          <td>456DGF94</td>
+				          <td>56</td>
+				          <td>16</td>
+				          <td>2015-05-26</td>
+				          <td><i class="fa fa-eye"> View</i></td>
+				          <td><i class="fa fa-pencil"> Edit</i></td>
+				          <td><i class="fa fa-trash"></i> Delete</td>
+				        </tr>
+				        <tr>
+				          <td>2</td>
+				          <td>891LKI94</td>
+				          <td>33</td>
+				          <td>3</td>
+				          <td>2015-04-17</td>
+				          <td><i class="fa fa-eye"> View</i></td>
+				          <td><i class="fa fa-pencil"> Edit</i></td>
+				          <td><i class="fa fa-trash"></i> Delete</td>
+				        </tr>
+                     </table>
+                   </div>
+                 </div>
+                </div>
+                <!-- /.row -->
+
+           
             <!-- /.container-fluid -->
 
         </div>
