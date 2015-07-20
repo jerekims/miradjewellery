@@ -22,6 +22,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/css/animate.css'?>">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/css/bootstrap.min.css'?>">
+    <link href="<?php echo base_url(); ?>assets/datatables/css/data-table.css" rel="stylesheet" />
     <link href="<?php echo base_url(). 'assets/css/admin.css'?>" rel="stylesheet">
 
 </head>
@@ -67,6 +68,8 @@
    <script type="text/javascript" charset="utf-8" src="<?php echo base_url().'assets/js/jquery.validationEngine.js'?>"></script>
    <script type="text/javascript" src="<?php echo base_url().'assets/js/scrollup.min.js'?>"></script>
    <script type="text/javascript" src="<?php echo base_url().'assets/js/bootstrap.min.js'?>"></script>
+   <script src="<?php echo base_url(); ?>assets/datatables/js/jquery.dataTables.js"></script>
+   <script src="<?php echo base_url(); ?>assets/datatables/js/data-table.js"></script>
     <script src="<?php echo base_url(). 'assets/js/raphael.min.js'?>"></script>
     <script src="<?php echo base_url(). 'assets/js/morris.min.js'?>"></script>
     <script src="<?php echo base_url(). 'assets/js/morris-data.js'?>"></script>
