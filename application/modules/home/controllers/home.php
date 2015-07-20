@@ -10,12 +10,7 @@ class Home extends MY_Controller {
         
         $this->load->model('home/home_model');
         
-<<<<<<< HEAD
-        parent::__construct();
-          
-    }
 
-=======
         $this->load->library('form_validation');
 
         parent::__construct();
@@ -28,11 +23,7 @@ class Home extends MY_Controller {
           
     }
 
-	// public function index()
-	// {
- //     $this->load->view('v_home');
-	// }
->>>>>>> 7bf0a834e3fa36eb58cb4040694c248799fa105a
+
 
     function index()
     {
@@ -42,7 +33,7 @@ class Home extends MY_Controller {
         $data['main_footer'] = 'home/footer_view1';
         
         
-<<<<<<< HEAD
+
         $this->template->call_home_template($data);
     }
 
@@ -50,16 +41,7 @@ class Home extends MY_Controller {
     
 
 	
-=======
-        $this->template->call_template($data);
-    }
 
-	
-
-
-
-
->>>>>>> 7bf0a834e3fa36eb58cb4040694c248799fa105a
 
 	
 }

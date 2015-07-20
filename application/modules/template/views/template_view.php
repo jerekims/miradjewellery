@@ -1,31 +1,22 @@
 <html>
 <head>
   <title>
-<<<<<<< HEAD
       Mirad Jewelries
   </title>
     <meta name="robots" content="noindex">
     <meta charset="UTF-8">
     <link rel="icon" type="image/x-icon" href="<?php echo base_url().'assets/fonts/jewel.ico'?>" />
-=======
-      Interior Indesign
-  </title>
-    <meta name="robots" content="noindex">
-    <meta charset="UTF-8">
-    <link rel="icon" type="image/x-icon" href="<?php echo base_url().'assets/fonts/labourworks.ico'?>" />
->>>>>>> 7bf0a834e3fa36eb58cb4040694c248799fa105a
+
     <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/js/jquery-ui-1.11.4.custom/jquery-ui.min.css'?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/bootstrap/css/bootstrap.min.css'?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/materialize/css/materialize.min.css'?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/ionicons/css/ionicons.min.css'?>">
-<<<<<<< HEAD
+
     <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/css/validationEngine.jquery.css'?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/sweetalert/lib/sweet-alert.css'?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/css/animate.css'?>">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-=======
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/css/animate.css'?>">
->>>>>>> 7bf0a834e3fa36eb58cb4040694c248799fa105a
+
     <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/materialize/sass/materialize.scss'?>">
     
 
@@ -61,8 +52,6 @@
        
 
         
-<<<<<<< HEAD
-
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.js" type="text/javascript"></script>
    <script type="text/javascript" src="<?php echo base_url().'assets/js/jquery.js'?>"></script>
    <script type="text/javascript" src="<?php echo base_url().'assets/js/jquery-2.1.3.min.js'?>"></script>
@@ -75,15 +64,7 @@
    <script type="text/javascript" charset="utf-8" src="<?php echo base_url().'assets/js/jquery.validationEngine-en.js'?>"></script>
    <script type="text/javascript" charset="utf-8" src="<?php echo base_url().'assets/js/jquery.validationEngine.js'?>"></script>
    
-=======
-   
 
-   <script type="text/javascript" src="<?php echo base_url().'assets/js/jquery.js'?>"></script>
-   <script type="text/javascript" src="<?php echo base_url().'assets/js/jquery-2.1.3.min.js'?>"></script>
-   <script type="text/javascript" src="<?php echo base_url().'assets/js/jquery-ui-1.11.4.custom/jquery-ui.min.js'?>"></script>
-   <script type="text/javascript" src="<?php echo base_url().'assets/materialize/js/materialize.min.js'?>"></script>
-   <script type="text/javascript" src="<?php echo base_url().'assets/bootstrap/js/bootstrap.min.js'?>"></script>
->>>>>>> 7bf0a834e3fa36eb58cb4040694c248799fa105a
    <script type="text/javascript" src="<?php echo base_url().'assets/js/scrollup.min.js'?>"></script>
    <script type="text/javascript" src="<?php echo base_url().'assets/js/main.js'?>"></script>
 

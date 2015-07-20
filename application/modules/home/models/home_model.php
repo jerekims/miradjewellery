@@ -8,7 +8,7 @@ class Home_model extends MY_Model {
         parent::__construct();
     }
 
-<<<<<<< HEAD
+
     public function index(){
     	
     }
@@ -16,8 +16,7 @@ class Home_model extends MY_Model {
     
 	
 
-=======
->>>>>>> 7bf0a834e3fa36eb58cb4040694c248799fa105a
+
 
   
    
