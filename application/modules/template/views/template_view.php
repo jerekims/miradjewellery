@@ -5,7 +5,7 @@
   </title>
     <meta name="robots" content="noindex">
     <meta charset="UTF-8">
-    <link rel="icon" type="image/x-icon" href="<?php echo base_url().'assets/fonts/labourworks.ico'?>" />
+    <link rel="icon" type="image/x-icon" href="<?php echo base_url().'assets/fonts/jewel.ico'?>" />
     <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/js/jquery-ui-1.11.4.custom/jquery-ui.min.css'?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/bootstrap/css/bootstrap.min.css'?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/materialize/css/materialize.min.css'?>">
