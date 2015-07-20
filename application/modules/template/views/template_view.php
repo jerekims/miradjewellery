@@ -24,15 +24,17 @@
 </head>
 <body>
  
-    <div class="home-body">
+  <div class="home-body">
       <div class="top-nav">
           <?php
              $this->load->view($top_navbar1);
           ?>
       </div>
+
       <div class="left-nav">
 
       </div>
+      
       <div class="right-body">
          <?php 
               $this->load->view($content_page); 
