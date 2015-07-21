@@ -1,5 +1,5 @@
-<div class="navbar-static"><!--navigation-->
- <nav id="top">
+<div class="navbar-static top_navigation" style="background-color:maroon;"><!--navigation-->
+ <nav>
       <div class="nav-wrapper" id="main_navigation">
         <ul class="left hide-on-med-and-down">
           <li><a href=""><i class="material-icons left">call</i>Contact Support</a></li>
@@ -17,7 +17,7 @@
     </nav>
   </div>  <!--End of navigation-->
 
-  
+
   <div class="page-header" id="main-header"><!--Header includes logo and search button-->
   <div class="logo">
   <img src="">
