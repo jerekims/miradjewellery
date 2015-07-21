@@ -1,12 +1,5 @@
 $(document).ready(function(){
 
-
-   
-<<<<<<< HEAD
-=======
-        
-
->>>>>>> 7bf0a834e3fa36eb58cb4040694c248799fa105a
 	$(function () {
 		$.scrollUp({
 	        scrollName: 'scrollUp', // Element ID
@@ -18,7 +11,7 @@ $(document).ready(function(){
 	        animationSpeed: 200, // Animation in speed (ms)
 	        scrollTrigger: false, // Set a custom triggering element. Can be an HTML string or jQuery object
 					//scrollTarget: false, // Set a custom target element for scrolling to the top
-	        scrollText: '<i class="ion-chevron-up"></i>', // Text for element, can contain HTML
+	        scrollText: '<i class="fa fa-arrow-up"></i>', // Text for element, can contain HTML
 	        scrollTitle: false, // Set a custom <a> title if required.
 	        scrollImg: false, // Set true to use image
 	        activeOverlay: false, // Set CSS color to display scrollUp active point, e.g '#00FFFF'
@@ -26,14 +19,22 @@ $(document).ready(function(){
 		});
 	});
 
+     // $('#order-table').dataTable( {
+     //        'bSort': false,
+     //        'aoColumns': [
+     //              { sWidth: "45%", bSearchable: false, bSortable: false },
+     //              { sWidth: "45%", bSearchable: false, bSortable: false },
+     //              { sWidth: "10%", bSearchable: false, bSortable: false },
+     //              //match the number of columns here for table1
+     //        ],
+     //        "scrollY":        "200px",
+     //        "scrollCollapse": false,
+     //        "info":           true,
+     //        "paging":         true
+     //    } );
 
-<<<<<<< HEAD
-    
-    
-  
-    $('.materialboxed').materialbox();
-        
 
-=======
->>>>>>> 7bf0a834e3fa36eb58cb4040694c248799fa105a
+
+
+
 });

@@ -13,12 +13,22 @@ class Home extends MY_Controller {
         
         $this->load->model('home/home_model');
         
+
+        $this->load->library('form_validation');
+
         parent::__construct();
+
+        if ($this->session->userdata('logged_in')) {
+          $this->logged_in = TRUE;
+         } else {
+          //$this->logged_in = FASLE;
+         }
           
     }
 
     /* index function
     ____________________________________________________________*/
+
 
     function index()
     {
@@ -28,6 +38,7 @@ class Home extends MY_Controller {
         $data['main_footer'] = 'home/footer_view1';
         
         
+
         $this->template->call_home_template($data);
     }
 
@@ -67,8 +78,6 @@ class Home extends MY_Controller {
         $this->template->call_home_template($data);
     }
 
-      /* search function
-    ____________________________________________________________*/
 	
 }
 
