@@ -14,6 +14,7 @@ class MY_Controller extends MX_Controller
         
         $this->load->module('home');
         $this->load->module('template');
+        $this->load->module('export');
 
         
     }

@@ -13,6 +13,28 @@
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
                 <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Deactivations <i class="fa fa-thumbs-down"></i> <b class="caret"></b></a>
+                    <ul class="dropdown-menu alert-dropdown">
+                        
+                        <li>
+                            <a href="#">Clients <span class="label label-danger">25</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Categories <span class="label label-danger">8</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Products <span class="label label-danger">14</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Administrators <span class="label label-danger">2</span></a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">View All</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Messages <i class="fa fa-envelope"></i> <b class="caret"></b></a>
                     <ul class="dropdown-menu message-dropdown">
                         <li class="message-preview">
