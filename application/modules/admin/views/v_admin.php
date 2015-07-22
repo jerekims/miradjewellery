@@ -134,29 +134,13 @@
                           <th>Category Name</th>
                           <th>Category Status</th>
                           <th>View</th>
-                          <th>Edit</th>
-                          <th>Delete</th>
+                          <!-- <th>Edit</th> -->
+                          <th>Deactivate</th>
                         </tr>
                        </thead>
-                       <tbody>
-                        <tr>
-				          <td>1</td>
-				          <td>Necklace</td>
-				          <td class="centered"><span class="label label-success">Active</span></td>
-				          <td><i class="fa fa-eye"></i></td>
-				          <td><i class="fa fa-pencil"></i></td>
-				          <td><i class="fa fa-trash"></i></td>
-				        </tr>
-
-				        <tr>
-				          <td>2</td>
-				          <td>Ring</td>
-				          <td class="centered"><span class="label label-danger">Deactivate</span></td>
-				          <td><i class="fa fa-eye"></i></td>
-				          <td><i class="fa fa-pencil"></i></td>
-				          <td><i class="fa fa-trash"></i></td>
-				        </tr>
-                       </tbody>
+                        <?php
+                          echo $all_categories;
+                        ?>
                    </table>
 
                      

@@ -17,7 +17,8 @@ class Admin extends MY_Controller {
 // Display the first page of the admin module
     function index()
     {
-        $data[''] = '';
+        $data['all_categories'] = $this->allcategories('table');
+
         $data['admin_title'] = 'Manager';
         $data['admin_subtitle'] = 'Overall Statistics';
         $data['admin_navbar'] = 'admin/header';
@@ -112,7 +113,7 @@ class Admin extends MY_Controller {
                 $display .= '<td class="centered">'.$count.'</td>';
                 $display .= '<td class="centered">'.$data['Category Name'].'</td>';
                 $display .= '<td class="centered">'.$state.'</td>';
-                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'admin/viewcategory/'.$data['Category ID'].'"><i class="ion-eye icon black"></i></a></td>';
+                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'admin/viewcategory/'.$data['Category ID'].'"><i class="fa fa-eye black"></i></a></td>';
                 // $display .= '<td class="centered"><button  data-placement="bottom" title="Edit Profile" type="button"  data-toggle="modal" data-target="#categorymodaleditor"><i class="ion-edit icon black"></i></button></td>';
                 $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Delete Profile" href = "'.base_url().'admin/catupdate/catdelete/'.$data['Category ID'].'"><i class="ion-trash-a icon black"></i></td>';
                 $display .= '</tr>';
