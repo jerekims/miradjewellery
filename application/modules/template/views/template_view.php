@@ -1,10 +1,14 @@
 <html>
 <head>
   <title>
-      Mirad Jewelries
+      Mirad Jeweleries
   </title>
+   <!-- LINK FONTS
+    _______________________________________________________________________ -->
     <meta name="robots" content="noindex">
     <meta charset="UTF-8">
+
+
     <link rel="icon" type="image/x-icon" href="<?php echo base_url().'assets/fonts/jewel.ico'?>" />
 
     <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/js/jquery-ui-1.11.4.custom/jquery-ui.min.css'?>">
@@ -24,6 +28,11 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/materialize/css/materialize.css'?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/css/main.css'?>">
     
+    <!-- GOOLE FONTS
+    _______________________________________________________________________ -->
+
+    <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Mono:700' rel='stylesheet' type='text/css'>
   
 </head>
 <body>
