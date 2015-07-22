@@ -1,7 +1,7 @@
 <html>
 <head>
   <title>
-      Mirad Jeweleries
+      Mirad Jewelerries
   </title>
    <!-- LINK FONTS
     _______________________________________________________________________ -->
@@ -32,7 +32,8 @@
     _______________________________________________________________________ -->
 
     <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Roboto+Mono:700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
   
 </head>
 <body>
