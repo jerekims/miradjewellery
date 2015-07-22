@@ -268,7 +268,11 @@ ul.alert-dropdown {
  }
 
 .navbar-inverse .navbar-brand{
-    color:#f1c40f;
+    color:#e67e22;
+}
+
+.navbar-inverse .navbar-brand:hover{
+    color:#f39c12;
 }
 
 .top-nav>li>a:hover{
@@ -281,4 +285,32 @@ ul.alert-dropdown {
     font-weight: bold;
     /*text-decoration: none;*/
     color:#e74c3c;
+ }
+
+ .adminback{
+    padding-top: 8px;
+    padding-left: 10px;
+    text-decoration: none;
+    color:#000000;
+    font-weight: bold;
+ }
+
+ .adminback:hover{
+    padding-top: 8px;
+    padding-left: 10px;
+    font-weight: bold;
+    /*text-decoration: none;*/
+    color:#e74c3c;
+ }
+
+ .crumbs{
+    text-decoration: none;
+    color:#000000;
+    font-weight: bold;
+ }
+
+ .crumbs:hover{
+    text-decoration: none;
+    color:#d35400;
+    font-weight: bold;
  }
