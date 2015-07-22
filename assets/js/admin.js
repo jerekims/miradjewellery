@@ -1,5 +1,7 @@
 $(document).ready(function(){
 
+
+//Function for scroll up button
 	$(function () {
 		$.scrollUp({
 	        scrollName: 'scrollUp', // Element ID
@@ -19,21 +21,85 @@ $(document).ready(function(){
 		});
 	});
 
-     // $('#order-table').dataTable( {
-     //        'bSort': false,
-     //        'aoColumns': [
-     //              { sWidth: "45%", bSearchable: false, bSortable: false },
-     //              { sWidth: "45%", bSearchable: false, bSortable: false },
-     //              { sWidth: "10%", bSearchable: false, bSortable: false },
-     //              //match the number of columns here for table1
-     //        ],
-     //        "scrollY":        "200px",
-     //        "scrollCollapse": false,
-     //        "info":           true,
-     //        "paging":         true
-     //    } );
+// End of function
 
 
+
+     // Enables category form with ID to acquire validation
+     $("#formaddcategory").validationEngine();
+
+
+
+     // ....Function for registering estates.... //
+ $(function(){
+       $("#formaddcategory").submit(function(){
+          
+
+
+         var formData = new FormData($(this)[0]);
+ 
+         $.ajax({
+           type: "POST",
+           url: base_url + 'admin/categoryregistration',
+           data: formData,
+           async: false,
+           cache: false,
+           contentType: false,
+           processData: false,
+           success: function(data){
+               // ....After successful registration, then....//
+              
+              swal({   title: "Category Registration",   text: "Category has been registered",   timer: 3000 });
+
+
+           }
+ 
+         });
+ 
+         return false;  //stop the actual form post !important!
+ 
+      });
+   });
+
+     // ....end of function.... //
+     // 
+     
+
+     // ....Function for editing categories.... //
+ $(function(){
+       $("#categoryediting").submit(function(){
+          
+  
+   
+
+         var formData = new FormData($(this)[0]);
+ 
+         $.ajax({
+           type: "POST",
+           url: base_url + 'admin/editcategory',
+           data: formData,
+           async: false,
+           cache: false,
+           contentType: false,
+           processData: false,
+           success: function(data){
+               // ....After successful editing, then....//
+              
+              swal({   title: "Category Editing",   text: "Category has been updated",   timer: 3000 });
+
+              
+             
+
+           }
+ 
+         });
+ 
+         return false;  //stop the actual form post !important!
+ 
+      });
+   });
+
+     // ....end of function.... //
 
 
 

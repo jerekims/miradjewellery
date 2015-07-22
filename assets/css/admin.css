@@ -250,3 +250,35 @@ ul.alert-dropdown {
  .black{
     color:#000000;
  }
+
+ .right{
+    float:right;
+ }
+
+ .left{
+    float: left;
+ }
+
+ .adminadd{
+    padding-top: 8px;
+    padding-right: 10px;
+    text-decoration: none;
+    color:#000000;
+    font-weight: bold;
+ }
+
+.navbar-inverse .navbar-brand{
+    color:#f1c40f;
+}
+
+.top-nav>li>a:hover{
+   color:#f1c40f; 
+}
+
+ .adminadd:hover{
+    padding-top: 8px;
+    padding-right: 10px;
+    font-weight: bold;
+    /*text-decoration: none;*/
+    color:#e74c3c;
+ }

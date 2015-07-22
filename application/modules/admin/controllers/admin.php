@@ -6,8 +6,8 @@ class Admin extends MY_Controller {
 
 	function __construct()
     {
-
-        
+        $this->load->helper(array('form', 'url'));
+        $this->load->library('form_validation');
         $this->load->model('admin_model');
         
         parent::__construct();
@@ -38,10 +38,26 @@ class Admin extends MY_Controller {
         $data['all_categories'] = $this->allcategories('table');
 
         $data['admin_title'] = 'Manager';
-        $data['admin_subtitle'] = 'Categories';
+        $data['admin_subtitle'] = 'Category';
         $data['admin_navbar'] = 'admin/header';
         $data['admin_sidebar'] = 'admin/sidebar';
         $data['admin_content'] = 'admin/category';
+        $data['admin_footer'] = 'admin/footer';
+
+        
+        
+        $this->template->call_admin_template($data);
+    }
+
+    function addcategory()
+    {
+        
+
+        $data['admin_title'] = 'Manager';
+        $data['admin_subtitle'] = 'Add Category';
+        $data['admin_navbar'] = 'admin/header';
+        $data['admin_sidebar'] = 'admin/sidebar';
+        $data['admin_content'] = 'admin/addcategory';
         $data['admin_footer'] = 'admin/footer';
 
         
@@ -97,7 +113,7 @@ class Admin extends MY_Controller {
                 $display .= '<td class="centered">'.$data['Category Name'].'</td>';
                 $display .= '<td class="centered">'.$state.'</td>';
                 $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'admin/catupdate/catview/'.$data['Category ID'].'"><i class="ion-eye icon black"></i></a></td>';
-                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Edit Profile" href = "'.base_url().'admin/catupdate/catedit/'.$data['Category ID'].'"><i class="ion-edit icon black"></i></a></td>';
+                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Edit Profile" data-toggle="modal" data-target="#categorymodaleditor"><i class="ion-edit icon black"></i></a></td>';
                 $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Delete Profile" href = "'.base_url().'admin/catupdate/catdelete/'.$data['Category ID'].'"><i class="ion-trash-a icon black"></i></td>';
                 $display .= '</tr>';
 
@@ -156,6 +172,33 @@ class Admin extends MY_Controller {
 
       }
 
+      function categoryregistration(){
+         
+        $this->form_validation->set_rules('categoryname', 'Category Name', 'trim|required|xss_clean|is_unique[category.catname]');
+
+        $categoryname = $this->input->post('categoryname');
+        $categorystatus = $this->input->post('categorystatus');
+
+        $insert = $this->admin_model->register_category($categoryname, $categorystatus);
+
+        return $insert;
+        
+    
+      }
+
+      public function editcategory()
+    {
+        $id = $this->input->post('editcategoryid');
+        $category_name = $this->input->post('editcategoryname');
+        $category_status = $this->input->post('editcategorystatus');
+
+        $result = $this->admin_model->category_update($id,$category_name,$category_status);
+        
+
+        $this->categories();
+        
+    }
+
 
       function catupdate($type, $cat_id)
     {
@@ -165,19 +208,23 @@ class Admin extends MY_Controller {
         {
             switch ($type) {
 
-                case 'activate':
+                case 'catview':
                     
                     break;
 
-                case 'update':
+                case 'catactivate':
                     
                     break;
 
-                case 'delete':
+                case 'catedit':
                     
                     break;
 
-                case 'restore':
+                case 'catdelete':
+                    $this->categories();
+                    break;
+
+                case 'catrestore':
                     
                     break;
                 

@@ -44,6 +44,7 @@
            <!-- /.navbar-collapse -->
        </nav>
     </div>
+    <?php echo validation_errors(); ?>
     <div class="admin-body">
         <?php 
              $this->load->view($admin_content);
@@ -72,9 +73,6 @@
    <script type="text/javascript" src="<?php echo base_url().'assets/js/bootstrap.min.js'?>"></script>
    <script src="<?php echo base_url(); ?>assets/js/DataTables-1.10.2/js/jquery.dataTables.js"></script>
   <script src="<?php echo base_url(); ?>assets/js/DataTables-1.10.2/js/data-table.js"></script>
-    <script src="<?php echo base_url(). 'assets/js/raphael.min.js'?>"></script>
-    <script src="<?php echo base_url(). 'assets/js/morris.min.js'?>"></script>
-    <script src="<?php echo base_url(). 'assets/js/morris-data.js'?>"></script>
     <script>
             $('#category-table').dataTable();
             $('#orders-table').dataTable();
