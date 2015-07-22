@@ -128,7 +128,7 @@ class Admin extends MY_Controller {
 
             $excel_data = array();
             $excel_data = array('doc_creator' => 'Mirad Jewelries ', 'doc_title' => 'Category Excel Report', 'file_name' => 'Category Report', 'excel_topic' => 'Category');
-            $column_data = array('Category ID','Category Name','Category Status','Category Status');
+            $column_data = array('Category ID','Category Name','Category Status');
             $excel_data['column_data'] = $column_data;
             $excel_data['row_data'] = $row_data;
 

@@ -29,8 +29,8 @@
                        <button type="button" class="btn btn-success">Add</button>
                          <button data-toggle="dropdown" class="btn dropdown-toggle btn-primary">Export <span class="caret"></span></button>
                          <ul class="dropdown-menu">
-                           <li><a href="#">Save as PDF</a></li>
-                           <li><a href="#">Export to Excel</a></li>
+                           <li><a href="<?php echo base_url(). 'admin/allcategories/pdf'?>">Save as PDF</a></li>
+                           <li><a href="<?php echo base_url(). 'admin/allcategories/excel'?>">Export to Excel</a></li>
                          </ul>
                        </div>
                      </div>
