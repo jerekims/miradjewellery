@@ -28,16 +28,42 @@
                             for ($i=0; $i <= $key ; $i++) { 
                                 
                             ?>
-                        <form id="formviewcategory" name="formviewcategory" role="form" enctype="multipart/form-data" method="POST">
+                        <form id="categoryediting" name="categoryediting" role="form" enctype="multipart/form-data" method="POST">
+
+                        <div class="control-group">
+                                <label class="control-label">Category ID: <?php echo $data['catid']; ?></label>
+
+                                <div class="controls">
+                                    <input name="editcategoryid" type="hidden"  value="<?php echo $data['catid']; ?>" class="span6 m-wrap form-control "/>
+                                </div>
+                            </div>
 
                             <div class="form-group">
                                 <label>Category Name</label>
-                                <input id="categoryname" name="categoryname" value="<?php echo $data['catname']; ?>"class="form-control validate[required]">
+                                <input id="categoryname" name="editcategoryname" value="<?php echo $data['catname']; ?>"class="form-control validate[required]">
                             </div>
 
                             <div class="form-group">
                                 <label>Category Status</label>
-                                <input id="categorystatus" name="categorystatus" value="<?php echo $data['catstatus']; ?>"class="form-control validate[required]">
+                                <select id="editcategorystatus" name="editcategorystatus" class="form-control">
+
+                            <?php 
+                                if($data['catstatus'] == 1){
+                            ?>
+                                  <option selected value="1">Activated</option>
+                                   <option value="0">Deactivated</option>
+                            <?php
+                                }elseif($data['catstatus'] == 0){
+                            ?>
+                                  <option value="1">Activated</option>
+                                    <option selected value="0">Deactivated</option>
+                            <?php
+                                }
+                            ?>
+
+                            
+                                    
+                                </select>
                             </div>
 
                             <button type="submit" class="btn btn-success">Submit Button</button>
