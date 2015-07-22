@@ -46,6 +46,25 @@ class Admin_model extends MY_Model {
 
 	}
 
+	public function categoryprofile($id)
+    {
+         $profile = array();
+         
+         $query = $this->db->get_where('category', array('catid' => $id));
+         $result = $query->result_array();
+
+            if ($result) {
+               foreach ($result as $key => $value) {
+        $profile[$value['catid']] = $value;
+      }
+      //echo '<pre>';print_r($profile[$value['catid']]);echo '</pre>';die();
+      return $profile;
+
+    }
+    
+    return $profile;
+    }
+
 	public function updatecat($type, $cat_id)
     {
           $data = array();

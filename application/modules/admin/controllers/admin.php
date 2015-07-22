@@ -112,8 +112,8 @@ class Admin extends MY_Controller {
                 $display .= '<td class="centered">'.$count.'</td>';
                 $display .= '<td class="centered">'.$data['Category Name'].'</td>';
                 $display .= '<td class="centered">'.$state.'</td>';
-                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'admin/catupdate/catview/'.$data['Category ID'].'"><i class="ion-eye icon black"></i></a></td>';
-                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Edit Profile" data-toggle="modal" data-target="#categorymodaleditor"><i class="ion-edit icon black"></i></a></td>';
+                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'admin/viewcategory/'.$data['Category ID'].'"><i class="ion-eye icon black"></i></a></td>';
+                // $display .= '<td class="centered"><button  data-placement="bottom" title="Edit Profile" type="button"  data-toggle="modal" data-target="#categorymodaleditor"><i class="ion-edit icon black"></i></button></td>';
                 $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Delete Profile" href = "'.base_url().'admin/catupdate/catdelete/'.$data['Category ID'].'"><i class="ion-trash-a icon black"></i></td>';
                 $display .= '</tr>';
 
@@ -197,6 +197,30 @@ class Admin extends MY_Controller {
 
         $this->categories();
         
+    }
+
+    function viewcategory($id)
+    {
+        $userdet = array();
+        $results = $this->admin_model->categoryprofile($id);
+
+        foreach ($results as $key => $values) {
+            $details['category'][] = $values;  
+        }
+        
+       // echo '<pre>';print_r($data['user']);echo '</pre>';die;
+        $data['categorydetails'] = $details;
+        $data['admin_title'] = 'Manager';
+        $data['admin_subtitle'] = 'View Category';
+        $data['admin_navbar'] = 'admin/header';
+        $data['admin_sidebar'] = 'admin/sidebar';
+        $data['admin_content'] = 'admin/viewcategory';
+        $data['admin_footer'] = 'admin/footer';
+
+        
+        
+        $this->template->call_admin_template($data);
+ 
     }
 
 
