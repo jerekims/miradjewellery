@@ -21,6 +21,40 @@ class Admin_model extends MY_Model {
 		return $result->result_array();
 	}
 
+	public function updatecat($type, $cat_id)
+  {
+    $data = array();
+
+    switch ($type) {
+      case 'delete':
+        $data['catstatus'] = 0; 
+        
+        break;
+
+      case 'restore':
+        $data['catstatus'] = 1; 
+        
+        break;
+      
+      case 'update':
+        $data = $this->input->post();
+        break;
+      
+    }
+
+
+    $this->db->where('catid', $cat_id);
+    $update = $this->db->update('category', $data);
+
+    if ($update) {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+  }
+
     
 	
 

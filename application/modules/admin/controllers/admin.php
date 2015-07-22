@@ -96,9 +96,9 @@ class Admin extends MY_Controller {
                 $display .= '<td class="centered">'.$count.'</td>';
                 $display .= '<td class="centered">'.$data['Category Name'].'</td>';
                 $display .= '<td class="centered">'.$state.'</td>';
-                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'admin/viewprofile/'.$data['Category ID'].'"><i class="ion-eye icon black"></i></a></td>';
-                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Edit Profile" href = "'.base_url().'admin/editprofile/'.$data['Category ID'].'"><i class="ion-edit icon black"></i></a></td>';
-                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Delete Profile" href = "'.base_url().'admin/updateuser/delete/'.$data['Category ID'].'"><i class="ion-trash-a icon black"></i></td>';
+                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'admin/catupdate/catview/'.$data['Category ID'].'"><i class="ion-eye icon black"></i></a></td>';
+                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Edit Profile" href = "'.base_url().'admin/catupdate/catedit/'.$data['Category ID'].'"><i class="ion-edit icon black"></i></a></td>';
+                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Delete Profile" href = "'.base_url().'admin/catupdate/catdelete/'.$data['Category ID'].'"><i class="ion-trash-a icon black"></i></td>';
                 $display .= '</tr>';
 
                 break;
@@ -155,6 +155,38 @@ class Admin extends MY_Controller {
         }
 
       }
+
+
+      function catupdate($type, $cat_id)
+    {
+        $update = $this->admin_model->updatecat($type, $cat_id);
+
+        if($update)
+        {
+            switch ($type) {
+
+                case 'activate':
+                    
+                    break;
+
+                case 'update':
+                    
+                    break;
+
+                case 'delete':
+                    
+                    break;
+
+                case 'restore':
+                    
+                    break;
+                
+                default:
+                    # code...
+                    break;
+            }
+        }
+    }
 
 
 
