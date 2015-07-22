@@ -1,10 +1,10 @@
-<footer class="pagefooter">
+<div class="footer" style="height:100%;border:1px solid green;width:100%;height:200px;">
 	<div class="row">
-		<div class="col-md-8">
-			<p>This is  my footer</p>
+		<div class="four columns" style="height:100%;border:1px solid yellow;background-color:orange;">
 		</div>
-		<div class="col-md-4">
-			<p>This is the other side of the footer</p>
+		<div class="four columns" style="height:100%;border:1px solid yellow;background-color:blue;">
+		</div>
+		<div class="four columns" style="height:100%;border:1px solid yellow;background-color:tan;">
 		</div>
 	</div>
-</footer>
+</div>

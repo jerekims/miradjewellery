@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/js/jquery-ui-1.11.4.custom/jquery-ui.min.css'?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/bootstrap/css/bootstrap.min.css'?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/materialize/css/materialize.min.css'?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/skeleton/css/skeleton.css'?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/ionicons/css/ionicons.min.css'?>">
 
     <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/css/validationEngine.jquery.css'?>">
@@ -28,7 +29,7 @@
 <body>
  
   <div class="home-body">
-      <div class="top-nav">
+      <div class="top-nav" style="">
           <?php
              $this->load->view($top_navbar1);
           ?>
@@ -36,8 +37,7 @@
 
       <div class="left-nav">
 
-      </d
-      iv>
+      </div>
       
       <div class="right-body">
          <?php 
@@ -62,6 +62,7 @@
    <script type="text/javascript">$(document).ready(function(){base_url = '<?php echo base_url();?>'});</script>
    <script type="text/javascript" src="<?php echo base_url().'assets/materialize/js/materialize.min.js'?>"></script>
    <script type="text/javascript" src="<?php echo base_url().'assets/bootstrap/js/bootstrap.min.js'?>"></script>
+   <script type="text/javascript" src="<?php echo base_url().'assets/skeleton/js/jquery_magnific_popup.js'?>"></script>
    <script type="text/javascript" charset="utf-8" src="<?php echo base_url().'assets/js/jquery.validate.js'?>"></script>
    <script type="text/javascript" charset="utf-8" src="<?php echo base_url().'assets/sweetalert/lib/sweet-alert.js'?>"></script>
    <script type="text/javascript" charset="utf-8" src="<?php echo base_url().'assets/js/jquery.validationEngine-en.js'?>"></script>
