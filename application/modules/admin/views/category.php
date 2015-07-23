@@ -10,7 +10,10 @@
                         </h1>
                         <ol class="breadcrumb">
                             <li class="active">
-                                <i class="fa fa-dashboard"></i> Manager Module
+                                <i class="fa fa-dashboard"></i>
+                                   <a class="crumbs" href="<?php echo base_url(). 'admin'?>">Manager Dashboard</a> > 
+                                   <a class="crumbs" href="<?php echo base_url(). 'admin/categories'?>"><?php echo $admin_subtitle?></a>
+                                   
                             </li>
                         </ol>
                     </div>
@@ -25,9 +28,9 @@
                    <h2 class="table-title">Categories</h2>
                    <div class="table-responsive">
                      <div class="table-toolbar">
-                       <div class="btn-group pull-right">
-                       <button type="button" class="btn btn-success">Add</button>
-                         <button data-toggle="dropdown" class="btn dropdown-toggle btn-primary">Export <span class="caret"></span></button>
+                       <div class="btn-group pull-right table-buttons">
+                       <a class="left adminadd" href="<?php echo base_url(). 'admin/addcategory'?>">Add <?php echo $admin_subtitle?></a>
+                         <button data-toggle="dropdown" class="btn dropdown-toggle btn-warning right ">Export <span class="caret"></span></button>
                          <ul class="dropdown-menu">
                            <li><a href="<?php echo base_url(). 'admin/allcategories/pdf'?>">Save as PDF</a></li>
                            <li><a href="<?php echo base_url(). 'admin/allcategories/excel'?>">Export to Excel</a></li>
@@ -41,8 +44,8 @@
                           <th>Category Name</th>
                           <th>Category Status</th>
                           <th>View</th>
-                          <th>Edit</th>
-                          <th>Delete</th>
+                          <!-- <th>Edit</th> -->
+                          <th>Deactivate</th>
                         </tr>
                        </thead>
                         <?php
@@ -55,6 +58,25 @@
                  </div>
                 </div>
                 <!-- /.row -->
+
+<!-- Modal -->
+<!-- <div class="modal fade" id="categorymodaleditor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><?php echo $admin_subtitle?> Update</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-success">Save changes</button>
+        <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div> -->
 
                
 

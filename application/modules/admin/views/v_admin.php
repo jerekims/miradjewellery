@@ -10,7 +10,7 @@
                         </h1>
                         <ol class="breadcrumb">
                             <li class="active">
-                                <i class="fa fa-dashboard"></i> Admin Module
+                                <i class="fa fa-dashboard"></i> Manager Dashboard
                             </li>
                         </ol>
                     </div>
@@ -119,11 +119,12 @@
                    <h2 class="table-title">Categories</h2>
                    <div class="table-responsive">
                      <div class="table-toolbar">
-                       <div class="btn-group pull-right">
-                         <button data-toggle="dropdown" class="btn dropdown-toggle success">Tools <span class="caret"></span></button>
+                       <div class="btn-group pull-right table-buttons">
+                       <a class="left adminadd" href="<?php echo base_url(). 'admin/addcategory'?>">Add Category</a>
+                         <button data-toggle="dropdown" class="btn dropdown-toggle btn-warning right ">Export <span class="caret"></span></button>
                          <ul class="dropdown-menu">
-                           <li><a href="#">Save as PDF</a></li>
-                           <li><a href="#">Export to Excel</a></li>
+                           <li><a href="<?php echo base_url(). 'admin/allcategories/pdf'?>">Save as PDF</a></li>
+                           <li><a href="<?php echo base_url(). 'admin/allcategories/excel'?>">Export to Excel</a></li>
                          </ul>
                        </div>
                      </div>
@@ -134,29 +135,13 @@
                           <th>Category Name</th>
                           <th>Category Status</th>
                           <th>View</th>
-                          <th>Edit</th>
-                          <th>Delete</th>
+                          <!-- <th>Edit</th> -->
+                          <th>Deactivate</th>
                         </tr>
                        </thead>
-                       <tbody>
-                        <tr>
-				          <td>1</td>
-				          <td>Necklace</td>
-				          <td class="centered"><span class="label label-success">Active</span></td>
-				          <td><i class="fa fa-eye"></i></td>
-				          <td><i class="fa fa-pencil"></i></td>
-				          <td><i class="fa fa-trash"></i></td>
-				        </tr>
-
-				        <tr>
-				          <td>2</td>
-				          <td>Ring</td>
-				          <td class="centered"><span class="label label-danger">Deactivate</span></td>
-				          <td><i class="fa fa-eye"></i></td>
-				          <td><i class="fa fa-pencil"></i></td>
-				          <td><i class="fa fa-trash"></i></td>
-				        </tr>
-                       </tbody>
+                        <?php
+                          echo $all_categories;
+                        ?>
                    </table>
 
                      
