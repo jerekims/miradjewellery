@@ -21,6 +21,7 @@
                   <div class="col-lg-5">
 
                   <?php 
+                           // categorydetails acquired from the controller admin, in the function called viewcategory()
                             foreach ($categorydetails as $key => $value) {
                             foreach ($value as $q => $data) {
                             
@@ -28,6 +29,8 @@
                             for ($i=0; $i <= $key ; $i++) { 
                                 
                             ?>
+
+                <!-- The form that allows viewing and editing of category It uses admin.js into a function with form ID -> #categoryediting -->
                         <form id="categoryediting" name="categoryediting" role="form" enctype="multipart/form-data" method="POST">
 
                         <div class="control-group">

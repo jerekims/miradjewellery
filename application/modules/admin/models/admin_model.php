@@ -8,7 +8,7 @@ class Admin_model extends MY_Model {
         parent::__construct();
     }
 
-
+// function that allows the acquiring of all category data from table category
     function get_all_categories()
 	{
 		$sql = "SELECT 
@@ -21,18 +21,24 @@ class Admin_model extends MY_Model {
 		return $result->result_array();
 	}
 
+
+
+  // function that allows the adding of new category into the database
 	function register_category($categoryname, $categorystatus)
 	{
 		$category = array(
+         // column name => data entered by user
 						'catname' 	=> $categoryname,
 						'catstatus' => $categorystatus
 						);
-
+  // category is the name of the table, which acquires $category which is the array with new data
 		$insert = $this->db->insert('category', $category);
 		return $insert;
 
 	}
+  
 
+  //function the update of a category that is contained in the $id
 	function category_update($id,$category_name,$category_status)
 	{
 		$category = array(
@@ -40,17 +46,22 @@ class Admin_model extends MY_Model {
 						'catstatus' => $category_status
 						);
 
-		$this->db->where('catid', $id);
+		$this->db->where('catid', $id);//uses id to get the specifics
+
+
         $insert = $this->db->update('category', $category);
 		return $insert;
 
 	}
 
+
+// function that allows us to view details of the category selected using the $id
 	public function categoryprofile($id)
     {
          $profile = array();
          
-         $query = $this->db->get_where('category', array('catid' => $id));
+         $query = $this->db->get_where('category', array('catid' => $id));//uses id to get the specifics
+         
          $result = $query->result_array();
 
             if ($result) {
@@ -65,6 +76,10 @@ class Admin_model extends MY_Model {
     return $profile;
     }
 
+
+
+
+   
 	public function updatecat($type, $cat_id)
     {
           $data = array();
