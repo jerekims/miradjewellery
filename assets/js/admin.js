@@ -30,14 +30,15 @@ $(document).ready(function(){
 
 
 
-     // ....Function for registering estates.... //
+     // ....Function for adding categories.... //
  $(function(){
        $("#formaddcategory").submit(function(){
           
 
-
+        
          var formData = new FormData($(this)[0]);
- 
+
+          // takes the data into the admin controller, into a function called categoryregistration()
          $.ajax({
            type: "POST",
            url: base_url + 'admin/categoryregistration',
@@ -50,7 +51,7 @@ $(document).ready(function(){
                // ....After successful registration, then....//
               
               swal({   title: "Category Registration",   text: "Category has been registered",   timer: 3000 });
-
+              // pop up for a successful registration 
 
            }
  
@@ -71,7 +72,7 @@ $(document).ready(function(){
           
   
    
-
+       // takes the data into the admin controller, into a function called editcategory()
          var formData = new FormData($(this)[0]);
  
          $.ajax({
@@ -86,7 +87,7 @@ $(document).ready(function(){
                // ....After successful editing, then....//
               
               swal({   title: "Category Editing",   text: "Category has been updated",   timer: 3000 });
-
+              // pop up for a successful registration 
               
              
 

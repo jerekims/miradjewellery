@@ -11,6 +11,7 @@
                         <a href="<?php echo base_url(). 'admin/products'?>"><i class="fa fa-fw fa-gift"></i> Products</a>
                     </li>
                     <li>
+                        <!-- When clicked goes to the controller admin, and use the categories function-->
                         <a href="<?php echo base_url(). 'admin/categories'?>"><i class="fa fa-fw fa-sitemap"></i> Categories</a>
                     </li>
                     <li>

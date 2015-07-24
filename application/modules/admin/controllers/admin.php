@@ -31,35 +31,39 @@ class Admin extends MY_Controller {
     }
 
     // Display of other pages
-
+    
+    
+    
+    // Displays the contents page of the categories, in this case opens the category.php file
     function categories()
     {
         
-
-        $data['all_categories'] = $this->allcategories('table');
+        //Transfer result to category.php from a function within the admin controller called allcategories()
+        $data['all_categories'] = $this->allcategories('table'); 
 
         $data['admin_title'] = 'Manager';
         $data['admin_subtitle'] = 'Category';
-        $data['admin_navbar'] = 'admin/header';
-        $data['admin_sidebar'] = 'admin/sidebar';
-        $data['admin_content'] = 'admin/category';
-        $data['admin_footer'] = 'admin/footer';
+        $data['admin_navbar'] = 'admin/header';//header.php file
+        $data['admin_sidebar'] = 'admin/sidebar';//sidebar.php file
+        $data['admin_content'] = 'admin/category';//category.php file
+        $data['admin_footer'] = 'admin/footer';//footer.php file
 
         
         
         $this->template->call_admin_template($data);
     }
-
+ 
+    // Displays the contents page of the addcategory, in this case opens the addcategory.php file
     function addcategory()
     {
         
 
         $data['admin_title'] = 'Manager';
         $data['admin_subtitle'] = 'Add Category';
-        $data['admin_navbar'] = 'admin/header';
-        $data['admin_sidebar'] = 'admin/sidebar';
-        $data['admin_content'] = 'admin/addcategory';
-        $data['admin_footer'] = 'admin/footer';
+        $data['admin_navbar'] = 'admin/header';//header.php file
+        $data['admin_sidebar'] = 'admin/sidebar';//sidebar.php file
+        $data['admin_content'] = 'admin/addcategory';//addcategory.php file
+        $data['admin_footer'] = 'admin/footer';//footer.php file
 
         
         
@@ -113,9 +117,12 @@ class Admin extends MY_Controller {
                 $display .= '<td class="centered">'.$count.'</td>';
                 $display .= '<td class="centered">'.$data['Category Name'].'</td>';
                 $display .= '<td class="centered">'.$state.'</td>';
+
+                // button below used for viewing the specific category. Goes to admin controller into function called viewcategory(), passing the category id as parameter
                 $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'admin/viewcategory/'.$data['Category ID'].'"><i class="fa fa-eye black"></i></a></td>';
-                // $display .= '<td class="centered"><button  data-placement="bottom" title="Edit Profile" type="button"  data-toggle="modal" data-target="#categorymodaleditor"><i class="ion-edit icon black"></i></button></td>';
-                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Delete Profile" href = "'.base_url().'admin/catupdate/catdelete/'.$data['Category ID'].'"><i class="ion-trash-a icon black"></i></td>';
+                
+                // button below used for editing the specific category. Goes to admin controller into function called catupdate(), passing the type of update and the category id as parameter
+                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'admin/catupdate/catdelete/'.$data['Category ID'].'"><i class="ion-trash-a icon black"></i></td>';
                 $display .= '</tr>';
 
                 break;
@@ -173,6 +180,8 @@ class Admin extends MY_Controller {
 
       }
 
+
+      // enables the registration for a new category
       function categoryregistration(){
          
         $this->form_validation->set_rules('categoryname', 'Category Name', 'trim|required|xss_clean|is_unique[category.catname]');
@@ -180,19 +189,25 @@ class Admin extends MY_Controller {
         $categoryname = $this->input->post('categoryname');
         $categorystatus = $this->input->post('categorystatus');
 
+
+        // transfers data into the admin_model.php in the models for admin module into a function called reigister_category() with parameters
         $insert = $this->admin_model->register_category($categoryname, $categorystatus);
 
         return $insert;
         
     
       }
+      
 
+
+      // enables the editing of the selected category
       public function editcategory()
     {
         $id = $this->input->post('editcategoryid');
         $category_name = $this->input->post('editcategoryname');
         $category_status = $this->input->post('editcategorystatus');
 
+        // transfers data into the admin_model.php in the models for admin module into a function called category_update() with parameters
         $result = $this->admin_model->category_update($id,$category_name,$category_status);
         
 
@@ -200,23 +215,29 @@ class Admin extends MY_Controller {
         
     }
 
+
+    // function that passes the id to be viewed and displays it in the viewcategory file
     function viewcategory($id)
     {
         $userdet = array();
+
+        // uses the id to acquire details from the admin_model.php in a function called categoryprofile() with the id as the parameter
         $results = $this->admin_model->categoryprofile($id);
 
         foreach ($results as $key => $values) {
             $details['category'][] = $values;  
         }
         
-       // echo '<pre>';print_r($data['user']);echo '</pre>';die;
-        $data['categorydetails'] = $details;
+        
+        $data['categorydetails'] = $details;//uses result from the foreach above to and passes it into key -> categorydetails to be used as reference
+
+
         $data['admin_title'] = 'Manager';
         $data['admin_subtitle'] = 'View Category';
-        $data['admin_navbar'] = 'admin/header';
-        $data['admin_sidebar'] = 'admin/sidebar';
-        $data['admin_content'] = 'admin/viewcategory';
-        $data['admin_footer'] = 'admin/footer';
+        $data['admin_navbar'] = 'admin/header';//header.php file
+        $data['admin_sidebar'] = 'admin/sidebar';//sidebar.php file
+        $data['admin_content'] = 'admin/viewcategory';//viewcategory.php file
+        $data['admin_footer'] = 'admin/footer';//footer.php file
 
         
         
@@ -224,7 +245,7 @@ class Admin extends MY_Controller {
  
     }
 
-
+     //function that allows other updates for specific category with $cat_id
       function catupdate($type, $cat_id)
     {
         $update = $this->admin_model->updatecat($type, $cat_id);

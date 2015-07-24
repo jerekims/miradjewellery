@@ -22,6 +22,8 @@
 
                 <div class="row">
                   <div class="col-lg-5">
+                  
+                  <!-- The form that adds a new category into database. It uses admin.js into a function with form ID -> #formaddcategory -->
                      <form id="formaddcategory" name="formaddcategory" role="form" enctype="multipart/form-data" method="POST">
 
                             <div class="form-group">

@@ -29,6 +29,8 @@
                    <div class="table-responsive">
                      <div class="table-toolbar">
                        <div class="btn-group pull-right table-buttons">
+
+                       <!-- The add button takes you to the admin controller, into the function addcategory() -->
                        <a class="left adminadd" href="<?php echo base_url(). 'admin/addcategory'?>">Add <?php echo $admin_subtitle?></a>
                          <button data-toggle="dropdown" class="btn dropdown-toggle btn-warning right ">Export <span class="caret"></span></button>
                          <ul class="dropdown-menu">
@@ -37,7 +39,7 @@
                          </ul>
                        </div>
                      </div>
-                     <table class="table table-striped" id="category-table">
+                     <table class="table table-striped" id="category-table"><!-- The table created in the page -->
                        <thead>
                         <tr>
                           <th>#</th>
@@ -49,7 +51,7 @@
                         </tr>
                        </thead>
                         <?php
-                          echo $all_categories;
+                          echo $all_categories; // Acquires data from admin controller, provided in the function  categories() 
                         ?>
                    </table>
 
