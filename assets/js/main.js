@@ -2,6 +2,11 @@ $(document).ready(function(){
 
 
    
+<<<<<<< HEAD
+=======
+        
+
+>>>>>>> 7bf0a834e3fa36eb58cb4040694c248799fa105a
 	$(function () {
 		$.scrollUp({
 	        scrollName: 'scrollUp', // Element ID
@@ -22,10 +27,13 @@ $(document).ready(function(){
 	});
 
 
+<<<<<<< HEAD
     
     
   
     $('.materialboxed').materialbox();
         
 
+=======
+>>>>>>> 7bf0a834e3fa36eb58cb4040694c248799fa105a
 });

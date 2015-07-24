@@ -1,6 +1,6 @@
 CREATE TABLE `category` (
-  `roomid` int(11) NOT NULL AUTO_INCREMENT,
-  `roomname` varchar(255) NOT NULL,
-  `roomstatus` tinyint(4) NOT NULL,
-  PRIMARY KEY (`roomid`)
+  `catid` int(11) NOT NULL AUTO_INCREMENT,
+  `catname` varchar(255) NOT NULL,
+  `catstatus` tinyint(1) NOT NULL,
+  PRIMARY KEY (`catid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1
