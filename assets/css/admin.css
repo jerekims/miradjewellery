@@ -314,3 +314,14 @@ ul.alert-dropdown {
     color:#d35400;
     font-weight: bold;
  }
+
+ .formError .formErrorContent{
+    background:#c0392b;
+    height:30px;
+    border:2px solid #f1c40f;
+    color:#ecf0f1;
+ }
+
+ .formError .formErrorArrow div{
+    background:#e74c3c;
+ }
