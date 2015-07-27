@@ -1,29 +1,8 @@
-<div class="billboard">
+<div class="billboard"style="height:400px;border:1px solid red;margin-top:5px;">
     <div class="row">
-      <div class="slider " ><!--Carousel-->
-        <ul class="slides">
-          <li>
-            <img src="<?php echo base_url().'assets/images/slide1.jpg';?>"> <!-- random image -->
-            
-          </li>
-          <li>
-            <img src="<?php echo base_url().'assets/images/slide2.png';?>"> <!-- random image -->
-            
-          </li>
-          <li>
-            <img src="<?php echo base_url().'assets/images/slide3.jpg';?>"> <!-- random image -->
-            
-          </li>
-          <li>
-            <img src="<?php echo base_url().'assets/images/slide4.jpg';?>"> <!-- random image -->
-            
-          </li>
-          <li>
-            <img src="<?php echo base_url().'assets/images/slide6.jpg';?>"> <!-- random image -->
-            
-          </li>
-        </ul>
-       </div> <!-- End of carousel -->
+        <div class="image_slider" >
+          
+        </div>
     </div><!-- end of the row div -->
 </div><!-- end of the billboard  div -->
 
@@ -36,8 +15,8 @@
           <img src="<?php echo base_url().'assets/images/ring1.jpg'?>">
         </div>
         <div class="des_price" >
-          <h5 style="font-size:15px; font-family:'Montserrat:700',GEORGIA;margin:10px 20px;">Rose ring with cubic zirconia</h5>
-          <h6 style="font-size:20px; font-family:'ABEL',CURSIVE;margin:10px 20px;">Price Kshs:3000</h6>
+          <h5 style="color:#F2F2F2;font-size:15px; font-family:'Montserrat:700',GEORGIA;margin:10px 20px;">Rose ring with cubic zirconia</h5>
+          <h6 style="color:#F2F2F2;font-size:20px; font-family:'ABEL',CURSIVE;margin:10px 20px;">Price Kshs:3000</h6>
         </div>
         </a>
 
@@ -54,6 +33,7 @@
           <h6 style="font-size:20px; font-family:'ABEL',CURSIVE;margin:10px 20px;">Price Kshs:3500</h6>
         </div>
         </a>
+        
 
       </div>
 

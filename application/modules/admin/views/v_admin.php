@@ -111,10 +111,9 @@
                 </div>
                 <!-- /.row -->
                 <div class="col-lg-12"><hr/></div>
-                <div class="row">
 
-                
 
+                                <div class="row">
                   <div class="col-lg-12">
                    <h2 class="table-title">Categories</h2>
                    <div class="table-responsive">
@@ -149,13 +148,50 @@
                  </div>
                 </div>
                 <!-- /.row -->
+                  <div class="col-lg-12"><hr/></div>
+
+                <div class="row">
+                  <div class="col-lg-12">
+                   <h2 class="table-title">Products</h2>
+                   <div class="table-responsive">
+                     <div class="table-toolbar">
+                       <div class="btn-group pull-right table-buttons">
+                       <a class="left adminadd" href="<?php echo base_url(). 'product/addproduct'?>">Add Product</a>
+                         <button data-toggle="dropdown" class="btn dropdown-toggle btn-warning right ">Export <span class="caret"></span></button>
+                         <ul class="dropdown-menu">
+                           <li><a href="<?php echo base_url(). 'admin/allcategories/pdf'?>">Save as PDF</a></li>
+                           <li><a href="<?php echo base_url(). 'admin/allcategories/excel'?>">Export to Excel</a></li>
+                         </ul>
+                       </div>
+                     </div>
+                     <table class="table table-striped" id="category-table">
+                       <thead>
+                        <tr>
+                          <th>Product ID</th>
+                          <th>Product Name</th>
+                          <th>Product category</th>
+                          <th>Product Description</th>
+                          <th>Product Price</th>
+                          <th>Product Image</th>
+                          <th>View</th>
+                          <!-- <th>Edit</th> -->
+                          <th>Deactivate</th>
+                        </tr>
+                       </thead>
+                        <?php
+                          echo $all_products;
+                        ?>
+                   </table>
+
+                     
+                   </div>
+                 </div>
+                </div>
+                <!-- /.row -->
 
                 <div class="col-lg-12"><hr/></div>
 
                 <div class="row">
-
-                 
-
                   <div class="col-lg-12">
                    <h2 class="table-title">Orders</h2>
                    <div class="table-responsive">
@@ -215,6 +251,7 @@
                  </div>
                 </div>
                 <!-- /.row -->
+                <div class="col-lg-12"><hr/></div>
 
            
             <!-- /.container-fluid -->

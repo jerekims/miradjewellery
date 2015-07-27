@@ -8,7 +8,7 @@
                         <a href="<?php echo base_url(). 'admin/clients'?>"><i class="fa fa-fw fa-group"></i> Clients</a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url(). 'admin/products'?>"><i class="fa fa-fw fa-gift"></i> Products</a>
+                        <a href="<?php echo base_url(). 'product/product'?>"><i class="fa fa-fw fa-gift"></i> Products</a>
                     </li>
                     <li>
                         <!-- When clicked goes to the controller admin, and use the categories function-->

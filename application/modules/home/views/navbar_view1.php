@@ -1,9 +1,9 @@
 
 <div class="row ">
      <div class="navbar-static top_navigation"><!--navigation-->
-        <nav >
-            <div class="nav-wrapper">
-              <ul class="left hide-on-med-and-down main_navigation" >
+        <nav>
+            <div class="nav-wrapper navigation">
+              <ul class="left hide-on-med-and-down" >
                 <li><a href=""><i class="material-icons left">call</i>Contact Support</a></li>
               </ul>
              
@@ -21,9 +21,12 @@
 </div>
 
   <div class="row">
-  <nav class="navbar"><!--Navbar for main items-->
-        <div class="nav-wrapper" id="categories">
-          <ul class="left hide-on-med-and-down">
+  <nav class="navbar navigation" style="border-radius:0px;"><!--Navbar for main items-->
+        <div class="logo" >
+            <a href="#">MIRAD</a>
+        </div>
+        <div class="nav-wrapper" class="categories">
+          <ul class="right hide-on-med-and-down">
               <li><a href="#">RINGS</a></li>
               <li><a href="#">NECKLACES</a></li>
               <li><a href="#">BANGLES</a></li>
@@ -31,8 +34,8 @@
               <li><a href="#">WATCHES </a></li>
               <li><a href="#">BRACELETS</a></li>
           </ul>
-        </div>
-    </nav><!--End of navbar main items-->
+        </div><!-- end of the nav-wrapper -->
+  </nav><!--End of navbar main items-->
 </div>
 
   

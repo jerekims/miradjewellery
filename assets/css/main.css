@@ -6,22 +6,27 @@ html, body {
 }
 /* General styles
 _______________________________________________________*/
+body
+{
+	background-color: #C1BDB1;
+}
 .home-body{
-	width: 1000px;
+	width: 1200px;
     margin: 0px auto;
+
 }
 
 /*
 top bar  navgation
 ______________________________________________________*/
 .top-nav {
-
-    background-color: yellow;
+	border: 1px solid maroon;
+    background-color: ;
     color: black;
-    height: 130px;
+    height: 138px;
 }
 .top-nav .row {
-	margin-bottom: 0.1px;
+	margin-bottom: -10px;
 }
 
 .top_navigation .nav_wrapper{
@@ -36,6 +41,19 @@ ______________________________________________________*/
 .product .row{
 	margin-bottom: 10px;
 }
+.navigation{
+	background-color:#968477;
+}
+.logo{
+	height:100%;margin-top:-8px;float:left;width:300px;
+}
+.navbar .logo a{
+	margin: auto 115px;
+}
+.categories{
+	margin-top:-8px;float:right;width:700px;
+}
+
 
 /*.carousel .row
 {
