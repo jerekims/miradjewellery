@@ -2,6 +2,7 @@
 
 class Admin_model extends MY_Model {
 
+
 	function __construct()
     {
         // Call the Model constructor
@@ -10,6 +11,7 @@ class Admin_model extends MY_Model {
 
 // function that allows the acquiring of all category data from table category
     function get_all_categories()
+
 	{
 		$sql = "SELECT 
 					catid as 'Category ID',
@@ -24,6 +26,7 @@ class Admin_model extends MY_Model {
 
 
   // function that allows the adding of new category into the database
+
 	function register_category($categoryname, $categorystatus)
 	{
 		$category = array(
@@ -57,6 +60,7 @@ class Admin_model extends MY_Model {
 
 // function that allows us to view details of the category selected using the $id
 	public function categoryprofile($id)
+
     {
          $profile = array();
          
@@ -80,6 +84,7 @@ class Admin_model extends MY_Model {
 
 
    
+
 	public function updatecat($type, $cat_id)
     {
           $data = array();
@@ -115,7 +120,9 @@ class Admin_model extends MY_Model {
   }
 
     
+
 	
+
 
 
 

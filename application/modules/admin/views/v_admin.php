@@ -10,7 +10,8 @@
                         </h1>
                         <ol class="breadcrumb">
                             <li class="active">
-                                <i class="fa fa-dashboard"></i> Manager Dashboard
+                                 <i class="fa fa-dashboard"></i>
+                                   <a class="crumbs" href="<?php echo base_url(). 'admin'?>">Manager Dashboard</a>
                             </li>
                         </ol>
                     </div>
