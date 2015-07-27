@@ -317,7 +317,7 @@ ul.alert-dropdown {
 
  .formError .formErrorContent{
     background:#c0392b;
-    height:30px;
+    height:auto;
     border:2px solid #f1c40f;
     color:#ecf0f1;
  }

@@ -52,6 +52,24 @@ class Admin extends MY_Controller {
         
         $this->template->call_admin_template($data);
     }
+
+
+     function employees()
+    {
+        
+        $data['all_administrators'] = $this->allemployees('table'); 
+
+        $data['admin_title'] = 'Manager';
+        $data['admin_subtitle'] = 'Employee';
+        $data['admin_navbar'] = 'admin/header';
+        $data['admin_sidebar'] = 'admin/sidebar';
+        $data['admin_content'] = 'admin/administrators';
+        $data['admin_footer'] = 'admin/footer';
+
+        
+        
+        $this->template->call_admin_template($data);
+    }
  
     // Displays the contents page of the addcategory, in this case opens the addcategory.php file
     function addcategory()
@@ -64,6 +82,22 @@ class Admin extends MY_Controller {
         $data['admin_sidebar'] = 'admin/sidebar';//sidebar.php file
         $data['admin_content'] = 'admin/addcategory';//addcategory.php file
         $data['admin_footer'] = 'admin/footer';//footer.php file
+
+        
+        
+        $this->template->call_admin_template($data);
+    }
+
+    function addemployee()
+    {
+        
+
+        $data['admin_title'] = 'Manager';
+        $data['admin_subtitle'] = 'Add Employee';
+        $data['admin_navbar'] = 'admin/header';//header.php file
+        $data['admin_sidebar'] = 'admin/sidebar';
+        $data['admin_content'] = 'admin/addadministrator';
+        $data['admin_footer'] = 'admin/footer';
 
         
         
@@ -180,8 +214,151 @@ class Admin extends MY_Controller {
 
       }
 
+      function allemployees($type)
+    {
+        $display = '';
+        $administrators = $this->admin_model->get_all_administrators();
+        // echo "<pre>";print_r($administrators);die();
+
+        $count = 0;
+
+
+      // creating arrays for both pdf and excel for data storage and transfer
+        $column_data = $row_data = array();
+
+        // display used for table
+        $display .= "<tbody>";
+
+        // html_body Used for the pdf
+        $html_body = '
+        <table class="data-table">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Occupation</th>
+            <th>Date Registered</th>
+            <th>Status</th>
+        </tr> 
+        </thead>
+        <tbody>
+        <ol type="a">';
+
+        foreach ($administrators as $key => $data) {
+            $count++;
+                if ($data['Employee Status'] == 1) {
+                    $state = '<span class="label label-info">Activated</span>';
+                    $states = 'Activated';
+                } else if ($data['Employee Status'] == 0) {
+                    $state = '<span class="label label-danger">Deactivated</span>';
+                    $states = 'Deactivated';
+                }
+
+                if ($data['Employee Level'] == 1) {
+                    $level = 'System Admin';
+                } else if ($data['Employee Level'] == 2) {
+                    $level = 'Manager';
+                } else if ($data['Employee Level'] == 3) {
+                    $level = 'Stock Manager';
+                } else if ($data['Employee Level'] == 4) {
+                    $level = 'Consultant';
+                }
+
+        switch ($type) {
+            case 'table':
+                $display .= '<tr>';
+                $display .= '<td class="centered">'.$count.'</td>';
+                $display .= '<td class="centered">'.$data['Employee Name'].'</td>';
+                $display .= '<td class="centered">'.$data['Employee Email'].'</td>';
+                $display .= '<td class="centered">'.$level.'</td>';
+                $display .= '<td class="centered">'.$data['Date Registered'].'</td>';
+                $display .= '<td class="centered">'.$state.'</td>';
+
+                // button below used for viewing the specific category. Goes to admin controller into function called viewcategory(), passing the category id as parameter
+                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'admin/viewemployee/'.$data['Employee ID'].'"><i class="fa fa-eye black"></i></a></td>';
+                
+                // button below used for editing the specific category. Goes to admin controller into function called catupdate(), passing the type of update and the category id as parameter
+                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'admin/empupdate/empdelete/'.$data['Employee ID'].'"><i class="ion-trash-a icon black"></i></td>';
+                $display .= '</tr>';
+
+                break;
+            
+            case 'excel':
+               
+                 array_push($row_data, array($data['Employee ID'], $data['Employee Name'], $data['Employee Email'], $level, $data['Date Registered'], $states)); 
+
+                break;
+
+            case 'pdf':
+
+            //echo'<pre>';print_r($categories);echo'</pre>';die();
+           
+                $html_body .= '<tr>';
+                $html_body .= '<td>'.$data['Employee ID'].'</td>';
+                $html_body .= '<td>'.$data['Employee Name'].'</td>';
+                $html_body .= '<td>'.$data['Employee Email'].'</td>';
+                $html_body .= '<td>'.$level.'</td>';
+                $html_body .= '<td>'.$data['Date Registered'].'</td>';
+                $html_body .= '<td>'.$states.'</td>';
+                $html_body .= "</tr></ol>";
+
+                break;
+               }
+            }
+        
+        
+        if($type == 'excel'){
+
+            $excel_data = array();
+            $excel_data = array('doc_creator' => 'Mirad Jewelries ', 'doc_title' => 'Emploee Excel Report', 'file_name' => 'Employee Report', 'excel_topic' => 'Employee');
+            $column_data = array('Employee ID','Employee Name','Employee Email','Occupation','Date Registered','Employee Status');
+            $excel_data['column_data'] = $column_data;
+            $excel_data['row_data'] = $row_data;
+
+              //echo'<pre>';print_r($excel_data);echo'</pre>';die();
+
+            $this->export->create_excel($excel_data);
+
+        }elseif($type == 'pdf'){
+            
+            $html_body .= '</tbody></table>';
+            $pdf_data = array("pdf_title" => "Employee PDF Report", 'pdf_html_body' => $html_body, 'pdf_view_option' => 'download', 'file_name' => 'Employee Report', 'pdf_topic' => 'Employee');
+
+            //echo'<pre>';print_r($pdf_data);echo'</pre>';die();
+
+            $this->export->create_pdf($pdf_data);
+
+        }else{
+
+            $display .= "</tbody>";
+
+            //echo'<pre>';print_r($display);echo'</pre>';die();
+
+            return $display;
+        }
+
+      }
+
 
       // enables the registration for a new category
+      function employeeregistration(){
+         
+        $this->form_validation->set_rules('employeeemail', 'Employee Email', 'trim|required|xss_clean|is_unique[employees.emp_email]');
+
+        $employeename = $this->input->post('employeename');
+        $employeeemail = $this->input->post('employeeemail');
+        $employeeoccupation = $this->input->post('employeeoccupation');
+        $employeestatus = $this->input->post('employeestatus');
+
+        $insert = $this->admin_model->register_employee($employeename, $employeeemail, $employeeoccupation, $employeestatus);
+
+        return $insert;
+        
+    
+      }
+
+
       function categoryregistration(){
          
         $this->form_validation->set_rules('categoryname', 'Category Name', 'trim|required|xss_clean|is_unique[category.catname]');
@@ -215,6 +392,22 @@ class Admin extends MY_Controller {
         
     }
 
+    public function editemployee()
+    {
+        $id = $this->input->post('editemployeeid');
+        $employee_name = $this->input->post('editemployeename');
+        $employee_status = $this->input->post('editemployeestatus');
+        $employee_email = $this->input->post('editemployeeemail');
+        $employee_occupation = $this->input->post('editemployeeoccupation');
+
+        
+        $result = $this->admin_model->administrator_update($id,$employee_name, $employee_email, $employee_occupation, $employee_status);
+        
+
+        $this->employees();
+        
+    }
+
 
     // function that passes the id to be viewed and displays it in the viewcategory file
     function viewcategory($id)
@@ -245,6 +438,35 @@ class Admin extends MY_Controller {
  
     }
 
+
+    function viewemployee($id)
+    {
+        $userdet = array();
+
+        
+        $results = $this->admin_model->administratorprofile($id);
+
+        foreach ($results as $key => $values) {
+            $details['employees'][] = $values;  
+        }
+        
+        
+        $data['employeedetails'] = $details;
+
+
+        $data['admin_title'] = 'Manager';
+        $data['admin_subtitle'] = 'View Employee';
+        $data['admin_navbar'] = 'admin/header';
+        $data['admin_sidebar'] = 'admin/sidebar';
+        $data['admin_content'] = 'admin/viewadministrator';
+        $data['admin_footer'] = 'admin/footer';
+
+        
+        
+        $this->template->call_admin_template($data);
+ 
+    }
+
      //function that allows other updates for specific category with $cat_id
       function catupdate($type, $cat_id)
     {
@@ -254,23 +476,35 @@ class Admin extends MY_Controller {
         {
             switch ($type) {
 
-                case 'catview':
-                    
-                    break;
-
-                case 'catactivate':
-                    
-                    break;
-
-                case 'catedit':
-                    
-                    break;
-
                 case 'catdelete':
                     $this->categories();
                     break;
 
                 case 'catrestore':
+                    
+                    break;
+                
+                default:
+                    # code...
+                    break;
+            }
+        }
+    }
+
+
+    function empupdate($type, $emp_id)
+    {
+        $update = $this->admin_model->updateemp($type, $emp_id);
+
+        if($update)
+        {
+            switch ($type) {
+
+                case 'empdelete':
+                    $this->administrators();
+                    break;
+
+                case 'emprestore':
                     
                     break;
                 

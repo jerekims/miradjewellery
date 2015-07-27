@@ -74,11 +74,7 @@
    <script src="<?php echo base_url(); ?>assets/js/DataTables-1.10.2/js/jquery.dataTables.js"></script>
   <script src="<?php echo base_url(); ?>assets/js/DataTables-1.10.2/js/data-table.js"></script>
     <script>
-            $('#category-table').dataTable();
-            $('#orders-table').dataTable();
-
-            $('.dataTables_filter input').addClass('form-control').attr('placeholder','Search');
-            $('.dataTables_length select').addClass('form-control');
+            
     </script>
    <script type="text/javascript" src="<?php echo base_url().'assets/js/admin.js'?>"></script>
 

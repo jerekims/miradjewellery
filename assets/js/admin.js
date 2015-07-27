@@ -1,5 +1,13 @@
 $(document).ready(function(){
 
+      $('#category-table').dataTable();
+      $('#administrator-table').dataTable();
+      $('#orders-table').dataTable();
+
+            $('.dataTables_filter input').addClass('form-control').attr('placeholder','Search');
+            $('.dataTables_length select').addClass('form-control');
+
+
 
 //Function for scroll up button
 	$(function () {
@@ -27,6 +35,7 @@ $(document).ready(function(){
 
      // Enables category form with ID to acquire validation
      $("#formaddcategory").validationEngine();
+     $("#formaddadministrator").validationEngine();
 
 
 
@@ -64,6 +73,39 @@ $(document).ready(function(){
 
      // ....end of function.... //
      // 
+     // 
+     $(function(){
+       $("#formaddadministrator").submit(function(){
+          
+
+        
+         var formData = new FormData($(this)[0]);
+
+          // takes the data into the admin controller, into a function called categoryregistration()
+         $.ajax({
+           type: "POST",
+           url: base_url + 'admin/employeeregistration',
+           data: formData,
+           async: false,
+           cache: false,
+           contentType: false,
+           processData: false,
+           success: function(data){
+               // ....After successful registration, then....//
+              
+              swal({   title: "Employee Registration",   text: "Employee has been registered",   timer: 3000 });
+              // pop up for a successful registration 
+
+           }
+ 
+         });
+ 
+         return false;  //stop the actual form post !important!
+ 
+      });
+   });
+
+     // ....end of function.... //
      
 
      // ....Function for editing categories.... //
@@ -87,6 +129,42 @@ $(document).ready(function(){
                // ....After successful editing, then....//
               
               swal({   title: "Category Editing",   text: "Category has been updated",   timer: 3000 });
+              // pop up for a successful registration 
+              
+             
+
+           }
+ 
+         });
+ 
+         return false;  //stop the actual form post !important!
+ 
+      });
+   });
+
+     // ....end of function.... //
+     // 
+     // 
+     $(function(){
+       $("#employeeediting").submit(function(){
+          
+  
+   
+       // takes the data into the admin controller, into a function called editcategory()
+         var formData = new FormData($(this)[0]);
+ 
+         $.ajax({
+           type: "POST",
+           url: base_url + 'admin/editemployee',
+           data: formData,
+           async: false,
+           cache: false,
+           contentType: false,
+           processData: false,
+           success: function(data){
+               // ....After successful editing, then....//
+              
+              swal({   title: "Employee Editing",   text: "Employee has been updated",   timer: 3000 });
               // pop up for a successful registration 
               
              

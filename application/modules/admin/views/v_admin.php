@@ -122,9 +122,9 @@
                      <div class="table-toolbar">
                        <div class="btn-group pull-right table-buttons">
                        <a class="left adminadd" href="<?php echo base_url(). 'admin/addcategory'?>">Add Category</a>
-                         <button data-toggle="dropdown" class="btn dropdown-toggle btn-warning right ">Export <span class="caret"></span></button>
+                         <button data-toggle="dropdown" class="btn dropdown-toggle btn-warning right ">Exports <span class="caret"></span></button>
                          <ul class="dropdown-menu">
-                           <li><a href="<?php echo base_url(). 'admin/allcategories/pdf'?>">Save as PDF</a></li>
+                           <li><a href="<?php echo base_url(). 'admin/allcategories/pdf'?>">Export to PDF</a></li>
                            <li><a href="<?php echo base_url(). 'admin/allcategories/excel'?>">Export to Excel</a></li>
                          </ul>
                        </div>
@@ -151,71 +151,47 @@
                 </div>
                 <!-- /.row -->
 
-                <div class="col-lg-12"><hr/></div>
-
                 <div class="row">
-
-                 
-
                   <div class="col-lg-12">
-                   <h2 class="table-title">Orders</h2>
+                   <h2 class="table-title">Employees</h2>
                    <div class="table-responsive">
                      <div class="table-toolbar">
-                       <div class="btn-group pull-right">
-                         <button data-toggle="dropdown" class="btn dropdown-toggle success">Tools <span class="caret"></span></button>
+                       <div class="btn-group pull-right table-buttons">
+
+                       <!-- The add button takes you to the admin controller, into the function addcategory() -->
+                       <a class="left adminadd" href="<?php echo base_url(). 'admin/addemployee'?>">Add Employees</a>
+                         <button data-toggle="dropdown" class="btn dropdown-toggle btn-warning right ">Exports <span class="caret"></span></button>
                          <ul class="dropdown-menu">
-                           <li><a href="#">Save as PDF</a></li>
-                           <li><a href="#">Export to Excel</a></li>
+                           <li><a href="<?php echo base_url(). 'admin/allemployees/pdf'?>">Export to PDF</a></li>
+                           <li><a href="<?php echo base_url(). 'admin/allemployees/excel'?>">Export to Excel</a></li>
                          </ul>
                        </div>
                      </div>
-                     <table id="orders-table" class="table table-striped">
-                     
-                      
-                      
-                      <thead>
+                     <table class="table table-striped" id="administrator-table"><!-- The table created in the page -->
+                       <thead>
                         <tr>
                           <th>#</th>
-                          <th>Order No</th>
-                          <th>Product ID</th>
-                          <th>Product Price</th>
-                          <th>Customer ID</th>
-                          <th>Date Ordered</th>
+                          <th>Name</th>
+                          <th>Email</th>
+                          <th>Occupation</th>
+                          <th>Date Registered</th>
+                          <th>Status</th>
                           <th>View</th>
-                          <th>Edit</th>
-                          <th>Delete</th>
+                          <th>Deactivate</th>
                         </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-				          <td>1</td>
-				          <td>456DGF94</td>
-				          <td>56</td>
-				          <td>Kshs.1600/=</td>
-				          <td>16</td>
-				          <td>2015-05-26</td>
-				          <td><i class="fa fa-eye"></i></td>
-				          <td><i class="fa fa-pencil"></i></td>
-				          <td><i class="fa fa-trash"></i></td>
-				        </tr>
-				        <tr>
-				          <td>2</td>
-				          <td>891LKI94</td>
-				          <td>33</td>
-				          <td>Kshs.2500/=</td>
-				          <td>3</td>
-				          <td>2015-04-17</td>
-				          <td><i class="fa fa-eye"></i></td>
-				          <td><i class="fa fa-pencil"></i></td>
-				          <td><i class="fa fa-trash"></i></td>
-				        </tr>
-				        </tbody>
-                     </table>
+                       </thead>
+                        <?php
+                          echo $all_administrators;
+                        ?>
+                   </table>
 
+                     
                    </div>
                  </div>
                 </div>
                 <!-- /.row -->
+
+                
 
            
             <!-- /.container-fluid -->

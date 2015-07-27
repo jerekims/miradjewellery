@@ -18,7 +18,7 @@
                         <a href="<?php echo base_url(). 'admin/orders'?>"><i class="fa fa-fw fa-truck"></i> Orders</a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url(). 'admin/administrators'?>"><i class="fa fa-fw fa-suitcase"></i> Administrators</a>
+                        <a href="<?php echo base_url(). 'admin/employees'?>"><i class="fa fa-fw fa-suitcase"></i> Employees</a>
                     </li>
                     <li>
                         <a href="<?php echo base_url(). 'admin/comments'?>"><i class="fa fa-fw fa-comments"></i> Comments</a>
