@@ -43,7 +43,10 @@
                                     <option value="2">Manager</option>
                                 </select>
                             </div>
-
+                            <div class="form-group">
+                                <label>Picture</label>
+                                <input type="file" class="form-control" id="employeepicture" name="employeepicture">
+                            </div>
                             <div class="form-group">
                                 <label>Employee Status</label>
                                 <select id="employeestatus" name="employeestatus" class="form-control">
