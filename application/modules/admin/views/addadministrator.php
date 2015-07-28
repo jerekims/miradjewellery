@@ -12,8 +12,8 @@
                             <li class="active">
                                 <i class="fa fa-dashboard"></i> 
                                    <a class="crumbs" href="<?php echo base_url(). 'admin'?>">Manager Dashboard</a> > 
-                                   <a class="crumbs" href="<?php echo base_url(). 'admin/categories'?>">Category</a> > 
-                                   <a class="crumbs" href="<?php echo base_url(). 'admin/addcategory'?>"><?php echo $admin_subtitle?></a>
+                                   <a class="crumbs" href="<?php echo base_url(). 'admin/employees'?>">Employee</a> > 
+                                   <a class="crumbs" href="<?php echo base_url(). 'admin/addemployee'?>"><?php echo $admin_subtitle?></a>
                             </li>
                         </ol>
                     </div>
@@ -23,17 +23,30 @@
                 <div class="row">
                   <div class="col-lg-5">
                   
-                  <!-- The form that adds a new category into database. It uses admin.js into a function with form ID -> #formaddcategory -->
-                     <form id="formaddcategory" name="formaddcategory" role="form" enctype="multipart/form-data" method="POST">
+                  
+                     <form id="formaddadministrator" name="formaddadministrator" role="form" enctype="multipart/form-data" method="POST">
 
                             <div class="form-group">
-                                <label>Category Name</label>
-                                <input id="categoryname" name="categoryname" required class="form-control validate[required]">
+                                <label>Employee Name</label>
+                                <input id="employeename" name="employeename" required class="form-control validate[required]">
                             </div>
 
                             <div class="form-group">
-                                <label>Category Status</label>
-                                <select id="categorystatus" name="categorystatus" class="form-control">
+                                <label>Employee Email</label>
+                                <input id="employeeemail" name="employeeemail" required type="email" class="form-control validate[required, custom[email]]">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Occupation</label>
+                                <select id="employeeoccupation" name="employeeoccupation" class="form-control">
+                                    <option selected value="3">Stock Manager</option>
+                                    <option value="2">Manager</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Employee Status</label>
+                                <select id="employeestatus" name="employeestatus" class="form-control">
                                     <option selected value="1">Activate</option>
                                     <option value="0">Deactivate</option>
                                 </select>
@@ -42,7 +55,7 @@
 
                             <button type="submit" class="btn btn-success">Submit Button</button>
                             <button type="reset" class="btn btn-warning">Reset Button</button>
-                            <a class="adminback" href="<?php echo base_url(). 'admin/categories'?>">Back</a>
+                            <a class="adminback" href="<?php echo base_url(). 'admin/employees'?>">Back</a>
 
                         </form>
                   </div>

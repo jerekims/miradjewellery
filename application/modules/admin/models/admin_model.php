@@ -9,19 +9,36 @@ class Admin_model extends MY_Model {
         parent::__construct();
     }
 
-// function that allows the acquiring of all category data from table category
-    function get_all_categories()
+    function get_all_administrators()
 
 	{
 		$sql = "SELECT 
-					catid as 'Category ID',
-					catname as 'Category Name',
-					catstatus as 'Category Status'
+					emp_id as 'Employee ID',
+					emp_name as 'Employee Name',
+          emp_email as 'Employee Email',
+					level_id as 'Employee Level',
+          date_registered as 'Date Registered',
+          emp_status as 'Employee Status'
 				FROM
-					`category`";
+					`employees`";
 		$result = $this->db->query($sql);
 		return $result->result_array();
 	}
+
+
+// function that allows the acquiring of all category data from table category
+  function get_all_categories()
+
+  {
+    $sql = "SELECT 
+          catid as 'Category ID',
+          catname as 'Category Name',
+          catstatus as 'Category Status'
+        FROM
+          `category`";
+    $result = $this->db->query($sql);
+    return $result->result_array();
+  }
 
 
 
@@ -39,6 +56,21 @@ class Admin_model extends MY_Model {
 		return $insert;
 
 	}
+
+  function register_employee($employeename, $employeeemail, $employeeoccupation, $employeestatus)
+  {
+    $employee = array(
+        
+            'emp_name'   => $employeename,
+            'emp_email' => $employeeemail,
+            'level_id'   => $employeeoccupation,
+            'emp_status' => $employeestatus
+            );
+  
+    $insert = $this->db->insert('employees', $employee);
+    return $insert;
+
+  }
   
 
   //function the update of a category that is contained in the $id
@@ -58,6 +90,24 @@ class Admin_model extends MY_Model {
 	}
 
 
+  function administrator_update($id,$employee_name, $employee_email, $employee_occupation,$employee_status)
+  {
+    $employee = array(
+            'emp_name'   => $employee_name,
+            'emp_email' => $employee_email,
+            'level_id'   => $employee_occupation,
+            'emp_status' => $employee_status
+            );
+
+    $this->db->where('emp_id', $id);
+
+
+        $insert = $this->db->update('employees', $employee);
+    return $insert;
+
+  }
+
+
 // function that allows us to view details of the category selected using the $id
 	public function categoryprofile($id)
 
@@ -68,11 +118,32 @@ class Admin_model extends MY_Model {
          
          $result = $query->result_array();
 
-            if ($result) {
-               foreach ($result as $key => $value) {
-        $profile[$value['catid']] = $value;
-      }
+      if ($result) {
+          foreach ($result as $key => $value) {
+             $profile[$value['catid']] = $value;
+          }
       //echo '<pre>';print_r($profile[$value['catid']]);echo '</pre>';die();
+      return $profile;
+
+    }
+    
+    return $profile;
+    }
+
+
+    public function administratorprofile($id)
+
+    {
+         $profile = array();
+         
+         $query = $this->db->get_where('employees', array('emp_id' => $id));
+         
+         $result = $query->result_array();
+
+      if ($result) {
+          foreach ($result as $key => $value) {
+             $profile[$value['emp_id']] = $value;
+          }
       return $profile;
 
     }
@@ -109,6 +180,41 @@ class Admin_model extends MY_Model {
 
     $this->db->where('catid', $cat_id);
     $update = $this->db->update('category', $data);
+
+    if ($update) {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+  }
+
+
+
+
+  public function updateemp($type, $emp_id)
+    {
+          $data = array();
+
+        switch ($type) {
+          case 'empdelete':
+            $data['catstatus'] = 0; 
+            
+            break;
+
+          case 'emprestore':
+            $data['catstatus'] = 1; 
+        
+            break;
+      
+        
+      
+    }
+
+
+    $this->db->where('emp_id', $cat_id);
+    $update = $this->db->update('employees', $data);
 
     if ($update) {
       return true;

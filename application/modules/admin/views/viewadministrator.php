@@ -12,7 +12,7 @@
                             <li class="active">
                                  <i class="fa fa-dashboard"></i>
                                    <a class="crumbs" href="<?php echo base_url(). 'admin'?>">Manager Dashboard</a> > 
-                                   <a class="crumbs" href="<?php echo base_url(). 'admin/categories'?>">Category</a> >
+                                   <a class="crumbs" href="<?php echo base_url(). 'admin/employees'?>">Employee</a> >
                                    <a class="crumbs" href="#'?>"><?php echo $admin_subtitle?></a>
                             </li>
                         </ol>
@@ -25,7 +25,7 @@
 
                   <?php 
                            // categorydetails acquired from the controller admin, in the function called viewcategory()
-                            foreach ($categorydetails as $key => $value) {
+                            foreach ($employeedetails as $key => $value) {
                             foreach ($value as $q => $data) {
                             
                            //echo '<pre>';print_r($user);echo'</pre>';die();
@@ -34,46 +34,75 @@
                             ?>
 
                 <!-- The form that allows viewing and editing of category It uses admin.js into a function with form ID -> #categoryediting -->
-                        <form id="categoryediting" name="categoryediting" role="form" enctype="multipart/form-data" method="POST">
+                        <form id="employeeediting" name="employeeediting" role="form" enctype="multipart/form-data" method="POST">
 
                         <div class="control-group">
-                                <label class="control-label">Category ID: <?php echo $data['catid']; ?></label>
+                                <label class="control-label">Employee ID: <?php echo $data['emp_id']; ?></label>
 
                                 <div class="controls">
-                                    <input name="editcategoryid" type="hidden"  value="<?php echo $data['catid']; ?>" class="span6 m-wrap form-control "/>
+                                    <input name="editemployeeid" type="hidden"  value="<?php echo $data['emp_id']; ?>" class="span6 m-wrap form-control "/>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label>Category Name</label>
-                                <input id="editcategoryname" name="editcategoryname" value="<?php echo $data['catname']; ?>"class="form-control validate[required]">
+                                <label>Employee Name</label>
+                                <input id="editemployeename" name="editemployeename" value="<?php echo $data['emp_name']; ?>"class="form-control validate[required]">
                             </div>
 
                             <div class="form-group">
-                                <label>Category Status</label>
-                                <select id="editcategorystatus" name="editcategorystatus" class="form-control">
+                                <label>Employee Email</label>
+                                <input id="editemployeeemail" name="editemployeeemail" type="email" value="<?php echo $data['emp_email']; ?>"class="form-control validate[required, custom[email]]">
+                            </div>
+
+
+                            <div class="form-group">
+                                <label>Employee Occupation</label>
+                                <select id="editemployeeoccupation" name="editemployeeoccupation" class="form-control">
 
                             <?php 
-                                if($data['catstatus'] == 1){
+                                if($data['level_id'] == 2){
+                            ?>
+                                  <option value="3">Stock Manager</option>
+                                    <option selected value="2">Manager</option>
+                            <?php
+                                }elseif($data['level_id'] == 3){
+                            ?>
+                                  <option selected value="3">Stock Manager</option>
+                                    <option  value="2">Manager</option>
+                            <?php
+                                }else{
+                            ?>
+                                 <option selected value="0">No job was selected</option>
+                            <?php
+                                 }
+                            ?>
+   
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Employee Status</label>
+                                <select id="editemployeestatus" name="editemployeestatus" class="form-control">
+
+                            <?php 
+                                if($data['emp_status'] == 1){
                             ?>
                                   <option selected value="1">Activated</option>
                                    <option value="0">Deactivated</option>
                             <?php
-                                }elseif($data['catstatus'] == 0){
+                                }elseif($data['emp_status'] == 0){
                             ?>
                                   <option value="1">Activated</option>
                                     <option selected value="0">Deactivated</option>
                             <?php
                                 }
                             ?>
-
-                            
-                                    
+   
                                 </select>
                             </div>
 
                             <button type="submit" class="btn btn-success">Submit Button</button>
-                            <a href="<?php echo base_url(). 'admin/categories'?>" class="btn btn-warning">Back</a>
+                            <a href="<?php echo base_url(). 'admin/employees'?>" class="btn btn-warning">Back</a>
                             
                             <!-- <button type="reset" class="btn btn-warning">Reset Button</button> -->
 
