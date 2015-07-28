@@ -31,41 +31,54 @@
                             ?>
 
                 <!-- The form that allows viewing and editing of category It uses admin.js into a function with form ID -> #categoryediting -->
-                        <form id="categoryediting" name="categoryediting" role="form" enctype="multipart/form-data" method="POST">
+                        <form id="productediting" name="productediting" role="form" enctype="multipart/form-data" method="POST">
 
                         <div class="control-group">
-                                <label class="control-label">Product ID: <?php echo $data['catid']; ?></label>
-
+                                <label class="control-label">Product ID: <?php echo $data['id']; ?></label>
                                 <div class="controls">
-                                    <input name="editcategoryid" type="hidden"  value="<?php echo $data['catid']; ?>" class="span6 m-wrap form-control "/>
+                                    <input name="editproductid" type="hidden"  value="<?php echo $data['id']; ?>" class="span6 m-wrap form-control "/>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label>Category Name</label>
-                                <input id="categoryname" name="editcategoryname" value="<?php echo $data['catname']; ?>"class="form-control validate[required]">
+                                <label>Product Name</label>
+                                <input id="productname" name="productname" value="<?php echo $data['name']; ?>"class="form-control validate[required]">
                             </div>
 
                             <div class="form-group">
-                                <label>Category Status</label>
-                                <select id="editcategorystatus" name="editcategorystatus" class="form-control">
+                                <label>Product Category</label>
+                                <select name="productcategory" class="form-control">
+                                    <option>Rings</option>
+                                    <option>Necklaces</option>
+                                    <option>Bangles</option>
+                                </select>
+                            </div>
 
-                            <?php 
-                                if($data['catstatus'] == 1){
-                            ?>
-                                  <option selected value="1">Activated</option>
-                                   <option value="0">Deactivated</option>
-                            <?php
-                                }elseif($data['catstatus'] == 0){
-                            ?>
-                                  <option value="1">Activated</option>
-                                    <option selected value="0">Deactivated</option>
-                            <?php
-                                }
-                            ?>
+                            <div class="form-group">
+                                <label>Product Description</label>
+                                <textarea  name="prod_description" id="prod_description" col="50" rows="50" class="form-control"></textarea>
+                            </div>
 
-                            
-                                    
+                            <div class="form-group">
+                                <label>Product price</label>
+                                <input type="text" id="price" name="price" class="form-control">
+                            </div>
+
+                            <div class="form-group'">
+                                <label>Product Image</label>
+                                <input type="file" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Product status</label>
+                                <select id="productstatus" name="productstatus" class="form-control">
+                                    <?php
+                                    if($data['product_status']==1){?>
+                                        <option selected value="1">Activated</option>
+                                        <option value="0">Deactivated</option>
+                                   <?php } else if($data['product_status']==0){?>
+                                        <option value="1">Activated</option>
+                                        <option selected value="0">Deactivated</option>
+                                   <?php }?>
                                 </select>
                             </div>
 

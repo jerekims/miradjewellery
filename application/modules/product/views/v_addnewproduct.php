@@ -24,19 +24,23 @@
                   <div class="col-lg-5">
                   
                   <!-- The form that adds a new category into database. It uses admin.js into a function with form ID -> #formaddcategory -->
-                     <form id="formaddcategory" name="formaddcategory" role="form" enctype="multipart/form-data" method="POST">
+                     <form id="formaddproduct" name="formaddproduct" role="form" enctype="multipart/form-data" method="POST">
 
                             <div class="form-group">
                                 <label>Category Name</label>
-                                <input  tyepe="text"id="categoryname" name="categoryname" class="form-control validate[required]">
-                            </div>
+                                <select class="form-control" name="productcategory" id="productcategory">
+                                    <option>Rings</option>
+                                    <option>Necklaces</option>
+                                    <option>Bangles</option>
+                                </select>
+                                </div>
                             <div>
                                 <label>Product Name</label>
                                 <input id="productname" class="form-control validate[required]">
                             </div>
                             <div>
                                 <label>Product Description</label>
-                                <textarea></textarea>
+                                <textarea  name="prod_description" id="prod_description" rows="10" cols="20" placeholder="Please enter a description of the product" class="form-control"></textarea>
                             </div>
                             <div>
                                 <label>Product Price</label>
@@ -44,14 +48,14 @@
                             </div>
                             <div>
                                 <label>Product image</label>
-                                <input type="file">
+                                <input type="file" class="form-control">
                             </div>
 
                             <div class="form-group">
                                 <label>Product Status</label>
                                 <select id="productstatus" name="productstatus" class="form-control">
-                                    <option selected value="1">Activate</option>
-                                    <option value="0">Deactivate</option>
+                                    <option selected value="1">Activated</option>
+                                    <option value="0">Deactivated</option>
                                 </select>
                             </div>
 

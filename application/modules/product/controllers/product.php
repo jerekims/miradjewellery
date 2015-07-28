@@ -193,11 +193,11 @@ class Product extends MY_Controller {
 
 	function addnewproduct()
 	{
-		 $this->form_validation->set_rules('categoryname','trim|required|xss_clean');
-		 $this->form_validation->set_rules('productname','trim|required|xss_clean');
-		 $this->form_validation->set_rules('prod_description','trim|required|xss_clean');
-		 $this->form_validation->set_rules('price','trim|required|xss_clean');
-		 $this->form_validation->set_rules('image','trim|required|xss_clean');
+		 // $this->form_validation->set_rules('categoryname','trim|required|xss_clean');
+		 // $this->form_validation->set_rules('productname','trim|required|xss_clean');
+		 // $this->form_validation->set_rules('prod_description','trim|required|xss_clean');
+		 // $this->form_validation->set_rules('price','trim|required|xss_clean');
+		 // $this->form_validation->set_rules('image','trim|required|xss_clean');
 
 		 $categoryname = $this->input->post('categoryname');
          $pname=$this->input->post('productname');
@@ -216,7 +216,7 @@ class Product extends MY_Controller {
 
     function editproduct()
     {
-         $this->form_validation->set_rules('categoryname','trim|required|xss_clean');
+         $this->form_validation->set_rules('productcategory','trim|required|xss_clean');
          $this->form_validation->set_rules('productname','trim|required|xss_clean');
          $this->form_validation->set_rules('prod_description','trim|required|xss_clean');
          $this->form_validation->set_rules('price','trim|required|xss_clean');
