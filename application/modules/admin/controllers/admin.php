@@ -8,6 +8,10 @@ class Admin extends MY_Controller {
     {
         $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
+        $this->load->library('upload');
+        
+        $this->pic_path = realpath(APPPATH . '../uploads/');
+
         $this->load->model('admin_model');
         
         parent::__construct();
@@ -351,10 +355,36 @@ class Admin extends MY_Controller {
         $employeeoccupation = $this->input->post('employeeoccupation');
         $employeestatus = $this->input->post('employeestatus');
 
-        $insert = $this->admin_model->register_employee($employeename, $employeeemail, $employeeoccupation, $employeestatus);
+
+        $path = base_url().'uploads/users/';
+               $config['upload_path'] = 'uploads/employees/';
+               $config['allowed_types'] = 'jpeg|jpg|png|gif';
+               $config['encrypt_name'] = TRUE;
+               $this->load->library('upload', $config);
+               $this->upload->initialize($config);
+
+            if ( ! $this->upload->do_upload('employeepicture'))
+            {
+               $error = array('error' => $this->upload->display_errors());
+
+               print_r($error);die;
+            }
+             else
+             {
+               
+                $data = array('upload_data' => $this->upload->data());
+                 foreach ($data as $key => $value) {
+                  //print_r($data);die;
+                  $path = base_url().'uploads/employees/'.$value['file_name'];
+                
+                  }
+
+
+
+        $insert = $this->admin_model->register_employee($employeename, $employeeemail, $employeeoccupation, $path, $employeestatus);
 
         return $insert;
-        
+        }
     
       }
 

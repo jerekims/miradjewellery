@@ -35,13 +35,17 @@
 
                 <!-- The form that allows viewing and editing of category It uses admin.js into a function with form ID -> #categoryediting -->
                         <form id="employeeediting" name="employeeediting" role="form" enctype="multipart/form-data" method="POST">
-
+                       
                         <div class="control-group">
                                 <label class="control-label">Employee ID: <?php echo $data['emp_id']; ?></label>
 
                                 <div class="controls">
                                     <input name="editemployeeid" type="hidden"  value="<?php echo $data['emp_id']; ?>" class="span6 m-wrap form-control "/>
                                 </div>
+                            </div>
+
+                            <div class="form-group image-profile">
+                                <img  src="<?php echo $data['emp_picture']; ?>" alt="Profile pic">
                             </div>
 
                             <div class="form-group">
