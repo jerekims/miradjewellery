@@ -4,4 +4,81 @@ html, body {
     padding:0;
     margin:0;
 }
+/* General styles
+_______________________________________________________*/
+body
+{
+	background-color: #C1BDB1;
+}
+.home-body{
+	width: 1200px;
+    margin: 0px auto;
 
+}
+
+/*
+top bar  navgation
+______________________________________________________*/
+.top-nav {
+	border: 1px solid maroon;
+    background-color: ;
+    color: black;
+    height: 138px;
+}
+.top-nav .row {
+	margin-bottom: -10px;
+}
+
+.top_navigation .nav_wrapper{
+	background-color: green;
+}
+
+.right-body .billboard .row {
+	margin-top: 2px;
+	margin-bottom: 0px;
+}
+
+.product .row{
+	margin-bottom: 10px;
+}
+.navigation{
+	background-color:#968477;
+}
+.logo{
+	height:100%;margin-top:-8px;float:left;width:300px;
+}
+.navbar .logo a{
+	margin: auto 115px;
+}
+.categories{
+	margin-top:-8px;float:right;width:700px;
+}
+
+
+/*.carousel .row
+{
+	width: 100%;
+	margin-left: 100px;
+	margin-bottom:0px;
+}
+
+.products .row
+{
+	width: 100%;
+	margin-left: 102px;
+	margin-right: 50px;
+	margin-bottom:0px;
+}
+.products .row .categories{
+	border:1px solid green;
+	background-color: blue;
+	margin-right: 15px;
+	width: 400px;
+	height: 100px;
+}
+.products .row .display{
+	width: 675px;
+	background-color: yellow;
+	height: 500px;
+	border:1px solid red;
+}*/

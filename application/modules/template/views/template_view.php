@@ -1,15 +1,20 @@
 <html>
 <head>
   <title>
-      Mirad Jewelries
+      Mirad Jewelerries
   </title>
+   <!-- LINK FONTS
+    _______________________________________________________________________ -->
     <meta name="robots" content="noindex">
     <meta charset="UTF-8">
+
+
     <link rel="icon" type="image/x-icon" href="<?php echo base_url().'assets/fonts/jewel.ico'?>" />
 
     <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/js/jquery-ui-1.11.4.custom/jquery-ui.min.css'?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/bootstrap/css/bootstrap.min.css'?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/materialize/css/materialize.min.css'?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/skeleton/css/skeleton.css'?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/ionicons/css/ionicons.min.css'?>">
 
     <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/css/validationEngine.jquery.css'?>">
@@ -23,19 +28,23 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/materialize/css/materialize.css'?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/css/main.css'?>">
     
+    <!-- GOOLE FONTS
+    _______________________________________________________________________ -->
+
+    <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
   
 </head>
 <body>
  
-    <div class="home-body">
-      <div class="top-nav">
+  <div class="home-body">
+      <div class="top-nav" >
           <?php
              $this->load->view($top_navbar1);
           ?>
       </div>
-      <div class="left-nav">
-
-      </div>
+  
       <div class="right-body">
          <?php 
               $this->load->view($content_page); 
@@ -59,6 +68,7 @@
    <script type="text/javascript">$(document).ready(function(){base_url = '<?php echo base_url();?>'});</script>
    <script type="text/javascript" src="<?php echo base_url().'assets/materialize/js/materialize.min.js'?>"></script>
    <script type="text/javascript" src="<?php echo base_url().'assets/bootstrap/js/bootstrap.min.js'?>"></script>
+   <script type="text/javascript" src="<?php echo base_url().'assets/skeleton/js/jquery_magnific_popup.js'?>"></script>
    <script type="text/javascript" charset="utf-8" src="<?php echo base_url().'assets/js/jquery.validate.js'?>"></script>
    <script type="text/javascript" charset="utf-8" src="<?php echo base_url().'assets/sweetalert/lib/sweet-alert.js'?>"></script>
    <script type="text/javascript" charset="utf-8" src="<?php echo base_url().'assets/js/jquery.validationEngine-en.js'?>"></script>

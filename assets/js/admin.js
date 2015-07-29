@@ -74,6 +74,55 @@ $(document).ready(function(){
      // ....end of function.... //
      // 
      // 
+
+     // function for adding a product 
+     $(function(){
+      $("#formaddproduct").submit(function(){
+          var formData = new formData($(this)[0]);
+
+          // passing the data to the addnewproduct in the product controller
+          $.ajax({
+              type:"POST",
+              url:base_url+'product/addnewproduct',
+              data:formData,
+              async:false,
+              cache:false,
+              contentType:false,
+              processData:false,
+              success:function(data){
+                // after successful registration of the product
+                swal({title:"Addiing a product",text:"Product has been added",timer:3000});
+              }
+          });
+          return false;
+      });
+
+     });
+     // end of the function for adding new  product
+
+     // function  for editing a product
+     $(function(){
+        $("formeditproduct").submit(function(){
+            var formData= new formData($(this)[0]);
+            $ajax({
+                type:"POST",
+                url:base_url+'product/editproduct',
+                data:formData,
+                async:false,
+                cache:false,
+                contentType:false,
+                processData:false,
+                success:function(){
+                  //after successful editing of the product details
+                  swal({title:"Editing Product",text:"Product has successfully been edited"});
+                }
+            });
+            return  false;
+        });
+     });
+
+     // end of the function for editing  the product details
+
      $(function(){
        $("#formaddadministrator").submit(function(){
           
