@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
       $('#category-table').dataTable();
+      $('#product-table').dataTable();
       $('#administrator-table').dataTable();
       $('#orders-table').dataTable();
 
@@ -35,6 +36,7 @@ $(document).ready(function(){
 
      // Enables category form with ID to acquire validation
      $("#formaddcategory").validationEngine();
+     $("#formaddproduct").validationEngine();
      $("#formaddadministrator").validationEngine();
 
 
@@ -102,7 +104,7 @@ $(document).ready(function(){
 
      // function  for editing a product
      $(function(){
-        $("formeditproduct").submit(function(){
+        $("#formeditproduct").submit(function(){
             var formData= new formData($(this)[0]);
             $ajax({
                 type:"POST",

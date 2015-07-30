@@ -12,12 +12,12 @@ class Product_model extends MY_Model {
 		function get_all_products()
 		{
 			$sql="SELECT 
-				id AS 'Product ID',
-				name AS 'Product Name',
-				description AS 'Product Description',
-				price AS 'Product Price',
-				image AS 'Product Image',
-				product_status AS 'Product Status'
+				prodid AS 'Product ID',
+				prodname AS 'Product Name',
+				proddescription AS 'Product Description',
+				prodprice AS 'Product Price',
+				prodimage AS 'Product Image',
+				prodstatus AS 'Product Status'
 				FROM  
 					`products`";
 			$result=$this->db->query($sql);
@@ -27,15 +27,15 @@ class Product_model extends MY_Model {
 	/* adding new  product  to the database
 	______________________________________________________*/	
 	
-		function add_product($product_category,$productname,$description,$price,$image,$pstatus)
+		function add_product($product_category,$productname,$description,$price,$pstatus)
 		{
 			$product=array(
-						'category_id'=>$product_category,
-						'name'=>$productname,
-						'description'=>$description,
-						'price'=>$price,
-						'image'=>$image,
-						'product_status'=>$pstatus
+						'catid'=>$product_category,
+						'prodname'=>$productname,
+						'proddescription'=>$description,
+						'prodprice'=>$price,
+						'prodimage'=>"image",
+						'prodstatus'=>$pstatus
 				);
 			$insert=$this->db->insert('products',$product);
 			return $insert;
@@ -66,12 +66,12 @@ class Product_model extends MY_Model {
 		function productprofile($productid)
 		{
 			$profile=array();
-			$query=$this->db->get_where('products',array('id'=>$productid));
+			$query=$this->db->get_where('products',array('prodid'=>$productid));
 			$result=$query->result_array();
 			if($result)
 			{
 				foreach ($result as $key => $value) {
-					$profile[$value['id']]=$value;
+					$profile[$value['prodid']]=$value;
 				}
 			}
 			return $profile;

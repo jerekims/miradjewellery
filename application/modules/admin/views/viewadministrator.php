@@ -45,7 +45,7 @@
                             </div>
 
                             <div class="form-group image-profile">
-                                <img  src="<?php echo $data['emp_picture']; ?>" alt="Profile pic">
+                                <img width="100"% height="70%" src="<?php echo $data['emp_picture']; ?>" alt="Profile pic">
                             </div>
 
                             <div class="form-group">
