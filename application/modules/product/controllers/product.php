@@ -78,7 +78,7 @@ class Product extends MY_Controller {
 	/* displays all the products from the  database
 	______________________________________________________*/
 
-	function allproducts()
+	function allproducts($type)
 	{
 		$display = '';
         $products = $this->product_model->get_all_products();
@@ -124,6 +124,8 @@ class Product extends MY_Controller {
                 $display .= '<tr>';
                 $display .= '<td class="centered">'.$count.'</td>';
                 $display .= '<td class="centered">'.$data['Product Name'].'</td>';
+                $display .= '<td class="centered">'.$data['Product Description'].'</td>';
+                $display .= '<td class="centered">'.$data['Product Price'].'</td>';
                 $display .= '<td class="centered">'.$state.'</td>';
 
                 // button below used for viewing the specific category. Goes to admin controller into function called viewcategory(), passing the category id as parameter
@@ -135,56 +137,56 @@ class Product extends MY_Controller {
 
                 break;
             
-            // case 'excel':
+            case 'excel':
                
-            //      array_push($row_data, array($data['Category ID'], $data['Category Name'], $states)); 
+                 array_push($row_data, array($data['Category ID'], $data['Category Name'], $states)); 
 
-            //     break;
+                break;
 
-            // case 'pdf':
+            case 'pdf':
 
-            // //echo'<pre>';print_r($categories);echo'</pre>';die();
+            //echo'<pre>';print_r($categories);echo'</pre>';die();
            
-            //     $html_body .= '<tr>';
-            //     $html_body .= '<td>'.$data['Category ID'].'</td>';
-            //     $html_body .= '<td>'.$data['Category Name'].'</td>';
-            //     $html_body .= '<td>'.$states.'</td>';
-            //     $html_body .= "</tr></ol>";
+                $html_body .= '<tr>';
+                $html_body .= '<td>'.$data['Category ID'].'</td>';
+                $html_body .= '<td>'.$data['Category Name'].'</td>';
+                $html_body .= '<td>'.$states.'</td>';
+                $html_body .= "</tr></ol>";
 
-            //     break;
+                break;
                }
             }
         
         
-        // if($type == 'excel'){
+        if($type == 'excel'){
 
-        //     $excel_data = array();
-        //     $excel_data = array('doc_creator' => 'Mirad Jewelries ', 'doc_title' => 'Category Excel Report', 'file_name' => 'Category Report', 'excel_topic' => 'Category');
-        //     $column_data = array('Category ID','Category Name','Category Status');
-        //     $excel_data['column_data'] = $column_data;
-        //     $excel_data['row_data'] = $row_data;
+            $excel_data = array();
+            $excel_data = array('doc_creator' => 'Mirad Jewelries ', 'doc_title' => 'Category Excel Report', 'file_name' => 'Category Report', 'excel_topic' => 'Category');
+            $column_data = array('Category ID','Category Name','Category Status');
+            $excel_data['column_data'] = $column_data;
+            $excel_data['row_data'] = $row_data;
 
-        //       //echo'<pre>';print_r($excel_data);echo'</pre>';die();
+              //echo'<pre>';print_r($excel_data);echo'</pre>';die();
 
-        //     $this->export->create_excel($excel_data);
+            $this->export->create_excel($excel_data);
 
-        // }elseif($type == 'pdf'){
+        }elseif($type == 'pdf'){
             
-        //     $html_body .= '</tbody></table>';
-        //     $pdf_data = array("pdf_title" => "Category PDF Report", 'pdf_html_body' => $html_body, 'pdf_view_option' => 'download', 'file_name' => 'Category Report', 'pdf_topic' => 'Category');
+            $html_body .= '</tbody></table>';
+            $pdf_data = array("pdf_title" => "Category PDF Report", 'pdf_html_body' => $html_body, 'pdf_view_option' => 'download', 'file_name' => 'Category Report', 'pdf_topic' => 'Category');
 
-        //     //echo'<pre>';print_r($pdf_data);echo'</pre>';die();
+            //echo'<pre>';print_r($pdf_data);echo'</pre>';die();
 
-        //     $this->export->create_pdf($pdf_data);
+            $this->export->create_pdf($pdf_data);
 
-        // }else{
+        }else{
 
-        //     $display .= "</tbody>";
+            $display .= "</tbody>";
 
-        //     //echo'<pre>';print_r($display);echo'</pre>';die();
+            //echo'<pre>';print_r($display);echo'</pre>';die();
 
-        //     return $display;
-        // }
+            return $display;
+        }
             return $display;
 	}
 

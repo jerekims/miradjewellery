@@ -39,15 +39,14 @@
                          </ul>
                        </div>
                      </div>
-                     <table class="table table-striped" id="category-table"><!-- The table created in the page -->
+                     <table class="table table-striped" id="product-table"><!-- The table created in the page -->
                        <thead>
                         <tr>
-                          <th>Product ID</th>
+                          <th>#</th>
                           <th>Product Name</th>
-                          <th>Product category</th>
                           <th>Product Description</th>
                           <th>Product Price</th>
-                          <th>Product Image</th>
+                          <th>Status</th>
                           <th>View</th>
                           <!-- <th>Edit</th> -->
                           <th>Deactivate</th>

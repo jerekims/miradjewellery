@@ -12,11 +12,11 @@ class Product_model extends MY_Model {
 		function get_all_products()
 		{
 			$sql="SELECT 
-				id AS 'Product ID',
-				name AS 'Product Name',
-				description AS 'Product Description',
-				price AS 'Product Price',
-				image AS 'Product Image',
+				prodid AS 'Product ID',
+				prodname AS 'Product Name',
+				proddescription AS 'Product Description',
+				prodprice AS 'Product Price',
+				prodimage AS 'Product Image',
 				product_status AS 'Product Status'
 				FROM  
 					`products`";
@@ -30,11 +30,11 @@ class Product_model extends MY_Model {
 		function add_product($product_category,$productname,$description,$price,$image,$pstatus)
 		{
 			$product=array(
-						'category_id'=>$product_category,
-						'name'=>$productname,
-						'description'=>$description,
-						'price'=>$price,
-						'image'=>$image,
+						'catid'=>$product_category,
+						'prodname'=>$productname,
+						'proddescription'=>$description,
+						'prodprice'=>$price,
+						'prodimage'=>$image,
 						'product_status'=>$pstatus
 				);
 			$insert=$this->db->insert('products',$product);
@@ -47,13 +47,13 @@ class Product_model extends MY_Model {
 		function update_product($product_id,$product_category,$productname,$description,$price,$image)
 		{
 			$product=array(
-						'category_id'=>$product_category,
-						'name'=>$productname,
-						'description'=>$description,
-						'price'=>$price,
-						'image'=>$image
+						'catid'=>$product_category,
+						'prodname'=>$productname,
+						'proddescription'=>$description,
+						'prodprice'=>$price,
+						'prodimage'=>$image
 				);
-			$this->db->where('id',$product_id);
+			$this->db->where('prodid',$product_id);
 
 			$update=$this->db->update('products',$product);
 
@@ -66,12 +66,12 @@ class Product_model extends MY_Model {
 		function productprofile($productid)
 		{
 			$profile=array();
-			$query=$this->db->get_where('products',array('id'=>$productid));
+			$query=$this->db->get_where('products',array('prodid'=>$productid));
 			$result=$query->result_array();
 			if($result)
 			{
 				foreach ($result as $key => $value) {
-					$profile[$value['id']]=$value;
+					$profile[$value['prodid']]=$value;
 				}
 			}
 			return $profile;
@@ -101,7 +101,7 @@ class Product_model extends MY_Model {
 
 		}
 
-		$this->db->where('id',$id);
+		$this->db->where('prodid',$id);
 		$update=$this->db->update('products',$data);
 		if($update){
 			return true;

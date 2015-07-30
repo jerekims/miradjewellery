@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
       $('#category-table').dataTable();
+      $('#product-table').dataTable();
       $('#administrator-table').dataTable();
       $('#orders-table').dataTable();
 
