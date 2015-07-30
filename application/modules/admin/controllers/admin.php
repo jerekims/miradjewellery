@@ -21,6 +21,7 @@ class Admin extends MY_Controller {
 // Display the first page of the admin module
     function index()
     {
+
         $data['log_navbar'] = 'admin/log_header';
         $data['log_content'] = 'admin/v_log';
         $data['log_footer'] = 'admin/log_footer';
@@ -32,25 +33,27 @@ class Admin extends MY_Controller {
     function validate_member()
     {
         
-            
-            $result = $this->user_model->log_member();      
+            $username = $this->input->post('useremail');
+        $passw1 = $this->input->post('userpassword');
+
+            $result = $this->admin_model->log_member($username,$passw1);      
             
              //echo '<pre>';print_r($result);echo'</pre>';die;
             switch($result){
 
                 case 'logged_in':
                     
-                    switch($this->session->userdata('lt_id')){
+                    switch($this->session->userdata('level_id')){
                         case '1':
-                          redirect(base_url().'products/view');
+                          redirect(base_url().'admin/dashboard');
                         break;
 
                         case '2':
-                          redirect(base_url().'manager/home');
+                          redirect(base_url().'admin/dashboard');
                         break;
 
                         case '3':
-                          redirect(base_url().'admin/home');
+                          redirect(base_url().'admin/dashboard');
                         break;
                     }
 
@@ -59,24 +62,24 @@ class Admin extends MY_Controller {
                 case 'incorrect_password':
                     $data['new_user'] = 'Incorrect Username or Password. Please try again...';
 
-                    $this->load->view('log_header');
-                    $this->load->view('v_log', $data);
-                    $this->load->view('home/footer');
+                    $data['log_navbar'] = 'admin/log_header';
+                    $data['log_content'] = 'admin/v_log';
+                    $data['log_footer'] = 'admin/log_footer';
                 break;
 
                 case 'not_activated':
                     $data['new_user'] = 'Your account is not activated';
 
-                    $this->load->view('log_header');
-                    $this->load->view('v_log', $data);
-                    $this->load->view('home/footer');
+                    $data['log_navbar'] = 'admin/log_header';
+                    $data['log_content'] = 'admin/v_log';
+                    $data['log_footer'] = 'admin/log_footer';
                 break;
 
                 default:
                     // echo '';
                 break;
             }   
-        }
+        
     }  
 
      function dashboard(){
