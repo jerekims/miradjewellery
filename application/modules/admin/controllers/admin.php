@@ -29,6 +29,56 @@ class Admin extends MY_Controller {
         $this->template->call_log_template($data);
     }
 
+    function validate_member()
+    {
+        
+            
+            $result = $this->user_model->log_member();      
+            
+             //echo '<pre>';print_r($result);echo'</pre>';die;
+            switch($result){
+
+                case 'logged_in':
+                    
+                    switch($this->session->userdata('lt_id')){
+                        case '1':
+                          redirect(base_url().'products/view');
+                        break;
+
+                        case '2':
+                          redirect(base_url().'manager/home');
+                        break;
+
+                        case '3':
+                          redirect(base_url().'admin/home');
+                        break;
+                    }
+
+                break;
+
+                case 'incorrect_password':
+                    $data['new_user'] = 'Incorrect Username or Password. Please try again...';
+
+                    $this->load->view('log_header');
+                    $this->load->view('v_log', $data);
+                    $this->load->view('home/footer');
+                break;
+
+                case 'not_activated':
+                    $data['new_user'] = 'Your account is not activated';
+
+                    $this->load->view('log_header');
+                    $this->load->view('v_log', $data);
+                    $this->load->view('home/footer');
+                break;
+
+                default:
+                    // echo '';
+                break;
+            }   
+        }
+    }  
+
      function dashboard(){
 
         $data['all_categories'] = $this->allcategories('table');

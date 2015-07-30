@@ -1,6 +1,8 @@
 $(document).ready(function(){
 
 
+$("#form_adminlog").validationEngine();
+
 
 
 //Function for scroll up button
