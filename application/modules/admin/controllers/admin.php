@@ -21,6 +21,16 @@ class Admin extends MY_Controller {
 // Display the first page of the admin module
     function index()
     {
+        $data['log_navbar'] = 'admin/log_header';
+        $data['log_content'] = 'admin/v_log';
+        $data['log_footer'] = 'admin/log_footer';
+        
+        
+        $this->template->call_log_template($data);
+    }
+
+     function dashboard(){
+
         $data['all_categories'] = $this->allcategories('table');
 
         $data['admin_title'] = 'Manager';
@@ -29,8 +39,7 @@ class Admin extends MY_Controller {
         $data['admin_sidebar'] = 'admin/sidebar';
         $data['admin_content'] = 'admin/v_admin';
         $data['admin_footer'] = 'admin/footer';
-        
-        
+
         $this->template->call_admin_template($data);
     }
 

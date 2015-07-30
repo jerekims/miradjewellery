@@ -33,6 +33,8 @@ class Product extends MY_Controller {
         $this->template->call_admin_template($data);
     }
 
+   
+
     // Display of other pages
 
 	/* display the product page

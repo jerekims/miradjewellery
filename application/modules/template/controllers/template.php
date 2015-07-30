@@ -22,6 +22,13 @@ class Template extends MY_Controller
 		$this->load->view('template_view', $data);
 	}
 
+	function call_log_template($data = NULL)
+	{
+		// echo "You have gained access to the template controller";
+		// echo "<pre>";print_r($data);die();
+		$this->load->view('template_view1', $data);
+	}
+
 
 	function call_admin_template($data = NULL)
 	{
@@ -29,6 +36,8 @@ class Template extends MY_Controller
 		// echo "<pre>";print_r($data);die();
 		$this->load->view('template_view2', $data);
 	}
+
+	
 
 }
 ?>
