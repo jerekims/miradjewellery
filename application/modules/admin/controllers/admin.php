@@ -36,7 +36,50 @@ class Admin extends MY_Controller {
 
     // Display of other pages
     
-    
+    function clients()
+    {
+       
+
+        $data['admin_title'] = 'Manager';
+        $data['admin_subtitle'] = 'Clients';
+        $data['admin_navbar'] = 'admin/header';
+        $data['admin_sidebar'] = 'admin/sidebar';
+        $data['admin_content'] = 'admin/clients';
+        $data['admin_footer'] = 'admin/footer';
+        
+        
+        $this->template->call_admin_template($data);
+    }
+
+     function orders()
+    {
+       
+
+        $data['admin_title'] = 'Manager';
+        $data['admin_subtitle'] = 'Orders';
+        $data['admin_navbar'] = 'admin/header';
+        $data['admin_sidebar'] = 'admin/sidebar';
+        $data['admin_content'] = 'admin/orders';
+        $data['admin_footer'] = 'admin/footer';
+        
+        
+        $this->template->call_admin_template($data);
+    }
+
+     function comments()
+    {
+       
+
+        $data['admin_title'] = 'Manager';
+        $data['admin_subtitle'] = 'Comments';
+        $data['admin_navbar'] = 'admin/header';
+        $data['admin_sidebar'] = 'admin/sidebar';
+        $data['admin_content'] = 'admin/comments';
+        $data['admin_footer'] = 'admin/footer';
+        
+        
+        $this->template->call_admin_template($data);
+    }
     
     // Displays the contents page of the categories, in this case opens the category.php file
     function categories()
