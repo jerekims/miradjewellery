@@ -44,16 +44,23 @@ class Admin extends MY_Controller {
                 case 'logged_in':
                     
                     switch($this->session->userdata('level_id')){
+
+                        // Level 1 Admin
+                        
                         case '1':
-                          redirect(base_url().'admin/dashboard');
+                          redirect(base_url().'superadmin/dashboard');
                         break;
+
+                        // Level 2 Manager
 
                         case '2':
                           redirect(base_url().'admin/dashboard');
                         break;
 
+                        // Level 3 Stock Manager
+
                         case '3':
-                          redirect(base_url().'admin/dashboard');
+                          redirect(base_url().'stockmanager/dashboard');
                         break;
                     }
 
