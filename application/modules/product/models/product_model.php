@@ -36,6 +36,7 @@ class Product_model extends MY_Model {
 						'prodprice'=>$price,
 						'prodimage'=>"image",
 						'prodstatus'=>$pstatus
+
 				);
 			$insert=$this->db->insert('products',$product);
 			return $insert;
@@ -47,13 +48,13 @@ class Product_model extends MY_Model {
 		function update_product($product_id,$product_category,$productname,$description,$price,$image)
 		{
 			$product=array(
-						'category_id'=>$product_category,
-						'name'=>$productname,
-						'description'=>$description,
-						'price'=>$price,
-						'image'=>$image
+						'catid'=>$product_category,
+						'prodname'=>$productname,
+						'proddescription'=>$description,
+						'prodprice'=>$price,
+						'prodimage'=>$image
 				);
-			$this->db->where('id',$product_id);
+			$this->db->where('prodid',$product_id);
 
 			$update=$this->db->update('products',$product);
 
@@ -101,7 +102,7 @@ class Product_model extends MY_Model {
 
 		}
 
-		$this->db->where('id',$id);
+		$this->db->where('prodid',$id);
 		$update=$this->db->update('products',$data);
 		if($update){
 			return true;

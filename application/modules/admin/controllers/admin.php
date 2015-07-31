@@ -21,6 +21,16 @@ class Admin extends MY_Controller {
 // Display the first page of the admin module
     function index()
     {
+        $data['log_navbar'] = 'admin/log_header';
+        $data['log_content'] = 'admin/v_log';
+        $data['log_footer'] = 'admin/log_footer';
+        
+        
+        $this->template->call_log_template($data);
+    }
+
+     function dashboard(){
+
         $data['all_categories'] = $this->allcategories('table');
 
         $data['admin_title'] = 'Manager';
@@ -29,14 +39,56 @@ class Admin extends MY_Controller {
         $data['admin_sidebar'] = 'admin/sidebar';
         $data['admin_content'] = 'admin/v_admin';
         $data['admin_footer'] = 'admin/footer';
-        
-        
+
         $this->template->call_admin_template($data);
     }
 
     // Display of other pages
     
-    
+    function clients()
+    {
+       
+
+        $data['admin_title'] = 'Manager';
+        $data['admin_subtitle'] = 'Clients';
+        $data['admin_navbar'] = 'admin/header';
+        $data['admin_sidebar'] = 'admin/sidebar';
+        $data['admin_content'] = 'admin/clients';
+        $data['admin_footer'] = 'admin/footer';
+        
+        
+        $this->template->call_admin_template($data);
+    }
+
+     function orders()
+    {
+       
+
+        $data['admin_title'] = 'Manager';
+        $data['admin_subtitle'] = 'Orders';
+        $data['admin_navbar'] = 'admin/header';
+        $data['admin_sidebar'] = 'admin/sidebar';
+        $data['admin_content'] = 'admin/orders';
+        $data['admin_footer'] = 'admin/footer';
+        
+        
+        $this->template->call_admin_template($data);
+    }
+
+     function comments()
+    {
+       
+
+        $data['admin_title'] = 'Manager';
+        $data['admin_subtitle'] = 'Comments';
+        $data['admin_navbar'] = 'admin/header';
+        $data['admin_sidebar'] = 'admin/sidebar';
+        $data['admin_content'] = 'admin/comments';
+        $data['admin_footer'] = 'admin/footer';
+        
+        
+        $this->template->call_admin_template($data);
+    }
     
     // Displays the contents page of the categories, in this case opens the category.php file
     function categories()

@@ -1,0 +1,100 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans|Roboto|Oswald|Lato|Droid+Sans|PT+Sans|Source+Sans+Pro|Open+Sans+Condensed:300|Roboto+Condensed|Droid+Serif|Ubuntu|Raleway|Montserrat|PT+Sans+Narrow|Roboto+Slab|Lobster|Arimo|Yanone+Kaffeesatz|Lora|Bitter);
+
+.log-header{
+	 margin-bottom: 80px;
+}
+
+.navbar-inverse .navbar-brand{
+    color:#e67e22;
+}
+
+.navbar-inverse .navbar-brand:hover{
+    color:#f39c12;
+}
+
+.top-nav {
+    padding: 0 15px;
+
+}
+
+.top-nav>li {
+    display: inline-block;
+    float: left;
+}
+
+.top-nav>li>a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    line-height: 20px;
+    color: #999;
+}
+
+.top-nav>li>a:hover,
+.top-nav>li>a:focus,
+.top-nav>.open>a,
+.top-nav>.open>a:hover,
+.top-nav>.open>a:focus {
+    color: #fff;
+    background-color: #000;
+}
+
+.top-nav>.open>.dropdown-menu {
+    float: left;
+    position: absolute;
+    margin-top: 0;
+    border: 1px solid rgba(0,0,0,.15);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    background-color: #fff;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+
+.top-nav>.open>.dropdown-menu>li>a {
+    white-space: normal;
+}
+
+
+.top-nav>li>a:hover{
+   color:#f1c40f; 
+}
+
+.right{
+	float: right;
+}
+
+.left{
+	float:left;
+}
+
+.login_panel{
+	border:1px solid #000;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	height:450px;
+	width:650px;
+}
+
+.log-footer{
+	margin-top: 100px;
+	background-color: #000;
+	width:100%;
+	height: auto;
+	bottom: 0;
+	position: absolute;
+	color:#fff;
+	min-height: 150px;
+}
+
+.footer_content{
+   margin-top: 15px;
+
+}
+
+.left-footer{
+    
+}
+
+.right-footer{
+    
+}
