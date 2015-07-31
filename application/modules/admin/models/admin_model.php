@@ -9,6 +9,13 @@ class Admin_model extends MY_Model {
         parent::__construct();
     }
 
+    public function passcheck($email){
+       $sql = "SELECT emp_password FROM employees WHERE emp_email = '".$email."' ";
+
+       $result = $this->db->query($sql);
+       return $result->result_array();
+    }
+
     public function clientnumber(){
     $sql = "SELECT COUNT(`cust_id`) as clients FROM customers WHERE cust_status = 1";
 

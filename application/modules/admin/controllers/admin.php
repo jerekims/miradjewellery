@@ -36,6 +36,8 @@ class Admin extends MY_Controller {
         $this->template->call_log_template($data);
     }
 
+
+
     function logout()
     {
         $this->session->sess_destroy();
@@ -43,6 +45,14 @@ class Admin extends MY_Controller {
     }
 
     function dashboard(){
+
+        $email = $this->session->userdata('emp_email');
+
+        $passcheck = $this->admin_model->passcheck($email);
+
+        if($passcheck){
+            $passmessage = "Remember to change your password";
+        }
 
         $data['clientnumber'] = $this->getclientnumber();
         $data['ordernumber'] = $this->getordernumber();
@@ -57,6 +67,8 @@ class Admin extends MY_Controller {
         $data['admin_sidebar'] = 'admin/sidebar';
         $data['admin_content'] = 'admin/v_admin';
         $data['admin_footer'] = 'admin/footer';
+        
+        $data['passmessage'] = $passmessage;
 
         $this->template->call_admin_template($data);
     }
@@ -115,6 +127,12 @@ class Admin extends MY_Controller {
                         // Level 1 Admin
                         
                         case '1':
+                          // echo json_encode(array(
+                          // 'state' => 'success',
+                          // 'subject' => 'Log Success',
+                          // 'message'=> 'Logged in successfully'
+                          // ));
+                          
                           redirect(base_url().'superadmin/dashboard');
                         break;
 
@@ -125,12 +143,18 @@ class Admin extends MY_Controller {
                           'state' => 'success',
                           'subject' => 'Log Success',
                           'message'=> 'Logged in successfully'
-                   ));
+                        ));
                         break;
 
                         // Level 3 Stock Manager
 
                         case '3':
+                          // echo json_encode(array(
+                          // 'state' => 'success',
+                          // 'subject' => 'Log Success',
+                          // 'message'=> 'Logged in successfully'
+                          // ));
+                          
                           redirect(base_url().'stockmanager/dashboard');
                         break;
                     }
