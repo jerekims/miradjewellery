@@ -9,6 +9,12 @@ class Admin extends MY_Controller {
         $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
         $this->load->library('upload');
+
+        if ($this->session->userdata('logged_in')) {
+            $this->logged_in = TRUE;
+         } else {
+            //$this->logged_in = FASLE;
+         }
         
         $this->pic_path = realpath(APPPATH . '../uploads/');
 
@@ -28,6 +34,12 @@ class Admin extends MY_Controller {
         
         
         $this->template->call_log_template($data);
+    }
+
+    function logout()
+    {
+        $this->session->sess_destroy();
+        redirect(base_url().'admin');
     }
 
     function dashboard(){
