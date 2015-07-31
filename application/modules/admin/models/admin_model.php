@@ -279,7 +279,12 @@ class Admin_model extends MY_Model {
     }
 
 
+     public function logoutuser($sess_log){
+         $data['logged_in'] = 0;
 
+         $this->db->where('session_id', $sess_log);
+         $update = $this->db->update('ci_sessions', $data);
+     }
 
    
 

@@ -40,6 +40,9 @@ class Admin extends MY_Controller {
 
     function logout()
     {
+        $sess_log = $this->session->userdata('session_id');
+        $log = $this->admin_model->logoutuser($sess_log);
+
         $this->session->sess_destroy();
         redirect(base_url().'admin');
     }
@@ -50,7 +53,7 @@ class Admin extends MY_Controller {
 
         $passcheck = $this->admin_model->passcheck($email);
 
-        if($passcheck){
+        if($passcheck == 'e10adc3949ba59abbe56e057f20f883e'){
             $passmessage = "Remember to change your password";
         }
 
@@ -113,11 +116,11 @@ class Admin extends MY_Controller {
     {
         
             $username = $this->input->post('useremail');
-            $passw1 = $this->input->post('userpassword');
+            $passw1 = md5($this->input->post('userpassword'));
 
             $result = $this->admin_model->log_member($username,$passw1);      
             
-             //echo '<pre>';print_r($username);echo'</pre>';die;
+             //echo '<pre>';print_r($result);echo'</pre>';die;
             switch($result){
 
                 case 'logged_in':
@@ -127,19 +130,21 @@ class Admin extends MY_Controller {
                         // Level 1 Admin
                         
                         case '1':
-                          // echo json_encode(array(
-                          // 'state' => 'success',
-                          // 'subject' => 'Log Success',
-                          // 'message'=> 'Logged in successfully'
-                          // ));
+                          echo json_encode(array(
+                          'level' => 'superadmin',
+                          'state' => 'success',
+                          'subject' => 'Log Success',
+                          'message'=> 'Logged in successfully'
+                          ));
                           
-                          redirect(base_url().'superadmin/dashboard');
+                          //redirect(base_url().'superadmin/dashboard');
                         break;
 
                         // Level 2 Manager
 
                         case '2':
                         echo json_encode(array(
+                          'level' => 'manager',
                           'state' => 'success',
                           'subject' => 'Log Success',
                           'message'=> 'Logged in successfully'
@@ -149,13 +154,14 @@ class Admin extends MY_Controller {
                         // Level 3 Stock Manager
 
                         case '3':
-                          // echo json_encode(array(
-                          // 'state' => 'success',
-                          // 'subject' => 'Log Success',
-                          // 'message'=> 'Logged in successfully'
-                          // ));
+                          echo json_encode(array(
+                          'level' => 'stockmanager',
+                          'state' => 'success',
+                          'subject' => 'Log Success',
+                          'message'=> 'Logged in successfully'
+                          ));
                           
-                          redirect(base_url().'stockmanager/dashboard');
+                          //redirect(base_url().'stockmanager/dashboard');
                         break;
                     }
 

@@ -26,7 +26,13 @@ $(function(){
                	   //alert(response.message);
                    swal({   title: response.subject,   text: response.message,   timer: 3000 });
                }else if(response.state === "success"){
+                 if(response.level === "superadmin"){
+                   window.location.href = 'superadmin/dashboard' ;
+                 }else if(response.level === "manager"){
                    window.location.href = 'admin/dashboard' ;
+                 }else if(response.level === "stockmanager"){
+                   window.location.href = 'stockmanager/dashboard' ;
+                 }
                }
               
               

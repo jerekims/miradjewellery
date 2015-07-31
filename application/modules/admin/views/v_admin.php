@@ -12,7 +12,9 @@
                             <li class="active">
                                  <i class="fa fa-dashboard"></i>
                                    <a class="crumbs" href="<?php echo base_url(). 'admin'?>">Manager Dashboard</a>
+                                   <?php if($passmessage){ ?>
                                    <a href="<?php echo base_url().'admin/viewemployee/'.$this->session->userdata('emp_id')?>" class="animated flash red"> <?php echo $passmessage ?> </a>
+                                    <?php } ?>
                             </li>
                         </ol>
                     </div>
