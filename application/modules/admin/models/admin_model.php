@@ -9,6 +9,83 @@ class Admin_model extends MY_Model {
         parent::__construct();
     }
 
+
+     public function log_member($username,$passw1)
+    {
+        
+
+         //echo '<pre>';print_r($passw1);echo'</pre>';die;
+        $sql = "SELECT * FROM employees WHERE emp_email = '". $username ."' AND emp_password = '". $passw1 ."' LIMIT 1";
+
+
+
+
+        $result = $this->db->query($sql);
+        
+        $row = $result->row();
+         // echo '<pre>';print_r($result);echo'</pre>';die;
+        $sql2 = "SELECT * FROM employees WHERE emp_email = '". $username ."' AND emp_status = 0 ";
+
+        $result2 = $this->db->query($sql2);
+        $row2 = $result->row();
+
+        if($result->num_rows() == 1){
+           if($row2->emp_status){
+             if ($row->emp_password === $passw1) {
+               $session_data = array(
+                   'emp_id'       => $row ->emp_id , 
+                   'emp_name'    => $row ->emp_name , 
+                   'emp_email'      => $row ->emp_email ,
+                   'level_id'      => $row ->level_id 
+                   
+                );
+
+                $this -> set_session($session_data);
+                return 'logged_in';
+             } else {
+               return "session_fail";
+             }
+           }else{
+             return "not_activated";
+           }
+         }else{
+          return "incorrect_password";
+         }
+
+
+       
+       //print_r($this->session->all_userdata());
+    }
+
+    private function set_session($session_data){
+      $sql = "SELECT emp_id , emp_name, emp_email, level_id FROM employees WHERE emp_email = '". $session_data['emp_email'] ."' LIMIT 1";
+      $result = $this->db->query($sql);
+      $row = $result->row();
+       //echo "<pre>";print_r($result);die();
+       //echo $session_data['emp_id'];die();
+      $setting_session = array(
+                   'emp_id'       => $session_data['emp_id'] , 
+                   'emp_name'    => $session_data['emp_name'] ,
+                   'emp_email'       => $session_data['emp_email'] ,
+                   'level_id'       => $session_data['level_id'] ,
+                   'logged_in'   => 1
+      ); 
+
+      $this->session->set_userdata($setting_session);
+
+      //echo "<pre>";print_r($setting_session);die();
+      
+      $details = $this->session->all_userdata();
+       $sql = "INSERT INTO ci_sessions (`session_id`,`ip_address`,`user_agent`,`last_activity`,`user_data`,`emp_id`,`emp_name`,`emp_email`,`level_id`,`logged_in`)
+               VALUES ('".$details['session_id']."', '".$details['ip_address']."','".$details['user_agent']."', '".$details['last_activity']."', 
+                       '1','".$details['emp_id']."', '".$details['emp_name']."', '".$details['emp_email']."', '".$details['level_id']."', '".$details['logged_in']."') ";
+
+    $results = $this->db->query($sql);
+      //$this->db->insert_batch('ci_sessions',$session_details);
+       // $details = $this->session->all_userdata();
+        
+    }
+
     function get_all_administrators()
 
 	{

@@ -2,7 +2,11 @@ AddType text/cache-manifest .appcache
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
+<<<<<<< HEAD
     RewriteBase /miradjewelerry
+=======
+    RewriteBase /mirad
+>>>>>>> 27f460a88df0493edefd44e203c3a4e7a709c247
 
 
     #Removes access to the system folder by users.

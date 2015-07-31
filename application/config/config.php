@@ -17,7 +17,11 @@
 
 
 
+<<<<<<< HEAD
 $config['base_url']	= 'http://'.$_SERVER['SERVER_NAME'].'/miradjewellery';
+=======
+$config['base_url']	= 'http://'.$_SERVER['SERVER_NAME'].'/mirad';
+>>>>>>> 27f460a88df0493edefd44e203c3a4e7a709c247
 
 
 
