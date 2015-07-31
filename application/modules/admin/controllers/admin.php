@@ -36,6 +36,13 @@ class Admin extends MY_Controller {
         $this->template->call_log_template($data);
     }
 
+   function log_check(){
+      if($this->session->userdata('logged_in') == 0){
+          redirect(base_url().'admin');
+      }else{
+        return "logged_in";
+      }
+   }
 
 
     function logout()
@@ -48,6 +55,8 @@ class Admin extends MY_Controller {
     }
 
     function dashboard(){
+ 
+        $this->log_check();
 
         $email = $this->session->userdata('emp_email');
 
@@ -204,7 +213,7 @@ class Admin extends MY_Controller {
     
     function clients()
     {
-       
+       $this->log_check();
 
         $data['admin_title'] = 'Manager';
         $data['admin_subtitle'] = 'Clients';
@@ -219,7 +228,7 @@ class Admin extends MY_Controller {
 
      function orders()
     {
-       
+       $this->log_check();
 
         $data['admin_title'] = 'Manager';
         $data['admin_subtitle'] = 'Orders';
@@ -234,7 +243,7 @@ class Admin extends MY_Controller {
 
      function comments()
     {
-       
+        $this->log_check();
 
         $data['admin_title'] = 'Manager';
         $data['admin_subtitle'] = 'Comments';
@@ -250,7 +259,7 @@ class Admin extends MY_Controller {
     // Displays the contents page of the categories, in this case opens the category.php file
     function categories()
     {
-        
+        $this->log_check();
         //Transfer result to category.php from a function within the admin controller called allcategories()
         $data['all_categories'] = $this->allcategories('table'); 
 
@@ -269,7 +278,7 @@ class Admin extends MY_Controller {
 
      function employees()
     {
-        
+        $this->log_check();
         $data['all_administrators'] = $this->allemployees('table'); 
 
         $data['admin_title'] = 'Manager';
@@ -288,7 +297,7 @@ class Admin extends MY_Controller {
     function addcategory()
     {
         
-
+        $this->log_check();
         $data['admin_title'] = 'Manager';
         $data['admin_subtitle'] = 'Add Category';
         $data['admin_navbar'] = 'admin/header';//header.php file
@@ -304,7 +313,7 @@ class Admin extends MY_Controller {
     function addemployee()
     {
         
-
+        $this->log_check();
         $data['admin_title'] = 'Manager';
         $data['admin_subtitle'] = 'Add Employee';
         $data['admin_navbar'] = 'admin/header';//header.php file
@@ -659,6 +668,7 @@ class Admin extends MY_Controller {
     // function that passes the id to be viewed and displays it in the viewcategory file
     function viewcategory($id)
     {
+        $this->log_check();
         $userdet = array();
 
         // uses the id to acquire details from the admin_model.php in a function called categoryprofile() with the id as the parameter
@@ -688,6 +698,7 @@ class Admin extends MY_Controller {
 
     function viewemployee($id)
     {
+        $this->log_check();
         $userdet = array();
 
         
