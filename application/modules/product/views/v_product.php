@@ -22,7 +22,7 @@
 
                   <?php 
                            // categorydetails acquired from the controller admin, in the function called viewcategory()
-                            foreach ($categorydetails as $key => $value) {
+                            foreach ($productdetails as $key => $value) {
                             foreach ($value as $q => $data) {
                             
                            //echo '<pre>';print_r($user);echo'</pre>';die();

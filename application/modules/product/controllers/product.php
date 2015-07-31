@@ -84,7 +84,7 @@ class Product extends MY_Controller {
 	{
 		$display = '';
         $products = $this->product_model->get_all_products();
-        //echo "<pre>";print_r($products);die();
+    //echo "<pre>";print_r($products);die();
 
         $count = 0;
 
@@ -124,6 +124,7 @@ class Product extends MY_Controller {
         switch ($type) {
             case 'table':
                 $display .= '<tr>';
+                //echo'<pre>';print_r($display);echo'</pre>';die();
                 $display .= '<td class="centered">'.$count.'</td>';
                 $display .= '<td class="centered">'.$data['Product Name'].'</td>';
                 $display .= '<td class="centered">'.$data['Product Description'].'</td>';
@@ -131,11 +132,12 @@ class Product extends MY_Controller {
                 $display .= '<td class="centered">'.$state.'</td>';
 
                 // button below used for viewing the specific category. Goes to admin controller into function called viewcategory(), passing the category id as parameter
-                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'admin/viewcategory/'.$data['Product ID'].'"><i class="fa fa-eye black"></i></a></td>';
+                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'product/viewproduct/'.$data['Product ID'].'"><i class="fa fa-eye black"></i></a></td>';
                 
                 // button below used for editing the specific category. Goes to admin controller into function called catupdate(), passing the type of update and the category id as parameter
-                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'admin/catupdate/catdelete/'.$data['Product ID'].'"><i class="ion-trash-a icon black"></i></td>';
+                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'product/catupdate/catdelete/'.$data['Product ID'].'"><i class="ion-trash-a icon black"></i></td>';
                 $display .= '</tr>';
+                 $display .= "</tbody>";
 
                 break;
             
@@ -181,13 +183,17 @@ class Product extends MY_Controller {
 
             $this->export->create_pdf($pdf_data);
 
-        }else{
+        }else{            
 
+             //echo'<pre>';print_r($display);echo'</pre>';die();
+
+        //    return $display;
+        // }
             $display .= "</tbody>";
 
             //echo'<pre>';print_r($display);echo'</pre>';die();
 
-            return $display;
+            //return $display;
         }
             return $display;
 	}
@@ -203,14 +209,14 @@ class Product extends MY_Controller {
 		 // $this->form_validation->set_rules('price','trim|required|xss_clean');
 		 // $this->form_validation->set_rules('image','trim|required|xss_clean');
 
-		 $categoryname = $this->input->post('categoryname');
+		 $categoryname = $this->input->post('productcategory');
          $pname=$this->input->post('productname');
          $pdescription=$this->input->post('prod_description');
          $price=$this->input->post('price');
-         $image=$this->input->post('image');
+         //$image=$this->input->post('image');
          $prodstatus=$this->input->post('productstatus');
 
-         $insert=$this->product_model->add_product($categoryname,$pname,$pdescription,$price,$image,$prodstatus);
+         $insert=$this->product_model->add_product($categoryname,$pname,$pdescription,$price,$prodstatus);
 
          return $insert;
 	}
@@ -247,7 +253,7 @@ class Product extends MY_Controller {
         $results=$this->product_model->productprofile($id);
 
         foreach ($results as $key => $values) {
-            $details['product'][] = $values;  
+            $details['products'][] = $values;  
         }
         $data['productdetails'] = $details;
 
@@ -255,7 +261,7 @@ class Product extends MY_Controller {
         $data['admin_subtitle']='View Product';
         $data['admin-navbar']='admin/header';
         $data['admin_sidebar']='admin/sidebar';
-        $data['admin_content']='product/viewproduct';
+        $data['admin_content']='product/v_product';
         $data['admin_footer']='admin/footer';
 
         $this->template->call_admin_template($data);

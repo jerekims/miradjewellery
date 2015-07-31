@@ -29,9 +29,9 @@
                             <div class="form-group">
                                 <label>Category Name</label>
                                 <select class="form-control" name="productcategory" id="productcategory">
-                                    <option>Rings</option>
-                                    <option>Necklaces</option>
-                                    <option>Bangles</option>
+                                    <option value="1">Rings</option>
+                                    <option  value="2">Necklaces</option>
+                                    <option value="3">Bangles</option>
                                 </select>
                                 </div>
                             <div>

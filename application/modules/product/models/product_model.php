@@ -17,7 +17,7 @@ class Product_model extends MY_Model {
 				proddescription AS 'Product Description',
 				prodprice AS 'Product Price',
 				prodimage AS 'Product Image',
-				product_status AS 'Product Status'
+				prodstatus AS 'Product Status'
 				FROM  
 					`products`";
 			$result=$this->db->query($sql);
@@ -27,15 +27,16 @@ class Product_model extends MY_Model {
 	/* adding new  product  to the database
 	______________________________________________________*/	
 	
-		function add_product($product_category,$productname,$description,$price,$image,$pstatus)
+		function add_product($product_category,$productname,$description,$price,$pstatus)
 		{
 			$product=array(
 						'catid'=>$product_category,
 						'prodname'=>$productname,
 						'proddescription'=>$description,
 						'prodprice'=>$price,
-						'prodimage'=>$image,
-						'product_status'=>$pstatus
+						'prodimage'=>"image",
+						'prodstatus'=>$pstatus
+
 				);
 			$insert=$this->db->insert('products',$product);
 			return $insert;

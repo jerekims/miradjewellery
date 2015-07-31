@@ -46,7 +46,7 @@
 
                             <div class="form-group">
                                 <label>Category Name</label>
-                                <input id="editcategoryname" name="editcategoryname" value="<?php echo $data['catname']; ?>"class="form-control validate[required]">
+                                <input id="editcategoryname" name="editcategoryname" value="<?php echo $data['catname']; ?>" required="" class="form-control validate[required]">
                             </div>
 
                             <div class="form-group">
