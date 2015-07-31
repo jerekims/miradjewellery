@@ -1,5 +1,22 @@
 $(document).ready(function(){
 
+   var pass = $("#editemployeepassword").val();
+   //console.log(pass);
+
+  $('#passpanel').hide();
+
+        if(pass != 123456){
+           $('#passpanel').show();
+
+           $('#editemployeepassword').prop('required',true);
+           $('#editemployeecpassword').prop('required',true);
+        }else{
+           $('#passpanel').slideUp();
+
+           $('#editemployeepassword').prop('required',false);
+           $('#editemployeecpassword').prop('required',false);
+        }
+
       $('#category-table').dataTable();
       $('#product-table').dataTable();
       $('#administrator-table').dataTable();
@@ -38,6 +55,8 @@ $(document).ready(function(){
      $("#formaddcategory").validationEngine();
      $("#formaddproduct").validationEngine();
      $("#formaddadministrator").validationEngine();
+     $("#employeeediting").validationEngine();
+     
 
 
 

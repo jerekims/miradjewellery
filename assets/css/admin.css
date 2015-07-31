@@ -321,3 +321,11 @@ ul.alert-dropdown {
  .formError .formErrorArrow div{
     background:#e74c3c;
  }
+
+ .passwordinfo{
+    font-size: 18px;
+ }
+
+ .red{
+    color:#e74c3c;
+ }

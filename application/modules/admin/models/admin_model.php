@@ -209,12 +209,13 @@ class Admin_model extends MY_Model {
 	}
 
 
-  function administrator_update($id,$employee_name, $employee_email, $employee_occupation,$employee_status)
+  function administrator_update($id,$employee_name, $employee_email, $employee_password, $employee_occupation, $employee_status)
   {
     $employee = array(
             'emp_name'   => $employee_name,
             'emp_email' => $employee_email,
             'level_id'   => $employee_occupation,
+            'emp_password'   => $employee_password,
             'emp_status' => $employee_status
             );
 

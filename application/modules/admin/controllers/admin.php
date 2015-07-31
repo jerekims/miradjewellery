@@ -582,11 +582,19 @@ class Admin extends MY_Controller {
         $id = $this->input->post('editemployeeid');
         $employee_name = $this->input->post('editemployeename');
         $employee_status = $this->input->post('editemployeestatus');
+
+        if($this->input->post('editemployeepassword')){
+            $employee_password = md5($this->input->post('editemployeepassword'));
+        }else{
+            $employee_password = $this->input->post('employeepassword');
+        }
+
+
         $employee_email = $this->input->post('editemployeeemail');
         $employee_occupation = $this->input->post('editemployeeoccupation');
 
         
-        $result = $this->admin_model->administrator_update($id,$employee_name, $employee_email, $employee_occupation, $employee_status);
+        $result = $this->admin_model->administrator_update($id,$employee_name, $employee_email, $employee_password, $employee_occupation, $employee_status);
         
 
         $this->employees();

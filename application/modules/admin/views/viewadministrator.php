@@ -42,6 +42,9 @@
                                 <div class="controls">
                                     <input name="editemployeeid" type="hidden"  value="<?php echo $data['emp_id']; ?>" class="span6 m-wrap form-control "/>
                                 </div>
+                                <div class="controls">
+                                    <input name="employeepassword" type="hidden"  value="<?php echo $data['emp_password']; ?>" class="span6 m-wrap form-control "/>
+                                </div> 
                             </div>
 
                             <div class="form-group image-profile">
@@ -58,6 +61,27 @@
                                 <input id="editemployeeemail" name="editemployeeemail" type="email" value="<?php echo $data['emp_email']; ?>"class="form-control validate[required, custom[email]]">
                             </div>
 
+                            
+                             <!-- <?php if($data['emp_password'] == 123456){ ?> -->
+                             <div class="passpanel">
+                              <p class="help-block animated flash red passwordinfo">Please change your password</p>
+                                     
+                              <div class="form-group">
+                                <label>Password</label>
+                                <input id="editemployeepassword" required name="editemployeepassword" type="password" value="<?php echo $data['emp_password']; ?>"class="form-control validate[required]">
+                              </div>
+
+                              <div class="form-group">
+                                <label>Confirm Password</label>
+                                <input id="editemployeecpassword" required name="editemployeecpassword" type="password" placeholder="Confirm Password"class="form-control validate[required, equals[editemployeepassword]]">
+                              </div>
+                            </div> 
+                              <!-- <?php } ?> -->
+
+                                
+
+                           
+
 
                             <div class="form-group">
                                 <label>Employee Occupation</label>
@@ -67,12 +91,21 @@
                                 if($data['level_id'] == 2){
                             ?>
                                   <option value="3">Stock Manager</option>
-                                    <option selected value="2">Manager</option>
+                                  <option selected value="2">Manager</option>
+                                  <option value="1">Admin</option>
                             <?php
                                 }elseif($data['level_id'] == 3){
                             ?>
                                   <option selected value="3">Stock Manager</option>
-                                    <option  value="2">Manager</option>
+                                  <option  value="2">Manager</option>
+                                  <option value="1">Admin</option>
+
+                            <?php
+                                }elseif($data['level_id'] == 1){
+                            ?>
+                                <option  value="3">Stock Manager</option>
+                                <option  value="2">Manager</option>
+                                <option selected value="1">Admin</option>
                             <?php
                                 }else{
                             ?>
