@@ -101,11 +101,11 @@ class Admin extends MY_Controller {
     {
         
             $username = $this->input->post('useremail');
-        $passw1 = $this->input->post('userpassword');
+            $passw1 = $this->input->post('userpassword');
 
             $result = $this->admin_model->log_member($username,$passw1);      
             
-             //echo '<pre>';print_r($result);echo'</pre>';die;
+             //echo '<pre>';print_r($username);echo'</pre>';die;
             switch($result){
 
                 case 'logged_in':
@@ -121,7 +121,11 @@ class Admin extends MY_Controller {
                         // Level 2 Manager
 
                         case '2':
-                          redirect(base_url().'admin/dashboard');
+                        echo json_encode(array(
+                          'state' => 'success',
+                          'subject' => 'Log Success',
+                          'message'=> 'Logged in successfully'
+                   ));
                         break;
 
                         // Level 3 Stock Manager
@@ -134,19 +138,27 @@ class Admin extends MY_Controller {
                 break;
 
                 case 'incorrect_password':
-                    $data['new_user'] = 'Incorrect Username or Password. Please try again...';
-
-                    $data['log_navbar'] = 'admin/log_header';
-                    $data['log_content'] = 'admin/v_log';
-                    $data['log_footer'] = 'admin/log_footer';
+                   echo json_encode(array(
+                    'state' => 'error',
+                    'subject' => 'Incorrect Password',
+                    'message'=> 'Incorrect username or Password. Please try again...'
+                   ));
                 break;
 
                 case 'not_activated':
-                    $data['new_user'] = 'Your account is not activated';
+                echo json_encode(array(
+                    'state' => 'error',
+                    'subject' => 'Not Activated',
+                    'message'=> 'Your account is not activated'
+                   ));
 
-                    $data['log_navbar'] = 'admin/log_header';
-                    $data['log_content'] = 'admin/v_log';
-                    $data['log_footer'] = 'admin/log_footer';
+                    // $data['new_user'] = 'Your account is not activated';
+
+                    // $data['log_navbar'] = 'admin/log_header';
+                    // $data['log_content'] = 'admin/v_log';
+                    // $data['log_footer'] = 'admin/log_footer';
+
+                    // $this->template->call_log_template($data);
                 break;
 
                 default:

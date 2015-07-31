@@ -3,6 +3,43 @@ $(document).ready(function(){
 
 $("#form_adminlog").validationEngine();
 
+$(function(){
+       $("#form_adminlog").submit(function(){
+          
+
+        
+         var formData = new FormData($(this)[0]);
+
+          
+         $.ajax({
+           type: "POST",
+           url: base_url + 'admin/validate_member',
+           data: formData,
+           async: false,
+           cache: false,
+           contentType: false,
+           processData: false,
+           dataType: "json",
+           success: function(response){
+               	   //alert(response.state);
+               if(response.state === "error"){
+               	   //alert(response.message);
+                   swal({   title: response.subject,   text: response.message,   timer: 3000 });
+               }else if(response.state === "success"){
+                   window.location.href = 'admin/dashboard' ;
+               }
+              
+              
+              
+           }
+ 
+         });
+ 
+         return false;  //stop the actual form post !important!
+ 
+      });
+   });
+
 
 
 //Function for scroll up button

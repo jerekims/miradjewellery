@@ -1,5 +1,8 @@
 $(document).ready(function(){
 
+
+  
+
    var pass = $("#editemployeepassword").val();
    //console.log(pass);
 
