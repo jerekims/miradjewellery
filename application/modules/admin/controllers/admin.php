@@ -30,6 +30,61 @@ class Admin extends MY_Controller {
         $this->template->call_log_template($data);
     }
 
+    function dashboard(){
+
+        $data['clientnumber'] = $this->getclientnumber();
+        $data['ordernumber'] = $this->getordernumber();
+        $data['commentnumber'] = $this->getcommentnumber();
+        $data['productnumber'] = $this->getproductnumber();
+
+        $data['all_categories'] = $this->allcategories('table');
+
+        $data['admin_title'] = 'Manager';
+        $data['admin_subtitle'] = 'Overall Statistics';
+        $data['admin_navbar'] = 'admin/header';
+        $data['admin_sidebar'] = 'admin/sidebar';
+        $data['admin_content'] = 'admin/v_admin';
+        $data['admin_footer'] = 'admin/footer';
+
+        $this->template->call_admin_template($data);
+    }
+
+    public function getclientnumber()
+    {
+          $results = $this->admin_model->clientnumber();
+
+          return $results;
+
+          //echo '<pre>'; print_r($results); echo '</pre>';die;
+    }
+
+    public function getproductnumber()
+    {
+          $results = $this->admin_model->productnumber();
+
+          return $results;
+
+          //echo '<pre>'; print_r($results); echo '</pre>';die;
+    }
+
+    public function getcommentnumber()
+    {
+          $results = $this->admin_model->commentnumber();
+
+          return $results;
+
+          //echo '<pre>'; print_r($results); echo '</pre>';die;
+    }
+
+    public function getordernumber()
+    {
+          $results = $this->admin_model->ordernumber();
+
+          return $results;
+
+          //echo '<pre>'; print_r($results); echo '</pre>';die;
+    }
+
     function validate_member()
     {
         
@@ -89,19 +144,7 @@ class Admin extends MY_Controller {
         
     }  
 
-     function dashboard(){
-
-        $data['all_categories'] = $this->allcategories('table');
-
-        $data['admin_title'] = 'Manager';
-        $data['admin_subtitle'] = 'Overall Statistics';
-        $data['admin_navbar'] = 'admin/header';
-        $data['admin_sidebar'] = 'admin/sidebar';
-        $data['admin_content'] = 'admin/v_admin';
-        $data['admin_footer'] = 'admin/footer';
-
-        $this->template->call_admin_template($data);
-    }
+     
 
     // Display of other pages
     

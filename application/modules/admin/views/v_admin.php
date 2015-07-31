@@ -29,12 +29,12 @@
                                         <i class="fa fa-group fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge">259</div>
+                                        <div class="huge"><?php echo $clientnumber?></div>
                                         <div>Clients</div>
                                     </div>
                                 </div>
                             </div>
-                            <a href="#">
+                            <a href="<?php echo base_url(). 'admin/clients'?>">
                                 <div class="panel-footer">
                                     <span class="pull-left">View More</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -51,12 +51,12 @@
                                         <i class="fa fa-gift fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge">967</div>
+                                        <div class="huge"><?php echo $productnumber?></div>
                                         <div>Products</div>
                                     </div>
                                 </div>
                             </div>
-                            <a href="#">
+                            <a href="<?php echo base_url(). 'product/products'?>">
                                 <div class="panel-footer">
                                     <span class="pull-left">View More</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -73,12 +73,12 @@
                                         <i class="fa fa-truck fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge">12</div>
+                                        <div class="huge"><?php echo $ordernumber?></div>
                                         <div>Orders</div>
                                     </div>
                                 </div>
                             </div>
-                            <a href="#">
+                            <a href="<?php echo base_url(). 'admin/orders'?>">
                                 <div class="panel-footer">
                                     <span class="pull-left">View More</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -95,12 +95,12 @@
                                         <i class="fa fa-comments fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge">22</div>
+                                        <div class="huge"><?php echo $commentnumber?></div>
                                         <div>Comments</div>
                                     </div>
                                 </div>
                             </div>
-                            <a href="#">
+                            <a href="<?php echo base_url(). 'admin/comments'?>">
                                 <div class="panel-footer">
                                     <span class="pull-left">View More</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

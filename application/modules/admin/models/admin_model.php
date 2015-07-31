@@ -9,6 +9,47 @@ class Admin_model extends MY_Model {
         parent::__construct();
     }
 
+    public function clientnumber(){
+    $sql = "SELECT COUNT(`cust_id`) as clients FROM customers WHERE cust_status = 1";
+
+        $result = $this->db->query($sql);
+        $data = $result->row();
+        //echo $data->clients;die();
+
+        return $data->clients;
+   }
+
+   public function productnumber(){
+    $sql = "SELECT COUNT(`prodid`) as product FROM products WHERE product_status = 1";
+
+        $result = $this->db->query($sql);
+        $data = $result->row();
+        //echo $data->product;die();
+
+        return $data->product;
+   }
+
+   public function ordernumber(){
+    $sql = "SELECT COUNT(`order_id`) as orders FROM orders WHERE order_status = 1";
+
+        $result = $this->db->query($sql);
+        $data = $result->row();
+        //echo $data->order;die();
+
+        return $data->orders;
+   }
+
+   public function commentnumber(){
+    $sql = "SELECT COUNT(`comm_id`) as comment FROM comments WHERE comm_status = 1";
+
+        $result = $this->db->query($sql);
+        $data = $result->row();
+        //echo $data->comment;die();
+
+        return $data->comment;
+   }
+
+
 
      public function log_member($username,$passw1)
     {
