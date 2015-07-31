@@ -3,7 +3,7 @@ AddType text/cache-manifest .appcache
     RewriteEngine On
 
 
-    RewriteBase /miradjewelerry
+    RewriteBase /mirad
 
 
 

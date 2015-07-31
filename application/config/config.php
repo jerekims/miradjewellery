@@ -17,7 +17,7 @@
 
 
 
-$config['base_url']	= 'http://'.$_SERVER['SERVER_NAME'].'/miradjewellery';
+$config['base_url']	= 'http://'.$_SERVER['SERVER_NAME'].'/mirad';
 
 
 
