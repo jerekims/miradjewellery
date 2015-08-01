@@ -28,12 +28,12 @@
 
                             <div class="form-group">
                                 <label>Category Name</label>
-                                <input id="categoryname" name="categoryname" required="" class="form-control validate[required]">
+                                <input id="categoryname" name="categoryname" required class="form-control validate[required]">
                             </div>
 
                             <div class="form-group">
                                 <label>Category Status</label>
-                                <select id="categorystatus" name="categorystatus" class="form-control">
+                                <select id="categorystatus" name="categorystatus" class="form-control validate[required]">
                                     <option selected value="1">Activate</option>
                                     <option value="0">Deactivate</option>
                                 </select>

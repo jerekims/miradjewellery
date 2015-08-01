@@ -40,10 +40,10 @@
                                 <label class="control-label">Employee ID: <?php echo $data['emp_id']; ?></label>
 
                                 <div class="controls">
-                                    <input name="editemployeeid" type="hidden"  value="<?php echo $data['emp_id']; ?>" class="span6 m-wrap form-control "/>
+                                    <input name="editemployeeid" type="hidden" required value="<?php echo $data['emp_id']; ?>" class="span6 m-wrap form-control"/>
                                 </div>
                                 <div class="controls">
-                                    <input name="employeepassword" type="hidden"  value="<?php echo $data['emp_password']; ?>" class="span6 m-wrap form-control "/>
+                                    <input name="employeepassword" type="hidden" required value="<?php echo $data['emp_password']; ?>" class="span6 m-wrap form-control "/>
                                 </div> 
                             </div>
 
@@ -53,12 +53,12 @@
 
                             <div class="form-group">
                                 <label>Employee Name</label>
-                                <input id="editemployeename" name="editemployeename" value="<?php echo $data['emp_name']; ?>"class="form-control validate[required]">
+                                <input id="editemployeename" name="editemployeename"  required value="<?php echo $data['emp_name']; ?>"class="form-control validate[required]">
                             </div>
 
                             <div class="form-group">
                                 <label>Employee Email</label>
-                                <input id="editemployeeemail" name="editemployeeemail" type="email" value="<?php echo $data['emp_email']; ?>"class="form-control validate[required, custom[email]]">
+                                <input id="editemployeeemail" name="editemployeeemail"  required type="email" value="<?php echo $data['emp_email']; ?>"class="form-control validate[required, custom[email]]">
                             </div>
 
                             
@@ -85,7 +85,7 @@
 
                             <div class="form-group">
                                 <label>Employee Occupation</label>
-                                <select id="editemployeeoccupation" name="editemployeeoccupation" class="form-control">
+                                <select id="editemployeeoccupation"  required name="editemployeeoccupation" class="form-control validate[required]">
 
                             <?php 
                                 if($data['level_id'] == 2){
@@ -119,7 +119,7 @@
 
                             <div class="form-group">
                                 <label>Employee Status</label>
-                                <select id="editemployeestatus" name="editemployeestatus" class="form-control">
+                                <select id="editemployeestatus" required name="editemployeestatus" class="form-control validate[required]">
 
                             <?php 
                                 if($data['emp_status'] == 1){

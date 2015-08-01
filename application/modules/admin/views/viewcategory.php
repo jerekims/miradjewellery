@@ -51,7 +51,7 @@
 
                             <div class="form-group">
                                 <label>Category Status</label>
-                                <select id="editcategorystatus" name="editcategorystatus" class="form-control">
+                                <select id="editcategorystatus" name="editcategorystatus" class="form-control validate[required]">
 
                             <?php 
                                 if($data['catstatus'] == 1){

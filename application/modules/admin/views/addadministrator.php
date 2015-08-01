@@ -38,7 +38,7 @@
 
                             <div class="form-group">
                                 <label>Occupation</label>
-                                <select id="employeeoccupation" name="employeeoccupation" class="form-control">
+                                <select id="employeeoccupation" name="employeeoccupation" required class="form-control validate[required]">
                                     <option selected value="3">Stock Manager</option>
                                     <option value="2">Manager</option>
                                 </select>
@@ -49,7 +49,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Employee Status</label>
-                                <select id="employeestatus" name="employeestatus" class="form-control">
+                                <select id="employeestatus" name="employeestatus" required class="form-control validate[required]">
                                     <option selected value="1">Activate</option>
                                     <option value="0">Deactivate</option>
                                 </select>

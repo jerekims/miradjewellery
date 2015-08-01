@@ -56,10 +56,11 @@ $(document).ready(function(){
 
      // Enables category form with ID to acquire validation
      $("#formaddcategory").validationEngine();
+     $("#categoryediting").validationEngine();
      $("#formaddproduct").validationEngine();
+     $("productediting").validationEngine();
      $("#formaddadministrator").validationEngine();
      $("#employeeediting").validationEngine();
-     
 
 
 
