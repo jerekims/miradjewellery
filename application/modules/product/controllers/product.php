@@ -100,7 +100,7 @@ class Product extends MY_Controller {
         <table class="data-table">
         <thead>
         <tr>
-            <th>category Name</th>
+            <th>Category Name</th>
             <th>Product Name</th>
             <th>Description</th>
             <th>Price</th>
@@ -135,7 +135,7 @@ class Product extends MY_Controller {
                 $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'product/viewproduct/'.$data['Product ID'].'"><i class="fa fa-eye black"></i></a></td>';
                 
                 // button below used for editing the specific category. Goes to admin controller into function called catupdate(), passing the type of update and the category id as parameter
-                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'product/catupdate/catdelete/'.$data['Product ID'].'"><i class="ion-trash-a icon black"></i></td>';
+                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'product/product_status/proddelete/'.$data['Product ID'].'"><i class="ion-trash-a icon black"></i></td>';
                 $display .= '</tr>';
                  $display .= "</tbody>";
 
@@ -271,29 +271,30 @@ class Product extends MY_Controller {
     ______________________________________________________*/
     function  product_status($type,$prodid)
     {
-        $updat->$this->product_model->product_state($type,$prodid);
-                if($update)
-        {
+        $update = $this->product_model->product_state($type,$prodid);
+
+                if($update){
+
             switch ($type) {
 
-                case 'catview':
+                case 'prodview':
                     
                     break;
 
-                case 'catactivate':
+                case 'prodactivate':
                     
                     break;
 
-                case 'catedit':
+                case 'prodedit':
                     
                     break;
 
-                case 'catdelete':
+                case 'proddelete':
                     $this->products();
                     break;
 
-                case 'catrestore':
-                    
+                case 'prodrestore':
+                    $this->products();
                     break;
                 
                 default:

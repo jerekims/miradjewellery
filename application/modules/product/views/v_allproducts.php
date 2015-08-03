@@ -42,20 +42,12 @@
                      <table class="table table-striped" id="product-table"><!-- The table created in the page -->
                        <thead>
                         <tr>
-<<<<<<< HEAD
-                          <!-- <th>Product ID</th> -->
-                          <th>Product Name</th>
-                          <!-- <th>Product category</th>
-                          <th>Product Description</th>
-                          <th>Product Price</th>
-                          <th>Product Image</th> -->
-=======
+
                           <th>#</th>
                           <th>Product Name</th>
                           <th>Product Description</th>
                           <th>Product Price</th>
                           <th>Status</th>
->>>>>>> 1d2f78d48549a999793f2fa313a71c45a42f0804
                           <th>View</th>
                           <!-- <th>Edit</th> -->
                           <th>Deactivate</th>

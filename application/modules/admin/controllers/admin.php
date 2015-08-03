@@ -19,6 +19,7 @@ class Admin extends MY_Controller {
         $this->pic_path = realpath(APPPATH . '../uploads/');
 
         $this->load->model('admin_model');
+        $this->load->model('product/product_model');
         
         parent::__construct();
           
@@ -71,7 +72,10 @@ class Admin extends MY_Controller {
         $data['commentnumber'] = $this->getcommentnumber();
         $data['productnumber'] = $this->getproductnumber();
 
+
         $data['all_categories'] = $this->allcategories('table');
+        $data['all_administrators'] = $this->allemployees('table');
+        $data['all_products'] = $this->product->allproducts('table');
 
         $data['admin_title'] = 'Manager';
         $data['admin_subtitle'] = 'Overall Statistics';

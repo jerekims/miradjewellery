@@ -168,15 +168,14 @@
                          </ul>
                        </div>
                      </div>
-                     <table class="table table-striped" id="category-table">
+                     <table class="table table-striped" id="product-table">
                        <thead>
                         <tr>
-                          <th>Product ID</th>
+                           <th>#</th>
                           <th>Product Name</th>
-                          <th>Product category</th>
                           <th>Product Description</th>
                           <th>Product Price</th>
-                          <th>Product Image</th>
+                          <th>Status</th>
                           <th>View</th>
                           <!-- <th>Edit</th> -->
                           <th>Deactivate</th>

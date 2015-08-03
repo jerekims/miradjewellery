@@ -17,7 +17,7 @@ class Product_model extends MY_Model {
 				proddescription AS 'Product Description',
 				prodprice AS 'Product Price',
 				prodimage AS 'Product Image',
-				prodstatus AS 'Product Status'
+				product_status AS 'Product Status'
 				FROM  
 					`products`";
 			$result=$this->db->query($sql);
@@ -35,7 +35,7 @@ class Product_model extends MY_Model {
 						'proddescription'=>$description,
 						'prodprice'=>$price,
 						'prodimage'=>"image",
-						'prodstatus'=>$pstatus
+						'product_status'=>$pstatus
 
 				);
 			$insert=$this->db->insert('products',$product);
@@ -81,18 +81,18 @@ class Product_model extends MY_Model {
 		/* updating the product status
 	______________________________________________________*/
 
-	function product_status($type,$productid)
+	function product_state($type,$productid)
 	{
 		$data=array();
 		switch($type)
 		{
-			case 'productdelete':
-				$data['prodstate']=0;
+			case 'proddelete':
+				$data['product_status']=0;
 
 				break;
 
-				case 'productrestore':
-				$data['prodstate']=1;
+				case 'prodrestore':
+				$data['product_status']=1;
 
 				break;
 
@@ -102,7 +102,7 @@ class Product_model extends MY_Model {
 
 		}
 
-		$this->db->where('prodid',$id);
+		$this->db->where('prodid',$productid);
 		$update=$this->db->update('products',$data);
 		if($update){
 			return true;
