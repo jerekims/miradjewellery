@@ -45,16 +45,16 @@ class Product_model extends MY_Model {
 	/* function  for updating product
 	______________________________________________________*/
 
-		function update_product($product_id,$product_category,$productname,$description,$price,$image)
+		function update_product($prodid,$prodcategory, $pname,$pdescription,$price,$prodstatus)
 		{
 			$product=array(
-						'catid'=>$product_category,
-						'prodname'=>$productname,
-						'proddescription'=>$description,
+						'catid'=>$prodcategory,
+						'prodname'=>$pname,
+						'proddescription'=>$pdescription,
 						'prodprice'=>$price,
-						'prodimage'=>$image
+						'product_status'=>$prodstatus
 				);
-			$this->db->where('prodid',$product_id);
+			$this->db->where('prodid',$prodid);
 
 			$update=$this->db->update('products',$product);
 

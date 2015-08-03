@@ -58,7 +58,7 @@ $(document).ready(function(){
      $("#formaddcategory").validationEngine();
      $("#categoryediting").validationEngine();
      $("#formaddproduct").validationEngine();
-     $("productediting").validationEngine();
+     $("#productediting").validationEngine();
      $("#formaddadministrator").validationEngine();
      $("#employeeediting").validationEngine();
 
@@ -127,7 +127,9 @@ $(document).ready(function(){
 
      // function  for editing a product
      $(function(){
-        $("#formeditproduct").submit(function(){
+        $("#productediting").submit(function(){
+
+          //console.log("sent");
             var formData= new formData($(this)[0]);
             $ajax({
                 type:"POST",

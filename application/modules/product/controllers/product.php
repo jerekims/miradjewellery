@@ -138,7 +138,7 @@ class Product extends MY_Controller {
                 // button below used for editing the specific category. Goes to admin controller into function called catupdate(), passing the type of update and the category id as parameter
                 $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'product/product_status/proddelete/'.$data['Product ID'].'"><i class="ion-trash-a icon black"></i></td>';
                 $display .= '</tr>';
-                 $display .= "</tbody>";
+                
 
                 break;
             
@@ -233,14 +233,16 @@ class Product extends MY_Controller {
          $this->form_validation->set_rules('price','trim|required|xss_clean');
          $this->form_validation->set_rules('image','trim|required|xss_clean');
 
+        $prodid=$this->input->post('editproductid');
         $prodcategory=$this->input->post('categoryname');
         $pname=$this->input->post('productname');
         $pdescription=$this->input->post('prod_description');
         $price=$this->input->post('price');
-        $pimage=$this->input->post('image');
+        // $pimage=$this->input->post('image');
         $prodstatus=$this->input->post('productstatus');
+        //echo'<pre>';print_r($prodid);echo'</pre>';die();
 
-        $result=$this->product_model->update_product($prodcategory, $pname,$pdescription,$price,$pimage,$prodstatus);
+        $result=$this->product_model->update_product($prodid,$prodcategory, $pname,$pdescription,$price,$prodstatus);
 
         $this->products();
     }

@@ -56,7 +56,7 @@
 
                             <div class="form-group">
                                 <label>Product Description</label>
-                                <textarea name="prod_description" value="<?php echo $data['proddescription']; ?>" id="prod_description" col="50" rows="50" class="form-control"></textarea>
+                                <textarea name="prod_description" value="<?php echo $data['proddescription']; ?>" id="prod_description" class="form-control"></textarea>
                             </div>
 
                             <div class="form-group">
@@ -83,7 +83,7 @@
                             </div>
 
                             <button type="submit" class="btn btn-success">Submit Button</button>
-                            <a href="<?php echo base_url(). 'admin/categories'?>" class="btn btn-warning">Back</a>
+                            <a href="<?php echo base_url(). 'product/product'?>" class="btn btn-warning">Back</a>
                             
                             <!-- <button type="reset" class="btn btn-warning">Reset Button</button> -->
 
