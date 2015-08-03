@@ -5,7 +5,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<?php echo base_url()?>">MIRAD JEWELLERIES</a>
+                <a class="navbar-brand" href="<?php echo base_url()?>">Mirad Jewelries</a>
      </div>
 
             <ul class="nav navbar-right top-nav">

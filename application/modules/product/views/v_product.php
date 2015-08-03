@@ -34,15 +34,15 @@
                         <form id="productediting" name="productediting" role="form" enctype="multipart/form-data" method="POST">
 
                         <div class="control-group">
-                                <label class="control-label">Product ID: <?php echo $data['id']; ?></label>
+                                <label class="control-label">Product ID: <?php echo $data['prodid']; ?></label>
                                 <div class="controls">
-                                    <input name="editproductid" type="hidden"  value="<?php echo $data['id']; ?>" class="span6 m-wrap form-control "/>
+                                    <input name="editproductid" type="hidden"  value="<?php echo $data['prodid']; ?>" class="span6 m-wrap form-control "/>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label>Product Name</label>
-                                <input id="productname" name="productname" value="<?php echo $data['name']; ?>"class="form-control validate[required]">
+                                <input id="productname" name="productname" value="<?php echo $data['prodname']; ?>" class="form-control validate[required]">
                             </div>
 
                             <div class="form-group">
@@ -56,17 +56,17 @@
 
                             <div class="form-group">
                                 <label>Product Description</label>
-                                <textarea  name="prod_description" id="prod_description" col="50" rows="50" class="form-control"></textarea>
+                                <textarea name="prod_description" value="<?php echo $data['proddescription']; ?>" id="prod_description" col="50" rows="50" class="form-control"></textarea>
                             </div>
 
                             <div class="form-group">
                                 <label>Product price</label>
-                                <input type="text" id="price" name="price" class="form-control">
+                                <input type="text" id="price" value="<?php echo $data['prodprice']; ?>" name="price" class="form-control">
                             </div>
 
                             <div class="form-group'">
                                 <label>Product Image</label>
-                                <input type="file" class="form-control">
+                                <img style="width:250px;height:250px;" src="<?php echo $data['prodimage']; ?>" alt="Profile pic">
                             </div>
                             <div class="form-group">
                                 <label>Product status</label>

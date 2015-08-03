@@ -84,7 +84,7 @@ class Product extends MY_Controller {
 	{
 		$display = '';
         $products = $this->product_model->get_all_products();
-    //echo "<pre>";print_r($products);die();
+        
 
         $count = 0;
 
@@ -120,6 +120,7 @@ class Product extends MY_Controller {
                     $state = '<span class="label label-danger">Deactivated</span>';
                     $states = 'Deactivated';
                 }
+                //echo "<pre>";print_r($products);die();
 
         switch ($type) {
             case 'table':
@@ -259,11 +260,12 @@ class Product extends MY_Controller {
 
         $data['admin_title']='Manager';
         $data['admin_subtitle']='View Product';
-        $data['admin-navbar']='admin/header';
+        $data['admin_navbar']='admin/header';
         $data['admin_sidebar']='admin/sidebar';
         $data['admin_content']='product/v_product';
         $data['admin_footer']='admin/footer';
 
+        //echo'<pre>';print_r($data);echo'</pre>';die();
         $this->template->call_admin_template($data);
     }
 
