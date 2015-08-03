@@ -35,19 +35,19 @@
 
                         <div class="control-group">
                                 <label class="control-label">Product ID: <?php echo $data['prodid']; ?></label>
-                                <div class="controls">
+                                <div class="form-group">
                                     <input name="editproductid" type="hidden"  value="<?php echo $data['prodid']; ?>" class="span6 m-wrap form-control "/>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label>Product Name</label>
-                                <input id="productname" name="productname" value="<?php echo $data['prodname']; ?>" class="form-control validate[required]">
+                                <input id="productname" name="editproductname" value="<?php echo $data['prodname']; ?>" class="form-control validate[required]">
                             </div>
 
                             <div class="form-group">
                                 <label>Product Category</label>
-                                <select name="productcategory" class="form-control">
+                                <select name="editproductcategory" class="form-control">
                                     <option>Rings</option>
                                     <option>Necklaces</option>
                                     <option>Bangles</option>
@@ -56,21 +56,18 @@
 
                             <div class="form-group">
                                 <label>Product Description</label>
-                                <textarea name="prod_description" value="<?php echo $data['proddescription']; ?>" id="prod_description" class="form-control"></textarea>
+                                <textarea name="editprod_description" value="<?php echo $data['proddescription']; ?>" id="prod_description" class="form-control"></textarea>
                             </div>
 
                             <div class="form-group">
                                 <label>Product price</label>
-                                <input type="text" id="price" value="<?php echo $data['prodprice']; ?>" name="price" class="form-control">
+                                <input type="text" id="price" value="<?php echo $data['prodprice']; ?>" name="editprice" class="form-control">
                             </div>
 
-                            <div class="form-group'">
-                                <label>Product Image</label>
-                                <img style="width:250px;height:250px;" src="<?php echo $data['prodimage']; ?>" alt="Profile pic">
-                            </div>
+                            
                             <div class="form-group">
                                 <label>Product status</label>
-                                <select id="productstatus" name="productstatus" class="form-control">
+                                <select id="productstatus" name="editproductstatus" class="form-control">
                                     <?php
                                     if($data['product_status']==1){?>
                                         <option selected value="1">Activated</option>

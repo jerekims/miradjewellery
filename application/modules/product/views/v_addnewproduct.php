@@ -30,27 +30,27 @@
                                 <label>Category Name</label>
                                 <select class="form-control" name="productcategory" id="productcategory">
                                     <option value="1">Rings</option>
-                                    <option  value="2">Necklaces</option>
+                                    <option value="2">Necklaces</option>
                                     <option value="3">Bangles</option>
                                 </select>
                                 </div>
                             <div>
                                 <label>Product Name</label>
-                                <input id="productname" class="form-control validate[required]">
+                                <input id="productname" name="productname" class="form-control validate[required]">
                             </div>
                             <div>
                                 <label>Product Description</label>
-                                <textarea  name="prod_description" id="prod_description" rows="10" cols="20" placeholder="Please enter a description of the product" class="form-control"></textarea>
+                                <textarea  name="prod_description" id="prod_description" placeholder="Please enter a description of the product" class="form-control"></textarea>
                             </div>
                             <div>
                                 <label>Product Price</label>
                                 <input id="price" name="price" class="form-control validate[required] ">
                             </div>
-                            <div>
+                           <!--  <div>
                                 <label>Product image</label>
                                 <input type="file" class="form-control">
                             </div>
-
+ -->
                             <div class="form-group">
                                 <label>Product Status</label>
                                 <select id="productstatus" name="productstatus" class="form-control">

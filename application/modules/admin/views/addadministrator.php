@@ -47,6 +47,10 @@
                                 <label>Picture</label>
                                 <input type="file" class="form-control" id="employeepicture" name="employeepicture">
                             </div>
+                            <!-- <div class="form-group">
+                                <label>Default Password</label>
+                                <input id="defpass" name="defpass" disabled required type="email" placeholder="123456" value="123456" class="form-control validate[required]">
+                            </div> -->
                             <div class="form-group">
                                 <label>Employee Status</label>
                                 <select id="employeestatus" name="employeestatus" required class="form-control validate[required]">

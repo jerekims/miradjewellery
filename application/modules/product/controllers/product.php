@@ -217,7 +217,7 @@ class Product extends MY_Controller {
          //$image=$this->input->post('image');
          $prodstatus=$this->input->post('productstatus');
 
-         $insert=$this->product_model->add_product($categoryname,$pname,$pdescription,$price,$prodstatus);
+         $insert = $this->product_model->add_product($categoryname,$pname,$pdescription,$price,$prodstatus);
 
          return $insert;
 	}
@@ -227,22 +227,22 @@ class Product extends MY_Controller {
 
     function editproduct()
     {
-         $this->form_validation->set_rules('productcategory','trim|required|xss_clean');
-         $this->form_validation->set_rules('productname','trim|required|xss_clean');
-         $this->form_validation->set_rules('prod_description','trim|required|xss_clean');
-         $this->form_validation->set_rules('price','trim|required|xss_clean');
-         $this->form_validation->set_rules('image','trim|required|xss_clean');
+         // $this->form_validation->set_rules('productcategory','trim|required|xss_clean');
+         // $this->form_validation->set_rules('productname','trim|required|xss_clean');
+         // $this->form_validation->set_rules('prod_description','trim|required|xss_clean');
+         // $this->form_validation->set_rules('price','trim|required|xss_clean');
+         // $this->form_validation->set_rules('image','trim|required|xss_clean');
 
         $prodid=$this->input->post('editproductid');
-        $prodcategory=$this->input->post('categoryname');
-        $pname=$this->input->post('productname');
-        $pdescription=$this->input->post('prod_description');
-        $price=$this->input->post('price');
+        $prodcategory=$this->input->post('editcategoryname');
+        $pname=$this->input->post('editproductname');
+        $pdescription=$this->input->post('editprod_description');
+        $price=$this->input->post('editprice');
         // $pimage=$this->input->post('image');
-        $prodstatus=$this->input->post('productstatus');
+        $prodstatus=$this->input->post('editproductstatus');
         //echo'<pre>';print_r($prodid);echo'</pre>';die();
 
-        $result=$this->product_model->update_product($prodid,$prodcategory, $pname,$pdescription,$price,$prodstatus);
+        $result = $this->product_model->update_product($prodid,$prodcategory, $pname,$pdescription,$price,$prodstatus);
 
         $this->products();
     }
