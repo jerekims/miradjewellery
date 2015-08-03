@@ -211,15 +211,15 @@ class Product extends MY_Controller {
 		 // $this->form_validation->set_rules('image','trim|required|xss_clean');
 
 		 $categoryname = $this->input->post('productcategory');
-         $pname=$this->input->post('productname');
-         $pdescription=$this->input->post('prod_description');
-         $price=$this->input->post('price');
+         $pname = $this->input->post('productname');
+         $pdescription = $this->input->post('prod_description');
+         $price = $this->input->post('price');
          //$image=$this->input->post('image');
          $prodstatus=$this->input->post('productstatus');
-
+         //echo'<pre>';print_r($categoryname);echo'</pre>';die();
          $insert = $this->product_model->add_product($categoryname,$pname,$pdescription,$price,$prodstatus);
 
-         return $insert;
+         $this->products();
 	}
 
     /* function for editing single product

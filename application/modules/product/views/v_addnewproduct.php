@@ -24,7 +24,7 @@
                   <div class="col-lg-5">
                   
                   <!-- The form that adds a new category into database. It uses admin.js into a function with form ID -> #formaddcategory -->
-                     <form id="formaddproduct" name="formaddproduct" role="form" enctype="multipart/form-data" method="POST">
+                     <form id="formaddproduct" action="<?php echo base_url(). 'product/addnewproduct'?>" name="formaddproduct" role="form" enctype="multipart/form-data" method="POST">
 
                             <div class="form-group">
                                 <label>Category Name</label>

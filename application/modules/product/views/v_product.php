@@ -31,7 +31,7 @@
                             ?>
 
                 <!-- The form that allows viewing and editing of category It uses admin.js into a function with form ID -> #categoryediting -->
-                        <form id="productediting" name="productediting" role="form" enctype="multipart/form-data" method="POST">
+                        <form id="productediting" action="<?php echo base_url(). 'product/editproduct'?>" name="productediting" role="form" enctype="multipart/form-data" method="POST">
 
                         <div class="control-group">
                                 <label class="control-label">Product ID: <?php echo $data['prodid']; ?></label>
