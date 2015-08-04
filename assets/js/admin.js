@@ -76,6 +76,7 @@ $(document).ready(function(){
          $.ajax({
            type: "POST",
            url: base_url + 'admin/categoryregistration',
+           // url: base_url + 'index.php/admin/categoryregistration',
            data: formData,
            async: false,
            cache: false,
@@ -112,6 +113,7 @@ $(document).ready(function(){
      //      $.ajax({
      //          type:"POST",
      //          url: base_url + 'product/addnewproduct',
+     //          url: base_url + 'index.php/product/addnewproduct',
      //          data:formData,
      //          async:false,
      //          cache:false,
@@ -142,6 +144,7 @@ $(document).ready(function(){
    //       $.ajax({
    //         type: "POST",
    //         url: base_url + 'product/editproduct',
+   //         url: base_url + 'index.php/product/editproduct',
    //         data: formData,
    //         async: false,
    //         cache: false,
@@ -175,6 +178,7 @@ $(document).ready(function(){
          $.ajax({
            type: "POST",
            url: base_url + 'admin/employeeregistration',
+           // url: base_url + 'index.php/admin/employeeregistration',
            data: formData,
            async: false,
            cache: false,
@@ -210,6 +214,7 @@ $(document).ready(function(){
          $.ajax({
            type: "POST",
            url: base_url + 'admin/editcategory',
+           // url: base_url + 'index.php/admin/editcategory',
            data: formData,
            async: false,
            cache: false,
@@ -246,6 +251,7 @@ $(document).ready(function(){
          $.ajax({
            type: "POST",
            url: base_url + 'admin/editemployee',
+           // url: base_url + 'index.php/admin/editemployee',
            data: formData,
            async: false,
            cache: false,
