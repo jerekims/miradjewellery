@@ -12,7 +12,7 @@ class Home extends MY_Controller {
 
         
         $this->load->model('home/home_model');
-        
+        $this->load->model('product/product_model');
 
         $this->load->library('form_validation');
 
