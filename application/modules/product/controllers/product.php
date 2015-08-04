@@ -80,12 +80,12 @@ class Product extends MY_Controller {
 	/* displays all the products from the  database
 	______________________________________________________*/
 
-	function allproducts($type)
+	function allproducts($type = NULL)
 	{
 		$display = '';
         $products = $this->product_model->get_all_products();
         
-
+        // echo "<pre>";print_r($products);echo "</pre>";exit;
         $count = 0;
 
 
@@ -120,7 +120,7 @@ class Product extends MY_Controller {
                     $state = '<span class="label label-danger">Deactivated</span>';
                     $states = 'Deactivated';
                 }
-                //echo "<pre>";print_r($products);die();
+                // echo "<pre>";print_r($products);die();
 
         switch ($type) {
             case 'table':
@@ -133,10 +133,10 @@ class Product extends MY_Controller {
                 $display .= '<td class="centered">'.$state.'</td>';
 
                 // button below used for viewing the specific category. Goes to admin controller into function called viewcategory(), passing the category id as parameter
-                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'product/viewproduct/'.$data['Product ID'].'"><i class="fa fa-eye black"></i></a></td>';
+                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'index.php/product/viewproduct/'.$data['Product ID'].'"><i class="fa fa-eye black"></i></a></td>';
                 
                 // button below used for editing the specific category. Goes to admin controller into function called catupdate(), passing the type of update and the category id as parameter
-                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'product/product_status/proddelete/'.$data['Product ID'].'"><i class="ion-trash-a icon black"></i></td>';
+                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'index.php/product/product_status/proddelete/'.$data['Product ID'].'"><i class="ion-trash-a icon black"></i></td>';
                 $display .= '</tr>';
                 
 
@@ -157,9 +157,11 @@ class Product extends MY_Controller {
                 $html_body .= '<td>'.$data['Category Name'].'</td>';
                 $html_body .= '<td>'.$states.'</td>';
                 $html_body .= "</tr></ol>";
-
+                $html_body .= $display;
                 break;
                }
+
+               //echo $html_body;exit;
             }
         
         

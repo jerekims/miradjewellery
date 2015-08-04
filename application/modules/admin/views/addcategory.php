@@ -11,9 +11,9 @@
                         <ol class="breadcrumb">
                             <li class="active">
                                 <i class="fa fa-dashboard"></i> 
-                                   <a class="crumbs" href="<?php echo base_url(). 'admin'?>">Manager Dashboard</a> > 
-                                   <a class="crumbs" href="<?php echo base_url(). 'admin/categories'?>">Category</a> > 
-                                   <a class="crumbs" href="<?php echo base_url(). 'admin/addcategory'?>"><?php echo $admin_subtitle?></a>
+                                   <a class="crumbs" href="<?php echo base_url(). 'index.php/admin'?>">Manager Dashboard</a> > 
+                                   <a class="crumbs" href="<?php echo base_url(). 'index.php/admin/categories'?>">Category</a> > 
+                                   <a class="crumbs" href="<?php echo base_url(). 'index.php/admin/addcategory'?>"><?php echo $admin_subtitle?></a>
                             </li>
                         </ol>
                     </div>
@@ -42,7 +42,7 @@
 
                             <button type="submit" class="btn btn-success">Submit Button</button>
                             <button type="reset" class="btn btn-warning">Reset Button</button>
-                            <a class="adminback" href="<?php echo base_url(). 'admin/categories'?>">Back</a>
+                            <a class="adminback" href="<?php echo base_url(). 'index.php/admin/categories'?>">Back</a>
 
                         </form>
                   </div>

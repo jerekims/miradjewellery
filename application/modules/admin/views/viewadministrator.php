@@ -11,8 +11,8 @@
                         <ol class="breadcrumb">
                             <li class="active">
                                  <i class="fa fa-dashboard"></i>
-                                   <a class="crumbs" href="<?php echo base_url(). 'admin'?>">Manager Dashboard</a> > 
-                                   <a class="crumbs" href="<?php echo base_url(). 'admin/employees'?>">Employee</a> >
+                                   <a class="crumbs" href="<?php echo base_url(). 'index.php/admin'?>">Manager Dashboard</a> > 
+                                   <a class="crumbs" href="<?php echo base_url(). 'index.php/admin/employees'?>">Employee</a> >
                                    <a class="crumbs" href="#'?>"><?php echo $admin_subtitle?></a>
                             </li>
                         </ol>
@@ -136,7 +136,7 @@
                             </div>
 
                             <button type="submit" class="btn btn-success">Submit Button</button>
-                            <a href="<?php echo base_url(). 'admin/employees'?>" class="btn btn-warning">Back</a>
+                            <a href="<?php echo base_url(). 'index.php/admin/employees'?>" class="btn btn-warning">Back</a>
                             
                             <!-- <button type="reset" class="btn btn-warning">Reset Button</button> -->
 

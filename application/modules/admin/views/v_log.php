@@ -1,9 +1,15 @@
 
-<!-- action="<?php echo base_url() . 'admin/validate_member'?>"  -->
+<!-- action="<?php echo base_url() . 'index.php/admin/validate_member'?>"  -->
 
 <div class="container login_panel">
-
-  <?php echo $new_user?>
+    
+  <?php if(isset($new_user)){
+       echo $new_user;
+    }else{
+   $new_user="Please enter your username and password";
+      echo $new_user;
+    }
+      ?>
   
   <form id="form_adminlog" name="form_adminlog" role="form" enctype="multipart/form-data" method="POST">
   <div class="form-group">

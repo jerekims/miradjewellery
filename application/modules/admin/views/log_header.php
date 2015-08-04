@@ -19,27 +19,27 @@
                       if($this->session->userdata('level_id') == 2){
              ?>
                <li>
-                    <a href="<?php echo base_url().'admin/dashboard'?>"><i class="fa fa-arrow-right"></i> Back to Dashboard</a>
+                    <a href="<?php echo base_url().'index.php/admin/dashboard'?>"><i class="fa fa-arrow-right"></i> Back to Dashboard</a>
                 </li>
                 <li>
-                    <a href="<?php echo base_url(). 'admin/logout'?>"><i class="fa fa-power-off"></i> Log Out</a>
+                    <a href="<?php echo base_url(). 'index.php/admin/logout'?>"><i class="fa fa-power-off"></i> Log Out</a>
                 </li>
             <?php }elseif($this->session->userdata('level_id') == 3){ ?>
 
                 <li>
-                    <a href="<?php echo base_url().'stockmanager/dashboard'?>"><i class="fa fa-arrow-right"></i> Back to Dashboard</a>
+                    <a href="<?php echo base_url().'index.php/stockmanager/dashboard'?>"><i class="fa fa-arrow-right"></i> Back to Dashboard</a>
                 </li>
                 <li>
-                    <a href="<?php echo base_url(). 'admin/logout'?>"><i class="fa fa-power-off"></i> Log Out</a>
+                    <a href="<?php echo base_url(). 'index.php/admin/logout'?>"><i class="fa fa-power-off"></i> Log Out</a>
                 </li>
 
             <?php }elseif($this->session->userdata('level_id') == 1){?>
 
                  <li>
-                    <a href="<?php echo base_url().'superadmin/dashboard'?>"><i class="fa fa-arrow-right"></i> Back to Dashboard</a>
+                    <a href="<?php echo base_url().'index.php/superadmin/dashboard'?>"><i class="fa fa-arrow-right"></i> Back to Dashboard</a>
                 </li>
                 <li>
-                    <a href="<?php echo base_url(). 'admin/logout'?>"><i class="fa fa-power-off"></i> Log Out</a>
+                    <a href="<?php echo base_url(). 'index.php/admin/logout'?>"><i class="fa fa-power-off"></i> Log Out</a>
                 </li>
 
             <?php 

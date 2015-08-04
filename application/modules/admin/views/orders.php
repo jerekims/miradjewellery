@@ -11,8 +11,8 @@
                         <ol class="breadcrumb">
                             <li class="active">
                                 <i class="fa fa-dashboard"></i>
-                                   <a class="crumbs" href="<?php echo base_url(). 'admin'?>">Manager Dashboard</a> > 
-                                   <a class="crumbs" href="<?php echo base_url(). 'admin/orders'?>"><?php echo $admin_subtitle?></a>
+                                   <a class="crumbs" href="<?php echo base_url(). 'index.php/admin'?>">Manager Dashboard</a> > 
+                                   <a class="crumbs" href="<?php echo base_url(). 'index.php/admin/orders'?>"><?php echo $admin_subtitle?></a>
                                    
                             </li>
                         </ol>
@@ -22,7 +22,7 @@
 
                 <div class="row">
                    Still Under Development
-                   <a href="<?php echo base_url(). 'admin'?>"><button class="btn btn-info" > Back to home page</button><a>
+                   <a href="<?php echo base_url(). 'index.php/admin'?>"><button class="btn btn-info" > Back to home page</button><a>
                 </div>
                 <!-- /.row -->
 

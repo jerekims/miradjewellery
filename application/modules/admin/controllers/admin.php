@@ -39,7 +39,7 @@ class Admin extends MY_Controller {
 
    function log_check(){
       if($this->session->userdata('logged_in') == 0){
-          redirect(base_url().'admin');
+          redirect(base_url().'index.php/admin');
       }else{
         return "logged_in";
       }
@@ -52,11 +52,10 @@ class Admin extends MY_Controller {
         $log = $this->admin_model->logoutuser($sess_log);
 
         $this->session->sess_destroy();
-        redirect(base_url().'admin');
+        redirect(base_url().'index.php/admin');
     }
 
     function dashboard(){
- 
         $this->log_check();
 
         $email = $this->session->userdata('emp_email');
@@ -65,17 +64,16 @@ class Admin extends MY_Controller {
 
         if($passcheck == 'e10adc3949ba59abbe56e057f20f883e'){
             $passmessage = "Remember to change your password";
+            $data['passmessage'] = $passmessage;
         }
-
         $data['clientnumber'] = $this->getclientnumber();
         $data['ordernumber'] = $this->getordernumber();
         $data['commentnumber'] = $this->getcommentnumber();
         $data['productnumber'] = $this->getproductnumber();
 
-
         $data['all_categories'] = $this->allcategories('table');
         $data['all_administrators'] = $this->allemployees('table');
-        $data['all_products'] = $this->product->allproducts('table');
+        // $data['all_products'] = $this->product->allproducts('table');
 
         $data['admin_title'] = 'Manager';
         $data['admin_subtitle'] = 'Overall Statistics';
@@ -84,8 +82,6 @@ class Admin extends MY_Controller {
         $data['admin_content'] = 'admin/v_admin';
         $data['admin_footer'] = 'admin/footer';
         
-        $data['passmessage'] = $passmessage;
-
         $this->template->call_admin_template($data);
     }
 
@@ -127,6 +123,7 @@ class Admin extends MY_Controller {
 
     function validate_member()
     {
+        // print_r($this->input->post());exit;
         
             $username = $this->input->post('useremail');
             $passw1 = md5($this->input->post('userpassword'));
@@ -208,6 +205,7 @@ class Admin extends MY_Controller {
                     // echo '';
                 break;
             }   
+            // echo "NIMEFIKA HAPA";exit;
         
     }  
 
@@ -379,10 +377,10 @@ class Admin extends MY_Controller {
                 $display .= '<td class="centered">'.$state.'</td>';
 
                 // button below used for viewing the specific category. Goes to admin controller into function called viewcategory(), passing the category id as parameter
-                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'admin/viewcategory/'.$data['Category ID'].'"><i class="fa fa-eye black"></i></a></td>';
+                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'index.php/admin/viewcategory/'.$data['Category ID'].'"><i class="glyphicon glyphicon-eye-open black"></i></a></td>';
                 
                 // button below used for editing the specific category. Goes to admin controller into function called catupdate(), passing the type of update and the category id as parameter
-                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'admin/catupdate/catdelete/'.$data['Category ID'].'"><i class="ion-trash-a icon black"></i></td>';
+                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'index.php/admin/catupdate/catdelete/'.$data['Category ID'].'"><i class="ion-trash-a icon black"></i></td>';
                 $display .= '</tr>';
 
                 break;
@@ -502,10 +500,10 @@ class Admin extends MY_Controller {
                 $display .= '<td class="centered">'.$state.'</td>';
 
                 // button below used for viewing the specific category. Goes to admin controller into function called viewcategory(), passing the category id as parameter
-                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'admin/viewemployee/'.$data['Employee ID'].'"><i class="fa fa-eye black"></i></a></td>';
+                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'index.php/admin/viewemployee/'.$data['Employee ID'].'"><i class="fa fa-eye black"></i></a></td>';
                 
                 // button below used for editing the specific category. Goes to admin controller into function called catupdate(), passing the type of update and the category id as parameter
-                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'admin/empupdate/empdelete/'.$data['Employee ID'].'"><i class="ion-trash-a icon black"></i></td>';
+                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'index.php/admin/empupdate/empdelete/'.$data['Employee ID'].'"><i class="ion-trash-a icon black"></i></td>';
                 $display .= '</tr>';
 
                 break;
