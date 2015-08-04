@@ -3,21 +3,21 @@ $(document).ready(function(){
 
   
 
-   var pass = $("#editemployeepassword").val();
+   var pass = $("#employeepassword").val();
    //console.log(pass);
 
-  $('#passpanel').hide();
 
-        if(pass != 123456){
+        if(pass !== "e10adc3949ba59abbe56e057f20f883e"){
+            $('#passpanel').hide();
+
+           $('#editemployeepassword').prop('required',false);
+           $('#editemployeecpassword').prop('required',false);
+           
+        }else{
            $('#passpanel').show();
 
            $('#editemployeepassword').prop('required',true);
            $('#editemployeecpassword').prop('required',true);
-        }else{
-           $('#passpanel').slideUp();
-
-           $('#editemployeepassword').prop('required',false);
-           $('#editemployeecpassword').prop('required',false);
         }
 
       $('#category-table').dataTable();
@@ -87,6 +87,8 @@ $(document).ready(function(){
               swal({   title: "Category Registration",   text: "Category has been registered",   timer: 3000 });
               // pop up for a successful registration 
 
+           },error: function(data){
+              swal({   title: "Error Registration",   text: "Category has not been registered",   timer: 3000 });
            }
  
          });
@@ -101,52 +103,64 @@ $(document).ready(function(){
      // 
 
      // function for adding a product 
-     $(function(){
-      $("#formaddproduct").submit(function(){
-          var formData = new formData($(this)[0]);
+     // $(function(){
+     //  $("#formaddproduct").submit(function(){
+     //    //alert("clicked");
+     //      var formData = new formData($(this)[0]);
 
-          // passing the data to the addnewproduct in the product controller
-          $.ajax({
-              type:"POST",
-              url:base_url+'product/addnewproduct',
-              data:formData,
-              async:false,
-              cache:false,
-              contentType:false,
-              processData:false,
-              success:function(data){
-                // after successful registration of the product
-                swal({title:"Addiing a product",text:"Product has been added",timer:3000});
-              }
-          });
-          return false;
-      });
+     //      // passing the data to the addnewproduct in the product controller
+     //      $.ajax({
+     //          type:"POST",
+     //          url: base_url + 'product/addnewproduct',
+     //          data:formData,
+     //          async:false,
+     //          cache:false,
+     //          contentType:false,
+     //          processData:false,
+     //          success:function(data){
+     //            // after successful registration of the product
+     //            swal({title:"Addiing a product",text:"Product has been added",timer:3000});
+     //          },error: function(data){
+     //          swal({   title: "Error Registration",   text: "Product has not been registered",   timer: 3000 });
+     //       }
+     //      });
+     //      return false;
+     //  });
 
-     });
+     // });
      // end of the function for adding new  product
 
      // function  for editing a product
-     $(function(){
-        $("#productediting").submit(function(){
+   //   $(function(){
+   //     $("#productediting").submit(function(){
+          
 
-          //console.log("sent");
-            var formData= new formData($(this)[0]);
-            $ajax({
-                type:"POST",
-                url:base_url+'product/editproduct',
-                data:formData,
-                async:false,
-                cache:false,
-                contentType:false,
-                processData:false,
-                success:function(){
-                  //after successful editing of the product details
-                  swal({title:"Editing Product",text:"Product has successfully been edited"});
-                }
-            });
-            return  false;
-        });
-     });
+        
+   //       var formData = new FormData($(this)[0]);
+
+   //        // takes the data into the admin controller, into a function called categoryregistration()
+   //       $.ajax({
+   //         type: "POST",
+   //         url: base_url + 'product/editproduct',
+   //         data: formData,
+   //         async: false,
+   //         cache: false,
+   //         contentType: false,
+   //         processData: false,
+   //         success: function(data){
+   //             // ....After successful registration, then....//
+              
+   //            swal({   title: "Employee Registration",   text: "Employee has been registered",   timer: 3000 });
+   //            // pop up for a successful registration 
+
+   //         }
+ 
+   //       });
+ 
+   //       return false;  //stop the actual form post !important!
+ 
+   //    });
+   // });
 
      // end of the function for editing  the product details
 

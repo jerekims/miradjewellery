@@ -184,12 +184,14 @@ class Admin_model extends MY_Model {
 
   function register_employee($employeename, $employeeemail, $employeeoccupation, $path, $employeestatus)
   {
+    
     $employee = array(
         
             'emp_name'   => $employeename,
             'emp_email' => $employeeemail,
             'level_id'   => $employeeoccupation,
             'emp_picture' => $path,
+            'emp_password' => $employeepass,
             'emp_status' => $employeestatus
             );
   

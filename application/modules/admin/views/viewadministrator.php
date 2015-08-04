@@ -43,7 +43,7 @@
                                     <input name="editemployeeid" type="hidden" required value="<?php echo $data['emp_id']; ?>" class="span6 m-wrap form-control"/>
                                 </div>
                                 <div class="controls">
-                                    <input name="employeepassword" type="hidden" required value="<?php echo $data['emp_password']; ?>" class="span6 m-wrap form-control "/>
+                                    <input id="employeepassword" name="employeepassword" type="hidden" required value="<?php echo $data['emp_password']; ?>" class="span6 m-wrap form-control "/>
                                 </div> 
                             </div>
 
@@ -61,22 +61,19 @@
                                 <input id="editemployeeemail" name="editemployeeemail"  required type="email" value="<?php echo $data['emp_email']; ?>"class="form-control validate[required, custom[email]]">
                             </div>
 
-                            
-                             <!-- <?php if($data['emp_password'] == 123456){ ?> -->
-                             <div class="passpanel">
+                             <div id="passpanel" class="passpanel">
                               <p class="help-block animated flash red passwordinfo">Please change your password</p>
                                      
                               <div class="form-group">
                                 <label>Password</label>
-                                <input id="editemployeepassword" required name="editemployeepassword" type="password" value="<?php echo $data['emp_password']; ?>"class="form-control validate[required]">
+                                <input id="editemployeepassword" required name="editemployeepassword" type="password" placeholder="Enter New Password" class="form-control validate[required]">
                               </div>
 
                               <div class="form-group">
                                 <label>Confirm Password</label>
-                                <input id="editemployeecpassword" required name="editemployeecpassword" type="password" placeholder="Confirm Password"class="form-control validate[required, equals[editemployeepassword]]">
+                                <input id="editemployeecpassword" required name="editemployeecpassword" type="password" placeholder="Confirm Password" class="form-control validate[required, equals[editemployeepassword]]">
                               </div>
                             </div> 
-                              <!-- <?php } ?> -->
 
                                 
 

@@ -24,33 +24,33 @@
                   <div class="col-lg-5">
                   
                   <!-- The form that adds a new category into database. It uses admin.js into a function with form ID -> #formaddcategory -->
-                     <form id="formaddproduct" name="formaddproduct" role="form" enctype="multipart/form-data" method="POST">
+                     <form id="formaddproduct" action="<?php echo base_url(). 'product/addnewproduct'?>" name="formaddproduct" role="form" enctype="multipart/form-data" method="POST">
 
                             <div class="form-group">
                                 <label>Category Name</label>
                                 <select class="form-control" name="productcategory" id="productcategory">
                                     <option value="1">Rings</option>
-                                    <option  value="2">Necklaces</option>
+                                    <option value="2">Necklaces</option>
                                     <option value="3">Bangles</option>
                                 </select>
                                 </div>
                             <div>
                                 <label>Product Name</label>
-                                <input id="productname" class="form-control validate[required]">
+                                <input id="productname" name="productname" class="form-control validate[required]">
                             </div>
                             <div>
                                 <label>Product Description</label>
-                                <textarea  name="prod_description" id="prod_description" rows="10" cols="20" placeholder="Please enter a description of the product" class="form-control"></textarea>
+                                <textarea  name="prod_description" id="prod_description" placeholder="Please enter a description of the product" class="form-control"></textarea>
                             </div>
                             <div>
                                 <label>Product Price</label>
                                 <input id="price" name="price" class="form-control validate[required] ">
                             </div>
-                            <div>
+                           <!--  <div>
                                 <label>Product image</label>
                                 <input type="file" class="form-control">
                             </div>
-
+ -->
                             <div class="form-group">
                                 <label>Product Status</label>
                                 <select id="productstatus" name="productstatus" class="form-control">

@@ -27,15 +27,15 @@ class Product_model extends MY_Model {
 	/* adding new  product  to the database
 	______________________________________________________*/	
 	
-		function add_product($product_category,$productname,$description,$price,$pstatus)
+		function add_product($categoryname,$pname,$pdescription,$price,$prodstatus)
 		{
 			$product=array(
-						'catid'=>$product_category,
-						'prodname'=>$productname,
-						'proddescription'=>$description,
+						'catid'=>$categoryname,
+						'prodname'=>$pname,
+						'proddescription'=>$pdescription,
 						'prodprice'=>$price,
 						'prodimage'=>"image",
-						'product_status'=>$pstatus
+						'product_status'=>$prodstatus
 
 				);
 			$insert=$this->db->insert('products',$product);

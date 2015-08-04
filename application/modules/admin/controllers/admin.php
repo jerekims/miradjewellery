@@ -575,6 +575,7 @@ class Admin extends MY_Controller {
         $employeename = $this->input->post('employeename');
         $employeeemail = $this->input->post('employeeemail');
         $employeeoccupation = $this->input->post('employeeoccupation');
+        // $employeepass = md5($this->input->post('defpass'));
         $employeestatus = $this->input->post('employeestatus');
 
 
