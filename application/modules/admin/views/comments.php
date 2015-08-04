@@ -13,6 +13,8 @@
                                 <i class="fa fa-dashboard"></i>
                                    <a class="crumbs" href="<?php echo base_url(). 'admin'?>">Manager Dashboard</a> > 
                                    <a class="crumbs" href="<?php echo base_url(). 'admin/comments'?>"><?php echo $admin_subtitle?></a>
+                                   <!-- <a class="crumbs" href="<?php echo base_url(). 'index.php/admin'?>">Manager Dashboard</a> > 
+                                   <a class="crumbs" href="<?php echo base_url(). 'index.php/admin/comments'?>"><?php echo $admin_subtitle?></a> -->
                                    
                             </li>
                         </ol>
@@ -23,6 +25,7 @@
                 <div class="row">
                    Still Under Development
                    <a href="<?php echo base_url(). 'admin'?>"><button class="btn btn-info" > Back to home page</button><a>
+                   <!-- <a href="<?php echo base_url(). 'index.php/admin'?>"><button class="btn btn-info" > Back to home page</button><a> -->
                 
                 </div>
                 <!-- /.row -->

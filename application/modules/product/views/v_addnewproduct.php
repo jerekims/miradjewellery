@@ -14,6 +14,9 @@
                                    <a class="crumbs" href="<?php echo base_url(). 'product'?>">Manager Dashboard</a> > 
                                    <a class="crumbs" href="<?php echo base_url(). 'product/products'?>">Product</a> > 
                                    <a class="crumbs" href="<?php echo base_url(). 'product/addproduct'?>"><?php echo $admin_subtitle?></a>
+                                   <!-- <a class="crumbs" href="<?php echo base_url(). 'index.php/product'?>">Manager Dashboard</a> > 
+                                   <a class="crumbs" href="<?php echo base_url(). 'index.php/product/products'?>">Product</a> > 
+                                   <a class="crumbs" href="<?php echo base_url(). 'index.php/product/addproduct'?>"><?php echo $admin_subtitle?></a> -->
                             </li>
                         </ol>
                     </div>
@@ -25,6 +28,7 @@
                   
                   <!-- The form that adds a new category into database. It uses admin.js into a function with form ID -> #formaddcategory -->
                      <form id="formaddproduct" action="<?php echo base_url(). 'product/addnewproduct'?>" name="formaddproduct" role="form" enctype="multipart/form-data" method="POST">
+                     <!-- <form id="formaddproduct" action="<?php echo base_url(). 'index.php/product/addnewproduct'?>" name="formaddproduct" role="form" enctype="multipart/form-data" method="POST"> -->
 
                             <div class="form-group">
                                 <label>Category Name</label>
@@ -63,6 +67,7 @@
                             <button type="submit" class="btn btn-success">Submit Button</button>
                             <button type="reset" class="btn btn-warning">Reset Button</button>
                             <a class="adminback" href="<?php echo base_url(). 'product/products'?>">Back</a>
+                            <!-- <a class="adminback" href="<?php echo base_url(). 'index.php/product/products'?>">Back</a> -->
 
                         </form>
                   </div>

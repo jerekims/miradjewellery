@@ -14,6 +14,10 @@
                                    <a class="crumbs" href="<?php echo base_url(). 'admin'?>">Manager Dashboard</a> > 
                                    <a class="crumbs" href="<?php echo base_url(). 'admin/employees'?>">Employee</a> > 
                                    <a class="crumbs" href="<?php echo base_url(). 'admin/addemployee'?>"><?php echo $admin_subtitle?></a>
+
+                                  <!--  <a class="crumbs" href="<?php echo base_url(). 'index.php/admin'?>">Manager Dashboard</a> > 
+                                   <a class="crumbs" href="<?php echo base_url(). 'index.php/admin/employees'?>">Employee</a> > 
+                                   <a class="crumbs" href="<?php echo base_url(). 'index.php/admin/addemployee'?>"><?php echo $admin_subtitle?></a> -->
                             </li>
                         </ol>
                     </div>
@@ -63,6 +67,7 @@
                             <button type="submit" class="btn btn-success">Submit Button</button>
                             <button type="reset" class="btn btn-warning">Reset Button</button>
                             <a class="adminback" href="<?php echo base_url(). 'admin/employees'?>">Back</a>
+                           <!--  <a class="adminback" href="<?php echo base_url(). 'index.php/admin/employees'?>">Back</a> -->
 
                         </form>
                   </div>

@@ -17,6 +17,7 @@ class Admin extends MY_Controller {
          }
         
         $this->pic_path = realpath(APPPATH . '../uploads/');
+        //$this->pic_path = realpath(APPPATH . '..index.php/uploads/');
 
         $this->load->model('admin_model');
         $this->load->model('product/product_model');
@@ -39,7 +40,9 @@ class Admin extends MY_Controller {
 
    function log_check(){
       if($this->session->userdata('logged_in') == 0){
+
           redirect(base_url().'admin');
+          //redirect(base_url().'index.php/admin');
       }else{
         return "logged_in";
       }
@@ -53,6 +56,7 @@ class Admin extends MY_Controller {
 
         $this->session->sess_destroy();
         redirect(base_url().'admin');
+        //redirect(base_url().'index.php/admin');
     }
 
     function dashboard(){
@@ -150,7 +154,6 @@ class Admin extends MY_Controller {
                           'message'=> 'Logged in successfully'
                           ));
                           
-                          //redirect(base_url().'superadmin/dashboard');
                         break;
 
                         // Level 2 Manager
@@ -174,7 +177,6 @@ class Admin extends MY_Controller {
                           'message'=> 'Logged in successfully'
                           ));
                           
-                          //redirect(base_url().'stockmanager/dashboard');
                         break;
                     }
 
@@ -260,11 +262,9 @@ class Admin extends MY_Controller {
         $this->template->call_admin_template($data);
     }
     
-    // Displays the contents page of the categories, in this case opens the category.php file
     function categories()
     {
         $this->log_check();
-        //Transfer result to category.php from a function within the admin controller called allcategories()
         $data['all_categories'] = $this->allcategories('table'); 
 
         $data['admin_title'] = 'Manager';
@@ -297,7 +297,6 @@ class Admin extends MY_Controller {
         $this->template->call_admin_template($data);
     }
  
-    // Displays the contents page of the addcategory, in this case opens the addcategory.php file
     function addcategory()
     {
         
@@ -332,7 +331,6 @@ class Admin extends MY_Controller {
 
 
 
-    // Display of tables for categories and exporting of data
     function allcategories($type)
     {
         $display = '';
@@ -378,11 +376,11 @@ class Admin extends MY_Controller {
                 $display .= '<td class="centered">'.$data['Category Name'].'</td>';
                 $display .= '<td class="centered">'.$state.'</td>';
 
-                // button below used for viewing the specific category. Goes to admin controller into function called viewcategory(), passing the category id as parameter
                 $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'admin/viewcategory/'.$data['Category ID'].'"><i class="fa fa-eye black"></i></a></td>';
+                //$display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'index.php/admin/viewcategory/'.$data['Category ID'].'"><i class="fa fa-eye black"></i></a></td>';
                 
-                // button below used for editing the specific category. Goes to admin controller into function called catupdate(), passing the type of update and the category id as parameter
                 $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'admin/catupdate/catdelete/'.$data['Category ID'].'"><i class="ion-trash-a icon black"></i></td>';
+                //$display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'index.php/admin/catupdate/catdelete/'.$data['Category ID'].'"><i class="ion-trash-a icon black"></i></td>';
                 $display .= '</tr>';
 
                 break;
@@ -501,11 +499,11 @@ class Admin extends MY_Controller {
                 $display .= '<td class="centered">'.$data['Date Registered'].'</td>';
                 $display .= '<td class="centered">'.$state.'</td>';
 
-                // button below used for viewing the specific category. Goes to admin controller into function called viewcategory(), passing the category id as parameter
                 $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'admin/viewemployee/'.$data['Employee ID'].'"><i class="fa fa-eye black"></i></a></td>';
+                //$display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'index.php/admin/viewemployee/'.$data['Employee ID'].'"><i class="fa fa-eye black"></i></a></td>';
                 
-                // button below used for editing the specific category. Goes to admin controller into function called catupdate(), passing the type of update and the category id as parameter
                 $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'admin/empupdate/empdelete/'.$data['Employee ID'].'"><i class="ion-trash-a icon black"></i></td>';
+                //$display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'index.php/admin/empupdate/empdelete/'.$data['Employee ID'].'"><i class="ion-trash-a icon black"></i></td>';
                 $display .= '</tr>';
 
                 break;
@@ -580,7 +578,9 @@ class Admin extends MY_Controller {
 
 
         $path = base_url().'uploads/users/';
+        //$path = base_url().'index.php/uploads/users/';
                $config['upload_path'] = 'uploads/employees/';
+               //$config['upload_path'] = 'index.php/uploads/employees/';
                $config['allowed_types'] = 'jpeg|jpg|png|gif';
                $config['encrypt_name'] = TRUE;
                $this->load->library('upload', $config);
@@ -599,6 +599,7 @@ class Admin extends MY_Controller {
                  foreach ($data as $key => $value) {
                   //print_r($data);die;
                   $path = base_url().'uploads/employees/'.$value['file_name'];
+                  //$path = base_url().'index.php/uploads/employees/'.$value['file_name'];
                 
                   }
 
