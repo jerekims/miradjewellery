@@ -427,14 +427,10 @@ class Admin_model extends MY_Model {
           case 'emprestore':
             $data['emp_status'] = 1; 
         
-            break;
-      
-        
-      
+            break;      
     }
 
-
-    $this->db->where('emp_id', $emp_id);
+    $this->db->where('emp_id', $client_id);
     $update = $this->db->update('employees', $data);
 
     if ($update) {
@@ -445,6 +441,66 @@ class Admin_model extends MY_Model {
       return false;
     }
   }
+
+    public function updatecomment($type, $comm_id)
+    {
+          $data = array();
+
+        switch ($type) {
+          case 'commentdelete':
+            $data['comm_status'] = 0; 
+            
+            break;
+
+          case 'commentrestore':
+            $data['comm_status'] = 1; 
+        
+            break;      
+    }
+
+    $this->db->where('comm_id', $comm_id);
+    $update = $this->db->update('comments', $data);
+
+    if ($update) {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+  }
+
+
+    public function updateorder($type, $or_id)
+    {
+          $data = array();
+
+        switch ($type) {
+          case 'orderdelete':
+            $data['order_status'] = 1; 
+            
+            break;
+
+          case 'orderrestore':
+            $data['order_status'] = 0; 
+        
+            break;      
+    }
+
+
+    $this->db->where('order_id', $or_id);
+    $update = $this->db->update('orders', $data);
+
+    if ($update) {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+  }
+
+    
 
 
   public function updateclient($type, $client_id)

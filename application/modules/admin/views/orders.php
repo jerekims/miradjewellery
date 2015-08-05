@@ -54,7 +54,7 @@
                           <th>Date Ordered</th>
                           <th>View</th>
                           <!-- <th>Edit</th> -->
-                          <th>Deactivate</th>
+                          <th>Delivered</th>
                         </tr>
                        </thead>
                         <?php

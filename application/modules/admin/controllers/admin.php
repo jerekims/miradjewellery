@@ -511,8 +511,8 @@ class Admin extends MY_Controller {
                 $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'admin/vieworder/'.$data['Order ID'].'"><i class="fa fa-eye black"></i></a></td>';
                 //$display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'index.php/admin/vieworder/'.$data['Order ID'].'"><i class="fa fa-eye black"></i></a></td>';
                 
-                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'admin/orderupdate/orderdelete/'.$data['Order ID'].'"><i class="fa fa-trash black"></i></td>';
-                //$display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'index.php/admin/orderupdate/orderdelete/'.$data['Order ID'].'"><i class="fa fa-trash black"></i></td>';
+                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Click if Delivered" href = "'.base_url().'admin/orderupdate/orderdelete/'.$data['Order ID'].'"><i class="fa fa-truck black"></i></td>';
+                //$display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Click if Delivered" href = "'.base_url().'index.php/admin/orderupdate/orderdelete/'.$data['Order ID'].'"><i class="fa fa-truck black"></i></td>';
                 $display .= '</tr>';
 
                 break;
@@ -1163,6 +1163,52 @@ class Admin extends MY_Controller {
                     break;
 
                 case 'clientrestore':
+                    
+                    break;
+                
+                default:
+                    # code...
+                    break;
+            }
+        }
+    }
+
+    function commentupdate($type, $comm_id)
+    {
+        $update = $this->admin_model->updatecomment($type, $comm_id);
+
+        if($update)
+        {
+            switch ($type) {
+
+                case 'commentdelete':
+                    $this->comments();
+                    break;
+
+                case 'commentrestore':
+                    
+                    break;
+                
+                default:
+                    # code...
+                    break;
+            }
+        }
+    }
+
+    function orderupdate($type, $or_id)
+    {
+        $update = $this->admin_model->updateorder($type, $or_id);
+
+        if($update)
+        {
+            switch ($type) {
+
+                case 'orderdelete':
+                    $this->orders();
+                    break;
+
+                case 'orderrestore':
                     
                     break;
                 
