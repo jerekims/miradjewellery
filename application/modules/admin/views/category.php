@@ -46,7 +46,7 @@
                          </ul>
                        </div>
                      </div>
-                     <table class="table table-striped" id="category-table"><!-- The table created in the page -->
+                     <table class="table table-striped" id="category-table2"><!-- The table created in the page -->
                        <thead>
                         <tr>
                           <th>#</th>
@@ -96,3 +96,11 @@
 
         </div>
         <!-- /#page-wrapper -->
+
+        <script type="text/javascript">
+             // $('#category-table2').dataTable();
+
+              
+            $('.dataTables_filter input').addClass('form-control').attr('placeholder','Search');
+            $('.dataTables_length select').addClass('form-control');
+        </script>

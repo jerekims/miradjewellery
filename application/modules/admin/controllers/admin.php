@@ -228,6 +228,7 @@ class Admin extends MY_Controller {
         $data['admin_content'] = 'admin/clients';
         $data['admin_footer'] = 'admin/footer';
         
+        $data['all_clients'] = $this->allclients('table');
         
         $this->template->call_admin_template($data);
     }
@@ -329,6 +330,125 @@ class Admin extends MY_Controller {
         $this->template->call_admin_template($data);
     }
 
+    function allclients($type)
+    {
+        $display = '';
+        $customers = $this->admin_model->get_all_clients();
+            //echo "<pre>";print_r($customers);echo "</pre>";die();
+        
+
+        $count = 0;
+
+
+      // creating arrays for both pdf and excel for data storage and transfer
+        $column_data = $row_data = array();
+
+        // display used for table
+        $display .= "<tbody>";
+
+        // html_body Used for the pdf
+        $html_body = '
+        <table class="data-table">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Cutsomer ID</th>
+            <th>Title</th>
+            <th>Customer Name</th>
+            <th>Customer Email</th>
+            <th>Date Registered</th>
+            <th>Customer Status</th>
+        </tr> 
+        </thead>
+        <tbody>
+        <ol type="a">';
+
+        foreach ($customers as $key => $data) {
+            $count++;
+                if ($data['Customer Status'] == 1) {
+                    $state = '<span class="label label-info">Activated</span>';
+                    $states = 'Activated';
+                } else if ($data['Customer Status'] == 0) {
+                    $state = '<span class="label label-danger">Deactivated</span>';
+                    $states = 'Deactivated';
+                }
+
+        switch ($type) {
+            case 'table':
+                $display .= '<tr>';
+                $display .= '<td class="centered">'.$count.'</td>';
+                $display .= '<td class="centered">'.$data['Customer ID'].'</td>';
+                $display .= '<td class="centered">'.$data['Customer Title'].'</td>';
+                $display .= '<td class="centered">'.$data['Customer Name'].'</td>';
+                $display .= '<td class="centered">'.$data['Customer Email'].'</td>';
+                $display .= '<td class="centered">'.$data['Date Registered'].'</td>';
+                $display .= '<td class="centered">'.$state.'</td>';
+
+                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'admin/viewclient/'.$data['Customer ID'].'"><i class="fa fa-eye black"></i></a></td>';
+                //$display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'index.php/admin/viewclient/'.$data['Customer ID'].'"><i class="fa fa-trash black"></i></a></td>';
+                
+                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'admin/clientupdate/clientdelete/'.$data['Customer ID'].'"><i class="fa fa-eye black"></i></td>';
+                //$display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'index.php/admin/clientupdate/clientdelete/'.$data['Customer ID'].'"><i class="fa fa-trash black"></i></td>';
+                $display .= '</tr>';
+
+                break;
+            
+            case 'excel':
+               
+                 array_push($row_data, array($data['Customer ID'], $data['Customer Title'], $data['Customer Name'], $data['Customer Email'], $data['Date Registered'], $states)); 
+
+                break;
+
+            case 'pdf':
+
+            //echo'<pre>';print_r($categories);echo'</pre>';die();
+           
+                $html_body .= '<tr>';
+                $html_body .= '<td>'.$data['Customer ID'].'</td>';
+                $html_body .= '<td>'.$data['Customer Title'].'</td>';
+                $html_body .= '<td>'.$data['Customer Name'].'</td>';
+                $html_body .= '<td>'.$data['Customer Email'].'</td>';
+                $html_body .= '<td>'.$data['Date Registered'].'</td>';
+                $html_body .= '<td>'.$states.'</td>';
+                $html_body .= "</tr></ol>";
+
+                break;
+               }
+            }
+        
+        
+        if($type == 'excel'){
+
+            $excel_data = array();
+            $excel_data = array('doc_creator' => 'Mirad Jewelries ', 'doc_title' => 'Clients Excel Report', 'file_name' => 'Clients Report', 'excel_topic' => 'Clients');
+            $column_data = array('Customer ID','Customer Title','Customer Name','Customer Email','Date Registered','Customer Status');
+            $excel_data['column_data'] = $column_data;
+            $excel_data['row_data'] = $row_data;
+
+              //echo'<pre>';print_r($excel_data);echo'</pre>';die();
+
+            $this->export->create_excel($excel_data);
+
+        }elseif($type == 'pdf'){
+            
+            $html_body .= '</tbody></table>';
+            $pdf_data = array("pdf_title" => "Clients PDF Report", 'pdf_html_body' => $html_body, 'pdf_view_option' => 'download', 'file_name' => 'Clients Report', 'pdf_topic' => 'Clients');
+
+            //echo'<pre>';print_r($pdf_data);echo'</pre>';die();
+
+            $this->export->create_pdf($pdf_data);
+
+        }else{
+
+            $display .= "</tbody>";
+
+            //echo'<pre>';print_r($display);echo'</pre>';die();
+
+            return $display;
+        }
+
+      }
+
 
 
     function allcategories($type)
@@ -377,10 +497,10 @@ class Admin extends MY_Controller {
                 $display .= '<td class="centered">'.$state.'</td>';
 
                 $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'admin/viewcategory/'.$data['Category ID'].'"><i class="fa fa-eye black"></i></a></td>';
-                //$display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'index.php/admin/viewcategory/'.$data['Category ID'].'"><i class="glyphicon glyphicon-eye-open black"></i></a></td>';
+                //$display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'index.php/admin/viewcategory/'.$data['Category ID'].'"><i class="fa fa-trash black"></i></a></td>';
                 
-                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'admin/catupdate/catdelete/'.$data['Category ID'].'"><i class="fa fa-trash black"></i></td>';
-                //$display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'index.php/admin/catupdate/catdelete/'.$data['Category ID'].'"><i class="glyphicon glyphicon-trash black"></i></td>';
+                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'admin/catupdate/catdelete/'.$data['Category ID'].'"><i class="fa fa-eye black"></i></td>';
+                //$display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'index.php/admin/catupdate/catdelete/'.$data['Category ID'].'"><i class="fa fa-trash black"></i></td>';
                 $display .= '</tr>';
 
                 break;
@@ -437,6 +557,8 @@ class Admin extends MY_Controller {
         }
 
       }
+
+
 
       function allemployees($type)
     {
@@ -500,10 +622,10 @@ class Admin extends MY_Controller {
                 $display .= '<td class="centered">'.$state.'</td>';
 
                 $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'admin/viewemployee/'.$data['Employee ID'].'"><i class="fa fa-eye black"></i></a></td>';
-                //$display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'index.php/admin/viewemployee/'.$data['Employee ID'].'"><i class="glyphicon glyphicon-eye-open black"></i></a></td>';
+                //$display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'index.php/admin/viewemployee/'.$data['Employee ID'].'"><i class="fa fa-eye black"></i></a></td>';
                 
-                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'admin/empupdate/empdelete/'.$data['Employee ID'].'"><i class="ion-trash-a icon black"></i></td>';
-                //$display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'index.php/admin/empupdate/empdelete/'.$data['Employee ID'].'"><i class="glyphicon glyphicon-trash black"></i></td>';
+                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'admin/empupdate/empdelete/'.$data['Employee ID'].'"><i class="fa fa-trash black"></i></td>';
+                //$display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'index.php/admin/empupdate/empdelete/'.$data['Employee ID'].'"><i class="fa fa-trash black"></i></td>';
                 $display .= '</tr>';
 
                 break;
@@ -671,6 +793,19 @@ class Admin extends MY_Controller {
     }
 
 
+    public function editclient()
+    {
+        $id = $this->input->post('editcustomerid');      
+        $customer_status = $this->input->post('editclientstatus');
+        
+        $result = $this->admin_model->client_update($id, $customer_status);
+        
+
+        $this->clients();
+        
+    }
+
+
     // function that passes the id to be viewed and displays it in the viewcategory file
     function viewcategory($id)
     {
@@ -731,6 +866,35 @@ class Admin extends MY_Controller {
  
     }
 
+    function viewclient($id)
+    {
+        $this->log_check();
+        $userdet = array();
+
+        
+        $results = $this->admin_model->clientprofile($id);
+
+        foreach ($results as $key => $values) {
+            $details['customers'][] = $values;  
+        }
+        
+        
+        $data['customerdetails'] = $details;
+
+
+        $data['admin_title'] = 'Manager';
+        $data['admin_subtitle'] = 'View Client';
+        $data['admin_navbar'] = 'admin/header';
+        $data['admin_sidebar'] = 'admin/sidebar';
+        $data['admin_content'] = 'admin/viewclient';
+        $data['admin_footer'] = 'admin/footer';
+
+        
+        
+        $this->template->call_admin_template($data);
+ 
+    }
+
      //function that allows other updates for specific category with $cat_id
       function catupdate($type, $cat_id)
     {
@@ -745,6 +909,29 @@ class Admin extends MY_Controller {
                     break;
 
                 case 'catrestore':
+                    
+                    break;
+                
+                default:
+                    # code...
+                    break;
+            }
+        }
+    }
+
+    function clientupdate($type, $client_id)
+    {
+        $update = $this->admin_model->updateclient($type, $client_id);
+
+        if($update)
+        {
+            switch ($type) {
+
+                case 'clientdelete':
+                    $this->clients();
+                    break;
+
+                case 'clientrestore':
                     
                     break;
                 

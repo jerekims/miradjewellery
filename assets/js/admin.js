@@ -8,25 +8,20 @@ $(document).ready(function(){
 
 
         if(pass !== "e10adc3949ba59abbe56e057f20f883e"){
-            $('#passpanel').hide();
+            $('#passpanel').show();
 
            $('#editemployeepassword').prop('required',false);
            $('#editemployeecpassword').prop('required',false);
            
         }else{
-           $('#passpanel').show();
+           $('#passpanel').hide();
 
            $('#editemployeepassword').prop('required',true);
            $('#editemployeecpassword').prop('required',true);
         }
 
-      $('#category-table').dataTable();
-      $('#product-table').dataTable();
-      $('#administrator-table').dataTable();
-      $('#orders-table').dataTable();
 
-            $('.dataTables_filter input').addClass('form-control').attr('placeholder','Search');
-            $('.dataTables_length select').addClass('form-control');
+      
 
 
 
@@ -61,6 +56,7 @@ $(document).ready(function(){
      $("#productediting").validationEngine();
      $("#formaddadministrator").validationEngine();
      $("#employeeediting").validationEngine();
+     $("#clientediting").validationEngine();
 
 
 
@@ -98,6 +94,9 @@ $(document).ready(function(){
  
       });
    });
+
+
+
 
      // ....end of function.... //
      // 
@@ -262,6 +261,43 @@ $(document).ready(function(){
               
               swal({   title: "Employee Editing",   text: "Employee has been updated",   timer: 3000 });
               // pop up for a successful registration 
+              
+             
+
+           }
+ 
+         });
+ 
+         return false;  //stop the actual form post !important!
+ 
+      });
+   });
+
+     // ....end of function.... //
+     
+
+      $(function(){
+       $("#clientediting").submit(function(){
+          
+  //alert("clicked");
+   
+      
+         var formData = new FormData($(this)[0]);
+ 
+         $.ajax({
+           type: "POST",
+           url: base_url + 'admin/editclient',
+           // url: base_url + 'index.php/admin/editclient',
+           data: formData,
+           async: false,
+           cache: false,
+           contentType: false,
+           processData: false,
+           success: function(data){
+              
+              
+              swal({   title: "Client Editing",   text: "Client has been updated",   timer: 3000 });
+           
               
              
 

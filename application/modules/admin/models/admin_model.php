@@ -152,7 +152,24 @@ class Admin_model extends MY_Model {
 
 
 // function that allows the acquiring of all category data from table category
-  function get_all_categories()
+  function get_all_clients()
+
+  {
+    $sql = "SELECT 
+          c.cust_id as 'Customer ID',
+          c.cust_name as 'Customer Name',
+          t.title_name as 'Customer Title',
+          c.cust_email as 'Customer Email',
+          c.date_registered as 'Date Registered',
+          c.cust_status as 'Customer Status'
+        FROM
+          customers c,title t WHERE
+          c.title_id = t.title_id";
+    $result = $this->db->query($sql);
+    return $result->result_array();
+  }
+
+   function get_all_categories()
 
   {
     $sql = "SELECT 
@@ -218,6 +235,8 @@ class Admin_model extends MY_Model {
 	}
 
 
+
+
   function administrator_update($id,$employee_name, $employee_email, $employee_password, $employee_occupation, $employee_status)
   {
     $employee = array(
@@ -232,6 +251,20 @@ class Admin_model extends MY_Model {
 
 
         $insert = $this->db->update('employees', $employee);
+    return $insert;
+
+  }
+
+    function client_update($id, $customer_status)
+  {
+    $customer = array(
+            'cust_status' => $customer_status
+            );
+
+    $this->db->where('cust_id', $id);
+
+
+        $insert = $this->db->update('customers', $customer);
     return $insert;
 
   }
@@ -272,6 +305,26 @@ class Admin_model extends MY_Model {
       if ($result) {
           foreach ($result as $key => $value) {
              $profile[$value['emp_id']] = $value;
+          }
+      return $profile;
+
+    }
+    
+    return $profile;
+    }
+
+    public function clientprofile($id)
+
+    {
+         $profile = array();
+         
+         $query = $this->db->get_where('customers', array('cust_id' => $id));
+         
+         $result = $query->result_array();
+
+      if ($result) {
+          foreach ($result as $key => $value) {
+             $profile[$value['cust_id']] = $value;
           }
       return $profile;
 
@@ -333,12 +386,12 @@ class Admin_model extends MY_Model {
 
         switch ($type) {
           case 'empdelete':
-            $data['catstatus'] = 0; 
+            $data['emp_status'] = 0; 
             
             break;
 
           case 'emprestore':
-            $data['catstatus'] = 1; 
+            $data['emp_status'] = 1; 
         
             break;
       
@@ -347,8 +400,41 @@ class Admin_model extends MY_Model {
     }
 
 
-    $this->db->where('emp_id', $cat_id);
+    $this->db->where('emp_id', $emp_id);
     $update = $this->db->update('employees', $data);
+
+    if ($update) {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+  }
+
+
+  public function updateclient($type, $client_id)
+    {
+          $data = array();
+
+        switch ($type) {
+          case 'clientdelete':
+            $data['cust_status'] = 0; 
+            
+            break;
+
+          case 'clientrestore':
+            $data['cust_status'] = 1; 
+        
+            break;
+      
+        
+      
+    }
+
+
+    $this->db->where('cust_id', $client_id);
+    $update = $this->db->update('customers', $data);
 
     if ($update) {
       return true;

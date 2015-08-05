@@ -45,7 +45,7 @@
                          </ul>
                        </div>
                      </div>
-                     <table class="table table-striped" id="product-table"><!-- The table created in the page -->
+                     <table class="table table-striped" id="product-table2"><!-- The table created in the page -->
                        <thead>
                         <tr>
 
@@ -98,3 +98,12 @@
 
         </div>
         <!-- /#page-wrapper -->
+
+
+        <script type="text/javascript">
+              $('#product-table2').dataTable();
+
+              
+            $('.dataTables_filter input').addClass('form-control').attr('placeholder','Search');
+            $('.dataTables_length select').addClass('form-control');
+        </script>

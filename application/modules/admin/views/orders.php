@@ -35,3 +35,11 @@
 
         </div>
         <!-- /#page-wrapper -->
+
+        <script type="text/javascript">
+              $('#order-table').dataTable();
+
+              
+            $('.dataTables_filter input').addClass('form-control').attr('placeholder','Search');
+            $('.dataTables_length select').addClass('form-control');
+        </script>
