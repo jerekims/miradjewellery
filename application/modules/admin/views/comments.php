@@ -23,10 +23,45 @@
                 <!-- /.row -->
 
                 <div class="row">
-                   Still Under Development
-                   <a href="<?php echo base_url(). 'admin'?>"><button class="btn btn-info" > Back to home page</button><a>
-                   <!-- <a href="<?php echo base_url(). 'index.php/admin'?>"><button class="btn btn-info" > Back to home page</button><a> -->
-                
+                   <div class="col-lg-12">
+                   <h2 class="table-title">Comments</h2>
+                   <div class="table-responsive">
+                     <div class="table-toolbar">
+                       <div class="btn-group pull-right table-buttons">
+
+                       
+                       <a class="left adminadd" href="<?php echo base_url(). 'admin/addcomment'?>">Add <?php echo $admin_subtitle?></a>
+                       <!-- <a class="left adminadd" href="<?php echo base_url(). 'index.php/admin/addcomment'?>">Add <?php echo $admin_subtitle?></a> -->
+                         <button data-toggle="dropdown" class="btn dropdown-toggle btn-warning right ">Exports <span class="caret"></span></button>
+                         <ul class="dropdown-menu">
+                           <li><a href="<?php echo base_url(). 'admin/allcomments/pdf'?>">Export to PDF</a></li>
+                           <li><a href="<?php echo base_url(). 'admin/allcomments/excel'?>">Export to Excel</a></li>
+
+                           <!-- <li><a href="<?php echo base_url(). 'index.php/admin/allcomments/pdf'?>">Export to PDF</a></li>
+                           <li><a href="<?php echo base_url(). 'index.php/admin/allcomments/excel'?>">Export to Excel</a></li> -->
+                         </ul>
+                       </div>
+                     </div>
+                     <table class="table table-striped" id="comment-table"><!-- The table created in the page -->
+                       <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>Subject</th>
+                          <th>Message</th>
+                          <th>Date Sent</th>
+                          <th>View</th>
+                          <!-- <th>Edit</th> -->
+                          <th>Deactivate</th>
+                        </tr>
+                       </thead>
+                        <?php
+                          echo $all_comments;
+                        ?>
+                   </table>
+
+                     
+                   </div>
+                 </div>
                 </div>
                 <!-- /.row -->
 

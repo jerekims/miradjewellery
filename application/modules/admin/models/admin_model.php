@@ -169,6 +169,40 @@ class Admin_model extends MY_Model {
     return $result->result_array();
   }
 
+  function get_all_orders()
+
+  {
+    $sql = "SELECT 
+          order_id as 'Order ID',
+          order_no as 'Order No',
+          prodid as 'Product ID',
+          prodprice as 'Product Price',
+          cust_id as 'Customer ID',
+          order_status as 'Order Status',
+          order_date as 'Date Ordered'
+        FROM
+          orders";
+    $result = $this->db->query($sql);
+    return $result->result_array();
+  }
+
+  function get_all_comments()
+
+  {
+    $sql = "SELECT 
+          comm_id as 'Comment ID',
+          comm_subject as 'Comment Subject',
+          comm_message as 'Comment Message',
+          comm_status as 'Comment Status',
+          date_sent as 'Date Sent'
+        FROM
+          comments
+        WHERE
+          comm_status = 1";
+    $result = $this->db->query($sql);
+    return $result->result_array();
+  }
+
    function get_all_categories()
 
   {

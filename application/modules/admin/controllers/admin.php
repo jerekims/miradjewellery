@@ -243,6 +243,8 @@ class Admin extends MY_Controller {
         $data['admin_sidebar'] = 'admin/sidebar';
         $data['admin_content'] = 'admin/orders';
         $data['admin_footer'] = 'admin/footer';
+
+        $data['all_orders'] = $this->allorders('table');
         
         
         $this->template->call_admin_template($data);
@@ -258,6 +260,8 @@ class Admin extends MY_Controller {
         $data['admin_sidebar'] = 'admin/sidebar';
         $data['admin_content'] = 'admin/comments';
         $data['admin_footer'] = 'admin/footer';
+
+        $data['all_comments'] = $this->allcomments('table');
         
         
         $this->template->call_admin_template($data);
@@ -352,7 +356,7 @@ class Admin extends MY_Controller {
         <thead>
         <tr>
             <th>#</th>
-            <th>Cutsomer ID</th>
+            <th>Customer ID</th>
             <th>Title</th>
             <th>Customer Name</th>
             <th>Customer Email</th>
@@ -385,9 +389,9 @@ class Admin extends MY_Controller {
                 $display .= '<td class="centered">'.$state.'</td>';
 
                 $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'admin/viewclient/'.$data['Customer ID'].'"><i class="fa fa-eye black"></i></a></td>';
-                //$display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'index.php/admin/viewclient/'.$data['Customer ID'].'"><i class="fa fa-trash black"></i></a></td>';
+                //$display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'index.php/admin/viewclient/'.$data['Customer ID'].'"><i class="fa fa-eye black"></i></a></td>';
                 
-                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'admin/clientupdate/clientdelete/'.$data['Customer ID'].'"><i class="fa fa-eye black"></i></td>';
+                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'admin/clientupdate/clientdelete/'.$data['Customer ID'].'"><i class="fa fa-trash black"></i></td>';
                 //$display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'index.php/admin/clientupdate/clientdelete/'.$data['Customer ID'].'"><i class="fa fa-trash black"></i></td>';
                 $display .= '</tr>';
 
@@ -433,6 +437,233 @@ class Admin extends MY_Controller {
             
             $html_body .= '</tbody></table>';
             $pdf_data = array("pdf_title" => "Clients PDF Report", 'pdf_html_body' => $html_body, 'pdf_view_option' => 'download', 'file_name' => 'Clients Report', 'pdf_topic' => 'Clients');
+
+            //echo'<pre>';print_r($pdf_data);echo'</pre>';die();
+
+            $this->export->create_pdf($pdf_data);
+
+        }else{
+
+            $display .= "</tbody>";
+
+            //echo'<pre>';print_r($display);echo'</pre>';die();
+
+            return $display;
+        }
+
+      }
+
+      function allorders($type)
+    {
+        $display = '';
+        $orders = $this->admin_model->get_all_orders();
+            //echo "<pre>";print_r($customers);echo "</pre>";die();
+        
+
+        $count = 0;
+
+
+      // creating arrays for both pdf and excel for data storage and transfer
+        $column_data = $row_data = array();
+
+        // display used for table
+        $display .= "<tbody>";
+
+        // html_body Used for the pdf
+        $html_body = '
+        <table class="data-table">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Order ID</th>
+            <th>Order No</th>
+            <th>Product ID</th>
+            <th>Product Price</th>
+            <th>Customer ID</th>
+            <th>Order Status</th>
+            <th>Date Ordered</th>
+        </tr> 
+        </thead>
+        <tbody>
+        <ol type="a">';
+
+        foreach ($orders as $key => $data) {
+            $count++;
+                if ($data['Order Status'] == 1) {
+                    $state = '<span class="label label-info">Delivered</span>';
+                    $states = 'Activated';
+                } else if ($data['Order Status'] == 0) {
+                    $state = '<span class="label label-danger">Not Delivered</span>';
+                    $states = 'Deactivated';
+                }
+
+        switch ($type) {
+            case 'table':
+                $display .= '<tr>';
+                $display .= '<td class="centered">'.$count.'</td>';
+                $display .= '<td class="centered">'.$data['Order No'].'</td>';
+                $display .= '<td class="centered">'.$data['Product ID'].'</td>';
+                $display .= '<td class="centered">'.$data['Product Price'].'</td>';
+                $display .= '<td class="centered">'.$data['Customer ID'].'</td>';
+                $display .= '<td class="centered">'.$state.'</td>';
+                $display .= '<td class="centered">'.$data['Date Ordered'].'</td>';
+
+                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'admin/vieworder/'.$data['Order ID'].'"><i class="fa fa-eye black"></i></a></td>';
+                //$display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'index.php/admin/vieworder/'.$data['Order ID'].'"><i class="fa fa-eye black"></i></a></td>';
+                
+                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'admin/orderupdate/orderdelete/'.$data['Order ID'].'"><i class="fa fa-trash black"></i></td>';
+                //$display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'index.php/admin/orderupdate/orderdelete/'.$data['Order ID'].'"><i class="fa fa-trash black"></i></td>';
+                $display .= '</tr>';
+
+                break;
+            
+            case 'excel':
+               
+                 array_push($row_data, array($data['Order ID'], $data['Order No'], $data['Product ID'], $data['Product Price'], $data['Customer ID'], $states, $data['Date Ordered'])); 
+
+                break;
+
+            case 'pdf':
+
+            //echo'<pre>';print_r($categories);echo'</pre>';die();
+           
+                $html_body .= '<tr>';
+                $html_body .= '<td>'.$data['Order ID'].'</td>';
+                $html_body .= '<td>'.$data['Order No'].'</td>';
+                $html_body .= '<td>'.$data['Product ID'].'</td>';
+                $html_body .= '<td>'.$data['Product Price'].'</td>';
+                $html_body .= '<td>'.$data['Customer ID'].'</td>';
+                $html_body .= '<td>'.$states.'</td>';
+                $html_body .= '<td>'.$data['Date Ordered'].'</td>';
+                $html_body .= "</tr></ol>";
+
+                break;
+               }
+            }
+        
+        
+        if($type == 'excel'){
+
+            $excel_data = array();
+            $excel_data = array('doc_creator' => 'Mirad Jewelries ', 'doc_title' => 'Orders Excel Report', 'file_name' => 'Orders Report', 'excel_topic' => 'Orders');
+            $column_data = array('Order ID','Order No','Product ID','Product Price','Customer ID','Order Status','Date Ordered');
+            $excel_data['column_data'] = $column_data;
+            $excel_data['row_data'] = $row_data;
+
+              //echo'<pre>';print_r($excel_data);echo'</pre>';die();
+
+            $this->export->create_excel($excel_data);
+
+        }elseif($type == 'pdf'){
+            
+            $html_body .= '</tbody></table>';
+            $pdf_data = array("pdf_title" => "Orders PDF Report", 'pdf_html_body' => $html_body, 'pdf_view_option' => 'download', 'file_name' => 'Orders Report', 'pdf_topic' => 'Orders');
+
+            //echo'<pre>';print_r($pdf_data);echo'</pre>';die();
+
+            $this->export->create_pdf($pdf_data);
+
+        }else{
+
+            $display .= "</tbody>";
+
+            //echo'<pre>';print_r($display);echo'</pre>';die();
+
+            return $display;
+        }
+
+      }
+
+      function allcomments($type)
+    {
+        $display = '';
+        $customers = $this->admin_model->get_all_comments();
+            //echo "<pre>";print_r($customers);echo "</pre>";die();
+        
+
+        $count = 0;
+
+
+      // creating arrays for both pdf and excel for data storage and transfer
+        $column_data = $row_data = array();
+
+        // display used for table
+        $display .= "<tbody>";
+
+        // html_body Used for the pdf
+        $html_body = '
+        <table class="data-table">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Comment ID</th>
+            <th>Subject</th>
+            <th>Message</th>
+            <th>Date Sent</th>
+        </tr> 
+        </thead>
+        <tbody>
+        <ol type="a">';
+
+        foreach ($customers as $key => $data) {
+            $count++;
+                
+
+        switch ($type) {
+            case 'table':
+                $display .= '<tr>';
+                $display .= '<td class="centered">'.$count.'</td>';
+                $display .= '<td class="centered">'.$data['Comment Subject'].'</td>';
+                $display .= '<td class="centered">'.$data['Comment Message'].'</td>';
+                $display .= '<td class="centered">'.$data['Date Sent'].'</td>';
+
+                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'admin/viewcomment/'.$data['Comment ID'].'"><i class="fa fa-eye black"></i></a></td>';
+                //$display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'index.php/admin/viewcomment/'.$data['Comment ID'].'"><i class="fa fa-eye black"></i></a></td>';
+                
+                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'admin/commentupdate/commentdelete/'.$data['Comment ID'].'"><i class="fa fa-trash black"></i></td>';
+                //$display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'index.php/admin/commentupdate/commentdelete/'.$data['Comment ID'].'"><i class="fa fa-trash black"></i></td>';
+                $display .= '</tr>';
+
+                break;
+            
+            case 'excel':
+               
+                 array_push($row_data, array($data['Comment ID'], $data['Comment Subject'], $data['Comment Message'], $data['Date Sent'])); 
+
+                break;
+
+            case 'pdf':
+
+            //echo'<pre>';print_r($categories);echo'</pre>';die();
+           
+                $html_body .= '<tr>';
+                $html_body .= '<td>'.$data['Comment ID'].'</td>';
+                $html_body .= '<td>'.$data['Comment Subject'].'</td>';
+                $html_body .= '<td>'.$data['Comment Message'].'</td>';
+                $html_body .= '<td>'.$data['Date Sent'].'</td>';
+                $html_body .= "</tr></ol>";
+
+                break;
+               }
+            }
+        
+        
+        if($type == 'excel'){
+
+            $excel_data = array();
+            $excel_data = array('doc_creator' => 'Mirad Jewelries ', 'doc_title' => 'Comments Excel Report', 'file_name' => 'Comments Report', 'excel_topic' => 'Comments');
+            $column_data = array('Comment ID','Comment Subject','Comment Message','Date Sent');
+            $excel_data['column_data'] = $column_data;
+            $excel_data['row_data'] = $row_data;
+
+              //echo'<pre>';print_r($excel_data);echo'</pre>';die();
+
+            $this->export->create_excel($excel_data);
+
+        }elseif($type == 'pdf'){
+            
+            $html_body .= '</tbody></table>';
+            $pdf_data = array("pdf_title" => "Comments PDF Report", 'pdf_html_body' => $html_body, 'pdf_view_option' => 'download', 'file_name' => 'Comments Report', 'pdf_topic' => 'Comments');
 
             //echo'<pre>';print_r($pdf_data);echo'</pre>';die();
 
@@ -497,9 +728,9 @@ class Admin extends MY_Controller {
                 $display .= '<td class="centered">'.$state.'</td>';
 
                 $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'admin/viewcategory/'.$data['Category ID'].'"><i class="fa fa-eye black"></i></a></td>';
-                //$display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'index.php/admin/viewcategory/'.$data['Category ID'].'"><i class="fa fa-trash black"></i></a></td>';
+                //$display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'index.php/admin/viewcategory/'.$data['Category ID'].'"><i class="fa fa-eye black"></i></a></td>';
                 
-                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'admin/catupdate/catdelete/'.$data['Category ID'].'"><i class="fa fa-eye black"></i></td>';
+                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'admin/catupdate/catdelete/'.$data['Category ID'].'"><i class="fa fa-trash black"></i></td>';
                 //$display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'index.php/admin/catupdate/catdelete/'.$data['Category ID'].'"><i class="fa fa-trash black"></i></td>';
                 $display .= '</tr>';
 

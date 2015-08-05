@@ -27,12 +27,14 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/1.0.0/css/dataTables.responsive.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/tabletools/2.2.4/css/dataTables.tableTools.css">
+    <link rel="stylesheet" type="text/css" href="https: //cdn.datatables.net/scroller/1.2.2/css/dataTables.scroller.css">
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.7/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src = "https://cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>
     <script type="text/javascript" src = "https://cdn.datatables.net/tabletools/2.2.4/js/dataTables.tableTools.min.js"></script>
     <script type="text/javascript" src = "https://cdn.datatables.net/fixedcolumns/3.0.4/js/dataTables.fixedColumns.min.js"></script>
-
+    <script type="text/javascript" src = "https://cdn.datatables.net/responsive/1.0.6/css/dataTables.responsive.css"></script>
+    <script type="text/javascript" src = "https://cdn.datatables.net/scroller/1.2.2/js/dataTables.scroller.min.js"></script>
 
 
 
