@@ -75,8 +75,8 @@ $(document).ready(function(){
           // takes the data into the admin controller, into a function called categoryregistration()
          $.ajax({
            type: "POST",
-           url: base_url + 'admin/categoryregistration',
-           // url: base_url + 'index.php/admin/categoryregistration',
+           // url: base_url + 'admin/categoryregistration',
+            url: base_url + 'admin/categoryregistration',
            data: formData,
            async: false,
            cache: false,
@@ -177,7 +177,7 @@ $(document).ready(function(){
           // takes the data into the admin controller, into a function called categoryregistration()
          $.ajax({
            type: "POST",
-           url: base_url + 'admin/employeeregistration',
+            url: base_url + 'admin/employeeregistration',
            // url: base_url + 'index.php/admin/employeeregistration',
            data: formData,
            async: false,

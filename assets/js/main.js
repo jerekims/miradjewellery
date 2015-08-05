@@ -1,11 +1,5 @@
 $(document).ready(function(){
 
-
-   
-
-        
-
-
 	$(function () {
 		$.scrollUp({
 	        scrollName: 'scrollUp', // Element ID

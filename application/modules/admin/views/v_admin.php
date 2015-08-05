@@ -16,7 +16,7 @@
                                    <?php if($passmessage){ ?>
                                    <a href="<?php echo base_url().'admin/viewemployee/'.$this->session->userdata('emp_id')?>" class="animated flash red"> <?php echo $passmessage ?> </a>
                                    <!-- <a href="<?php echo base_url().'index.php/admin/viewemployee/'.$this->session->userdata('emp_id')?>" class="animated flash red"> <?php echo $passmessage ?> </a> -->
-                                    <?php } ?>
+                                    <?php }else{$passmessage="";echo $passmessage;} ?>
                             </li>
                         </ol>
                     </div>

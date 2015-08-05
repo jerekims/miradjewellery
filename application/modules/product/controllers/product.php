@@ -134,11 +134,11 @@ class Product extends MY_Controller {
 
                 // button below used for viewing the specific category. Goes to admin controller into function called viewcategory(), passing the category id as parameter
                 $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'product/viewproduct/'.$data['Product ID'].'"><i class="fa fa-eye black"></i></a></td>';
-                // $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'index.php/product/viewproduct/'.$data['Product ID'].'"><i class="fa fa-eye black"></i></a></td>';
+                // $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'index.php/product/viewproduct/'.$data['Product ID'].'"><i class="glyphicon glyphicon-eye-open black"></i></a></td>';
                 
                 // button below used for editing the specific category. Goes to admin controller into function called catupdate(), passing the type of update and the category id as parameter
                 $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'product/product_status/proddelete/'.$data['Product ID'].'"><i class="ion-trash-a icon black"></i></td>';
-                // $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'index.php/product/product_status/proddelete/'.$data['Product ID'].'"><i class="ion-trash-a icon black"></i></td>';
+                // $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'index.php/product/product_status/proddelete/'.$data['Product ID'].'"><i class="glyphicon glyphicon-trash black"></i></td>';
                 $display .= '</tr>';
                 
 
