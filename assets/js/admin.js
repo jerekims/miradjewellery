@@ -56,7 +56,9 @@ $(document).ready(function(){
      $("#productediting").validationEngine();
      $("#formaddadministrator").validationEngine();
      $("#employeeediting").validationEngine();
+     $("#orderediting").validationEngine();
      $("#clientediting").validationEngine();
+     $("#commentediting").validationEngine();
 
 
 
@@ -236,6 +238,61 @@ $(document).ready(function(){
       });
    });
 
+
+  $(function(){
+       $("#orderediting").submit(function(){
+          
+         var formData = new FormData($(this)[0]);
+ 
+         $.ajax({
+           type: "POST",
+           url: base_url + 'admin/editorder',
+           // url: base_url + 'index.php/admin/editorder',
+           data: formData,
+           async: false,
+           cache: false,
+           contentType: false,
+           processData: false,
+           success: function(data){
+                        
+              swal({   title: "Order Editing",   text: "Order has been updated",   timer: 3000 });
+ 
+           }
+ 
+         });
+ 
+         return false;  //stop the actual form post !important!
+ 
+      });
+   });
+
+   $(function(){
+       $("#commentediting").submit(function(){
+          
+         var formData = new FormData($(this)[0]);
+ 
+         $.ajax({
+           type: "POST",
+           url: base_url + 'admin/editcomment',
+           // url: base_url + 'index.php/admin/editcomment',
+           data: formData,
+           async: false,
+           cache: false,
+           contentType: false,
+           processData: false,
+           success: function(data){
+                        
+              swal({   title: "Comment Editing",   text: "Comment has been updated",   timer: 3000 });
+ 
+           }
+ 
+         });
+ 
+         return false;  //stop the actual form post !important!
+ 
+      });
+   });
+
      // ....end of function.... //
      // 
      // 
@@ -311,6 +368,8 @@ $(document).ready(function(){
    });
 
      // ....end of function.... //
+     // 
+     
 
 
 

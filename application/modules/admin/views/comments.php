@@ -30,7 +30,7 @@
                        <div class="btn-group pull-right table-buttons">
 
                        
-                       <a class="left adminadd" href="<?php echo base_url(). 'admin/addcomment'?>">Add <?php echo $admin_subtitle?></a>
+                       <!-- <a class="left adminadd" href="<?php echo base_url(). 'admin/addcomment'?>">Add <?php echo $admin_subtitle?></a> -->
                        <!-- <a class="left adminadd" href="<?php echo base_url(). 'index.php/admin/addcomment'?>">Add <?php echo $admin_subtitle?></a> -->
                          <button data-toggle="dropdown" class="btn dropdown-toggle btn-warning right ">Exports <span class="caret"></span></button>
                          <ul class="dropdown-menu">

@@ -303,6 +303,34 @@ class Admin_model extends MY_Model {
 
   }
 
+   function order_update($id, $order_status)
+  {
+    $order = array(
+            'order_status' => $order_status
+            );
+
+    $this->db->where('order_id', $id);
+
+
+        $insert = $this->db->update('orders', $order);
+    return $insert;
+
+  }
+
+  function comment_update($id, $comment_status)
+  {
+    $comment = array(
+            'comm_status' => $comment_status
+            );
+
+    $this->db->where('comm_id', $id);
+
+
+        $insert = $this->db->update('comments', $comment);
+    return $insert;
+
+  }
+
 
 // function that allows us to view details of the category selected using the $id
 	public function categoryprofile($id)
@@ -359,6 +387,47 @@ class Admin_model extends MY_Model {
       if ($result) {
           foreach ($result as $key => $value) {
              $profile[$value['cust_id']] = $value;
+          }
+      return $profile;
+
+    }
+    
+    return $profile;
+    }
+
+
+    public function commentprofile($id)
+
+    {
+         $profile = array();
+         
+         $query = $this->db->get_where('comments', array('comm_id' => $id));
+         
+         $result = $query->result_array();
+
+      if ($result) {
+          foreach ($result as $key => $value) {
+             $profile[$value['comm_id']] = $value;
+          }
+      return $profile;
+
+    }
+    
+    return $profile;
+    }
+
+    public function orderprofile($id)
+
+    {
+         $profile = array();
+         
+         $query = $this->db->get_where('orders', array('order_id' => $id));
+         
+         $result = $query->result_array();
+
+      if ($result) {
+          foreach ($result as $key => $value) {
+             $profile[$value['order_id']] = $value;
           }
       return $profile;
 

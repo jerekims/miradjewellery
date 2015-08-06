@@ -474,7 +474,6 @@ class Admin extends MY_Controller {
         <table class="data-table">
         <thead>
         <tr>
-            <th>#</th>
             <th>Order ID</th>
             <th>Order No</th>
             <th>Product ID</th>
@@ -595,7 +594,6 @@ class Admin extends MY_Controller {
         <table class="data-table">
         <thead>
         <tr>
-            <th>#</th>
             <th>Comment ID</th>
             <th>Subject</th>
             <th>Message</th>
@@ -1024,7 +1022,31 @@ class Admin extends MY_Controller {
     }
 
 
-    public function editclient()
+    public function editorder()
+    {
+        $id = $this->input->post('editorderid');      
+        $order_status = $this->input->post('editorderstatus');
+        
+        $result = $this->admin_model->order_update($id, $order_status);
+        
+
+        $this->orders();
+        
+    }
+
+    public function editcomment()
+    {
+        $id = $this->input->post('editcommentid');      
+        $comment_status = $this->input->post('editcommentstatus');
+        
+        $result = $this->admin_model->comment_update($id, $comment_status);
+        
+
+        $this->comments();
+        
+    }
+
+     public function editclient()
     {
         $id = $this->input->post('editcustomerid');      
         $customer_status = $this->input->post('editclientstatus');
@@ -1089,6 +1111,64 @@ class Admin extends MY_Controller {
         $data['admin_navbar'] = 'admin/header';
         $data['admin_sidebar'] = 'admin/sidebar';
         $data['admin_content'] = 'admin/viewadministrator';
+        $data['admin_footer'] = 'admin/footer';
+
+        
+        
+        $this->template->call_admin_template($data);
+ 
+    }
+
+    function viewcomment($id)
+    {
+        $this->log_check();
+        $userdet = array();
+
+        
+        $results = $this->admin_model->commentprofile($id);
+
+        foreach ($results as $key => $values) {
+            $details['comments'][] = $values;  
+        }
+        
+        
+        $data['commentdetails'] = $details;
+
+
+        $data['admin_title'] = 'Manager';
+        $data['admin_subtitle'] = 'View Comment';
+        $data['admin_navbar'] = 'admin/header';
+        $data['admin_sidebar'] = 'admin/sidebar';
+        $data['admin_content'] = 'admin/viewcomment';
+        $data['admin_footer'] = 'admin/footer';
+
+        
+        
+        $this->template->call_admin_template($data);
+ 
+    }
+
+    function vieworder($id)
+    {
+        $this->log_check();
+        $userdet = array();
+
+        
+        $results = $this->admin_model->orderprofile($id);
+
+        foreach ($results as $key => $values) {
+            $details['orders'][] = $values;  
+        }
+        
+        
+        $data['orderdetails'] = $details;
+
+
+        $data['admin_title'] = 'Manager';
+        $data['admin_subtitle'] = 'View Order';
+        $data['admin_navbar'] = 'admin/header';
+        $data['admin_sidebar'] = 'admin/sidebar';
+        $data['admin_content'] = 'admin/vieworder';
         $data['admin_footer'] = 'admin/footer';
 
         
