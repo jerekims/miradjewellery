@@ -575,7 +575,7 @@ class Admin extends MY_Controller {
       function allcomments($type)
     {
         $display = '';
-        $customers = $this->admin_model->get_all_comments();
+        $comments = $this->admin_model->get_all_comments();
             //echo "<pre>";print_r($customers);echo "</pre>";die();
         
 
@@ -602,7 +602,7 @@ class Admin extends MY_Controller {
         <tbody>
         <ol type="a">';
 
-        foreach ($customers as $key => $data) {
+        foreach ($comments as $key => $data) {
             $count++;
                 
 
