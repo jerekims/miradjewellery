@@ -13,6 +13,9 @@
                                 <i class="fa fa-dashboard"></i>
                                    <a class="crumbs" href="<?php echo base_url(). 'admin'?>">Manager Dashboard</a> > 
                                    <a class="crumbs" href="<?php echo base_url(). 'admin/employee'?>"><?php echo $admin_subtitle?></a>
+<!-- 
+                                   <a class="crumbs" href="<?php echo base_url(). 'index.php/admin'?>">Manager Dashboard</a> > 
+                                   <a class="crumbs" href="<?php echo base_url(). 'index.php/admin/employee'?>"><?php echo $admin_subtitle?></a> -->
                                    
                             </li>
                         </ol>
@@ -27,12 +30,15 @@
                      <div class="table-toolbar">
                        <div class="btn-group pull-right table-buttons">
 
-                       <!-- The add button takes you to the admin controller, into the function addcategory() -->
+                       
                        <a class="left adminadd" href="<?php echo base_url(). 'admin/addemployee'?>">Add <?php echo $admin_subtitle?></a>
+                       <!-- <a class="left adminadd" href="<?php echo base_url(). 'index.php/admin/addemployee'?>">Add <?php echo $admin_subtitle?></a> -->
                          <button data-toggle="dropdown" class="btn dropdown-toggle btn-warning right ">Exports <span class="caret"></span></button>
                          <ul class="dropdown-menu">
                            <li><a href="<?php echo base_url(). 'admin/allemployees/pdf'?>">Export to PDF</a></li>
                            <li><a href="<?php echo base_url(). 'admin/allemployees/excel'?>">Export to Excel</a></li>
+                           <!-- <li><a href="<?php echo base_url(). 'index.php/admin/allemployees/pdf'?>">Export to PDF</a></li>
+                           <li><a href="<?php echo base_url(). 'index.php/admin/allemployees/excel'?>">Export to Excel</a></li> -->
                          </ul>
                        </div>
                      </div>
@@ -59,25 +65,6 @@
                  </div>
                 </div>
                 <!-- /.row -->
-
-<!-- Modal -->
-<!-- <div class="modal fade" id="categorymodaleditor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel"><?php echo $admin_subtitle?> Update</h4>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-success">Save changes</button>
-        <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div> -->
 
                
 

@@ -12,8 +12,10 @@
                             <li class="active">
                                  <i class="fa fa-dashboard"></i>
                                    <a class="crumbs" href="<?php echo base_url(). 'admin'?>">Manager Dashboard</a>
+                                   <!-- <a class="crumbs" href="<?php echo base_url(). 'index.php/admin'?>">Manager Dashboard</a> -->
                                    <?php if($passmessage){ ?>
                                    <a href="<?php echo base_url().'admin/viewemployee/'.$this->session->userdata('emp_id')?>" class="animated flash red"> <?php echo $passmessage ?> </a>
+                                   <!-- <a href="<?php echo base_url().'index.php/admin/viewemployee/'.$this->session->userdata('emp_id')?>" class="animated flash red"> <?php echo $passmessage ?> </a> -->
                                     <?php } ?>
                             </li>
                         </ol>
@@ -38,6 +40,7 @@
                                 </div>
                             </div>
                             <a href="<?php echo base_url(). 'admin/clients'?>">
+                            <!-- <a href="<?php echo base_url(). 'index.php/admin/clients'?>"> -->
                                 <div class="panel-footer">
                                     <span class="pull-left">View More</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -60,6 +63,7 @@
                                 </div>
                             </div>
                             <a href="<?php echo base_url(). 'product/products'?>">
+                            <!-- <a href="<?php echo base_url(). 'index.php/product/products'?>"> -->
                                 <div class="panel-footer">
                                     <span class="pull-left">View More</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -82,6 +86,7 @@
                                 </div>
                             </div>
                             <a href="<?php echo base_url(). 'admin/orders'?>">
+                            <!-- <a href="<?php echo base_url(). 'index.php/admin/orders'?>"> -->
                                 <div class="panel-footer">
                                     <span class="pull-left">View More</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -104,6 +109,7 @@
                                 </div>
                             </div>
                             <a href="<?php echo base_url(). 'admin/comments'?>">
+                            <!-- <a href="<?php echo base_url(). 'index.php/admin/comments'?>"> -->
                                 <div class="panel-footer">
                                     <span class="pull-left">View More</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -124,10 +130,14 @@
                      <div class="table-toolbar">
                        <div class="btn-group pull-right table-buttons">
                        <a class="left adminadd" href="<?php echo base_url(). 'admin/addcategory'?>">Add Category</a>
+                       <!-- <a class="left adminadd" href="<?php echo base_url(). 'index.php/admin/addcategory'?>">Add Category</a> -->
                          <button data-toggle="dropdown" class="btn dropdown-toggle btn-warning right ">Exports <span class="caret"></span></button>
                          <ul class="dropdown-menu">
                            <li><a href="<?php echo base_url(). 'admin/allcategories/pdf'?>">Export to PDF</a></li>
                            <li><a href="<?php echo base_url(). 'admin/allcategories/excel'?>">Export to Excel</a></li>
+
+                           <!-- <li><a href="<?php echo base_url(). 'index.php/admin/allcategories/pdf'?>">Export to PDF</a></li>
+                           <li><a href="<?php echo base_url(). 'index.php/admin/allcategories/excel'?>">Export to Excel</a></li> -->
                          </ul>
                        </div>
                      </div>
@@ -161,10 +171,14 @@
                      <div class="table-toolbar">
                        <div class="btn-group pull-right table-buttons">
                        <a class="left adminadd" href="<?php echo base_url(). 'product/addproduct'?>">Add Product</a>
+                       <!-- <a class="left adminadd" href="<?php echo base_url(). 'index.php/product/addproduct'?>">Add Product</a> -->
                          <button data-toggle="dropdown" class="btn dropdown-toggle btn-warning right ">Export <span class="caret"></span></button>
                          <ul class="dropdown-menu">
                            <li><a href="<?php echo base_url(). 'admin/allcategories/pdf'?>">Save as PDF</a></li>
                            <li><a href="<?php echo base_url(). 'admin/allcategories/excel'?>">Export to Excel</a></li>
+
+                           <!-- <li><a href="<?php echo base_url(). 'index.php/admin/allcategories/pdf'?>">Save as PDF</a></li>
+                           <li><a href="<?php echo base_url(). 'index.php/admin/allcategories/excel'?>">Export to Excel</a></li> -->
                          </ul>
                        </div>
                      </div>
@@ -201,12 +215,16 @@
                      <div class="table-toolbar">
                        <div class="btn-group pull-right table-buttons">
 
-                       <!-- The add button takes you to the admin controller, into the function addcategory() -->
+                       
                        <a class="left adminadd" href="<?php echo base_url(). 'admin/addemployee'?>">Add Employees</a>
+                       <!-- <a class="left adminadd" href="<?php echo base_url(). 'index.php/admin/addemployee'?>">Add Employees</a> -->
                          <button data-toggle="dropdown" class="btn dropdown-toggle btn-warning right ">Exports <span class="caret"></span></button>
                          <ul class="dropdown-menu">
                            <li><a href="<?php echo base_url(). 'admin/allemployees/pdf'?>">Export to PDF</a></li>
                            <li><a href="<?php echo base_url(). 'admin/allemployees/excel'?>">Export to Excel</a></li>
+
+                           <!-- <li><a href="<?php echo base_url(). 'index.php/admin/allemployees/pdf'?>">Export to PDF</a></li>
+                           <li><a href="<?php echo base_url(). 'index.php/admin/allemployees/excel'?>">Export to Excel</a></li> -->
                          </ul>
                        </div>
                      </div>
