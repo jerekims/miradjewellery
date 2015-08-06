@@ -64,19 +64,20 @@
                                 <input id="editemployeeemail" name="editemployeeemail"  required type="email" value="<?php echo $data['emp_email']; ?>"class="form-control validate[required, custom[email]]">
                             </div>
 
-                             <div id="passpanel" class="passpanel">
-                              <p class="help-block animated flash red passwordinfo">Please change your password</p>
+                          
+                             
                                      
-                              <div class="form-group">
+                              <div class="form-group passpanel">
+                               <p class="help-block animated flash red passwordinfo">Please change your password</p>
                                 <label>Password</label>
                                 <input id="editemployeepassword" required name="editemployeepassword" type="password" placeholder="Enter New Password" class="form-control validate[required]">
                               </div>
 
-                              <div class="form-group">
+                              <div class="form-group passpanel">
                                 <label>Confirm Password</label>
                                 <input id="editemployeecpassword" required name="editemployeecpassword" type="password" placeholder="Confirm Password" class="form-control validate[required, equals[editemployeepassword]]">
                               </div>
-                            </div> 
+                            
 
                                 
 

@@ -4,17 +4,17 @@ $(document).ready(function(){
   
 
    var pass = $("#employeepassword").val();
-   //console.log(pass);
+   console.log(pass);
 
 
         if(pass !== "e10adc3949ba59abbe56e057f20f883e"){
-            $('#passpanel').show();
+            $('.passpanel').hide();
 
            $('#editemployeepassword').prop('required',false);
            $('#editemployeecpassword').prop('required',false);
            
-        }else{
-           $('#passpanel').hide();
+        }else if(pass === "e10adc3949ba59abbe56e057f20f883e"){
+           $('.passpanel').show();
 
            $('#editemployeepassword').prop('required',true);
            $('#editemployeecpassword').prop('required',true);
@@ -300,7 +300,7 @@ $(document).ready(function(){
      $(function(){
        $("#employeeediting").submit(function(){
           
-  
+      alert("clecked");
    
        // takes the data into the admin controller, into a function called editcategory()
          var formData = new FormData($(this)[0]);
