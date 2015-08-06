@@ -13,7 +13,8 @@
                                 <i class="fa fa-dashboard"></i>
                                    <a class="crumbs" href="<?php echo base_url(). 'stockmanager/dashboard'?>">Stock Manager Dashboard</a> > 
                                    <a class="crumbs" href="<?php echo base_url(). 'stockmanager/comments'?>"><?php echo $admin_subtitle?></a>
-                                   <!-- <a class="crumbs" href="<?php echo base_url(). 'index.php/stockmanager'?>">Manager Dashboard</a> > 
+                                   
+                                   <!-- <a class="crumbs" href="<?php echo base_url(). 'index.php/stockmanager/dashboard'?>">Manager Dashboard</a> > 
                                    <a class="crumbs" href="<?php echo base_url(). 'index.php/stockmanager/comments'?>"><?php echo $stockmanager_subtitle?></a> -->
                                    
                             </li>

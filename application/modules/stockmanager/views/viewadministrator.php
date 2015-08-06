@@ -11,11 +11,9 @@
                         <ol class="breadcrumb">
                             <li class="active">
                                  <i class="fa fa-dashboard"></i>
-                                   <a class="crumbs" href="<?php echo base_url(). 'admin'?>">Manager Dashboard</a> > 
-                                   <a class="crumbs" href="<?php echo base_url(). 'admin/employees'?>">Employee</a> >
+                                   <a class="crumbs" href="<?php echo base_url(). 'stockmanager/dashboard'?>">Stock Manager Dashboard</a> >
 
-                                   <!-- <a class="crumbs" href="<?php echo base_url(). 'index.php/admin'?>">Manager Dashboard</a> > 
-                                   <a class="crumbs" href="<?php echo base_url(). 'index.php/admin/employees'?>">Employee</a> > -->
+                                   <!-- <a class="crumbs" href="<?php echo base_url(). 'index.php/stockmanager/dashboard'?>">Manager Dashboard</a> >-->
                                    <a class="crumbs" href="#'?>"><?php echo $admin_subtitle?></a>
                             </li>
                         </ol>
@@ -86,7 +84,7 @@
 
                             <div class="form-group">
                                 <label>Employee Occupation</label>
-                                <select id="editemployeeoccupation"  required name="editemployeeoccupation" class="form-control validate[required]">
+                                <select id="editemployeeoccupation" disabled required name="editemployeeoccupation" class="form-control validate[required]">
 
                             <?php 
                                 if($data['level_id'] == 2){
@@ -118,30 +116,11 @@
                                 </select>
                             </div>
 
-                            <div class="form-group">
-                                <label>Employee Status</label>
-                                <select id="editemployeestatus" required name="editemployeestatus" class="form-control validate[required]">
-
-                            <?php 
-                                if($data['emp_status'] == 1){
-                            ?>
-                                  <option selected value="1">Activated</option>
-                                   <option value="0">Deactivated</option>
-                            <?php
-                                }elseif($data['emp_status'] == 0){
-                            ?>
-                                  <option value="1">Activated</option>
-                                    <option selected value="0">Deactivated</option>
-                            <?php
-                                }
-                            ?>
-   
-                                </select>
-                            </div>
+                          
 
                             <button type="submit" class="btn btn-success">Submit Button</button>
-                            <a href="<?php echo base_url(). 'admin/employees'?>" class="btn btn-warning">Back</a>
-                            <!-- <a href="<?php echo base_url(). 'index.php/admin/employees'?>" class="btn btn-warning">Back</a> -->
+                            <a href="<?php echo base_url(). 'stockmanager/dashboard'?>" class="btn btn-warning">Dashboard</a>
+                            <!-- <a href="<?php echo base_url(). 'index.php/stockmanager/dashboard'?>" class="btn btn-warning">Back</a> -->
                             
                             <!-- <button type="reset" class="btn btn-warning">Reset Button</button> -->
 

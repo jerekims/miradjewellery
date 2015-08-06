@@ -34,14 +34,14 @@ class Stockmanager_model extends MY_Model {
   /* adding new  product  to the database
   ______________________________________________________*/  
   
-    function add_product($categoryname,$pname,$pdescription,$price,$prodstatus)
+    function add_product($categoryname,$pname,$pdescription,$path,$price,$prodstatus)
     {
       $product=array(
             'catid'=>$categoryname,
             'prodname'=>$pname,
             'proddescription'=>$pdescription,
             'prodprice'=>$price,
-            'prodimage'=>"image",
+            'prodimage'=>$path,
             'product_status'=>$prodstatus
 
         );
@@ -385,20 +385,33 @@ class Stockmanager_model extends MY_Model {
 
 
 
-  function stockmanageristrator_update($id,$employee_name, $employee_email, $employee_password, $employee_occupation, $employee_status)
+  function administrator_update($id,$employee_name, $employee_email, $employee_password, $employee_occupation)
   {
     $employee = array(
             'emp_name'   => $employee_name,
             'emp_email' => $employee_email,
-            'level_id'   => $employee_occupation,
             'emp_password'   => $employee_password,
             'emp_status' => $employee_status
             );
 
+    $ci_sess = array();
+      $sessions = array(
+          'emp_name'   => $employee_name,
+            'emp_email' => $employee_email
+        );
+
     $this->db->where('emp_id', $id);
 
-
+    
         $insert = $this->db->update('employees', $employee);
+
+        
+
+      array_push($ci_sess, $sessions);
+
+      $this->db->insert_batch('ci_sessions',$ci_sess);
+
+        
     return $insert;
 
   }
@@ -445,6 +458,18 @@ class Stockmanager_model extends MY_Model {
 
   }
 
+  public function getcategories(){
+    $query = "SELECT * FROM category WHERE catstatus = 1";
+            try {
+                $this->dataSet = $this->db->query($query);
+                $this->dataSet = $this->dataSet->result_array();
+            }
+            catch(exception $ex) {
+            }
+            
+            return $this->dataSet;
+  }
+
 
 // function that allows us to view details of the category selected using the $id
 	public function categoryprofile($id)
@@ -469,7 +494,7 @@ class Stockmanager_model extends MY_Model {
     }
 
 
-    public function stockmanageristratorprofile($id)
+    public function administratorprofile($id)
 
     {
          $profile = array();

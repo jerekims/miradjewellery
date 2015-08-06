@@ -14,7 +14,7 @@
                                    <a class="crumbs" href="<?php echo base_url(). 'stockmanager/dashboard'?>">Stock Manager Dashboard</a> > 
                                    <a class="crumbs" href="<?php echo base_url(). 'stockmanager/orders'?>">Orders</a> >
 
-                                   <!-- <a class="crumbs" href="<?php echo base_url(). 'index.php/stockmanager'?>">Manager Dashboard</a> > 
+                                   <!-- <a class="crumbs" href="<?php echo base_url(). 'index.php/stockmanager/dashboard'?>">Manager Dashboard</a> > 
                                    <a class="crumbs" href="<?php echo base_url(). 'index.php/stockmanager/orders'?>">Employee</a> > -->
                                    <a class="crumbs" href="#'?>"><?php echo $admin_subtitle?></a>
                             </li>

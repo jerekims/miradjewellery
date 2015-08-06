@@ -15,7 +15,6 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/bootstrap/css/bootstrap.min.css'?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/materialize/css/materialize.min.css'?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/skeleton/css/skeleton.css'?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/ionicons/css/ionicons.min.css'?>">
 
     <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/css/validationEngine.jquery.css'?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/sweetalert/lib/sweet-alert.css'?>">

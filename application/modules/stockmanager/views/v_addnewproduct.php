@@ -11,12 +11,12 @@
                         <ol class="breadcrumb">
                             <li class="active">
                                 <i class="fa fa-dashboard"></i> 
-                                   <a class="crumbs" href="<?php echo base_url(). 'admin'?>">Manager Dashboard</a> > 
-                                   <a class="crumbs" href="<?php echo base_url(). 'admin/products'?>">Product</a> > 
-                                   <a class="crumbs" href="<?php echo base_url(). 'admin/addproduct'?>"><?php echo $admin_subtitle?></a>
-                                   <!-- <a class="crumbs" href="<?php echo base_url(). 'index.php/admin'?>">Manager Dashboard</a> > 
-                                   <a class="crumbs" href="<?php echo base_url(). 'index.php/admin/products'?>">Product</a> > 
-                                   <a class="crumbs" href="<?php echo base_url(). 'index.php/admin/addproduct'?>"><?php echo $admin_subtitle?></a> -->
+                                   <a class="crumbs" href="<?php echo base_url(). 'stockmanager/dashboard'?>">Stock Manager Dashboard</a> > 
+                                   <a class="crumbs" href="<?php echo base_url(). 'stockmanager/products'?>">Product</a> > 
+                                   <a class="crumbs" href="<?php echo base_url(). 'stockmanager/addproduct'?>"><?php echo $admin_subtitle?></a>
+                                   <!-- <a class="crumbs" href="<?php echo base_url(). 'index.php/stockmanager'?>">Manager Dashboard</a> > 
+                                   <a class="crumbs" href="<?php echo base_url(). 'index.php/stockmanager/products'?>">Product</a> > 
+                                   <a class="crumbs" href="<?php echo base_url(). 'index.php/stockmanager/addproduct'?>"><?php echo $admin_subtitle?></a> -->
                             </li>
                         </ol>
                     </div>
@@ -26,29 +26,29 @@
                 <div class="row">
                   <div class="col-lg-5">
                   
-                  <!-- The form that adds a new category into database. It uses admin.js into a function with form ID -> #formaddcategory -->
-                     <form id="formaddproduct" action="<?php echo base_url(). 'admin/addnewproduct'?>" name="formaddproduct" role="form" enctype="multipart/form-data" method="POST">
-                     <!-- <form id="formaddproduct" action="<?php echo base_url(). 'index.php/admin/addnewproduct'?>" name="formaddproduct" role="form" enctype="multipart/form-data" method="POST"> -->
+                     <form id="formaddproduct" name="formaddproduct" role="form" enctype="multipart/form-data" method="POST">
 
                             <div class="form-group">
                                 <label>Category Name</label>
-                                <select class="form-control" name="productcategory" id="productcategory">
-                                    <option value="1">Rings</option>
-                                    <option value="2">Necklaces</option>
-                                    <option value="3">Bangles</option>
+                                <select class="form-control validate[required]" name="productcategory" id="productcategory">
+                                    <?php echo $getcategories;?>
                                 </select>
                                 </div>
                             <div>
                                 <label>Product Name</label>
                                 <input id="productname" name="productname" class="form-control validate[required]">
                             </div>
+                            <div class="form-group">
+                                <label>Product Image</label>
+                                <input type="file" class="form-control validate[required]" id="prod_picture" name="prod_picture">
+                            </div>
                             <div>
                                 <label>Product Description</label>
-                                <textarea  name="prod_description" id="prod_description" placeholder="Please enter a description of the product" class="form-control"></textarea>
+                                <textarea  name="prod_description" id="prod_description" placeholder="Please enter a description of the product" class="form-control validate[required]"></textarea>
                             </div>
                             <div>
                                 <label>Product Price</label>
-                                <input id="price" name="price" class="form-control validate[required] ">
+                                <input id="price" name="price" class="form-control validate[required, custom[number]] ">
                             </div>
                            <!--  <div>
                                 <label>Product image</label>
@@ -57,7 +57,7 @@
  -->
                             <div class="form-group">
                                 <label>Product Status</label>
-                                <select id="productstatus" name="productstatus" class="form-control">
+                                <select id="productstatus" name="productstatus" class="form-control validate[required]">
                                     <option selected value="1">Activated</option>
                                     <option value="0">Deactivated</option>
                                 </select>
@@ -66,8 +66,8 @@
 
                             <button type="submit" class="btn btn-success">Submit Button</button>
                             <button type="reset" class="btn btn-warning">Reset Button</button>
-                            <a class="adminback" href="<?php echo base_url(). 'admin/products'?>">Back</a>
-                            <!-- <a class="adminback" href="<?php echo base_url(). 'index.php/admin/products'?>">Back</a> -->
+                            <a class="adminback" href="<?php echo base_url(). 'stockmanager/products'?>">Back</a>
+                            <!-- <a class="adminback" href="<?php echo base_url(). 'index.php/stockmanager/products'?>">Back</a> -->
 
                         </form>
                   </div>

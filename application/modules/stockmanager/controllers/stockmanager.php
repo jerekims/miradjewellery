@@ -536,7 +536,7 @@ class Stockmanager extends MY_Controller {
     {
         $id = $this->input->post('editemployeeid');
         $employee_name = $this->input->post('editemployeename');
-        $employee_status = $this->input->post('editemployeestatus');
+        
 
         if($this->input->post('editemployeepassword')){
             $employee_password = md5($this->input->post('editemployeepassword'));
@@ -549,7 +549,7 @@ class Stockmanager extends MY_Controller {
         $employee_occupation = $this->input->post('editemployeeoccupation');
 
         
-        $result = $this->stockmanager_model->stockmanageristrator_update($id,$employee_name, $employee_email, $employee_password, $employee_occupation, $employee_status);
+        $result = $this->stockmanager_model->administrator_update($id,$employee_name, $employee_email, $employee_password, $employee_occupation);
         
 
         $this->employees();
@@ -576,7 +576,7 @@ class Stockmanager extends MY_Controller {
         $data['categorydetails'] = $details;//uses result from the foreach above to and passes it into key -> categorydetails to be used as reference
 
 
-        $data['admin_title'] = 'Manager';
+        $data['admin_title'] = 'Stock Manager';
         $data['admin_subtitle'] = 'View Category';
         $data['admin_navbar'] = 'stockmanager/header';//header.php file
         $data['admin_sidebar'] = 'stockmanager/sidebar';//sidebar.php file
@@ -596,7 +596,7 @@ class Stockmanager extends MY_Controller {
         $userdet = array();
 
         
-        $results = $this->stockmanager_model->stockmanageristratorprofile($id);
+        $results = $this->stockmanager_model->administratorprofile($id);
 
         foreach ($results as $key => $values) {
             $details['employees'][] = $values;  
@@ -606,11 +606,11 @@ class Stockmanager extends MY_Controller {
         $data['employeedetails'] = $details;
 
 
-        $data['admin_title'] = 'Manager';
+        $data['admin_title'] = 'Stock Manager';
         $data['admin_subtitle'] = 'View Employee';
         $data['admin_navbar'] = 'stockmanager/header';
         $data['admin_sidebar'] = 'stockmanager/sidebar';
-        $data['admin_content'] = 'stockmanager/viewstockmanageristrator';
+        $data['admin_content'] = 'stockmanager/viewadministrator';
         $data['admin_footer'] = 'stockmanager/footer';
 
         
@@ -635,7 +635,7 @@ class Stockmanager extends MY_Controller {
         $data['commentdetails'] = $details;
 
 
-        $data['admin_title'] = 'Manager';
+        $data['admin_title'] = 'Stock Manager';
         $data['admin_subtitle'] = 'View Comment';
         $data['admin_navbar'] = 'stockmanager/header';
         $data['admin_sidebar'] = 'stockmanager/sidebar';
@@ -664,7 +664,7 @@ class Stockmanager extends MY_Controller {
         $data['orderdetails'] = $details;
 
 
-        $data['admin_title'] = 'Manager';
+        $data['admin_title'] = 'Stock Manager';
         $data['admin_subtitle'] = 'View Order';
         $data['admin_navbar'] = 'stockmanager/header';
         $data['admin_sidebar'] = 'stockmanager/sidebar';
@@ -730,7 +730,7 @@ class Stockmanager extends MY_Controller {
     {
         $data['all_products'] = $this->allproducts('table');
 
-        $data['admin_title'] = 'Manager';
+        $data['admin_title'] = 'Stock Manager';
         $data['admin_subtitle'] = 'Product';
         $data['admin_navbar'] = 'stockmanager/header';
         $data['admin_sidebar'] = 'stockmanager/sidebar';
@@ -750,17 +750,29 @@ class Stockmanager extends MY_Controller {
     {
         
 
-        $data['admin_title'] = 'Manager';
+        $data['admin_title'] = 'Stock Manager';
         $data['admin_subtitle'] = 'Add Product';
         $data['admin_navbar'] = 'stockmanager/header';
         $data['admin_sidebar'] = 'stockmanager/sidebar';
         $data['admin_content'] = 'stockmanager/v_addnewproduct';
         $data['admin_footer'] = 'stockmanager/footer';
 
-        
+        $data['getcategories'] = $this->getcategories();
         
         $this->template->call_admin_template($data);
     }
+
+    function getcategories(){
+        $results = $this->stockmanager_model->getcategories();
+        
+        //echo '<pre>';print_r($results);echo '</pre>';die;
+            $prodcat ='<option selected="selected" value="">Select the Category</option>';
+        foreach ($results as $value) {
+            $prodcat .= '<option value="' . $value['catid'] . '">' . $value['catname'] . '</option>';  
+        }
+        return $prodcat;
+    }
+
 
 
     /* displays all the products from the  database
@@ -895,14 +907,47 @@ class Stockmanager extends MY_Controller {
 
          $categoryname = $this->input->post('productcategory');
          $pname = $this->input->post('productname');
+         
          $pdescription = $this->input->post('prod_description');
          $price = $this->input->post('price');
          //$image=$this->input->post('image');
          $prodstatus=$this->input->post('productstatus');
-         //echo'<pre>';print_r($categoryname);echo'</pre>';die();
-         $insert = $this->stockmanager_model->add_product($categoryname,$pname,$pdescription,$price,$prodstatus);
 
-         $this->products();
+         //echo'<pre>';print_r($categoryname);echo'</pre>';die();
+         $path = base_url().'uploads/products/';
+        //$path = base_url().'index.php/uploads/users/';
+               $config['upload_path'] = 'uploads/products/';
+               //$config['upload_path'] = 'index.php/uploads/employees/';
+               $config['allowed_types'] = 'jpeg|jpg|png|gif';
+               $config['encrypt_name'] = TRUE;
+               $this->load->library('upload', $config);
+               $this->upload->initialize($config);
+
+            if ( ! $this->upload->do_upload('prod_picture'))
+            {
+               $error = array('error' => $this->upload->display_errors());
+
+               print_r($error);die;
+            }
+             else
+             {
+               
+                $data = array('upload_data' => $this->upload->data());
+                 foreach ($data as $key => $value) {
+                  //print_r($data);die;
+                  $path = base_url().'uploads/products/'.$value['file_name'];
+                  //$path = base_url().'index.php/uploads/products/'.$value['file_name'];
+                
+                  }
+
+
+
+
+         
+         $insert = $this->stockmanager_model->add_product($categoryname,$pname,$pdescription,$path,$price,$prodstatus);
+
+         return $insert;
+     }
     }
 
     /* function for editing single product
@@ -936,9 +981,11 @@ class Stockmanager extends MY_Controller {
         foreach ($results as $key => $values) {
             $details['products'][] = $values;  
         }
-        $data['productdetails'] = $details;
 
-        $data['admin_title']='Manager';
+        $data['productdetails'] = $details;
+        $data['getcategories'] = $this->getcategories();
+
+        $data['admin_title']='Stock Manager';
         $data['admin_subtitle']='View Product';
         $data['admin_navbar']='stockmanager/header';
         $data['admin_sidebar']='stockmanager/sidebar';

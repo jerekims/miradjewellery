@@ -41,6 +41,10 @@
                                 </div>
                             </div>
 
+                            <div class="form-group image-profile">
+                                <img style="width:250px;height:250px;" src="<?php echo $data['prodimage']; ?>" alt="Profile pic">
+                            </div>
+
                             <div class="form-group">
                                 <label>Product Name</label>
                                 <input id="productname" name="editproductname" required value="<?php echo $data['prodname']; ?>" class="form-control validate[required]">
