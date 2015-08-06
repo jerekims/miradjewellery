@@ -11,8 +11,8 @@
                         <ol class="breadcrumb">
                             <li class="active">
                                  <i class="fa fa-dashboard"></i>
-                                   <a class="crumbs" href="<?php echo base_url(). 'stockmanager/dashboard'?>">Manager Dashboard</a> > 
-                                   <a class="crumbs" href="<?php echo base_url(). 'stockmanager/comments'?>">Employee</a> >
+                                   <a class="crumbs" href="<?php echo base_url(). 'stockmanager/dashboard'?>">Stock Manager Dashboard</a> > 
+                                   <a class="crumbs" href="<?php echo base_url(). 'stockmanager/comments'?>">Comments</a> >
 
                                    <!-- <a class="crumbs" href="<?php echo base_url(). 'index.php/stockmanager'?>">Manager Dashboard</a> > 
                                    <a class="crumbs" href="<?php echo base_url(). 'index.php/stockmanager/comments'?>">Employee</a> > -->
