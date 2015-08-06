@@ -13,8 +13,8 @@ $(function(){
           
          $.ajax({
            type: "POST",
-           url: base_url + 'admin/validate_member',
-           // url: base_url + 'index.php/admin/validate_member',
+           //url: base_url + 'admin/validate_member',
+            url: base_url + 'index.php/admin/validate_member',
            data: formData,
            async: false,
            cache: false,

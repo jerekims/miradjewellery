@@ -8,25 +8,20 @@ $(document).ready(function(){
 
 
         if(pass !== "e10adc3949ba59abbe56e057f20f883e"){
-            $('#passpanel').hide();
+            $('#passpanel').show();
 
            $('#editemployeepassword').prop('required',false);
            $('#editemployeecpassword').prop('required',false);
            
         }else{
-           $('#passpanel').show();
+           $('#passpanel').hide();
 
            $('#editemployeepassword').prop('required',true);
            $('#editemployeecpassword').prop('required',true);
         }
 
-      $('#category-table').dataTable();
-      $('#product-table').dataTable();
-      $('#administrator-table').dataTable();
-      $('#orders-table').dataTable();
 
-            $('.dataTables_filter input').addClass('form-control').attr('placeholder','Search');
-            $('.dataTables_length select').addClass('form-control');
+      
 
 
 
@@ -61,6 +56,9 @@ $(document).ready(function(){
      $("#productediting").validationEngine();
      $("#formaddadministrator").validationEngine();
      $("#employeeediting").validationEngine();
+     $("#orderediting").validationEngine();
+     $("#clientediting").validationEngine();
+     $("#commentediting").validationEngine();
 
 
 
@@ -75,8 +73,8 @@ $(document).ready(function(){
           // takes the data into the admin controller, into a function called categoryregistration()
          $.ajax({
            type: "POST",
-           url: base_url + 'admin/categoryregistration',
-           // url: base_url + 'index.php/admin/categoryregistration',
+           // url: base_url + 'admin/categoryregistration',
+            url: base_url + 'admin/categoryregistration',
            data: formData,
            async: false,
            cache: false,
@@ -99,71 +97,75 @@ $(document).ready(function(){
       });
    });
 
+
+
+
      // ....end of function.... //
      // 
      // 
 
      // function for adding a product 
-     // $(function(){
-     //  $("#formaddproduct").submit(function(){
-     //    //alert("clicked");
-     //      var formData = new formData($(this)[0]);
+     $(function(){
+      $("#formaddproduct").submit(function(){
+        //alert("clicked");
+          var formData = new formData($(this)[0]);
 
-     //      // passing the data to the addnewproduct in the product controller
-     //      $.ajax({
-     //          type:"POST",
-     //          url: base_url + 'product/addnewproduct',
-     //          url: base_url + 'index.php/product/addnewproduct',
-     //          data:formData,
-     //          async:false,
-     //          cache:false,
-     //          contentType:false,
-     //          processData:false,
-     //          success:function(data){
-     //            // after successful registration of the product
-     //            swal({title:"Addiing a product",text:"Product has been added",timer:3000});
-     //          },error: function(data){
-     //          swal({   title: "Error Registration",   text: "Product has not been registered",   timer: 3000 });
-     //       }
-     //      });
-     //      return false;
-     //  });
+          // passing the data to the addnewproduct in the product controller
+          $.ajax({
+              type:"POST",
+              url: base_url + 'admin/addnewproduct',
+              //url: base_url + 'index.php/admin/addnewproduct',
+              data:formData,
+              async:false,
+              cache:false,
+              contentType:false,
+              processData:false,
+              success:function(data){
+                // after successful registration of the product
+                swal({title:"Product Registration",text:"Product has been added",timer:3000});
 
-     // });
+              },error: function(data){
+              swal({   title: "Error Registration",   text: "Product has not been registered",   timer: 3000 });
+           }
+          });
+          return false;
+      });
+
+     });
      // end of the function for adding new  product
 
-     // function  for editing a product
-   //   $(function(){
-   //     $("#productediting").submit(function(){
+    
+     $(function(){
+       $("#productediting").submit(function(){
           
 
         
-   //       var formData = new FormData($(this)[0]);
+         var formData = new FormData($(this)[0]);
 
-   //        // takes the data into the admin controller, into a function called categoryregistration()
-   //       $.ajax({
-   //         type: "POST",
-   //         url: base_url + 'product/editproduct',
-   //         url: base_url + 'index.php/product/editproduct',
-   //         data: formData,
-   //         async: false,
-   //         cache: false,
-   //         contentType: false,
-   //         processData: false,
-   //         success: function(data){
-   //             // ....After successful registration, then....//
+          // takes the data into the admin controller, into a function called categoryregistration()
+         $.ajax({
+           type: "POST",
+           url: base_url + 'admin/editproduct',
+           //url: base_url + 'index.php/admin/editproduct',
+           data: formData,
+           async: false,
+           cache: false,
+           contentType: false,
+           processData: false,
+           success: function(data){
+               // ....After successful registration, then....//
               
-   //            swal({   title: "Employee Registration",   text: "Employee has been registered",   timer: 3000 });
-   //            // pop up for a successful registration 
+              swal({   title: "Product Editing",   text: "Product has been editing",   timer: 3000 });
+              // pop up for a successful registration 
 
-   //         }
+           }
  
-   //       });
+         });
  
-   //       return false;  //stop the actual form post !important!
+         return false;  //stop the actual form post !important!
  
-   //    });
-   // });
+      });
+   });
 
      // end of the function for editing  the product details
 
@@ -177,7 +179,7 @@ $(document).ready(function(){
           // takes the data into the admin controller, into a function called categoryregistration()
          $.ajax({
            type: "POST",
-           url: base_url + 'admin/employeeregistration',
+            url: base_url + 'admin/employeeregistration',
            // url: base_url + 'index.php/admin/employeeregistration',
            data: formData,
            async: false,
@@ -237,6 +239,61 @@ $(document).ready(function(){
       });
    });
 
+
+  $(function(){
+       $("#orderediting").submit(function(){
+          
+         var formData = new FormData($(this)[0]);
+ 
+         $.ajax({
+           type: "POST",
+           url: base_url + 'admin/editorder',
+           // url: base_url + 'index.php/admin/editorder',
+           data: formData,
+           async: false,
+           cache: false,
+           contentType: false,
+           processData: false,
+           success: function(data){
+                        
+              swal({   title: "Order Editing",   text: "Order has been updated",   timer: 3000 });
+ 
+           }
+ 
+         });
+ 
+         return false;  //stop the actual form post !important!
+ 
+      });
+   });
+
+   $(function(){
+       $("#commentediting").submit(function(){
+          
+         var formData = new FormData($(this)[0]);
+ 
+         $.ajax({
+           type: "POST",
+           url: base_url + 'admin/editcomment',
+           // url: base_url + 'index.php/admin/editcomment',
+           data: formData,
+           async: false,
+           cache: false,
+           contentType: false,
+           processData: false,
+           success: function(data){
+                        
+              swal({   title: "Comment Editing",   text: "Comment has been updated",   timer: 3000 });
+ 
+           }
+ 
+         });
+ 
+         return false;  //stop the actual form post !important!
+ 
+      });
+   });
+
      // ....end of function.... //
      // 
      // 
@@ -275,6 +332,45 @@ $(document).ready(function(){
    });
 
      // ....end of function.... //
+     
+
+      $(function(){
+       $("#clientediting").submit(function(){
+          
+  //alert("clicked");
+   
+      
+         var formData = new FormData($(this)[0]);
+ 
+         $.ajax({
+           type: "POST",
+           url: base_url + 'admin/editclient',
+           // url: base_url + 'index.php/admin/editclient',
+           data: formData,
+           async: false,
+           cache: false,
+           contentType: false,
+           processData: false,
+           success: function(data){
+              
+              
+              swal({   title: "Client Editing",   text: "Client has been updated",   timer: 3000 });
+           
+              
+             
+
+           }
+ 
+         });
+ 
+         return false;  //stop the actual form post !important!
+ 
+      });
+   });
+
+     // ....end of function.... //
+     // 
+     
 
 
 

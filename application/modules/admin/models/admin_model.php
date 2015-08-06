@@ -16,6 +16,110 @@ class Admin_model extends MY_Model {
        return $result->result_array();
     }
 
+    function get_all_products()
+    {
+      $sql="SELECT 
+        prodid AS 'Product ID',
+        prodname AS 'Product Name',
+        proddescription AS 'Product Description',
+        prodprice AS 'Product Price',
+        prodimage AS 'Product Image',
+        product_status AS 'Product Status'
+        FROM  
+          `products`";
+      $result=$this->db->query($sql);
+      return $result->result_array();
+    }
+
+  /* adding new  product  to the database
+  ______________________________________________________*/  
+  
+    function add_product($categoryname,$pname,$pdescription,$price,$prodstatus)
+    {
+      $product=array(
+            'catid'=>$categoryname,
+            'prodname'=>$pname,
+            'proddescription'=>$pdescription,
+            'prodprice'=>$price,
+            'prodimage'=>"image",
+            'product_status'=>$prodstatus
+
+        );
+      $insert=$this->db->insert('products',$product);
+      return $insert;
+    }
+
+  /* function  for updating product
+  ______________________________________________________*/
+
+    function update_product($prodid,$prodcategory, $pname,$pdescription,$price,$prodstatus)
+    {
+      $product=array(
+            'catid'=>$prodcategory,
+            'prodname'=>$pname,
+            'proddescription'=>$pdescription,
+            'prodprice'=>$price,
+            'product_status'=>$prodstatus
+        );
+      $this->db->where('prodid',$prodid);
+
+      $update=$this->db->update('products',$product);
+
+      return $update;
+    }
+
+    /* individual viewing of products based  on $id
+  ______________________________________________________*/
+
+    function productprofile($productid)
+    {
+      $profile=array();
+      $query=$this->db->get_where('products',array('prodid'=>$productid));
+      $result=$query->result_array();
+      if($result)
+      {
+        foreach ($result as $key => $value) {
+          $profile[$value['prodid']]=$value;
+        }
+      }
+      return $profile;
+    }
+
+    /* updating the product status
+  ______________________________________________________*/
+
+  function product_state($type,$productid)
+  {
+    $data=array();
+    switch($type)
+    {
+      case 'proddelete':
+        $data['product_status']=0;
+
+        break;
+
+        case 'prodrestore':
+        $data['product_status']=1;
+
+        break;
+
+        case 'prodedit':
+        $data=$this->input->post();
+        break;
+
+    }
+
+    $this->db->where('prodid',$productid);
+    $update=$this->db->update('products',$data);
+    if($update){
+      return true;
+    }
+    else{
+      return false;
+    }
+
+  }
+
     public function clientnumber(){
     $sql = "SELECT COUNT(`cust_id`) as clients FROM customers WHERE cust_status = 1";
 
@@ -152,7 +256,58 @@ class Admin_model extends MY_Model {
 
 
 // function that allows the acquiring of all category data from table category
-  function get_all_categories()
+  function get_all_clients()
+
+  {
+    $sql = "SELECT 
+          c.cust_id as 'Customer ID',
+          c.cust_name as 'Customer Name',
+          t.title_name as 'Customer Title',
+          c.cust_email as 'Customer Email',
+          c.date_registered as 'Date Registered',
+          c.cust_status as 'Customer Status'
+        FROM
+          customers c,title t WHERE
+          c.title_id = t.title_id";
+    $result = $this->db->query($sql);
+    return $result->result_array();
+  }
+
+  function get_all_orders()
+
+  {
+    $sql = "SELECT 
+          order_id as 'Order ID',
+          order_no as 'Order No',
+          prodid as 'Product ID',
+          prodprice as 'Product Price',
+          cust_id as 'Customer ID',
+          order_status as 'Order Status',
+          order_date as 'Date Ordered'
+        FROM
+          orders";
+    $result = $this->db->query($sql);
+    return $result->result_array();
+  }
+
+  function get_all_comments()
+
+  {
+    $sql = "SELECT 
+          comm_id as 'Comment ID',
+          comm_subject as 'Comment Subject',
+          comm_message as 'Comment Message',
+          comm_status as 'Comment Status',
+          date_sent as 'Date Sent'
+        FROM
+          comments
+        WHERE
+          comm_status = 1";
+    $result = $this->db->query($sql);
+    return $result->result_array();
+  }
+
+   function get_all_categories()
 
   {
     $sql = "SELECT 
@@ -218,6 +373,8 @@ class Admin_model extends MY_Model {
 	}
 
 
+
+
   function administrator_update($id,$employee_name, $employee_email, $employee_password, $employee_occupation, $employee_status)
   {
     $employee = array(
@@ -232,6 +389,48 @@ class Admin_model extends MY_Model {
 
 
         $insert = $this->db->update('employees', $employee);
+    return $insert;
+
+  }
+
+    function client_update($id, $customer_status)
+  {
+    $customer = array(
+            'cust_status' => $customer_status
+            );
+
+    $this->db->where('cust_id', $id);
+
+
+        $insert = $this->db->update('customers', $customer);
+    return $insert;
+
+  }
+
+   function order_update($id, $order_status)
+  {
+    $order = array(
+            'order_status' => $order_status
+            );
+
+    $this->db->where('order_id', $id);
+
+
+        $insert = $this->db->update('orders', $order);
+    return $insert;
+
+  }
+
+  function comment_update($id, $comment_status)
+  {
+    $comment = array(
+            'comm_status' => $comment_status
+            );
+
+    $this->db->where('comm_id', $id);
+
+
+        $insert = $this->db->update('comments', $comment);
     return $insert;
 
   }
@@ -272,6 +471,67 @@ class Admin_model extends MY_Model {
       if ($result) {
           foreach ($result as $key => $value) {
              $profile[$value['emp_id']] = $value;
+          }
+      return $profile;
+
+    }
+    
+    return $profile;
+    }
+
+    public function clientprofile($id)
+
+    {
+         $profile = array();
+         
+         $query = $this->db->get_where('customers', array('cust_id' => $id));
+         
+         $result = $query->result_array();
+
+      if ($result) {
+          foreach ($result as $key => $value) {
+             $profile[$value['cust_id']] = $value;
+          }
+      return $profile;
+
+    }
+    
+    return $profile;
+    }
+
+
+    public function commentprofile($id)
+
+    {
+         $profile = array();
+         
+         $query = $this->db->get_where('comments', array('comm_id' => $id));
+         
+         $result = $query->result_array();
+
+      if ($result) {
+          foreach ($result as $key => $value) {
+             $profile[$value['comm_id']] = $value;
+          }
+      return $profile;
+
+    }
+    
+    return $profile;
+    }
+
+    public function orderprofile($id)
+
+    {
+         $profile = array();
+         
+         $query = $this->db->get_where('orders', array('order_id' => $id));
+         
+         $result = $query->result_array();
+
+      if ($result) {
+          foreach ($result as $key => $value) {
+             $profile[$value['order_id']] = $value;
           }
       return $profile;
 
@@ -333,12 +593,101 @@ class Admin_model extends MY_Model {
 
         switch ($type) {
           case 'empdelete':
-            $data['catstatus'] = 0; 
+            $data['emp_status'] = 0; 
             
             break;
 
           case 'emprestore':
-            $data['catstatus'] = 1; 
+            $data['emp_status'] = 1; 
+        
+            break;      
+    }
+
+    $this->db->where('emp_id', $client_id);
+    $update = $this->db->update('employees', $data);
+
+    if ($update) {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+  }
+
+    public function updatecomment($type, $comm_id)
+    {
+          $data = array();
+
+        switch ($type) {
+          case 'commentdelete':
+            $data['comm_status'] = 0; 
+            
+            break;
+
+          case 'commentrestore':
+            $data['comm_status'] = 1; 
+        
+            break;      
+    }
+
+    $this->db->where('comm_id', $comm_id);
+    $update = $this->db->update('comments', $data);
+
+    if ($update) {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+  }
+
+
+    public function updateorder($type, $or_id)
+    {
+          $data = array();
+
+        switch ($type) {
+          case 'orderdelete':
+            $data['order_status'] = 1; 
+            
+            break;
+
+          case 'orderrestore':
+            $data['order_status'] = 0; 
+        
+            break;      
+    }
+
+
+    $this->db->where('order_id', $or_id);
+    $update = $this->db->update('orders', $data);
+
+    if ($update) {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+  }
+
+    
+
+
+  public function updateclient($type, $client_id)
+    {
+          $data = array();
+
+        switch ($type) {
+          case 'clientdelete':
+            $data['cust_status'] = 0; 
+            
+            break;
+
+          case 'clientrestore':
+            $data['cust_status'] = 1; 
         
             break;
       
@@ -347,8 +696,8 @@ class Admin_model extends MY_Model {
     }
 
 
-    $this->db->where('emp_id', $cat_id);
-    $update = $this->db->update('employees', $data);
+    $this->db->where('cust_id', $client_id);
+    $update = $this->db->update('customers', $data);
 
     if ($update) {
       return true;
