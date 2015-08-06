@@ -11,11 +11,11 @@
                         <ol class="breadcrumb">
                             <li class="active">
                                  <i class="fa fa-dashboard"></i>
-                                   <a class="crumbs" href="<?php echo base_url(). 'admin'?>">Manager Dashboard</a> > 
-                                   <a class="crumbs" href="<?php echo base_url(). 'admin/orders'?>">Employee</a> >
+                                   <a class="crumbs" href="<?php echo base_url(). 'stockmanager/dashboard'?>">Stock Manager Dashboard</a> > 
+                                   <a class="crumbs" href="<?php echo base_url(). 'stockmanager/orders'?>">Orders</a> >
 
-                                   <!-- <a class="crumbs" href="<?php echo base_url(). 'index.php/admin'?>">Manager Dashboard</a> > 
-                                   <a class="crumbs" href="<?php echo base_url(). 'index.php/admin/orders'?>">Employee</a> > -->
+                                   <!-- <a class="crumbs" href="<?php echo base_url(). 'index.php/stockmanager'?>">Manager Dashboard</a> > 
+                                   <a class="crumbs" href="<?php echo base_url(). 'index.php/stockmanager/orders'?>">Employee</a> > -->
                                    <a class="crumbs" href="#'?>"><?php echo $admin_subtitle?></a>
                             </li>
                         </ol>
@@ -97,8 +97,8 @@
                             </div>
 
                             <button type="submit" class="btn btn-success">Submit Button</button>
-                            <a href="<?php echo base_url(). 'admin/orders'?>" class="btn btn-warning">Back</a>
-                            <!-- <a href="<?php echo base_url(). 'index.php/admin/orders'?>" class="btn btn-warning">Back</a> -->
+                            <a href="<?php echo base_url(). 'stockmanager/orders'?>" class="btn btn-warning">Back</a>
+                            <!-- <a href="<?php echo base_url(). 'index.php/stockmanager/orders'?>" class="btn btn-warning">Back</a> -->
                             
                             <!-- <button type="reset" class="btn btn-warning">Reset Button</button> -->
 

@@ -11,10 +11,10 @@
                         <ol class="breadcrumb">
                             <li class="active">
                                 <i class="fa fa-dashboard"></i>
-                                   <a class="crumbs" href="<?php echo base_url(). 'admin'?>">Manager Dashboard</a> > 
-                                   <a class="crumbs" href="<?php echo base_url(). 'admin/comments'?>"><?php echo $admin_subtitle?></a>
-                                   <!-- <a class="crumbs" href="<?php echo base_url(). 'index.php/admin'?>">Manager Dashboard</a> > 
-                                   <a class="crumbs" href="<?php echo base_url(). 'index.php/admin/comments'?>"><?php echo $admin_subtitle?></a> -->
+                                   <a class="crumbs" href="<?php echo base_url(). 'stockmanager/dashboard'?>">Manager Dashboard</a> > 
+                                   <a class="crumbs" href="<?php echo base_url(). 'stockmanager/comments'?>"><?php echo $admin_subtitle?></a>
+                                   <!-- <a class="crumbs" href="<?php echo base_url(). 'index.php/stockmanager'?>">Manager Dashboard</a> > 
+                                   <a class="crumbs" href="<?php echo base_url(). 'index.php/stockmanager/comments'?>"><?php echo $stockmanager_subtitle?></a> -->
                                    
                             </li>
                         </ol>
@@ -30,15 +30,15 @@
                        <div class="btn-group pull-right table-buttons">
 
                        
-                       <!-- <a class="left adminadd" href="<?php echo base_url(). 'admin/addcomment'?>">Add <?php echo $admin_subtitle?></a> -->
-                       <!-- <a class="left adminadd" href="<?php echo base_url(). 'index.php/admin/addcomment'?>">Add <?php echo $admin_subtitle?></a> -->
+                       <!-- <a class="left stockmanageradd" href="<?php echo base_url(). 'stockmanager/addcomment'?>">Add <?php echo $stockmanager_subtitle?></a> -->
+                       <!-- <a class="left stockmanageradd" href="<?php echo base_url(). 'index.php/stockmanager/addcomment'?>">Add <?php echo $stockmanager_subtitle?></a> -->
                          <button data-toggle="dropdown" class="btn dropdown-toggle btn-warning right ">Exports <span class="caret"></span></button>
                          <ul class="dropdown-menu">
-                           <li><a href="<?php echo base_url(). 'admin/allcomments/pdf'?>">Export to PDF</a></li>
-                           <li><a href="<?php echo base_url(). 'admin/allcomments/excel'?>">Export to Excel</a></li>
+                           <li><a href="<?php echo base_url(). 'stockmanager/allcomments/pdf'?>">Export to PDF</a></li>
+                           <li><a href="<?php echo base_url(). 'stockmanager/allcomments/excel'?>">Export to Excel</a></li>
 
-                           <!-- <li><a href="<?php echo base_url(). 'index.php/admin/allcomments/pdf'?>">Export to PDF</a></li>
-                           <li><a href="<?php echo base_url(). 'index.php/admin/allcomments/excel'?>">Export to Excel</a></li> -->
+                           <!-- <li><a href="<?php echo base_url(). 'index.php/stockmanager/allcomments/pdf'?>">Export to PDF</a></li>
+                           <li><a href="<?php echo base_url(). 'index.php/stockmanager/allcomments/excel'?>">Export to Excel</a></li> -->
                          </ul>
                        </div>
                      </div>
