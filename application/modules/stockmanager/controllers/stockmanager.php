@@ -146,12 +146,12 @@ class Stockmanager extends MY_Controller {
     {
        $this->log_check();
 
-        $data['stockmanager_title'] = 'Manager';
-        $data['stockmanager_subtitle'] = 'Orders';
-        $data['stockmanager_navbar'] = 'stockmanager/header';
-        $data['stockmanager_sidebar'] = 'stockmanager/sidebar';
-        $data['stockmanager_content'] = 'stockmanager/orders';
-        $data['stockmanager_footer'] = 'stockmanager/footer';
+        $data['admin_title'] = 'Stock Manager';
+        $data['admin_subtitle'] = 'Orders';
+        $data['admin_navbar'] = 'stockmanager/header';
+        $data['admin_sidebar'] = 'stockmanager/sidebar';
+        $data['admin_content'] = 'stockmanager/orders';
+        $data['admin_footer'] = 'stockmanager/footer';
 
         $data['all_orders'] = $this->allorders('table');
         
@@ -163,12 +163,12 @@ class Stockmanager extends MY_Controller {
     {
         $this->log_check();
 
-        $data['stockmanager_title'] = 'Manager';
-        $data['stockmanager_subtitle'] = 'Comments';
-        $data['stockmanager_navbar'] = 'stockmanager/header';
-        $data['stockmanager_sidebar'] = 'stockmanager/sidebar';
-        $data['stockmanager_content'] = 'stockmanager/comments';
-        $data['stockmanager_footer'] = 'stockmanager/footer';
+        $data['admin_title'] = 'Stock Manager';
+        $data['admin_subtitle'] = 'Comments';
+        $data['admin_navbar'] = 'stockmanager/header';
+        $data['admin_sidebar'] = 'stockmanager/sidebar';
+        $data['admin_content'] = 'stockmanager/comments';
+        $data['admin_footer'] = 'stockmanager/footer';
 
         $data['all_comments'] = $this->allcomments('table');
         
@@ -181,12 +181,12 @@ class Stockmanager extends MY_Controller {
         $this->log_check();
         $data['all_categories'] = $this->allcategories('table'); 
 
-        $data['stockmanager_title'] = 'Manager';
-        $data['stockmanager_subtitle'] = 'Category';
-        $data['stockmanager_navbar'] = 'stockmanager/header';//header.php file
-        $data['stockmanager_sidebar'] = 'stockmanager/sidebar';//sidebar.php file
-        $data['stockmanager_content'] = 'stockmanager/category';//category.php file
-        $data['stockmanager_footer'] = 'stockmanager/footer';//footer.php file
+        $data['admin_title'] = 'Stock Manager';
+        $data['admin_subtitle'] = 'Category';
+        $data['admin_navbar'] = 'stockmanager/header';//header.php file
+        $data['admin_sidebar'] = 'stockmanager/sidebar';//sidebar.php file
+        $data['admin_content'] = 'stockmanager/category';//category.php file
+        $data['admin_footer'] = 'stockmanager/footer';//footer.php file
 
         
         
@@ -576,12 +576,12 @@ class Stockmanager extends MY_Controller {
         $data['categorydetails'] = $details;//uses result from the foreach above to and passes it into key -> categorydetails to be used as reference
 
 
-        $data['stockmanager_title'] = 'Manager';
-        $data['stockmanager_subtitle'] = 'View Category';
-        $data['stockmanager_navbar'] = 'stockmanager/header';//header.php file
-        $data['stockmanager_sidebar'] = 'stockmanager/sidebar';//sidebar.php file
-        $data['stockmanager_content'] = 'stockmanager/viewcategory';//viewcategory.php file
-        $data['stockmanager_footer'] = 'stockmanager/footer';//footer.php file
+        $data['admin_title'] = 'Manager';
+        $data['admin_subtitle'] = 'View Category';
+        $data['admin_navbar'] = 'stockmanager/header';//header.php file
+        $data['admin_sidebar'] = 'stockmanager/sidebar';//sidebar.php file
+        $data['admin_content'] = 'stockmanager/viewcategory';//viewcategory.php file
+        $data['admin_footer'] = 'stockmanager/footer';//footer.php file
 
         
         
@@ -606,12 +606,12 @@ class Stockmanager extends MY_Controller {
         $data['employeedetails'] = $details;
 
 
-        $data['stockmanager_title'] = 'Manager';
-        $data['stockmanager_subtitle'] = 'View Employee';
-        $data['stockmanager_navbar'] = 'stockmanager/header';
-        $data['stockmanager_sidebar'] = 'stockmanager/sidebar';
-        $data['stockmanager_content'] = 'stockmanager/viewstockmanageristrator';
-        $data['stockmanager_footer'] = 'stockmanager/footer';
+        $data['admin_title'] = 'Manager';
+        $data['admin_subtitle'] = 'View Employee';
+        $data['admin_navbar'] = 'stockmanager/header';
+        $data['admin_sidebar'] = 'stockmanager/sidebar';
+        $data['admin_content'] = 'stockmanager/viewstockmanageristrator';
+        $data['admin_footer'] = 'stockmanager/footer';
 
         
         
@@ -635,12 +635,12 @@ class Stockmanager extends MY_Controller {
         $data['commentdetails'] = $details;
 
 
-        $data['stockmanager_title'] = 'Manager';
-        $data['stockmanager_subtitle'] = 'View Comment';
-        $data['stockmanager_navbar'] = 'stockmanager/header';
-        $data['stockmanager_sidebar'] = 'stockmanager/sidebar';
-        $data['stockmanager_content'] = 'stockmanager/viewcomment';
-        $data['stockmanager_footer'] = 'stockmanager/footer';
+        $data['admin_title'] = 'Manager';
+        $data['admin_subtitle'] = 'View Comment';
+        $data['admin_navbar'] = 'stockmanager/header';
+        $data['admin_sidebar'] = 'stockmanager/sidebar';
+        $data['admin_content'] = 'stockmanager/viewcomment';
+        $data['admin_footer'] = 'stockmanager/footer';
 
         
         
@@ -664,12 +664,12 @@ class Stockmanager extends MY_Controller {
         $data['orderdetails'] = $details;
 
 
-        $data['stockmanager_title'] = 'Manager';
-        $data['stockmanager_subtitle'] = 'View Order';
-        $data['stockmanager_navbar'] = 'stockmanager/header';
-        $data['stockmanager_sidebar'] = 'stockmanager/sidebar';
-        $data['stockmanager_content'] = 'stockmanager/vieworder';
-        $data['stockmanager_footer'] = 'stockmanager/footer';
+        $data['admin_title'] = 'Manager';
+        $data['admin_subtitle'] = 'View Order';
+        $data['admin_navbar'] = 'stockmanager/header';
+        $data['admin_sidebar'] = 'stockmanager/sidebar';
+        $data['admin_content'] = 'stockmanager/vieworder';
+        $data['admin_footer'] = 'stockmanager/footer';
 
         
         
@@ -730,12 +730,12 @@ class Stockmanager extends MY_Controller {
     {
         $data['all_products'] = $this->allproducts('table');
 
-        $data['stockmanager_title'] = 'Manager';
-        $data['stockmanager_subtitle'] = 'Product';
-        $data['stockmanager_navbar'] = 'stockmanager/header';
-        $data['stockmanager_sidebar'] = 'stockmanager/sidebar';
-        $data['stockmanager_content'] = 'stockmanager/v_allproducts';
-        $data['stockmanager_footer'] = 'stockmanager/footer';
+        $data['admin_title'] = 'Manager';
+        $data['admin_subtitle'] = 'Product';
+        $data['admin_navbar'] = 'stockmanager/header';
+        $data['admin_sidebar'] = 'stockmanager/sidebar';
+        $data['admin_content'] = 'stockmanager/v_allproducts';
+        $data['admin_footer'] = 'stockmanager/footer';
         
         
         $this->template->call_admin_template($data);
@@ -750,12 +750,12 @@ class Stockmanager extends MY_Controller {
     {
         
 
-        $data['stockmanager_title'] = 'Manager';
-        $data['stockmanager_subtitle'] = 'Add Product';
-        $data['stockmanager_navbar'] = 'stockmanager/header';
-        $data['stockmanager_sidebar'] = 'stockmanager/sidebar';
-        $data['stockmanager_content'] = 'stockmanager/v_addnewproduct';
-        $data['stockmanager_footer'] = 'stockmanager/footer';
+        $data['admin_title'] = 'Manager';
+        $data['admin_subtitle'] = 'Add Product';
+        $data['admin_navbar'] = 'stockmanager/header';
+        $data['admin_sidebar'] = 'stockmanager/sidebar';
+        $data['admin_content'] = 'stockmanager/v_addnewproduct';
+        $data['admin_footer'] = 'stockmanager/footer';
 
         
         
@@ -938,12 +938,12 @@ class Stockmanager extends MY_Controller {
         }
         $data['productdetails'] = $details;
 
-        $data['stockmanager_title']='Manager';
-        $data['stockmanager_subtitle']='View Product';
-        $data['stockmanager_navbar']='stockmanager/header';
-        $data['stockmanager_sidebar']='stockmanager/sidebar';
-        $data['stockmanager_content']='stockmanager/v_product';
-        $data['stockmanager_footer']='stockmanager/footer';
+        $data['admin_title']='Manager';
+        $data['admin_subtitle']='View Product';
+        $data['admin_navbar']='stockmanager/header';
+        $data['admin_sidebar']='stockmanager/sidebar';
+        $data['admin_content']='stockmanager/v_product';
+        $data['admin_footer']='stockmanager/footer';
 
         //echo'<pre>';print_r($data);echo'</pre>';die();
         $this->template->call_admin_template($data);
