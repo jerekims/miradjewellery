@@ -105,66 +105,67 @@ $(document).ready(function(){
      // 
 
      // function for adding a product 
-     // $(function(){
-     //  $("#formaddproduct").submit(function(){
-     //    //alert("clicked");
-     //      var formData = new formData($(this)[0]);
+     $(function(){
+      $("#formaddproduct").submit(function(){
+        //alert("clicked");
+          var formData = new formData($(this)[0]);
 
-     //      // passing the data to the addnewproduct in the product controller
-     //      $.ajax({
-     //          type:"POST",
-     //          url: base_url + 'product/addnewproduct',
-     //          url: base_url + 'index.php/product/addnewproduct',
-     //          data:formData,
-     //          async:false,
-     //          cache:false,
-     //          contentType:false,
-     //          processData:false,
-     //          success:function(data){
-     //            // after successful registration of the product
-     //            swal({title:"Addiing a product",text:"Product has been added",timer:3000});
-     //          },error: function(data){
-     //          swal({   title: "Error Registration",   text: "Product has not been registered",   timer: 3000 });
-     //       }
-     //      });
-     //      return false;
-     //  });
+          // passing the data to the addnewproduct in the product controller
+          $.ajax({
+              type:"POST",
+              url: base_url + 'admin/addnewproduct',
+              //url: base_url + 'index.php/admin/addnewproduct',
+              data:formData,
+              async:false,
+              cache:false,
+              contentType:false,
+              processData:false,
+              success:function(data){
+                // after successful registration of the product
+                swal({title:"Product Registration",text:"Product has been added",timer:3000});
 
-     // });
+              },error: function(data){
+              swal({   title: "Error Registration",   text: "Product has not been registered",   timer: 3000 });
+           }
+          });
+          return false;
+      });
+
+     });
      // end of the function for adding new  product
 
-     // function  for editing a product
-   //   $(function(){
-   //     $("#productediting").submit(function(){
+    
+     $(function(){
+       $("#productediting").submit(function(){
           
 
         
-   //       var formData = new FormData($(this)[0]);
+         var formData = new FormData($(this)[0]);
 
-   //        // takes the data into the admin controller, into a function called categoryregistration()
-   //       $.ajax({
-   //         type: "POST",
-   //         url: base_url + 'product/editproduct',
-   //         url: base_url + 'index.php/product/editproduct',
-   //         data: formData,
-   //         async: false,
-   //         cache: false,
-   //         contentType: false,
-   //         processData: false,
-   //         success: function(data){
-   //             // ....After successful registration, then....//
+          // takes the data into the admin controller, into a function called categoryregistration()
+         $.ajax({
+           type: "POST",
+           url: base_url + 'admin/editproduct',
+           //url: base_url + 'index.php/admin/editproduct',
+           data: formData,
+           async: false,
+           cache: false,
+           contentType: false,
+           processData: false,
+           success: function(data){
+               // ....After successful registration, then....//
               
-   //            swal({   title: "Employee Registration",   text: "Employee has been registered",   timer: 3000 });
-   //            // pop up for a successful registration 
+              swal({   title: "Product Editing",   text: "Product has been editing",   timer: 3000 });
+              // pop up for a successful registration 
 
-   //         }
+           }
  
-   //       });
+         });
  
-   //       return false;  //stop the actual form post !important!
+         return false;  //stop the actual form post !important!
  
-   //    });
-   // });
+      });
+   });
 
      // end of the function for editing  the product details
 

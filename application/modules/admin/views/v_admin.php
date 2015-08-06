@@ -62,8 +62,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="<?php echo base_url(). 'product/products'?>">
-                            <!-- <a href="<?php echo base_url(). 'index.php/product/products'?>"> -->
+                            <a href="<?php echo base_url(). 'admin/products'?>">
+                            <!-- <a href="<?php echo base_url(). 'index.php/admin/products'?>"> -->
                                 <div class="panel-footer">
                                     <span class="pull-left">View More</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -170,8 +170,8 @@
                    <div class="table-responsive">
                      <div class="table-toolbar">
                        <div class="btn-group pull-right table-buttons">
-                       <a class="left adminadd" href="<?php echo base_url(). 'product/addproduct'?>">Add Product</a>
-                       <!-- <a class="left adminadd" href="<?php echo base_url(). 'index.php/product/addproduct'?>">Add Product</a> -->
+                       <a class="left adminadd" href="<?php echo base_url(). 'admin/addproduct'?>">Add Product</a>
+                       <!-- <a class="left adminadd" href="<?php echo base_url(). 'index.php/admin/addproduct'?>">Add Product</a> -->
                          <button data-toggle="dropdown" class="btn dropdown-toggle btn-warning right ">Export <span class="caret"></span></button>
                          <ul class="dropdown-menu">
                            <li><a href="<?php echo base_url(). 'admin/allcategories/pdf'?>">Save as PDF</a></li>

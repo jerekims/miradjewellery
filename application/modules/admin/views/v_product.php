@@ -31,8 +31,8 @@
                             ?>
 
                 <!-- The form that allows viewing and editing of category It uses admin.js into a function with form ID -> #categoryediting -->
-                        <form id="productediting" action="<?php echo base_url(). 'product/editproduct'?>" name="productediting" role="form" enctype="multipart/form-data" method="POST">
-                        <!-- <form id="productediting" action="<?php echo base_url(). 'index.php/product/editproduct'?>" name="productediting" role="form" enctype="multipart/form-data" method="POST"> -->
+                        <form id="productediting" action="<?php echo base_url(). 'admin/editproduct'?>" name="productediting" role="form" enctype="multipart/form-data" method="POST">
+                        <!-- <form id="productediting" action="<?php echo base_url(). 'index.php/admin/editproduct'?>" name="productediting" role="form" enctype="multipart/form-data" method="POST"> -->
 
                         <div class="control-group">
                                 <label class="control-label">Product ID: <?php echo $data['prodid']; ?></label>
@@ -43,7 +43,7 @@
 
                             <div class="form-group">
                                 <label>Product Name</label>
-                                <input id="productname" name="editproductname" value="<?php echo $data['prodname']; ?>" class="form-control validate[required]">
+                                <input id="productname" name="editproductname" required value="<?php echo $data['prodname']; ?>" class="form-control validate[required]">
                             </div>
 
                             <div class="form-group">
@@ -57,18 +57,18 @@
 
                             <div class="form-group">
                                 <label>Product Description</label>
-                                <textarea name="editprod_description" value="<?php echo $data['proddescription']; ?>" id="prod_description" class="form-control"></textarea>
+                                <textarea name="editprod_description" required value="<?php echo $data['proddescription']; ?>" id="prod_description" class="form-control validate[required]"></textarea>
                             </div>
 
                             <div class="form-group">
                                 <label>Product price</label>
-                                <input type="text" id="price" value="<?php echo $data['prodprice']; ?>" name="editprice" class="form-control">
+                                <input type="text" id="price" required value="<?php echo $data['prodprice']; ?>" name="editprice" class="form-control validate[required,number]">
                             </div>
 
                             
                             <div class="form-group">
                                 <label>Product status</label>
-                                <select id="productstatus" name="editproductstatus" class="form-control">
+                                <select id="productstatus" required name="editproductstatus" class="form-control validate[required]">
                                     <?php
                                     if($data['product_status']==1){?>
                                         <option selected value="1">Activated</option>
@@ -81,8 +81,8 @@
                             </div>
 
                             <button type="submit" class="btn btn-success">Submit Button</button>
-                            <a href="<?php echo base_url(). 'product/product'?>" class="btn btn-warning">Back</a>
-                            <!-- <a href="<?php echo base_url(). 'index.php/product/product'?>" class="btn btn-warning">Back</a> -->
+                            <a href="<?php echo base_url(). 'admin/products'?>" class="btn btn-warning">Back</a>
+                            <!-- <a href="<?php echo base_url(). 'index.php/admin/products'?>" class="btn btn-warning">Back</a> -->
                             
                             <!-- <button type="reset" class="btn btn-warning">Reset Button</button> -->
 
