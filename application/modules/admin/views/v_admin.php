@@ -77,16 +77,16 @@
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-xs-3">
-                                        <i class="fa fa-truck fa-5x"></i>
+                                        <i class="fa fa-sitemap fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge"><?php echo $ordernumber?></div>
-                                        <div>Orders</div>
+                                        <div class="huge"><?php echo $categorynumber?></div>
+                                        <div>Categories</div>
                                     </div>
                                 </div>
                             </div>
-                            <a href="<?php echo base_url(). 'admin/orders'?>">
-                            <!-- <a href="<?php echo base_url(). 'index.php/admin/orders'?>"> -->
+                            <a href="<?php echo base_url(). 'admin/categories'?>">
+                            <!-- <a href="<?php echo base_url(). 'index.php/admin/categories'?>"> -->
                                 <div class="panel-footer">
                                     <span class="pull-left">View More</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

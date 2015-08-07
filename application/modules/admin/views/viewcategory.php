@@ -31,7 +31,6 @@
                             foreach ($categorydetails as $key => $value) {
                             foreach ($value as $q => $data) {
                             
-                           //echo '<pre>';print_r($user);echo'</pre>';die();
                             for ($i=0; $i <= $key ; $i++) { 
                                 
                             ?>

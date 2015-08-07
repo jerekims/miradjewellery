@@ -26,7 +26,26 @@ class Admin_model extends MY_Model {
         prodimage AS 'Product Image',
         product_status AS 'Product Status'
         FROM  
-          `products`";
+          `products` 
+        WHERE
+        product_status = 1";
+      $result=$this->db->query($sql);
+      return $result->result_array();
+    }
+
+    function get_all_dproducts()
+    {
+      $sql="SELECT 
+        prodid AS 'Product ID',
+        prodname AS 'Product Name',
+        proddescription AS 'Product Description',
+        prodprice AS 'Product Price',
+        prodimage AS 'Product Image',
+        product_status AS 'Product Status'
+        FROM  
+          `products` 
+        WHERE
+        product_status = 0";
       $result=$this->db->query($sql);
       return $result->result_array();
     }
@@ -130,8 +149,28 @@ class Admin_model extends MY_Model {
         return $data->clients;
    }
 
+   public function dclientnumber(){
+    $sql = "SELECT COUNT(`cust_id`) as clients FROM customers WHERE cust_status = 0";
+
+        $result = $this->db->query($sql);
+        $data = $result->row();
+        //echo $data->clients;die();
+
+        return $data->clients;
+   }
+
    public function productnumber(){
     $sql = "SELECT COUNT(`prodid`) as product FROM products WHERE product_status = 1";
+
+        $result = $this->db->query($sql);
+        $data = $result->row();
+        //echo $data->product;die();
+
+        return $data->product;
+   }
+
+   public function dproductnumber(){
+    $sql = "SELECT COUNT(`prodid`) as product FROM products WHERE product_status = 0";
 
         $result = $this->db->query($sql);
         $data = $result->row();
@@ -150,8 +189,48 @@ class Admin_model extends MY_Model {
         return $data->orders;
    }
 
+   public function dordernumber(){
+    $sql = "SELECT COUNT(`order_id`) as orders FROM orders WHERE order_status = 0";
+
+        $result = $this->db->query($sql);
+        $data = $result->row();
+        //echo $data->order;die();
+
+        return $data->orders;
+   }
+
+   public function categorynumber(){
+    $sql = "SELECT COUNT(`catid`) as categories FROM category WHERE catstatus = 1";
+
+        $result = $this->db->query($sql);
+        $data = $result->row();
+        //echo $data->order;die();
+
+        return $data->categories;
+   }
+
+   public function dcategorynumber(){
+    $sql = "SELECT COUNT(`catid`) as categories FROM category WHERE catstatus = 0";
+
+        $result = $this->db->query($sql);
+        $data = $result->row();
+        //echo $data->order;die();
+
+        return $data->categories;
+   }
+
    public function commentnumber(){
     $sql = "SELECT COUNT(`comm_id`) as comment FROM comments WHERE comm_status = 1";
+
+        $result = $this->db->query($sql);
+        $data = $result->row();
+        //echo $data->comment;die();
+
+        return $data->comment;
+   }
+
+   public function dcommentnumber(){
+    $sql = "SELECT COUNT(`comm_id`) as comment FROM comments WHERE comm_status = 0";
 
         $result = $this->db->query($sql);
         $data = $result->row();
@@ -239,7 +318,6 @@ class Admin_model extends MY_Model {
     }
 
     function get_all_administrators()
-
 	{
 		$sql = "SELECT 
 					emp_id as 'Employee ID',
@@ -249,10 +327,29 @@ class Admin_model extends MY_Model {
           date_registered as 'Date Registered',
           emp_status as 'Employee Status'
 				FROM
-					`employees`";
+					`employees`
+        WHERE
+          emp_status = 1";
 		$result = $this->db->query($sql);
 		return $result->result_array();
 	}
+
+   function get_all_dadministrators()
+  {
+    $sql = "SELECT 
+          emp_id as 'Employee ID',
+          emp_name as 'Employee Name',
+          emp_email as 'Employee Email',
+          level_id as 'Employee Level',
+          date_registered as 'Date Registered',
+          emp_status as 'Employee Status'
+        FROM
+          `employees`
+        WHERE
+          emp_status = 0";
+    $result = $this->db->query($sql);
+    return $result->result_array();
+  }
 
 
 // function that allows the acquiring of all category data from table category
@@ -268,7 +365,24 @@ class Admin_model extends MY_Model {
           c.cust_status as 'Customer Status'
         FROM
           customers c,title t WHERE
-          c.title_id = t.title_id";
+          c.title_id = t.title_id AND c.cust_status = 1";
+    $result = $this->db->query($sql);
+    return $result->result_array();
+  }
+
+  function get_all_dclients()
+
+  {
+    $sql = "SELECT 
+          c.cust_id as 'Customer ID',
+          c.cust_name as 'Customer Name',
+          t.title_name as 'Customer Title',
+          c.cust_email as 'Customer Email',
+          c.date_registered as 'Date Registered',
+          c.cust_status as 'Customer Status'
+        FROM
+          customers c,title t WHERE
+          c.title_id = t.title_id AND c.cust_status = 0";
     $result = $this->db->query($sql);
     return $result->result_array();
   }
@@ -307,15 +421,47 @@ class Admin_model extends MY_Model {
     return $result->result_array();
   }
 
-   function get_all_categories()
+  function get_all_dcomments()
 
+  {
+    $sql = "SELECT 
+          comm_id as 'Comment ID',
+          comm_subject as 'Comment Subject',
+          comm_message as 'Comment Message',
+          comm_status as 'Comment Status',
+          date_sent as 'Date Sent'
+        FROM
+          comments
+        WHERE
+          comm_status = 0";
+    $result = $this->db->query($sql);
+    return $result->result_array();
+  }
+
+   function get_all_categories()
   {
     $sql = "SELECT 
           catid as 'Category ID',
           catname as 'Category Name',
           catstatus as 'Category Status'
         FROM
-          `category`";
+          `category`
+        WHERE
+          catstatus = 1";
+    $result = $this->db->query($sql);
+    return $result->result_array();
+  }
+
+   function get_all_dcategories()
+  {
+    $sql = "SELECT 
+          catid as 'Category ID',
+          catname as 'Category Name',
+          catstatus as 'Category Status'
+        FROM
+          `category`
+        WHERE
+          catstatus = 0";
     $result = $this->db->query($sql);
     return $result->result_array();
   }
