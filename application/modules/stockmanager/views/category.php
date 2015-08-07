@@ -38,11 +38,11 @@
                        <!-- <a class="left adminadd" href="<?php echo base_url(). 'index.php/stockmanager/addcategory'?>">Add <?php echo $admin_subtitle?></a> -->
                          <button data-toggle="dropdown" class="btn dropdown-toggle btn-warning right ">Exports <span class="caret"></span></button>
                          <ul class="dropdown-menu">
-                           <li><a href="<?php echo base_url(). 'stockmanager/allcategories/pdf'?>">Export to PDF</a></li>
-                           <li><a href="<?php echo base_url(). 'stockmanager/allcategories/excel'?>">Export to Excel</a></li>
+                           <li><a href="<?php echo base_url(). 'stockmanager/allcategories/active/pdf'?>">Export to PDF</a></li>
+                           <li><a href="<?php echo base_url(). 'stockmanager/allcategories/active/excel'?>">Export to Excel</a></li>
 
-                           <!-- <li><a href="<?php echo base_url(). 'index.php/stockmanager/allcategories/pdf'?>">Export to PDF</a></li>
-                           <li><a href="<?php echo base_url(). 'index.php/stockmanager/allcategories/excel'?>">Export to Excel</a></li> -->
+                           <!-- <li><a href="<?php echo base_url(). 'index.php/stockmanager/allcategories/active/pdf'?>">Export to PDF</a></li>
+                           <li><a href="<?php echo base_url(). 'index.php/stockmanager/allcategories/active/excel'?>">Export to Excel</a></li> -->
                          </ul>
                        </div>
                      </div>

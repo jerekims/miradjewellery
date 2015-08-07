@@ -12,10 +12,10 @@
                             <li class="active">
                                 <i class="fa fa-dashboard"></i>
                                    <a class="crumbs" href="<?php echo base_url(). 'admin'?>">Manager Dashboard</a> > 
-                                   <a class="crumbs" href="<?php echo base_url(). 'admin/products'?>"><?php echo $admin_subtitle?></a>
+                                   <a class="crumbs" href="<?php echo base_url(). 'admin/dproducts'?>"><?php echo $admin_subtitle?></a>
 
                                    <!-- <a class="crumbs" href="<?php echo base_url(). 'index.php/admin'?>">Manager Dashboard</a> > 
-                                   <a class="crumbs" href="<?php echo base_url(). 'index.php/admin/products'?>"><?php echo $admin_subtitle?></a> -->
+                                   <a class="crumbs" href="<?php echo base_url(). 'index.php/admin/dproducts'?>"><?php echo $admin_subtitle?></a> -->
                                    
                             </li>
                         </ol>
@@ -40,8 +40,8 @@
                          <ul class="dropdown-menu">
                            <li><a href="<?php echo base_url(). 'admin/allproducts/pdf'?>">Save as PDF</a></li>
                            <li><a href="<?php echo base_url(). 'admin/allproducts/excel'?>">Export to Excel</a></li>
-                           <!-- <li><a href="<?php echo base_url(). 'index.php/admin/allproducts/pdf'?>">Save as PDF</a></li>
-                           <li><a href="<?php echo base_url(). 'index.php/admin/allproducts/excel'?>">Export to Excel</a></li> -->
+                           <!-- <li><a href="<?php echo base_url(). 'index.php/admin/allproducts/inactive/pdf'?>">Save as PDF</a></li>
+                           <li><a href="<?php echo base_url(). 'index.php/admin/allproducts/inactive/excel'?>">Export to Excel</a></li> -->
                          </ul>
                        </div>
                      </div>

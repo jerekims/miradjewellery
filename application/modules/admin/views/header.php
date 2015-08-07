@@ -33,31 +33,10 @@
                             <!-- <a href="<?php echo base_url(). 'index.php/admin/dcomments'?>">Administrators <span class="label label-danger right">2</span></a> -->
                         </li>
                         <li class="divider"></li>
-                        <li>
-                            <a href="#">View All</a>
-                            <!-- <a href="#">View All</a> -->
-                        </li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Notifications <i class="fa fa-bell"></i> <b class="caret"></b></a>
-                    <ul class="dropdown-menu alert-dropdown">
                         
-                        <li>
-                            <a href="#">New System <span class="label label-info">Client</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Complaint <span class="label label-warning">Stock Manager</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Suggestion <span class="label label-danger">Manager</span></a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">View All</a>
-                        </li>
                     </ul>
                 </li>
+                
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $username ;?> <b class="caret"></b></a>
                     <ul class="dropdown-menu">

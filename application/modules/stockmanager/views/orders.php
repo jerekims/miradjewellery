@@ -34,11 +34,11 @@
                        
                          <button data-toggle="dropdown" class="btn dropdown-toggle btn-warning right ">Exports <span class="caret"></span></button>
                          <ul class="dropdown-menu">
-                           <li><a href="<?php echo base_url(). 'stockmanager/allorders/pdf'?>">Export to PDF</a></li>
-                           <li><a href="<?php echo base_url(). 'stockmanager/allorders/excel'?>">Export to Excel</a></li>
+                           <li><a href="<?php echo base_url(). 'stockmanager/allorders/active/pdf'?>">Export to PDF</a></li>
+                           <li><a href="<?php echo base_url(). 'stockmanager/allorders/active/excel'?>">Export to Excel</a></li>
 
-                           <!-- <li><a href="<?php echo base_url(). 'index.php/stockmanager/allorders/pdf'?>">Export to PDF</a></li>
-                           <li><a href="<?php echo base_url(). 'index.php/stockmanager/allorders/excel'?>">Export to Excel</a></li> -->
+                           <!-- <li><a href="<?php echo base_url(). 'index.php/stockmanager/allorders/active/pdf'?>">Export to PDF</a></li>
+                           <li><a href="<?php echo base_url(). 'index.php/stockmanager/allorders/active/excel'?>">Export to Excel</a></li> -->
                          </ul>
                        </div>
                      </div>

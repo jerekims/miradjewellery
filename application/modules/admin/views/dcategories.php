@@ -12,10 +12,10 @@
                             <li class="active">
                                 <i class="fa fa-dashboard"></i>
                                    <a class="crumbs" href="<?php echo base_url(). 'admin'?>">Manager Dashboard</a> > 
-                                   <a class="crumbs" href="<?php echo base_url(). 'admin/categories'?>"><?php echo $admin_subtitle?></a>
+                                   <a class="crumbs" href="<?php echo base_url(). 'admin/dcategories'?>"><?php echo $admin_subtitle?></a>
 
                                    <!-- <a class="crumbs" href="<?php echo base_url(). 'index.php/admin'?>">Manager Dashboard</a> > 
-                                   <a class="crumbs" href="<?php echo base_url(). 'index.php/admin/categories'?>"><?php echo $admin_subtitle?></a> -->
+                                   <a class="crumbs" href="<?php echo base_url(). 'index.php/admin/dcategories'?>"><?php echo $admin_subtitle?></a> -->
                                    
                             </li>
                         </ol>
@@ -38,11 +38,11 @@
                        <!-- <a class="left adminadd" href="<?php echo base_url(). 'index.php/admin/addcategory'?>">Add <?php echo $admin_subtitle?></a> -->
                          <button data-toggle="dropdown" class="btn dropdown-toggle btn-warning right ">Exports <span class="caret"></span></button>
                          <ul class="dropdown-menu">
-                           <li><a href="<?php echo base_url(). 'admin/allcategories/pdf'?>">Export to PDF</a></li>
-                           <li><a href="<?php echo base_url(). 'admin/allcategories/excel'?>">Export to Excel</a></li>
+                           <li><a href="<?php echo base_url(). 'admin/allcategories/inactive/pdf'?>">Export to PDF</a></li>
+                           <li><a href="<?php echo base_url(). 'admin/allcategories/inactive/excel'?>">Export to Excel</a></li>
 
-                           <!-- <li><a href="<?php echo base_url(). 'index.php/admin/allcategories/pdf'?>">Export to PDF</a></li>
-                           <li><a href="<?php echo base_url(). 'index.php/admin/allcategories/excel'?>">Export to Excel</a></li> -->
+                           <!-- <li><a href="<?php echo base_url(). 'index.php/admin/allcategories/inactive/pdf'?>">Export to PDF</a></li>
+                           <li><a href="<?php echo base_url(). 'index.php/admin/allcategories/inactive/excel'?>">Export to Excel</a></li> -->
                          </ul>
                        </div>
                      </div>

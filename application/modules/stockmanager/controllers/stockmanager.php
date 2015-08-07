@@ -77,11 +77,15 @@ class Stockmanager extends MY_Controller {
         $data['productnumber'] = $this->getproductnumber();
         $data['categorynumber'] = $this->getcategorynumber();
 
+        $data['dordernumber'] = $this->getdordernumber();
+        $data['dcategorynumber'] = $this->getdcategorynumber();
+        $data['dcommentnumber'] = $this->getdcommentnumber();
+        $data['dproductnumber'] = $this->getdproductnumber();
 
-        $data['all_categories'] = $this->allcategories('table');
-        $data['all_orders'] = $this->allorders('table');
-        
-        $data['all_products'] = $this->allproducts('table');
+
+        $data['all_categories'] = $this->allcategories('active','table');
+        $data['all_orders'] = $this->allorders('active','table');
+        $data['all_products'] = $this->allproducts('active','table');
 
         $data['admin_title'] = 'Stock Manager';
         $data['admin_subtitle'] = 'Overall Statistics';
@@ -140,11 +144,52 @@ class Stockmanager extends MY_Controller {
           //echo '<pre>'; print_r($results); echo '</pre>';die;
     }
 
+    public function getdordernumber()
+    {
+          $results = $this->stockmanager_model->dordernumber();
+
+          return $results;
+
+          //echo '<pre>'; print_r($results); echo '</pre>';die;
+    }
+
+    public function getdproductnumber()
+    {
+          $results = $this->stockmanager_model->dproductnumber();
+
+          return $results;
+
+          //echo '<pre>'; print_r($results); echo '</pre>';die;
+    }
+
+    public function getdcommentnumber()
+    {
+          $results = $this->stockmanager_model->dcommentnumber();
+
+          return $results;
+
+          //echo '<pre>'; print_r($results); echo '</pre>';die;
+    }
+
+    public function getdcategorynumber()
+    {
+          $results = $this->stockmanager_model->dcategorynumber();
+
+          return $results;
+
+          //echo '<pre>'; print_r($results); echo '</pre>';die;
+    }
+
  
 
      function orders()
     {
        $this->log_check();
+
+        $data['dordernumber'] = $this->getdordernumber();
+        $data['dcategorynumber'] = $this->getdcategorynumber();
+        $data['dcommentnumber'] = $this->getdcommentnumber();
+        $data['dproductnumber'] = $this->getdproductnumber();
 
         $data['admin_title'] = 'Stock Manager';
         $data['admin_subtitle'] = 'Orders';
@@ -153,7 +198,29 @@ class Stockmanager extends MY_Controller {
         $data['admin_content'] = 'stockmanager/orders';
         $data['admin_footer'] = 'stockmanager/footer';
 
-        $data['all_orders'] = $this->allorders('table');
+        $data['all_orders'] = $this->allorders('active','table');
+        
+        
+        $this->template->call_admin_template($data);
+    }
+
+    function dorders()
+    {
+       $this->log_check();
+
+        $data['dordernumber'] = $this->getdordernumber();
+        $data['dcategorynumber'] = $this->getdcategorynumber();
+        $data['dcommentnumber'] = $this->getdcommentnumber();
+        $data['dproductnumber'] = $this->getdproductnumber();
+
+        $data['admin_title'] = 'Stock Manager';
+        $data['admin_subtitle'] = 'Delivered Orders';
+        $data['admin_navbar'] = 'stockmanager/header';
+        $data['admin_sidebar'] = 'stockmanager/sidebar';
+        $data['admin_content'] = 'stockmanager/dorders';
+        $data['admin_footer'] = 'stockmanager/footer';
+
+        $data['all_dorders'] = $this->allorders('inactive','table');
         
         
         $this->template->call_admin_template($data);
@@ -163,6 +230,11 @@ class Stockmanager extends MY_Controller {
     {
         $this->log_check();
 
+        $data['dordernumber'] = $this->getdordernumber();
+        $data['dcategorynumber'] = $this->getdcategorynumber();
+        $data['dcommentnumber'] = $this->getdcommentnumber();
+        $data['dproductnumber'] = $this->getdproductnumber();
+
         $data['admin_title'] = 'Stock Manager';
         $data['admin_subtitle'] = 'Comments';
         $data['admin_navbar'] = 'stockmanager/header';
@@ -170,7 +242,29 @@ class Stockmanager extends MY_Controller {
         $data['admin_content'] = 'stockmanager/comments';
         $data['admin_footer'] = 'stockmanager/footer';
 
-        $data['all_comments'] = $this->allcomments('table');
+        $data['all_comments'] = $this->allcomments('active','table');
+        
+        
+        $this->template->call_admin_template($data);
+    }
+
+    function dcomments()
+    {
+        $this->log_check();
+
+        $data['dordernumber'] = $this->getdordernumber();
+        $data['dcategorynumber'] = $this->getdcategorynumber();
+        $data['dcommentnumber'] = $this->getdcommentnumber();
+        $data['dproductnumber'] = $this->getdproductnumber();
+
+        $data['admin_title'] = 'Stock Manager';
+        $data['admin_subtitle'] = 'Deactivated Comments';
+        $data['admin_navbar'] = 'stockmanager/header';
+        $data['admin_sidebar'] = 'stockmanager/sidebar';
+        $data['admin_content'] = 'stockmanager/dcomments';
+        $data['admin_footer'] = 'stockmanager/footer';
+
+        $data['all_dcomments'] = $this->allcomments('inactive','table');
         
         
         $this->template->call_admin_template($data);
@@ -179,7 +273,12 @@ class Stockmanager extends MY_Controller {
     function categories()
     {
         $this->log_check();
-        $data['all_categories'] = $this->allcategories('table'); 
+        $data['all_categories'] = $this->allcategories('active','table'); 
+
+        $data['dordernumber'] = $this->getdordernumber();
+        $data['dcategorynumber'] = $this->getdcategorynumber();
+        $data['dcommentnumber'] = $this->getdcommentnumber();
+        $data['dproductnumber'] = $this->getdproductnumber();
 
         $data['admin_title'] = 'Stock Manager';
         $data['admin_subtitle'] = 'Category';
@@ -193,14 +292,50 @@ class Stockmanager extends MY_Controller {
         $this->template->call_admin_template($data);
     }
 
+    function dcategories()
+    {
+        $this->log_check();
+        $data['all_dcategories'] = $this->allcategories('inactive','table'); 
+
+        $data['dordernumber'] = $this->getdordernumber();
+        $data['dcategorynumber'] = $this->getdcategorynumber();
+        $data['dcommentnumber'] = $this->getdcommentnumber();
+        $data['dproductnumber'] = $this->getdproductnumber();
+
+        $data['admin_title'] = 'Stock Manager';
+        $data['admin_subtitle'] = 'Deactivated Category';
+        $data['admin_navbar'] = 'stockmanager/header';//header.php file
+        $data['admin_sidebar'] = 'stockmanager/sidebar';//sidebar.php file
+        $data['admin_content'] = 'stockmanager/dcategories';//category.php file
+        $data['admin_footer'] = 'stockmanager/footer';//footer.php file
+
+        
+        
+        $this->template->call_admin_template($data);
+    }
+
 
 
     
 
-      function allorders($type)
+      function allorders($state,$type)
     {
         $display = '';
-        $orders = $this->stockmanager_model->get_all_orders();
+        switch ($state) {
+            case 'active':
+               $orders = $this->stockmanager_model->get_all_orders();
+                break;
+
+             case 'inactive':
+                $orders = $this->stockmanager_model->get_all_dorders();
+                break;
+            
+            default:
+                # code...
+                break;
+        }
+
+        
             //echo "<pre>";print_r($customers);echo "</pre>";die();
         
 
@@ -317,10 +452,24 @@ class Stockmanager extends MY_Controller {
 
       }
 
-      function allcomments($type)
+      function allcomments($state,$type)
     {
         $display = '';
-        $comments = $this->stockmanager_model->get_all_comments();
+
+        switch ($state) {
+            case 'active':
+                $comments = $this->stockmanager_model->get_all_comments();
+                break;
+
+             case 'inactive':
+                 $comments = $this->stockmanager_model->get_all_dcomments();
+                break;
+            
+            default:
+                # code...
+                break;
+        }
+        
             //echo "<pre>";print_r($customers);echo "</pre>";die();
         
 
@@ -424,10 +573,24 @@ class Stockmanager extends MY_Controller {
 
 
 
-    function allcategories($type)
+    function allcategories($state,$type)
     {
         $display = '';
-        $categories = $this->stockmanager_model->get_all_categories();
+
+        switch ($state) {
+            case 'active':
+                $categories = $this->stockmanager_model->get_all_categories();
+                break;
+
+             case 'inactive':
+                 $categories = $this->stockmanager_model->get_all_dcategories();
+                break;
+            
+            default:
+                # code...
+                break;
+        }
+        
         // echo "<pre>";print_r($active_job_groups);die();
 
         $count = 0;
@@ -605,6 +768,10 @@ class Stockmanager extends MY_Controller {
         
         $data['employeedetails'] = $details;
 
+        $data['dordernumber'] = $this->getdordernumber();
+        $data['dcategorynumber'] = $this->getdcategorynumber();
+        $data['dcommentnumber'] = $this->getdcommentnumber();
+        $data['dproductnumber'] = $this->getdproductnumber();
 
         $data['admin_title'] = 'Stock Manager';
         $data['admin_subtitle'] = 'View Employee';
@@ -634,6 +801,10 @@ class Stockmanager extends MY_Controller {
         
         $data['commentdetails'] = $details;
 
+        $data['dordernumber'] = $this->getdordernumber();
+        $data['dcategorynumber'] = $this->getdcategorynumber();
+        $data['dcommentnumber'] = $this->getdcommentnumber();
+        $data['dproductnumber'] = $this->getdproductnumber();
 
         $data['admin_title'] = 'Stock Manager';
         $data['admin_subtitle'] = 'View Comment';
@@ -663,6 +834,10 @@ class Stockmanager extends MY_Controller {
         
         $data['orderdetails'] = $details;
 
+        $data['dordernumber'] = $this->getdordernumber();
+        $data['dcategorynumber'] = $this->getdcategorynumber();
+        $data['dcommentnumber'] = $this->getdcommentnumber();
+        $data['dproductnumber'] = $this->getdproductnumber();
 
         $data['admin_title'] = 'Stock Manager';
         $data['admin_subtitle'] = 'View Order';
@@ -728,13 +903,39 @@ class Stockmanager extends MY_Controller {
 
     function products()
     {
-        $data['all_products'] = $this->allproducts('table');
+        $data['all_products'] = $this->allproducts('active','table');
+
+        $data['dordernumber'] = $this->getdordernumber();
+        $data['dcategorynumber'] = $this->getdcategorynumber();
+        $data['dcommentnumber'] = $this->getdcommentnumber();
+        $data['dproductnumber'] = $this->getdproductnumber();
 
         $data['admin_title'] = 'Stock Manager';
         $data['admin_subtitle'] = 'Product';
         $data['admin_navbar'] = 'stockmanager/header';
         $data['admin_sidebar'] = 'stockmanager/sidebar';
         $data['admin_content'] = 'stockmanager/v_allproducts';
+        $data['admin_footer'] = 'stockmanager/footer';
+        
+        
+        $this->template->call_admin_template($data);
+
+    }
+
+    function dproducts()
+    {
+        $data['all_dproducts'] = $this->allproducts('inactive','table');
+
+        $data['dordernumber'] = $this->getdordernumber();
+        $data['dcategorynumber'] = $this->getdcategorynumber();
+        $data['dcommentnumber'] = $this->getdcommentnumber();
+        $data['dproductnumber'] = $this->getdproductnumber();
+
+        $data['admin_title'] = 'Stock Manager';
+        $data['admin_subtitle'] = 'Deactivated Product';
+        $data['admin_navbar'] = 'stockmanager/header';
+        $data['admin_sidebar'] = 'stockmanager/sidebar';
+        $data['admin_content'] = 'stockmanager/dproducts';
         $data['admin_footer'] = 'stockmanager/footer';
         
         
@@ -749,6 +950,10 @@ class Stockmanager extends MY_Controller {
     function addproduct()
     {
         
+        $data['dordernumber'] = $this->getdordernumber();
+        $data['dcategorynumber'] = $this->getdcategorynumber();
+        $data['dcommentnumber'] = $this->getdcommentnumber();
+        $data['dproductnumber'] = $this->getdproductnumber();
 
         $data['admin_title'] = 'Stock Manager';
         $data['admin_subtitle'] = 'Add Product';
@@ -778,10 +983,23 @@ class Stockmanager extends MY_Controller {
     /* displays all the products from the  database
     ______________________________________________________*/
 
-    function allproducts($type)
+    function allproducts($state,$type)
     {
         $display = '';
-        $products = $this->stockmanager_model->get_all_products();
+        switch ($state) {
+            case 'active':
+                $products = $this->stockmanager_model->get_all_products();
+                break;
+
+             case 'inactive':
+                 $products = $this->stockmanager_model->get_all_dproducts();
+                break;
+            
+            default:
+                # code...
+                break;
+        }
+        
         
 
         $count = 0;
@@ -984,6 +1202,12 @@ class Stockmanager extends MY_Controller {
 
         $data['productdetails'] = $details;
         $data['getcategories'] = $this->getcategories();
+
+
+        $data['dordernumber'] = $this->getdordernumber();
+        $data['dcategorynumber'] = $this->getdcategorynumber();
+        $data['dcommentnumber'] = $this->getdcommentnumber();
+        $data['dproductnumber'] = $this->getdproductnumber();
 
         $data['admin_title']='Stock Manager';
         $data['admin_subtitle']='View Product';
