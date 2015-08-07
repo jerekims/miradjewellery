@@ -571,13 +571,10 @@ class Admin extends MY_Controller {
 
                 $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'admin/viewclient/'.$data['Customer ID'].'"><i class="fa fa-eye black"></i></a></td>';
                 //$display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'index.php/admin/viewclient/'.$data['Customer ID'].'"><i class="fa fa-eye black"></i></a></td>';
-                if($state="active"){
-                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'admin/clientupdate/clientdelete/'.$data['Customer ID'].'"><i class="fa fa-trash black"></i></td>';
+           
+                        $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'admin/clientupdate/clientdelete/'.$data['Customer ID'].'"><i class="fa fa-trash black"></i></td>';
                 //$display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'index.php/admin/clientupdate/clientdelete/'.$data['Customer ID'].'"><i class="fa fa-trash black"></i></td>';
-                }else{
-                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Activate Profile" href = "'.base_url().'admin/clientupdate/clientrestore/'.$data['Customer ID'].'"><i class="fa fa-recycle black"></i></td>';
-                //$display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Activate Profile" href = "'.base_url().'index.php/admin/clientupdate/clientrestore/'.$data['Customer ID'].'"><i class="fa fa-recycle black"></i></td>';
-                }
+                  
                 $display .= '</tr>';
 
                 break;
@@ -708,9 +705,11 @@ class Admin extends MY_Controller {
 
                 $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'admin/vieworder/'.$data['Order ID'].'"><i class="fa fa-eye black"></i></a></td>';
                 //$display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'index.php/admin/vieworder/'.$data['Order ID'].'"><i class="fa fa-eye black"></i></a></td>';
-                
-                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Click if Delivered" href = "'.base_url().'admin/orderupdate/orderdelete/'.$data['Order ID'].'"><i class="fa fa-truck black"></i></td>';
+              
+                        $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Click if Delivered" href = "'.base_url().'admin/orderupdate/orderdelete/'.$data['Order ID'].'"><i class="fa fa-truck black"></i></td>';
                 //$display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Click if Delivered" href = "'.base_url().'index.php/admin/orderupdate/orderdelete/'.$data['Order ID'].'"><i class="fa fa-truck black"></i></td>';
+                
+              
                 $display .= '</tr>';
 
                 break;
@@ -830,9 +829,10 @@ class Admin extends MY_Controller {
                 $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'admin/viewcomment/'.$data['Comment ID'].'"><i class="fa fa-eye black"></i></a></td>';
                 //$display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'index.php/admin/viewcomment/'.$data['Comment ID'].'"><i class="fa fa-eye black"></i></a></td>';
                 
-                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'admin/commentupdate/commentdelete/'.$data['Comment ID'].'"><i class="fa fa-trash black"></i></td>';
+                         $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'admin/commentupdate/commentdelete/'.$data['Comment ID'].'"><i class="fa fa-trash black"></i></td>';
                 //$display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'index.php/admin/commentupdate/commentdelete/'.$data['Comment ID'].'"><i class="fa fa-trash black"></i></td>';
-                $display .= '</tr>';
+                
+               $display .= '</tr>';
 
                 break;
             
@@ -954,8 +954,10 @@ class Admin extends MY_Controller {
                 $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'admin/viewcategory/'.$data['Category ID'].'"><i class="fa fa-eye black"></i></a></td>';
                 //$display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'index.php/admin/viewcategory/'.$data['Category ID'].'"><i class="fa fa-eye black"></i></a></td>';
                 
-                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'admin/catupdate/catdelete/'.$data['Category ID'].'"><i class="fa fa-trash black"></i></td>';
+                        $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'admin/catupdate/catdelete/'.$data['Category ID'].'"><i class="fa fa-trash black"></i></td>';
                 //$display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'index.php/admin/catupdate/catdelete/'.$data['Category ID'].'"><i class="fa fa-trash black"></i></td>';
+                
+                    
                 $display .= '</tr>';
 
                 break;
@@ -1090,11 +1092,15 @@ class Admin extends MY_Controller {
                 $display .= '<td class="centered">'.$data['Date Registered'].'</td>';
                 $display .= '<td class="centered">'.$state.'</td>';
 
+
+
                 $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'admin/viewemployee/'.$data['Employee ID'].'"><i class="fa fa-eye black"></i></a></td>';
                 //$display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'index.php/admin/viewemployee/'.$data['Employee ID'].'"><i class="fa fa-eye black"></i></a></td>';
-                
-                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'admin/empupdate/empdelete/'.$data['Employee ID'].'"><i class="fa fa-trash black"></i></td>';
+              
+                       $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'admin/empupdate/empdelete/'.$data['Employee ID'].'"><i class="fa fa-trash black"></i></td>';
                 //$display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'index.php/admin/empupdate/empdelete/'.$data['Employee ID'].'"><i class="fa fa-trash black"></i></td>';
+                
+                
                 $display .= '</tr>';
 
                 break;
@@ -1732,10 +1738,11 @@ class Admin extends MY_Controller {
                 // button below used for viewing the specific category. Goes to admin controller into function called viewcategory(), passing the category id as parameter
                 $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'admin/viewproduct/'.$data['Product ID'].'"><i class="fa fa-eye black"></i></a></td>';
                 // $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="View Profile" href = "'.base_url().'index.php/admin/viewproduct/'.$data['Product ID'].'"><i class="fa fa-eye black"></i></a></td>';
+          
+                        $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'admin/product_status/proddelete/'.$data['Product ID'].'"><i class="fa fa-trash black"></i></td>';
+                // $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'index.php/admin/product_status/proddelete/'.$data['Product ID'].'"><i class="fa fa-trash black"></i></td>';
                 
                 // button below used for editing the specific category. Goes to admin controller into function called catupdate(), passing the type of update and the category id as parameter
-                $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'admin/product_status/proddelete/'.$data['Product ID'].'"><i class="fa fa-trash black"></i></td>';
-                // $display .= '<td class="centered"><a data-toggle="tooltip" data-placement="bottom" title="Deactivate Profile" href = "'.base_url().'index.php/admin/product_status/proddelete/'.$data['Product ID'].'"><i class="fa fa-trash black"></i></td>';
                 $display .= '</tr>';
                 
 
