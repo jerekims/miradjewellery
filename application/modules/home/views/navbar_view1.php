@@ -27,12 +27,7 @@
         </div>
         <div class="nav-wrapper" class="categories">
           <ul class="right hide-on-med-and-down">
-              <li><a href="#">RINGS</a></li>
-              <li><a href="#">NECKLACES</a></li>
-              <li><a href="#">BANGLES</a></li>
-              <li><a href="#">WEDDING RINGS</a></li>
-              <li><a href="#">WATCHES </a></li>
-              <li><a href="#">BRACELETS</a></li>
+          <?php echo $navbarcategory;?> 
           </ul>
         </div><!-- end of the nav-wrapper -->
   </nav><!--End of navbar main items-->

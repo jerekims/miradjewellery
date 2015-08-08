@@ -8,6 +8,9 @@
 
 <div class="product" Style="margin-top:10px;margin-bottom:10px;">
     <div class="row">
+    <pre>
+  
+    </pre>
 
       <div class="three columns" style="height:250px;" style="border:1px solid yellow;">
         <a href="product.php">
