@@ -13,12 +13,10 @@
       foreach ($value as $p => $data) {
         for ($i=0; $i <= $key ; $i++) {   ?>
 
-  
-    
       <div class="three columns" style="height:250px;" style="border:1px solid yellow;">
         <a href="<?php echo base_url().'home/individual_product/'?>">
         <div name="product_image" style="width:95%; margin:2.5%; height:140px;">
-          <img src="<?php echo base_url().'assets/images/ring1.jpg'?>">
+          <img class="thumbnail" src="<?php echo base_url().'assets/images/ring1.jpg'?>">
         </div>
         <div class="des_price" >
           <h5 style="color:#F2F2F2;font-size:15px; font-family:'Montserrat:700',GEORGIA;margin:10px 20px;"><?php echo $data['Product Name'];?></h5>

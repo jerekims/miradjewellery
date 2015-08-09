@@ -13,7 +13,7 @@ class Home extends MY_Controller {
         
         
         $this->load->model('category_model');
-        $this->load->model('product_model');
+       // $this->load->model('product_model');
 
         $this->load->library('form_validation');
 
@@ -51,7 +51,7 @@ class Home extends MY_Controller {
     function for displaying the navigation bar
     ________________________________________________________________*/
 
-    public function create_category_nav(){
+    function create_category_nav(){
         $categories=$this->category_model->get_categories();
         $data ='';
         $data.='<li>';
@@ -67,8 +67,8 @@ class Home extends MY_Controller {
     /*dispaly of product based on the category
     _______________________________________________________*/
 
-    public function product_category($catid=Null){
-        
+    function product_category($catid=Null){
+
         $products=$this->category_model->category_product($catid);
        //echo "<pre>";print_r($products);echo "</pre>";die();
         if( !empty( $products)){
@@ -86,6 +86,7 @@ class Home extends MY_Controller {
         $data['content_page']='home/v_product_category';
         $data['main_footer']='home/footer_view1';
         //echo "<pre>";print_r($data);echo "</pre>";die();
+
         $this->template->call_home_template($data);
          
     }
@@ -94,20 +95,21 @@ class Home extends MY_Controller {
     /*displaying individual products from the database
     ___________________________________________________________*/
 
-    public function individual_product($pid=NULL){
-        $sproduct=$this->product_model->getproduct($pid);
-        echo "<pre>";print_r($sproduct);echo "</pre>";die();
+    function individual_product($pid=NULL){
+
+        $sproduct=$this->category_model->getproduct($pid);
+        //echo "<pre>";print_r($sproduct);echo "</pre>";die();
         $data['single_product']=$sproduct;
+        //echo "<pre>";print_r($sproduct);echo "</pre>";die();
         $data='';
         $data['navbarcategory'] = $this->create_category_nav();
         $data['top_navbar1']='home/navbar_view1';
         $data['content_page']='home/v_product';
         $data['main_footer']='home/footer_view1';
-
+        echo "<pre>";print_r($sproduct);echo "</pre>";die();
         $this->template->call_home_template($data);
     }
 
-   
 
    
     /* login function

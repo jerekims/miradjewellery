@@ -23,7 +23,7 @@
   <div class="row">
   <nav class="navbar navigation" style="border-radius:0px;"><!--Navbar for main items-->
         <div class="logo" >
-            <a href="#">MIRAD</a>
+            <a href="<?php echo base_url().'home/index'?>">MIRAD</a>
         </div>
         <div class="nav-wrapper" class="categories">
           <ul class="right hide-on-med-and-down">

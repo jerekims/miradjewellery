@@ -32,7 +32,7 @@ class Category_model extends MY_Model {
     	return $data->result_array();
     }
 
-    public function category_product($catid){
+    public function category_product($catid=NULL){
 
             if(!empty($catid)){
             $sql="SELECT 
@@ -73,5 +73,36 @@ class Category_model extends MY_Model {
             return $result->result_array();
             }    
     
+    }
+    
+    /*getting all the products  from the database
+    ______________________________________________________*/
+
+    public function getproduct($pid=NULL){
+
+        //$data=array();
+
+        if( !empty($pid)){
+            //get specific product
+            $sql="SELECT 
+            p.prodid AS 'Product ID',
+            p.prodname AS 'Product Name',
+            p.proddescription    AS 'Description',
+            p.prodprice AS 'Price',
+            p.prodimage AS 'Image'
+            FROM products p, category c
+            WHERE p.catid= c.catid AND p.prodid ='$pid' LIMIT 1";
+
+            $result=$this->db->query($sql);
+            if($result->num_rows() > 0){
+              return $result->result_array();
+            }   
+            else{
+                //return true;
+                }
+        }
+        else{
+            $this->category_product();
+        }
     }
 }
