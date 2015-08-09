@@ -1,6 +1,6 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Admin_model extends MY_Model {
+class Stockmanager_model extends MY_Model {
 
 
 	function __construct()
@@ -16,7 +16,7 @@ class Admin_model extends MY_Model {
        return $result->result_array();
     }
 
-    function get_all_products()
+     function get_all_products()
     {
       $sql="SELECT 
         prodid AS 'Product ID',
@@ -53,14 +53,14 @@ class Admin_model extends MY_Model {
   /* adding new  product  to the database
   ______________________________________________________*/  
   
-    function add_product($categoryname,$pname,$pdescription,$price,$prodstatus)
+    function add_product($categoryname,$pname,$pdescription,$path,$price,$prodstatus)
     {
       $product=array(
             'catid'=>$categoryname,
             'prodname'=>$pname,
             'proddescription'=>$pdescription,
             'prodprice'=>$price,
-            'prodimage'=>"image",
+            'prodimage'=>$path,
             'product_status'=>$prodstatus
 
         );
@@ -317,39 +317,7 @@ class Admin_model extends MY_Model {
         
     }
 
-    function get_all_administrators()
-	{
-		$sql = "SELECT 
-					emp_id as 'Employee ID',
-					emp_name as 'Employee Name',
-          emp_email as 'Employee Email',
-					level_id as 'Employee Level',
-          date_registered as 'Date Registered',
-          emp_status as 'Employee Status'
-				FROM
-					`employees`
-        WHERE
-          emp_status = 1";
-		$result = $this->db->query($sql);
-		return $result->result_array();
-	}
-
-   function get_all_dadministrators()
-  {
-    $sql = "SELECT 
-          emp_id as 'Employee ID',
-          emp_name as 'Employee Name',
-          emp_email as 'Employee Email',
-          level_id as 'Employee Level',
-          date_registered as 'Date Registered',
-          emp_status as 'Employee Status'
-        FROM
-          `employees`
-        WHERE
-          emp_status = 0";
-    $result = $this->db->query($sql);
-    return $result->result_array();
-  }
+    
 
 
 // function that allows the acquiring of all category data from table category
@@ -399,7 +367,28 @@ class Admin_model extends MY_Model {
           order_status as 'Order Status',
           order_date as 'Date Ordered'
         FROM
-          orders";
+          orders
+        WHERE 
+          order_status = 0";
+    $result = $this->db->query($sql);
+    return $result->result_array();
+  }
+
+  function get_all_dorders()
+
+  {
+    $sql = "SELECT 
+          order_id as 'Order ID',
+          order_no as 'Order No',
+          prodid as 'Product ID',
+          prodprice as 'Product Price',
+          cust_id as 'Customer ID',
+          order_status as 'Order Status',
+          order_date as 'Date Ordered'
+        FROM
+          orders
+        WHERE 
+          order_status = 1";
     $result = $this->db->query($sql);
     return $result->result_array();
   }
@@ -438,7 +427,7 @@ class Admin_model extends MY_Model {
     return $result->result_array();
   }
 
-   function get_all_categories()
+  function get_all_categories()
   {
     $sql = "SELECT 
           catid as 'Category ID',
@@ -521,20 +510,33 @@ class Admin_model extends MY_Model {
 
 
 
-  function administrator_update($id,$employee_name, $employee_email, $employee_password, $employee_occupation, $employee_status)
+  function administrator_update($id,$employee_name, $employee_email, $employee_password, $employee_occupation)
   {
     $employee = array(
             'emp_name'   => $employee_name,
             'emp_email' => $employee_email,
-            'level_id'   => $employee_occupation,
             'emp_password'   => $employee_password,
             'emp_status' => $employee_status
             );
 
+    $ci_sess = array();
+      $sessions = array(
+          'emp_name'   => $employee_name,
+            'emp_email' => $employee_email
+        );
+
     $this->db->where('emp_id', $id);
 
-
+    
         $insert = $this->db->update('employees', $employee);
+
+        
+
+      array_push($ci_sess, $sessions);
+
+      $this->db->insert_batch('ci_sessions',$ci_sess);
+
+        
     return $insert;
 
   }
@@ -579,6 +581,18 @@ class Admin_model extends MY_Model {
         $insert = $this->db->update('comments', $comment);
     return $insert;
 
+  }
+
+  public function getcategories(){
+    $query = "SELECT * FROM category WHERE catstatus = 1";
+            try {
+                $this->dataSet = $this->db->query($query);
+                $this->dataSet = $this->dataSet->result_array();
+            }
+            catch(exception $ex) {
+            }
+            
+            return $this->dataSet;
   }
 
 

@@ -8,13 +8,13 @@ $(document).ready(function(){
 
 
         if(pass !== "e10adc3949ba59abbe56e057f20f883e"){
-            $('#passpanel').show();
+            $('.passpanel').hide();
 
            $('#editemployeepassword').prop('required',false);
            $('#editemployeecpassword').prop('required',false);
            
-        }else{
-           $('#passpanel').hide();
+        }else if(pass === "e10adc3949ba59abbe56e057f20f883e"){
+           $('.passpanel').show();
 
            $('#editemployeepassword').prop('required',true);
            $('#editemployeecpassword').prop('required',true);
@@ -106,32 +106,37 @@ $(document).ready(function(){
 
      // function for adding a product 
      $(function(){
-      $("#formaddproduct").submit(function(){
-        //alert("clicked");
-          var formData = new formData($(this)[0]);
+       $("#formaddproduct").submit(function(){
+          
 
-          // passing the data to the addnewproduct in the product controller
-          $.ajax({
-              type:"POST",
-              url: base_url + 'admin/addnewproduct',
-              //url: base_url + 'index.php/admin/addnewproduct',
-              data:formData,
-              async:false,
-              cache:false,
-              contentType:false,
-              processData:false,
-              success:function(data){
-                // after successful registration of the product
-                swal({title:"Product Registration",text:"Product has been added",timer:3000});
+        
+         var formData = new FormData($(this)[0]);
 
-              },error: function(data){
-              swal({   title: "Error Registration",   text: "Product has not been registered",   timer: 3000 });
+          // takes the data into the admin controller, into a function called categoryregistration()
+         $.ajax({
+           type: "POST",
+            url: base_url + 'stockmanager/addnewproduct',
+           // url: base_url + 'index.php/stockmanager/addnewproduct',
+           data: formData,
+           async: false,
+           cache: false,
+           contentType: false,
+           processData: false,
+           success: function(data){
+               // ....After successful registration, then....//
+              
+              swal({   title: "Product Registration",   text: "Product has been registered",   timer: 3000 });
+              // pop up for a successful registration 
+
            }
-          });
-          return false;
+ 
+         });
+ 
+         return false;  //stop the actual form post !important!
+ 
       });
+   });
 
-     });
      // end of the function for adding new  product
 
     
@@ -300,7 +305,7 @@ $(document).ready(function(){
      $(function(){
        $("#employeeediting").submit(function(){
           
-  
+      //alert("clecked");
    
        // takes the data into the admin controller, into a function called editcategory()
          var formData = new FormData($(this)[0]);

@@ -11,11 +11,11 @@
                         <ol class="breadcrumb">
                             <li class="active">
                                  <i class="fa fa-dashboard"></i>
-                                   <a class="crumbs" href="<?php echo base_url(). 'admin'?>">Manager Dashboard</a>
-                                   <!-- <a class="crumbs" href="<?php echo base_url(). 'index.php/admin'?>">Manager Dashboard</a> -->
+                                   <a class="crumbs" href="<?php echo base_url(). 'stockmanager/dashboard'?>">Stock Manager Dashboard</a>
+                                   <!-- <a class="crumbs" href="<?php echo base_url(). 'index.php/stockmanager/dashboard'?>">Stock Manager Dashboard</a> -->
                                    <?php if($passmessage){ ?>
-                                   <a href="<?php echo base_url().'admin/viewemployee/'.$this->session->userdata('emp_id')?>" class="animated flash red"> <?php echo $passmessage ?> </a>
-                                   <!-- <a href="<?php echo base_url().'index.php/admin/viewemployee/'.$this->session->userdata('emp_id')?>" class="animated flash red"> <?php echo $passmessage ?> </a> -->
+                                   <a href="<?php echo base_url().'stockmanager/viewemployee/'.$this->session->userdata('emp_id')?>" class="animated flash red"> <?php echo $passmessage ?> </a>
+                                   <!-- <a href="<?php echo base_url().'index.php/stockmanager/viewemployee/'.$this->session->userdata('emp_id')?>" class="animated flash red"> <?php echo $passmessage ?> </a> -->
                                     <?php }else{$passmessage="";echo $passmessage;} ?>
                             </li>
                         </ol>
@@ -31,16 +31,16 @@
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-xs-3">
-                                        <i class="fa fa-group fa-5x"></i>
+                                        <i class="fa fa-sitemap fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge"><?php echo $clientnumber?></div>
-                                        <div>Clients</div>
+                                        <div class="huge"><?php echo $categorynumber?></div>
+                                        <div>Categories</div>
                                     </div>
                                 </div>
                             </div>
-                            <a href="<?php echo base_url(). 'admin/clients'?>">
-                            <!-- <a href="<?php echo base_url(). 'index.php/admin/clients'?>"> -->
+                            <a href="<?php echo base_url(). 'stockmanager/category'?>">
+                            <!-- <a href="<?php echo base_url(). 'index.php/stockmanager/category'?>"> -->
                                 <div class="panel-footer">
                                     <span class="pull-left">View More</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -62,8 +62,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="<?php echo base_url(). 'admin/products'?>">
-                            <!-- <a href="<?php echo base_url(). 'index.php/admin/products'?>"> -->
+                            <a href="<?php echo base_url(). 'stockmanager/products'?>">
+                            <!-- <a href="<?php echo base_url(). 'index.php/stockmanager/products'?>"> -->
                                 <div class="panel-footer">
                                     <span class="pull-left">View More</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -77,16 +77,16 @@
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-xs-3">
-                                        <i class="fa fa-sitemap fa-5x"></i>
+                                        <i class="fa fa-truck fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge"><?php echo $categorynumber?></div>
-                                        <div>Categories</div>
+                                        <div class="huge"><?php echo $ordernumber?></div>
+                                        <div>Orders</div>
                                     </div>
                                 </div>
                             </div>
-                            <a href="<?php echo base_url(). 'admin/categories'?>">
-                            <!-- <a href="<?php echo base_url(). 'index.php/admin/categories'?>"> -->
+                            <a href="<?php echo base_url(). 'stockmanager/orders'?>">
+                            <!-- <a href="<?php echo base_url(). 'index.php/stockmanager/orders'?>"> -->
                                 <div class="panel-footer">
                                     <span class="pull-left">View More</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -108,8 +108,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="<?php echo base_url(). 'admin/comments'?>">
-                            <!-- <a href="<?php echo base_url(). 'index.php/admin/comments'?>"> -->
+                            <a href="<?php echo base_url(). 'stockmanager/comments'?>">
+                            <!-- <a href="<?php echo base_url(). 'index.php/stockmanager/comments'?>"> -->
                                 <div class="panel-footer">
                                     <span class="pull-left">View More</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -129,15 +129,15 @@
                    <div class="table-responsive">
                      <div class="table-toolbar">
                        <div class="btn-group pull-right table-buttons">
-                       <a class="left adminadd" href="<?php echo base_url(). 'admin/addcategory'?>">Add Category</a>
-                       <!-- <a class="left adminadd" href="<?php echo base_url(). 'index.php/admin/addcategory'?>">Add Category</a> -->
+                       <!-- <a class="left stockmanageradd" href="<?php echo base_url(). 'stockmanager/addcategory'?>">Add Category</a> -->
+                       <!-- <a class="left stockmanageradd" href="<?php echo base_url(). 'index.php/stockmanager/addcategory'?>">Add Category</a> -->
                          <button data-toggle="dropdown" class="btn dropdown-toggle btn-warning right ">Exports <span class="caret"></span></button>
                          <ul class="dropdown-menu">
-                           <li><a href="<?php echo base_url(). 'admin/allcategories/pdf'?>">Export to PDF</a></li>
-                           <li><a href="<?php echo base_url(). 'admin/allcategories/excel'?>">Export to Excel</a></li>
+                           <li><a href="<?php echo base_url(). 'stockmanager/allcategories/active/pdf'?>">Export to PDF</a></li>
+                           <li><a href="<?php echo base_url(). 'stockmanager/allcategories/active/excel'?>">Export to Excel</a></li>
 
-                           <!-- <li><a href="<?php echo base_url(). 'index.php/admin/allcategories/active/pdf'?>">Export to PDF</a></li>
-                           <li><a href="<?php echo base_url(). 'index.php/admin/allcategories/active/excel'?>">Export to Excel</a></li> -->
+                           <!-- <li><a href="<?php echo base_url(). 'index.php/stockmanager/allcategories/active/pdf'?>">Export to PDF</a></li>
+                           <li><a href="<?php echo base_url(). 'index.php/stockmanager/allcategories/active/excel'?>">Export to Excel</a></li> -->
                          </ul>
                        </div>
                      </div>
@@ -149,7 +149,7 @@
                           <th>Category Status</th>
                           <th>View</th>
                           <!-- <th>Edit</th> -->
-                          <th>Deactivate</th>
+                          <!-- <th>Deactivate</th> -->
                         </tr>
                        </thead>
                         <?php
@@ -170,15 +170,15 @@
                    <div class="table-responsive">
                      <div class="table-toolbar">
                        <div class="btn-group pull-right table-buttons">
-                       <a class="left adminadd" href="<?php echo base_url(). 'admin/addproduct'?>">Add Product</a>
-                       <!-- <a class="left adminadd" href="<?php echo base_url(). 'index.php/admin/addproduct'?>">Add Product</a> -->
+                       <a class="left adminadd" href="<?php echo base_url(). 'stockmanager/addproduct'?>">Add Product</a>
+                       <!-- <a class="left stockmanageradd" href="<?php echo base_url(). 'index.php/stockmanager/addproduct'?>">Add Product</a> -->
                          <button data-toggle="dropdown" class="btn dropdown-toggle btn-warning right ">Export <span class="caret"></span></button>
                          <ul class="dropdown-menu">
-                           <li><a href="<?php echo base_url(). 'admin/allcategories/pdf'?>">Save as PDF</a></li>
-                           <li><a href="<?php echo base_url(). 'admin/allcategories/excel'?>">Export to Excel</a></li>
+                           <li><a href="<?php echo base_url(). 'stockmanager/allcategories/active/pdf'?>">Save as PDF</a></li>
+                           <li><a href="<?php echo base_url(). 'stockmanager/allcategories/active/excel'?>">Export to Excel</a></li>
 
-                           <!-- <li><a href="<?php echo base_url(). 'index.php/admin/allcategories/active/pdf'?>">Save as PDF</a></li>
-                           <li><a href="<?php echo base_url(). 'index.php/admin/allcategories/active/excel'?>">Export to Excel</a></li> -->
+                           <!-- <li><a href="<?php echo base_url(). 'index.php/stockmanager/allcategories/active/pdf'?>">Save as PDF</a></li>
+                           <li><a href="<?php echo base_url(). 'index.php/stockmanager/allcategories/active/excel'?>">Export to Excel</a></li> -->
                          </ul>
                        </div>
                      </div>
@@ -210,39 +210,39 @@
 
                 <div class="row">
                   <div class="col-lg-12">
-                   <h2 class="table-title">Employees</h2>
+                   <h2 class="table-title">Orders</h2>
                    <div class="table-responsive">
                      <div class="table-toolbar">
                        <div class="btn-group pull-right table-buttons">
 
                        
-                       <a class="left adminadd" href="<?php echo base_url(). 'admin/addemployee'?>">Add Employees</a>
-                       <!-- <a class="left adminadd" href="<?php echo base_url(). 'index.php/admin/addemployee'?>">Add Employees</a> -->
+                       <!-- <a class="left stockmanageradd" href="<?php echo base_url(). 'stockmanager/addorders'?>">Add Employees</a> -->
+                       <!-- <a class="left stockmanageradd" href="<?php echo base_url(). 'index.php/stockmanager/addorders'?>">Add Employees</a> -->
                          <button data-toggle="dropdown" class="btn dropdown-toggle btn-warning right ">Exports <span class="caret"></span></button>
                          <ul class="dropdown-menu">
-                           <li><a href="<?php echo base_url(). 'admin/allemployees/pdf'?>">Export to PDF</a></li>
-                           <li><a href="<?php echo base_url(). 'admin/allemployees/excel'?>">Export to Excel</a></li>
+                           <li><a href="<?php echo base_url(). 'stockmanager/allorders/active/pdf'?>">Export to PDF</a></li>
+                           <li><a href="<?php echo base_url(). 'stockmanager/allorders/active/excel'?>">Export to Excel</a></li>
 
-                           <!-- <li><a href="<?php echo base_url(). 'index.php/admin/allemployees/active/pdf'?>">Export to PDF</a></li>
-                           <li><a href="<?php echo base_url(). 'index.php/admin/allemployees/active/excel'?>">Export to Excel</a></li> -->
+                           <!-- <li><a href="<?php echo base_url(). 'index.php/stockmanager/allorders/active/pdf'?>">Export to PDF</a></li>
+                           <li><a href="<?php echo base_url(). 'index.php/stockmanager/allorders/active/excel'?>">Export to Excel</a></li> -->
                          </ul>
                        </div>
                      </div>
-                     <table class="table table-striped" id="administrator-table"><!-- The table created in the page -->
+                     <table class="table table-striped" id="orders-table"><!-- The table created in the page -->
                        <thead>
                         <tr>
                           <th>#</th>
-                          <th>Name</th>
-                          <th>Email</th>
-                          <th>Occupation</th>
-                          <th>Date Registered</th>
-                          <th>Status</th>
+                          <th>Order No</th>
+                          <th>Product ID</th>
+                          <th>Product Price</th>
+                          <th>Customer ID</th>
+                          <th>Order Status</th>
+                          <th>Date Ordered</th>
                           <th>View</th>
-                          <th>Deactivate</th>
                         </tr>
                        </thead>
                         <?php
-                          echo $all_administrators;
+                          echo $all_orders;
                         ?>
                    </table>
 
@@ -267,7 +267,7 @@
         <script type="text/javascript">
               $('#category-table').dataTable();
               $('#product-table').dataTable();
-              $('#administrator-table').dataTable();
+              $('#orders-table').dataTable();
 
               
             $('.dataTables_filter input').addClass('form-control').attr('placeholder','Search');

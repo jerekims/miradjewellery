@@ -11,11 +11,11 @@
                         <ol class="breadcrumb">
                             <li class="active">
                                  <i class="fa fa-dashboard"></i>
-                                   <a class="crumbs" href="<?php echo base_url(). 'admin'?>">Manager Dashboard</a> > 
-                                   <a class="crumbs" href="<?php echo base_url(). 'admin/categories'?>">Category</a> >
+                                   <a class="crumbs" href="<?php echo base_url(). 'stockmanager/dashboard'?>">Stock Manager Dashboard</a> > 
+                                   <a class="crumbs" href="<?php echo base_url(). 'stockmanager/categories'?>">Categories</a> >
 
-                                   <!-- <a class="crumbs" href="<?php echo base_url(). 'index.php/admin'?>">Manager Dashboard</a> > 
-                                   <a class="crumbs" href="<?php echo base_url(). 'index.php/admin/categories'?>">Category</a> > -->
+                                   <!-- <a class="crumbs" href="<?php echo base_url(). 'index.php/stockmanager/dashboard'?>">Manager Dashboard</a> > 
+                                   <a class="crumbs" href="<?php echo base_url(). 'index.php/stockmanager/categories'?>">Category</a> > -->
                                    <a class="crumbs" href="#'?>"><?php echo $admin_subtitle?></a>
                             </li>
                         </ol>
@@ -30,7 +30,7 @@
                            // categorydetails acquired from the controller admin, in the function called viewcategory()
                             foreach ($categorydetails as $key => $value) {
                             foreach ($value as $q => $data) {
-                            
+                           //echo '<pre>';print_r($categorydetails);echo'</pre>';die();
                             for ($i=0; $i <= $key ; $i++) { 
                                 
                             ?>
@@ -42,18 +42,18 @@
                                 <label class="control-label">Category ID: <?php echo $data['catid']; ?></label>
 
                                 <div class="controls">
-                                    <input name="editcategoryid" type="hidden"  value="<?php echo $data['catid']; ?>" class="span6 m-wrap form-control "/>
+                                    <input name="editcategoryid" type="hidden" disabled value="<?php echo $data['catid']; ?>" class="span6 m-wrap form-control "/>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label>Category Name</label>
-                                <input id="editcategoryname" name="editcategoryname" value="<?php echo $data['catname']; ?>" required="" class="form-control validate[required]">
+                                <input id="editcategoryname" name="editcategoryname" disabled value="<?php echo $data['catname']; ?>" required="" class="form-control validate[required]">
                             </div>
 
                             <div class="form-group">
                                 <label>Category Status</label>
-                                <select id="editcategorystatus" name="editcategorystatus" class="form-control validate[required]">
+                                <select id="editcategorystatus" name="editcategorystatus" disabled class="form-control validate[required]">
 
                             <?php 
                                 if($data['catstatus'] == 1){
@@ -74,9 +74,9 @@
                                 </select>
                             </div>
 
-                            <button type="submit" class="btn btn-success">Submit Button</button>
-                            <a href="<?php echo base_url(). 'admin/categories'?>" class="btn btn-warning">Back</a>
-                            <!-- <a href="<?php echo base_url(). 'index.php/admin/categories'?>" class="btn btn-warning">Back</a> -->
+                            <!-- <button type="submit" class="btn btn-success">Submit Button</button> -->
+                            <a href="<?php echo base_url(). 'stockmanager/categories'?>" class="btn btn-warning">Back</a>
+                            <!-- <a href="<?php echo base_url(). 'index.php/stockmanager/categories'?>" class="btn btn-warning">Back</a> -->
                             
                             <!-- <button type="reset" class="btn btn-warning">Reset Button</button> -->
 

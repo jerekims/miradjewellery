@@ -10,7 +10,7 @@
                         </h1>
                         <ol class="breadcrumb">
                             <li class="active">
-                                <i class="fa fa-dashboard"></i> Manager Module
+                                <i class="fa fa-dashboard"></i> Stock Manager Module
                             </li>
                         </ol>
                     </div>
@@ -31,8 +31,8 @@
                             ?>
 
                 <!-- The form that allows viewing and editing of category It uses admin.js into a function with form ID -> #categoryediting -->
-                        <form id="productediting" action="<?php echo base_url(). 'admin/editproduct'?>" name="productediting" role="form" enctype="multipart/form-data" method="POST">
-                        <!-- <form id="productediting" action="<?php echo base_url(). 'index.php/admin/editproduct'?>" name="productediting" role="form" enctype="multipart/form-data" method="POST"> -->
+                        <form id="productediting" action="<?php echo base_url(). 'stockmanager/editproduct'?>" name="productediting" role="form" enctype="multipart/form-data" method="POST">
+                        <!-- <form id="productediting" action="<?php echo base_url(). 'index.php/stockmanager/editproduct'?>" name="productediting" role="form" enctype="multipart/form-data" method="POST"> -->
 
                         <div class="control-group">
                                 <label class="control-label">Product ID: <?php echo $data['prodid']; ?></label>
@@ -53,15 +53,13 @@
                             <div class="form-group">
                                 <label>Product Category</label>
                                 <select name="editproductcategory" class="form-control">
-                                    <option>Rings</option>
-                                    <option>Necklaces</option>
-                                    <option>Bangles</option>
+                                    <?php echo $getcategories;?>
                                 </select>
                             </div>
 
                             <div class="form-group">
                                 <label>Product Description</label>
-                                <textarea name="editprod_description" required value="<?php echo $data['proddescription']; ?>" id="prod_description" class="form-control validate[required]"></textarea>
+                                <textarea name="editprod_description" required id="prod_description" class="form-control validate[required]"><?php echo $data['proddescription']; ?></textarea>
                             </div>
 
                             <div class="form-group">
@@ -85,8 +83,8 @@
                             </div>
 
                             <button type="submit" class="btn btn-success">Submit Button</button>
-                            <a href="<?php echo base_url(). 'admin/products'?>" class="btn btn-warning">Back</a>
-                            <!-- <a href="<?php echo base_url(). 'index.php/admin/products'?>" class="btn btn-warning">Back</a> -->
+                            <a href="<?php echo base_url(). 'stockmanager/products'?>" class="btn btn-warning">Back</a>
+                            <!-- <a href="<?php echo base_url(). 'index.php/stockmanager/products'?>" class="btn btn-warning">Back</a> -->
                             
                             <!-- <button type="reset" class="btn btn-warning">Reset Button</button> -->
 

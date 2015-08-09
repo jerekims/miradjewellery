@@ -16,7 +16,6 @@
     <link href="<?php echo base_url(). 'assets/css/morris.css'?>" rel="stylesheet">
     <link href="<?php echo base_url(). 'assets/fonts/font-awesome/css/font-awesome.min.css'?>" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/js/jquery-ui-1.11.4.custom/jquery-ui.min.css'?>">
-    <!-- <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/ionicons/css/ionicons.min.css'?>"> -->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/css/validationEngine.jquery.css'?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/sweetalert/lib/sweet-alert.css'?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/css/animate.css'?>">
@@ -60,6 +59,7 @@
    <!--<script src="<?php echo base_url(); ?>assets/js/DataTables-1.10.2/js/data-table.js"></script>-->
     
    <script type="text/javascript" src="<?php echo base_url().'assets/js/admin.js'?>"></script>
+   
 
 </head>
 
