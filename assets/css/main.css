@@ -15,8 +15,18 @@ body
     margin: 0px auto;
 
 }
-.columns{
-	margin-left: 2%;
+
+.ten.columns{
+	margin-left: 4%;
+}
+.three.columns{
+	height: 350px;
+	margin-left: 0;
+	margin-right: 2%;
+	margin-bottom: 2%;
+}
+.three.columns:first-child{
+	margin-left: 0px;
 }
 /*
 top bar  navgation
@@ -53,9 +63,13 @@ ______________________________________________________*/
 	color: #EBF2F2;
 }
 
-.categories{
-	margin-top:-8px;float:right;width:700px;
+.nav-wrapper .categories li:last-child{
+	margin-bottom: 0;
 }
+.nav-wrapper .categories ul li a{
+	color:#EBF2F2;
+}
+
 
 /*carousel*/
 .billboard{

@@ -45,12 +45,12 @@
 </div><!-- end of the billboard  div -->
 
 
-<div class="homecontent" style="margin-top:15px;">
+<div class="homecontent" style="margin-top:10px; padding-top:10px;border-top:1px solid gray;">
   <div class="two columns">
     <nav class="navbar"><!--Navbar for main items--> 
 
-        <div class="nav-wrapper" class="categories">
-          <ul>
+        <div class="nav-wrapper" >
+          <ul class="categories">
           <?php echo $navbarcategory;?> 
           </ul>
         </div><!-- end of the nav-wrapper -->
@@ -62,7 +62,7 @@
       foreach ($value as $p => $data) {
         for ($i=0; $i <= $key ; $i++) {   ?>
 
-      <div class="three columns" style="height:400px;">
+      <div class="three columns">
 <!--        <a href="<?php echo base_url().'home/individual_product/'?>">
  -->       <a href="<?php echo base_url().'index.php/home/individual_product/'?><?php echo $data['Product ID']?>">
         <div name="product_image">

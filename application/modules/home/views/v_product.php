@@ -11,7 +11,7 @@
 					<h4 style="border-bottom:1px solid gray;">Product Name :&nbsp;&nbsp;<?php echo $value['Product Name'];?></h4>
 					<p><?php echo $value['Description'];?> </p>
 					<h5>Product Price Kshs :&nbsp;<?php echo $value['Price'];?></h5>
-					<div><a href="<?php echo base_url().'index.php/home/addcart'?>"><button type="submit" class="btn btn-primary">Add To Cart</button></a></div>
+					<div><a href="<?php echo base_url().'index.php/home/addcart'?>"><button type="submit" class="btn btn-primary" style="font-size:15px;color:white;background-color:#BFAE9F;">Add To Cart</button></a></div>
 				</div>
 			</div>
 		</div>
