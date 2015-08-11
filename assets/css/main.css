@@ -107,6 +107,11 @@ ______________________________________________________*/
 {
 	margin-left: -15px;
 }
+img
+{
+	border-radius: 100px;
+	border: 2px solid black;
+}
 /*.carousel .row
 {
 	width: 100%;

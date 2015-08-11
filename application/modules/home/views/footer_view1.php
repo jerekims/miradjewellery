@@ -28,6 +28,9 @@
             </form>
 			<ul class="list-unstyled">
 			<li>You can also follow us on: </li>
+			<img src="">
+			<img src="">
+			<img src="">
 			<li>miradjewellery.co.ke</li>
 		    </ul>
 			
