@@ -38,7 +38,7 @@ class Category_model extends MY_Model {
             $sql="SELECT 
             p.prodid AS 'Product ID',
             p.prodname AS 'Product Name',
-            p.proddescription    AS 'Description',
+            p.proddescription AS 'Description',
             p.prodprice AS 'Price',
             p.prodimage AS 'Image'
             FROM products p, category c

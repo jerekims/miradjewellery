@@ -33,16 +33,26 @@ class Home extends MY_Controller {
 
     function index()
     {
-        // $data['navbarcategory'] = $this->create_category_nav();
+        $products=$this->category_model->category_product($catid=Null);
+       //echo "<pre>";print_r($products);echo "</pre>";die();
+        if( !empty( $products)){
+            foreach ($products as $key => $product) {
+            $prod_cat['prod_category'][]=$product;
+            // echo "<pre>";print_r($product);echo "</pre>";die();
+            }
+         
+           $data['all_product_category']=$prod_cat;
+           //echo "<pre>";print_r($prod_cat);echo "</pre>";die();
+        }
+        $data['navbarcategory'] = $this->create_category_nav();
 
-        // //$data['products']=$this->allproduct();
+        //$data['products']=$this->allproduct();
 
-        // $data['top_navbar1']='home/navbar_view1';
-        // $data['content_page']='home/v_home';
-        // $data['main_footer']='home/footer_view1';
-        $this->product_category();
+        $data['top_navbar1']='home/navbar_view1';
+        $data['content_page']='home/v_home';
+        $data['main_footer']='home/footer_view1';
 
-        // $this->template->call_home_template($data);
+        $this->template->call_home_template($data);
 
     }
     
@@ -55,10 +65,12 @@ class Home extends MY_Controller {
         $categories=$this->category_model->get_categories();
         $data ='';
         $data.='<li>';
-        $data.='<a href="'.base_url().'home/product_category">View All</a></li>';
+        $data.='<a href="'.base_url().'home">View All</a></li>';
         if( !empty($categories)){
             foreach ($categories as $key => $category) {
                $data.='<li><a href="'.base_url().'home/product_category/'.$category['Category id'].'">'.$category['Category Name'].'</a></li>';
+                 //$data.='<li><a href="'.base_url().'index.php/home/product_category/'.$category['Category id'].'">'.$category['Category Name'].'</a></li>';
+
             }
         }
         return $data;
@@ -67,7 +79,7 @@ class Home extends MY_Controller {
     /*dispaly of product based on the category
     _______________________________________________________*/
 
-    function product_category($catid=Null){
+    function product_category($catid){
 
         $products=$this->category_model->category_product($catid);
        //echo "<pre>";print_r($products);echo "</pre>";die();
@@ -106,7 +118,7 @@ class Home extends MY_Controller {
         $data['top_navbar1']='home/navbar_view1';
         $data['content_page']='home/v_product';
         $data['main_footer']='home/footer_view1';
-        echo "<pre>";print_r($sproduct);echo "</pre>";die();
+        // echo "<pre>";print_r($sproduct);echo "</pre>";die();
         $this->template->call_home_template($data);
     }
 
@@ -116,12 +128,32 @@ class Home extends MY_Controller {
     ____________________________________________________________*/
 
     function login(){
-        $data['']='';
+         $products=$this->category_model->category_product($catid=Null);
+       //echo "<pre>";print_r($products);echo "</pre>";die();
+        if( !empty( $products)){
+            foreach ($products as $key => $product) {
+            $prod_cat['prod_category'][]=$product;
+            // echo "<pre>";print_r($product);echo "</pre>";die();
+            }
+         
+           $data['all_product_category']=$prod_cat;
+           //echo "<pre>";print_r($prod_cat);echo "</pre>";die();
+        }
+
+        $data['navbarcategory'] = $this->create_category_nav();
+
+        //$data['products']=$this->allproduct();
         $data['top_navbar1']='home/navbar_view1';
         $data['content_page']='home/v_login';
         $data['main_footer']='home/footer_view1';
 
         $this->template->call_home_template($data);
+    }
+
+    /* user login
+    ____________________________________________________________*/
+    function user_login(){
+        
     }
 
      /* contact function
@@ -140,7 +172,19 @@ class Home extends MY_Controller {
     ____________________________________________________________*/
 	
     function register(){
-        $data['']='';
+        $products=$this->category_model->category_product($catid=Null);
+       //echo "<pre>";print_r($products);echo "</pre>";die();
+        if( !empty( $products)){
+            foreach ($products as $key => $product) {
+            $prod_cat['prod_category'][]=$product;
+            // echo "<pre>";print_r($product);echo "</pre>";die();
+            }
+         
+           $data['all_product_category']=$prod_cat;
+           //echo "<pre>";print_r($prod_cat);echo "</pre>";die();
+        }
+
+        $data['navbarcategory'] = $this->create_category_nav();
         $data['top_navbar1']='home/navbar_view1';
         $data['content_page']='home/v_register';
         $data['main_footer']='home/footer_view1';

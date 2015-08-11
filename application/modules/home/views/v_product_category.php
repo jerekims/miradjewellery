@@ -1,10 +1,3 @@
-<div class="billboard"style="height:400px;border:1px solid red;margin-top:5px;">
-    <div class="row">
-        <div class="image_slider" >
-          
-        </div>
-    </div><!-- end of the row div -->
-</div><!-- end of the billboard  div -->
 
 <div class="product" Style="margin-top:10px;margin-bottom:10px;">
     <div class="row">
@@ -14,7 +7,8 @@
         for ($i=0; $i <= $key ; $i++) {   ?>
 
       <div class="three columns" style="height:250px;" style="border:1px solid yellow;">
-        <a href="<?php echo base_url().'home/individual_product/'?>">
+       <a href="<?php echo base_url().'home/individual_product/'?>">
+       <!-- <a href="<?php echo base_url().'index.php/home/individual_product/$data[Product ID]'?>"> -->
         <div name="product_image" style="width:95%; margin:2.5%; height:140px;">
           <img class="thumbnail" src="<?php echo base_url().'assets/images/ring1.jpg'?>">
         </div>

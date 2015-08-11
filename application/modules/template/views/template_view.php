@@ -13,18 +13,12 @@
 
     <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/js/jquery-ui-1.11.4.custom/jquery-ui.min.css'?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/bootstrap/css/bootstrap.min.css'?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/materialize/css/materialize.min.css'?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/skeleton/css/skeleton.css'?>">
 
     <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/css/validationEngine.jquery.css'?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/sweetalert/lib/sweet-alert.css'?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/css/animate.css'?>">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/materialize/sass/materialize.scss'?>">
-    
-
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/materialize/css/materialize.css'?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/css/main.css'?>">
     
     <!-- GOOLE FONTS
@@ -65,7 +59,6 @@
    <script type="text/javascript" src="<?php echo base_url().'assets/js/jquery-2.1.3.min.js'?>"></script>
    <script type="text/javascript" src="<?php echo base_url().'assets/js/jquery-ui-1.11.4.custom/jquery-ui.min.js'?>"></script>
    <script type="text/javascript">$(document).ready(function(){base_url = '<?php echo base_url();?>'});</script>
-   <script type="text/javascript" src="<?php echo base_url().'assets/materialize/js/materialize.min.js'?>"></script>
    <script type="text/javascript" src="<?php echo base_url().'assets/bootstrap/js/bootstrap.min.js'?>"></script>
    <script type="text/javascript" src="<?php echo base_url().'assets/skeleton/js/jquery_magnific_popup.js'?>"></script>
    <script type="text/javascript" charset="utf-8" src="<?php echo base_url().'assets/js/jquery.validate.js'?>"></script>
@@ -75,9 +68,6 @@
    
 
    <script type="text/javascript" src="<?php echo base_url().'assets/js/scrollup.min.js'?>"></script>
-   <script type="text/javascript" src="<?php echo base_url().'assets/js/main.js'?>"></script>
-
-   <script type="text/javascript" src="<?php echo base_url().'assets/materialize/js/materialize.js'?>"></script>
-   
+   <script type="text/javascript" src="<?php echo base_url().'assets/js/main.js'?>"></script>   
 </body>
 </html>
