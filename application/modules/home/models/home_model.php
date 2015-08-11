@@ -1,6 +1,6 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Category_model extends MY_Model {
+class Home_model extends MY_Model {
 
 	function __construct()
     {
@@ -104,5 +104,41 @@ class Category_model extends MY_Model {
         else{
             $this->category_product();
         }
+    }
+
+
+    /*function for adding new customer
+    ___________________________________________________*/
+
+    public function add_customer($cname,$ctitle,$cemail,$cpass){
+        $customer=array(
+            'cust_name'=>$cname,
+            'title_id'=>$ctitle,
+            'cust_email'=>$cemail,
+            'cust_password'=>$cpass,
+        );
+
+    $insert=$this->db->insert('customers', $customer);
+    return $insert;
+    }
+
+    /*login function to user account
+    _______________________________________________________*/
+    public function user_login($cname,$cpass){
+        $sql="SELECT 
+        id as 'custid',
+        cust_name AS 'cname',
+        cust_password AS 'cpass'
+        FROM  customers 
+        WHERE cust_name='$cname' AND cust_password='$cpass' LIMIT 1 ";
+
+        $result=$this->db->query($sql);
+        if($result){
+            return  true;
+        }
+        else{
+            return false;
+        }
+
     }
 }
