@@ -1,14 +1,5 @@
-<div class="homecontent">
-  <div class="four columns">
-    <nav class="navbar navigation" style="border-radius:0px;"><!--Navbar for main items--> 
+<div class="product_category" style="margin-top:10px; ">
 
-        <div class="nav-wrapper" class="categories">
-          <ul>
-          <?php echo $navbarcategory;?> 
-          </ul>
-        </div><!-- end of the nav-wrapper -->
-   </nav><!--End of navbar main items-->
-  </div>
   <div class="eight columns">
   <div class="billboard">
    <div id="myCarousel" class="carousel slide" data-ride="carousel">

@@ -8,16 +8,18 @@ html, body {
 _______________________________________________________*/
 body
 {
-	background-color: #C1BDB1;
+	/*background-color: #C1BDB1;*/
 }
 .home-body{
 	width: 1200px;
     margin: 0px auto;
 
 }
-
+.two.columns{
+	width: 15.3333%;
+}
 .ten.columns{
-	margin-left: 4%;
+	margin-left: 2%;
 }
 .three.columns{
 	height: 350px;
@@ -63,11 +65,24 @@ ______________________________________________________*/
 	color: #EBF2F2;
 }
 
-.nav-wrapper .categories li:last-child{
-	margin-bottom: 0;
+.nav-wrapper ul li{
+	border-right: 1px solid gray;
+	margin-bottom: 0px;
+	list-style-type: none;
+	padding: 5%;
 }
-.nav-wrapper .categories ul li a{
-	color:#EBF2F2;
+.nav-wrapper ul li a{
+	color: maroon;
+	text-decoration: none;
+	font-size: 20px;
+	text-align: center;
+}
+.nav-wrapper ul li a:hover{
+	color: white;
+	font-size: 2px;
+}
+.nav-wrapper ul li a:visited{
+	color:tomato ;
 }
 
 

@@ -64,13 +64,13 @@ class Home extends MY_Controller {
     function create_category_nav(){
         $categories=$this->home_model->get_categories();
         $data ='';
-        $data.='<li class="categories">';
-        $data.='<a href="'.base_url().'index.php/home">View All Products</a></li>';
+        $data.='<li>';
+        $data.='<a href="'.base_url().'index.php/home">View All</a></li>';
         if( !empty($categories)){
             foreach ($categories as $key => $category) {
                $data.='<li><a href="'.base_url().'index.php/home/product_category/'.$category['Category id'].'">'.$category['Category Name'].'</a></li>';
                  //$data.='<li><a href="'.base_url().'index.php/home/product_category/'.$category['Category id'].'">'.$category['Category Name'].'</a></li>';
-
+             echo "<hr";
             }
         }
         return $data;
