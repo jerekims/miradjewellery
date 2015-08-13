@@ -133,10 +133,22 @@ class Home extends MY_Controller {
         $this->template->call_home_template($data);
     }
 
+   
+
     function addcart($prodid){
+        if($this->session->userdata('logged_in')){
         $custid = $this->session->userdata('cust_id');
         $result = $this->home_model->addtocart($custid, $prodid);
-        //echo "<pre>";print_r($result);echo "</pre>";die();
+
+           if($result){
+              redirect(base_url().'home/shopcart');
+           }else{
+              redirect(base_url());
+           }
+
+        }else{
+            redirect(base_url().'home/login');
+        }
     }
 
     function shopcart(){
@@ -227,43 +239,7 @@ class Home extends MY_Controller {
 
                 case 'logged_in':
                     
-                    switch($this->session->userdata('level_id')){
-
-                        // Level 1 Admin
-                        
-                        case '1':
-                          echo json_encode(array(
-                          'level' => 'superadmin',
-                          'state' => 'success',
-                          'subject' => 'Log Success',
-                          'message'=> 'Logged in successfully'
-                          ));
-                          
-                        break;
-
-                        // Level 2 Manager
-
-                        case '2':
-                        echo json_encode(array(
-                          'level' => 'manager',
-                          'state' => 'success',
-                          'subject' => 'Log Success',
-                          'message'=> 'Logged in successfully'
-                        ));
-                        break;
-
-                        // Level 3 Stock Manager
-
-                        case '3':
-                          echo json_encode(array(
-                          'level' => 'stockmanager',
-                          'state' => 'success',
-                          'subject' => 'Log Success',
-                          'message'=> 'Logged in successfully'
-                          ));
-                          
-                        break;
-                    }
+                   redirect(base_url());
 
                 break;
 

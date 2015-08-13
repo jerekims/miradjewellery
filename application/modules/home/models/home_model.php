@@ -217,7 +217,7 @@ class Home_model extends MY_Model {
          $data['logged_in'] = 0;
 
          $this->db->where('session_id', $sess_log);
-         $update = $this->db->update('customer_sessions', $data);
+         $update = $this->db->update('customer_session', $data);
      }
 
 
