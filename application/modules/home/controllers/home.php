@@ -244,27 +244,11 @@ class Home extends MY_Controller {
                 break;
 
                 case 'incorrect_password':
-                   echo json_encode(array(
-                    'state' => 'error',
-                    'subject' => 'Incorrect Password',
-                    'message'=> 'Incorrect username or Password. Please try again...'
-                   ));
+                   echo "<pre>";print_r("Incorrect Username or Password");echo "</pre>";die();
                 break;
 
                 case 'not_activated':
-                echo json_encode(array(
-                    'state' => 'error',
-                    'subject' => 'Not Activated',
-                    'message'=> 'Your account is not activated'
-                   ));
-
-                    // $data['new_user'] = 'Your account is not activated';
-
-                    // $data['log_navbar'] = 'admin/log_header';
-                    // $data['log_content'] = 'admin/v_log';
-                    // $data['log_footer'] = 'admin/log_footer';
-
-                    // $this->template->call_log_template($data);
+                echo "<pre>";print_r("Your Account had been deactivated");echo "</pre>";die();
                 break;
 
                 default:
