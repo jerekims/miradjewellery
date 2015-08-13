@@ -76,6 +76,18 @@ class Home extends MY_Controller {
         return $data;
     }
 
+    function get_titles(){
+        $titles=$this->home_model->get_titles();
+       $data="";
+            foreach ($titles as $key => $title) {
+               $data.='<option value="'.$title['Title_id'].'">';
+               $data.=$title['Title_name'];
+               $data.='</option>';
+            }
+        
+        return $data;
+    }
+
     /*dispaly of product based on the category
     _______________________________________________________*/
 
@@ -121,6 +133,39 @@ class Home extends MY_Controller {
         $this->template->call_home_template($data);
     }
 
+    function addcart($prodid){
+        $custid = $this->session->userdata('cust_id');
+        $result = $this->home_model->addtocart($custid, $prodid);
+        //echo "<pre>";print_r($result);echo "</pre>";die();
+    }
+
+    function shopcart(){
+        if ($this->session->userdata('logged_in')) {
+            $custid = $this->session->userdata('cust_id');
+
+            $result = $this->home_model->opencart($custid);
+
+            if( !empty( $result)){
+            foreach ($result as $key => $product) {
+            $prod_cat['prod_category'][]=$product;
+            // echo "<pre>";print_r($product);echo "</pre>";die();
+            }
+         
+           $data['cart_products']=$prod_cat;
+           //echo "<pre>";print_r($prod_cat);echo "</pre>";die();
+        }
+
+        $data['navbarcategory'] = $this->create_category_nav();
+        $data['top_navbar1']='home/navbar_view1';
+        $data['content_page']='home/cartpage';
+        $data['main_footer']='home/footer_view1';
+        //echo "<pre>";print_r($data);echo "</pre>";die();
+        $this->template->call_home_template($data);
+         } else {
+          //$this->logged_in = FASLE;
+         }
+    }
+
 
    
     /* login function
@@ -139,6 +184,8 @@ class Home extends MY_Controller {
            //echo "<pre>";print_r($prod_cat);echo "</pre>";die();
         }
 
+        $data['titles'] = $this->get_titles();
+
         $data['navbarcategory'] = $this->create_category_nav();
 
         //$data['products']=$this->allproduct();
@@ -149,12 +196,105 @@ class Home extends MY_Controller {
         $this->template->call_home_template($data);
     }
 
+    function logout()
+    {
+        $sess_log = $this->session->userdata('session_id');
+        $log = $this->home_model->logoutuser($sess_log);
+
+        $this->session->sess_destroy();
+        redirect(base_url().'home');
+        //redirect(base_url().'index.php/admin');
+    }
+
+    function log_check(){
+      if($this->session->userdata('logged_in') == 0){
+
+          redirect(base_url().'home');
+          //redirect(base_url().'index.php/admin');
+      }else{
+        return "logged_in";
+      }
+   }
+
     /* user login
     ____________________________________________________________*/
     function user_login(){
-         $cname = $this->input->post('customername');
-         $ctitle = $this->input->post('customerpassword');
+         $cname = $this->input->post('customer_email');
+         $cpass = $this->input->post('customer_pass');
          $insert = $this->home_model->user_login($cname,$cpass);
+
+         switch($insert){
+
+                case 'logged_in':
+                    
+                    switch($this->session->userdata('level_id')){
+
+                        // Level 1 Admin
+                        
+                        case '1':
+                          echo json_encode(array(
+                          'level' => 'superadmin',
+                          'state' => 'success',
+                          'subject' => 'Log Success',
+                          'message'=> 'Logged in successfully'
+                          ));
+                          
+                        break;
+
+                        // Level 2 Manager
+
+                        case '2':
+                        echo json_encode(array(
+                          'level' => 'manager',
+                          'state' => 'success',
+                          'subject' => 'Log Success',
+                          'message'=> 'Logged in successfully'
+                        ));
+                        break;
+
+                        // Level 3 Stock Manager
+
+                        case '3':
+                          echo json_encode(array(
+                          'level' => 'stockmanager',
+                          'state' => 'success',
+                          'subject' => 'Log Success',
+                          'message'=> 'Logged in successfully'
+                          ));
+                          
+                        break;
+                    }
+
+                break;
+
+                case 'incorrect_password':
+                   echo json_encode(array(
+                    'state' => 'error',
+                    'subject' => 'Incorrect Password',
+                    'message'=> 'Incorrect username or Password. Please try again...'
+                   ));
+                break;
+
+                case 'not_activated':
+                echo json_encode(array(
+                    'state' => 'error',
+                    'subject' => 'Not Activated',
+                    'message'=> 'Your account is not activated'
+                   ));
+
+                    // $data['new_user'] = 'Your account is not activated';
+
+                    // $data['log_navbar'] = 'admin/log_header';
+                    // $data['log_content'] = 'admin/v_log';
+                    // $data['log_footer'] = 'admin/log_footer';
+
+                    // $this->template->call_log_template($data);
+                break;
+
+                default:
+                    // echo '';
+                break;
+            }   
 
     }
 
@@ -170,6 +310,8 @@ class Home extends MY_Controller {
          //$image=$this->input->post('image');
          //echo'<pre>';print_r($categoryname);echo'</pre>';die();
          $insert = $this->home_model->add_customer($cname,$ctitle,$cemail,$cpass);
+
+         redirect(base_url().'admin/login');
     }
 
 

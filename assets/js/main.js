@@ -22,4 +22,10 @@ $(document).ready(function(){
 	//
 	$('#loginform').modal'show');
 
+     $("#loginuser").validationEngine();
+     $("#createuser").validationEngine();
+
+
+
+
 });
