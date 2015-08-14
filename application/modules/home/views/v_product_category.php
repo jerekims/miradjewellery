@@ -39,7 +39,7 @@
         </div>
 
         </a>
-        <div><a href="<?php echo base_url().'index.php/home/addcart'?>"><button type="primary">Add To Cart</button></a></div>
+        <div><a href="<?php echo base_url().'index.php/home/addcart/'.$data['Product ID']?>"><button type="primary">Add To Cart</button></a></div>
       </div>
 
       <?php } 

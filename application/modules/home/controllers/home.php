@@ -76,6 +76,18 @@ class Home extends MY_Controller {
         return $data;
     }
 
+    function get_titles(){
+        $titles=$this->home_model->get_titles();
+       $data="";
+            foreach ($titles as $key => $title) {
+               $data.='<option value="'.$title['Title_id'].'">';
+               $data.=$title['Title_name'];
+               $data.='</option>';
+            }
+        
+        return $data;
+    }
+
     /*dispaly of product based on the category
     _______________________________________________________*/
 
@@ -121,6 +133,51 @@ class Home extends MY_Controller {
         $this->template->call_home_template($data);
     }
 
+   
+
+    function addcart($prodid){
+        if($this->session->userdata('logged_in')){
+        $custid = $this->session->userdata('cust_id');
+        $result = $this->home_model->addtocart($custid, $prodid);
+
+           if($result){
+              redirect(base_url().'home/shopcart');
+           }else{
+              redirect(base_url());
+           }
+
+        }else{
+            redirect(base_url().'home/login');
+        }
+    }
+
+    function shopcart(){
+        if ($this->session->userdata('logged_in')) {
+            $custid = $this->session->userdata('cust_id');
+
+            $result = $this->home_model->opencart($custid);
+
+            if( !empty( $result)){
+            foreach ($result as $key => $product) {
+            $prod_cat['prod_category'][]=$product;
+            // echo "<pre>";print_r($product);echo "</pre>";die();
+            }
+         
+           $data['cart_products']=$prod_cat;
+           //echo "<pre>";print_r($prod_cat);echo "</pre>";die();
+        }
+
+        $data['navbarcategory'] = $this->create_category_nav();
+        $data['top_navbar1']='home/navbar_view1';
+        $data['content_page']='home/cartpage';
+        $data['main_footer']='home/footer_view1';
+        //echo "<pre>";print_r($data);echo "</pre>";die();
+        $this->template->call_home_template($data);
+         } else {
+          //$this->logged_in = FASLE;
+         }
+    }
+
 
    
     /* login function
@@ -139,6 +196,8 @@ class Home extends MY_Controller {
            //echo "<pre>";print_r($prod_cat);echo "</pre>";die();
         }
 
+        $data['titles'] = $this->get_titles();
+
         $data['navbarcategory'] = $this->create_category_nav();
 
         //$data['products']=$this->allproduct();
@@ -149,12 +208,53 @@ class Home extends MY_Controller {
         $this->template->call_home_template($data);
     }
 
+    function logout()
+    {
+        $sess_log = $this->session->userdata('session_id');
+        $log = $this->home_model->logoutuser($sess_log);
+
+        $this->session->sess_destroy();
+        redirect(base_url().'home');
+        //redirect(base_url().'index.php/admin');
+    }
+
+    function log_check(){
+      if($this->session->userdata('logged_in') == 0){
+
+          redirect(base_url().'home');
+          //redirect(base_url().'index.php/admin');
+      }else{
+        return "logged_in";
+      }
+   }
+
     /* user login
     ____________________________________________________________*/
     function user_login(){
-         $cname = $this->input->post('customername');
-         $ctitle = $this->input->post('customerpassword');
+         $cname = $this->input->post('customer_email');
+         $cpass = $this->input->post('customer_pass');
          $insert = $this->home_model->user_login($cname,$cpass);
+
+         switch($insert){
+
+                case 'logged_in':
+                    
+                   redirect(base_url());
+
+                break;
+
+                case 'incorrect_password':
+                   echo "<pre>";print_r("Incorrect Username or Password");echo "</pre>";die();
+                break;
+
+                case 'not_activated':
+                echo "<pre>";print_r("Your Account had been deactivated");echo "</pre>";die();
+                break;
+
+                default:
+                    // echo '';
+                break;
+            }   
 
     }
 
@@ -170,6 +270,8 @@ class Home extends MY_Controller {
          //$image=$this->input->post('image');
          //echo'<pre>';print_r($categoryname);echo'</pre>';die();
          $insert = $this->home_model->add_customer($cname,$ctitle,$cemail,$cpass);
+
+         redirect(base_url().'admin/login');
     }
 
 
