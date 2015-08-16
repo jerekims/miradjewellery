@@ -108,8 +108,13 @@ ______________________________________________________*/
 }
 
 /*products styles*/
-.products.singleproduct a:lasr-child{
-	margin-right: 0px;
+.products .singleproduct a{
+	text-decoration: none;
+	cursor:crosshair;
+	outline: none;
+}
+.products .singleproduct a:active{
+	outline: none;
 }
 /*carousel*/
 .billboard{

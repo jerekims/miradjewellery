@@ -29,7 +29,7 @@
     </div><!-- end of the eight columns -->
   </div> <!-- end of twelve columns -->
 
-  <div class="eight columns" style="height:400px;margin-top:1%;float:right;">
+  <div class="eight columns" style="border-top:1px solid gray;height:400px;margin-top:1%;float:right;">
   <?php 
      foreach ($all_product_category as $key => $value) {
       foreach ($value as $p => $data) {
@@ -38,7 +38,7 @@
           <div class="singleproduct"  style="width:280px;margin-right:12px;margin-bottom:12px;height:450px;float:left;">
              <a href="<?php echo base_url().'index.php/home/individual_product/'?><?php echo $data['Product ID']?>">
                <div name="product_image">
-                 <img style="width:100%;"  src="<?php echo base_url().'assets/images/ring1.jpg'?>">
+                 <img style="margin-top:1%;width:100%;"  src="<?php echo base_url().'assets/images/ring1.jpg'?>">
                </div>
                 <h5 style="color:maroon;font-size:20px; text-align:center; font-family:'Montserrat:700',GEORGIA;margin:5px 5px;"><?php echo $data['Product Name'];?></h5>
                 <h6 style="color:tomato;font-size:18px; text-align:center; font-family:'ABEL',CURSIVE;margin:5px 5px;">Price Kshs:&nbsp;<?php echo $data['Price'];?></h6>

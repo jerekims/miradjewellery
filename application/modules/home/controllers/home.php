@@ -9,12 +9,10 @@ class Home extends MY_Controller {
 
 	function __construct()
     {
-
-        
-        
         $this->load->model('home_model');
        // $this->load->model('product_model');
-        $this->load->helper(array('form', 'url'));
+        $this->load->helper(array('form', 'url','captcha'));
+        $this->load->driver("session");
         $this->load->library('form_validation');
         $this->form_validation->set_error_delimiters('<span class="error" style="color:red;">', '</span>');
 
@@ -264,8 +262,8 @@ class Home extends MY_Controller {
     function addcustomer(){
         $this->form_validation->set_rules('customername','Name','trim|required|min_length[5]|max_length[12]|xss_clean');
         $this->form_validation->set_rules('customeremail','Email','trim|required|valid_email|is_unique[comments.email]');
-        $this->form_validation->set_rules('customerpassword','trim|required|min_length[6]');
-        $this->form_validation->set_rules('confirmpassword','trim|matches[customerpassword]');
+        $this->form_validation->set_rules('customerpassword','Password','trim|required|min_length[6]');
+        $this->form_validation->set_rules('confirmpassword','Confirmation password','trim|required|matches[customerpassword]');
         if($this->form_validation->run()==FALSE){
             $this->login();
         }
@@ -300,6 +298,7 @@ class Home extends MY_Controller {
         $this->form_validation->set_rules('user_name','Name','trim|required|min_length[5]|max_length[12]|xss_clean');
         $this->form_validation->set_rules('user_email','Email','trim|required|valid_email|is_unique[comments.email]');
         $this->form_validation->set_rules('message','Message','trim|required');
+        $this->form_validation->set_rules('captcha', "Captcha", 'required');
         if($this->form_validation->run()==FALSE){
              $this->contact();
         }
@@ -307,7 +306,7 @@ class Home extends MY_Controller {
             $data=array(
                 'name'=>$this->input->post('user_name'),
                 'email'=>$this->input->post('user_email'),
-                'message'=>$this->input->post('message')
+                'message'=>$this->input->post('message'),
                 );
 
             $insert=$this->home_model->add_comment($data);
