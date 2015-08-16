@@ -106,12 +106,11 @@ class Home extends MY_Controller {
     
         $data['navbarcategory'] = $this->create_category_nav();
         $data['top_navbar1']='home/navbar_view1';
-        $data['side_bar']='home/v_sidebar';
         $data['content_page']='home/v_product_category';
         $data['main_footer']='home/footer_view1';
         //echo "<pre>";print_r($data);echo "</pre>";die();
 
-        $this->template->call_home_template($data);
+        $this->template->call_single_template($data);
          
     }
 

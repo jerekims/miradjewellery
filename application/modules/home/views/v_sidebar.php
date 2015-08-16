@@ -1,4 +1,4 @@
-<div class="product_container" style="margin-top:2%;">
+<div class="product_container" style="margin-top:1%;">
   <div class="sidebar" style="width:300px; float:left;">
     <nav class="navbar"><!--Navbar for main items--> 
         <div class="nav-wrapper" >
