@@ -23,7 +23,7 @@
         <?php }else{ ?>
                <li><a href="<?php  echo base_url().'index.php/home/login'?>"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;Log In/Sign Up</a></li>
         <?php } ?>
-        <li><a href="#"> <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>&nbsp;&nbsp;Contact</a></li>
+        <li><a href="<?php echo base_url().'index.php/home/contact'?>"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>&nbsp;&nbsp;Contact</a></li>
         <li><a href="#"> <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;Wishlist</a></li>
         <li><a href="<?php echo base_url(). 'index.php/home/shopcart'?>"> <span class="glyphicon glyphicon-Shopping-cart" aria-hidden="true"></span>&nbsp;&nbsp;Shopping Bag</a></li>
        

@@ -49,10 +49,10 @@
 
   <div class="twelve columns">
     <div class="continue_shopping" style="float:left;margin-left:750px;">
-      <a href="<?php echo base_url().'index.php/home/'?>"><button class="btn btn-default" style="width:200px;">CONTINUE SHOPPING</button></a>
+      <a href="<?php echo base_url().'index.php/home/'?>"><button class="btn btn-default" style="width:200px;background-color:gray;">CONTINUE SHOPPING</button></a>
     </div>
     <div class="payment" style="float:right;">
-      <a href="<?php echo base_url().'index.php/paypal/payment'?>"><button class="btn btn-warning" style="width:200px;">CHECKOUT</button></a>
+      <a href="<?php echo base_url().'index.php/paypal/payment'?>"><button class="btn btn-warning" style="width:200px;background-color:#968477;">CHECKOUT</button></a>
     </div>
   </div>
 

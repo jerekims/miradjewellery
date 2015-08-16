@@ -1,35 +1,21 @@
-
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        <form method="">
-
-          <div class="form-group">
-            <label for="customer_name" class="control-label">Customer Name:</label>
-            <input type="text" class="form-control" id="customer-name">
-          </div>
-
-           <div class="form-group">
-            <label for="customer_email" class="control-label">Customer Email:</label>
-            <input type="text" class="form-control" name="customer_email">
-          </div>
-
-          <div class="form-group">
-            <label for="message-text" class="control-label">Message:</label>
-            <textarea class="form-control" id="message-text" name="message"></textarea>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" name="submit_request">SEND COMMENTS</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        
-      </div>
+<div class="eight columns" style="float:right; margin-top:1%;border:1px solid gray;">
+  <h4  style="text-align:center;">CONTACT FORM</h4> 
+  <form name="contactform" method="POST" action="<?php echo base_url().'home/sendcomment'?>">
+    <h5>Let's keep in touch</h5>
+    <div class="form-group">
+      <label>Name :</label><?php echo form_error('user_name');?>
+      <input type="text" name="user_name" value="<?php echo set_value('user_name');?>"class="form-control">
     </div>
-  </div>
+    <div class="form-group">
+      <label>Email :</label><?php echo form_error('user_email');?>
+      <input type="text" name="user_email" value="<?php echo set_value('user_email');?>" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Message :</label><?php echo form_error('message');?>
+     <textarea class="form-control" rows=10 cols=10 name="message"><?php echo set_value('message');?></textarea>
+    </div>
+    <div>
+      <input type="submit" class="btn btn-primary" value="SEND">
+    </div>
+  </form>
 </div>

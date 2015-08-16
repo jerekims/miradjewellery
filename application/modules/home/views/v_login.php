@@ -26,8 +26,8 @@
          <form id="createuser" action="<?php echo base_url(). 'index.php/home/addcustomer'?>" name="loginuser" role="form" enctype="multipart/form-data" method="POST">
 
                 <div class="form-group">
-                  <label for="customer_name" class="control-label">Customer Name:</label>
-                  <input type="text" class="form-control validate[required]" id="customername" name="customername">
+                  <label for="customer_name" class="control-label">Customer Name:</label><?php echo form_error('customername');?>
+                  <input type="text" class="form-control validate[required]" id="customername" name="customername" value="<?php echo set_value('customername');?>">
                 </div>
 
                  <div class="form-group">
@@ -38,18 +38,18 @@
                 </div>
 
                  <div class="form-group">
-                  <label for="customer_email" class="control-label">Customer Email:</label>
-                  <input type="text" class="form-control validate[required]" name="customeremail">
+                  <label for="customer_email" class="control-label">Customer Email:</label><?php echo form_error('customeremail');?>
+                  <input type="text" class="form-control validate[required]" name="customeremail" value="<?php echo set_value('customeremail');?>">
                 </div>
 
                 <div class="form-group">
-                  <label for="customer_pass" class="control-label">Customer Password:</label>
-                  <input type="password" class="form-control validate[required]" name="customerpassword">
+                  <label for="customer_pass" class="control-label">Customer Password:</label><?php echo form_error('customerpassword');?>
+                  <input type="password" class="form-control validate[required]" name="customerpassword" value="<?php echo set_value('customerpassword');?>">
                 </div>
 
                 <div class="form-group">
-                  <label for="customer_pass" class="control-label">Confirm Password:</label>
-                  <input type="password" class="form-control validate[required]" name="confirmpassword">
+                  <label for="customer_pass" class="control-label">Confirm Password:</label><?php echo form_error('confirmpassword');?>
+                  <input type="password" class="form-control validate[required]" name="confirmpassword" value="<?php echo set_value('confirmpassword');?>">
                 </div>
                 <div>
                   <button type="submit" class="btn btn-primary">JOIN TODAY</button>

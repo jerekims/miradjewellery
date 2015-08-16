@@ -1,7 +1,7 @@
 <html>
 <head>
   <title>
-      Mirad Jewelries
+      Mirad Jewellerry
   </title>
    <!-- LINK FONTS
     _______________________________________________________________________ -->

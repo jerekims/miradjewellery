@@ -6,10 +6,10 @@ html, body {
 }
 /* General styles
 _______________________________________________________*/
-body
+/*body
 {
 	background-color: #C1BDB1;
-}
+}*/
 .home-body{
 	width: 1200px;
     margin: 0px auto;
@@ -37,7 +37,6 @@ ______________________________________________________*/
 .top-nav {
 
     height: 60px;
-    margin-top: 5px;
 }
 .top-nav .row {
 	margin-left: 0px;
@@ -69,19 +68,19 @@ ______________________________________________________*/
 
 /*sidebar styles*/
 
-.nav-wrapper ul h5{
+.nav-wrapper h5{
 	margin-bottom: 0px;
 	font-size:1.9rem;
 	font-weight: bold;
 	padding: 5%;
-	background-color: black;
+	background-color:#968477;
 	color: white;
 	font-family:'Montserrat:700',GEORGIA;
-	border: 1px solid gray;
 }
 
-.nav-wrapper ul h5 span {
-	color:orange;
+.nav-wrapper  h5 span {
+	color:tomato;
+	margin-left: 2%;
 }
 
 .nav-wrapper ul{
@@ -92,19 +91,19 @@ ______________________________________________________*/
 .nav-wrapper ul li{
 	margin-bottom: 0px;
 	list-style-type: none;
-	padding:0.8%;
+	padding:%;
 	border-bottom: 1px solid gray;
 }
 
 .nav-wrapper ul li a{
-	color: maroon;
+	color: tomato;
+	display: block;
 	text-decoration: none;
 	font-size: 24px;
-	text-align: center;
 }
 
 .nav-wrapper ul li a:hover{
-	color: tomato;
+	color: #968477;
 	cursor:pointer;
 }
 

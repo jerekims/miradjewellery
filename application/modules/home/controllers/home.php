@@ -14,8 +14,9 @@ class Home extends MY_Controller {
         
         $this->load->model('home_model');
        // $this->load->model('product_model');
-
+        $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
+        $this->form_validation->set_error_delimiters('<span class="error" style="color:red;">', '</span>');
 
         parent::__construct();
 
@@ -261,16 +262,23 @@ class Home extends MY_Controller {
     ____________________________________________________________*/
 
     function addcustomer(){
-
-         $cname = $this->input->post('customername');
-         $ctitle = $this->input->post('customertitle');
-         $cemail = $this->input->post('customeremail');
-         $cpass = $this->input->post('customerpassword');
-         //$image=$this->input->post('image');
-         //echo'<pre>';print_r($categoryname);echo'</pre>';die();
-         $insert = $this->home_model->add_customer($cname,$ctitle,$cemail,$cpass);
-
+        $this->form_validation->set_rules('customername','Name','trim|required|min_length[5]|max_length[12]|xss_clean');
+        $this->form_validation->set_rules('customeremail','Email','trim|required|valid_email|is_unique[comments.email]');
+        $this->form_validation->set_rules('customerpassword','trim|required|min_length[6]');
+        $this->form_validation->set_rules('confirmpassword','trim|matches[customerpassword]');
+        if($this->form_validation->run()==FALSE){
+            $this->login();
+        }
+        else{
+         $customer=array(
+            'cust_name'=>$this->input->post('customername'),
+            'title_id'=>$this->input->post('customertitle'),
+            'cust_email'=>$this->input->post('customeremail'),
+            'cust_password'=>$this->input->post('customerpassword')
+            );
+         $insert = $this->home_model->add_customer($customer);
          redirect(base_url().'index.php/home/login');
+        }
     }
 
 
@@ -283,10 +291,40 @@ class Home extends MY_Controller {
         $data['content_page']='home/v_contact';
         $data['main_footer']='home/footer_view1';
 
-        $this->template->call_home_template($data);
+        $this->template->call_single_template($data);
     }
 
-    
+    /*getting user comments
+    _______________________________________________________________*/
+    function sendcomment(){
+        $this->form_validation->set_rules('user_name','Name','trim|required|min_length[5]|max_length[12]|xss_clean');
+        $this->form_validation->set_rules('user_email','Email','trim|required|valid_email|is_unique[comments.email]');
+        $this->form_validation->set_rules('message','Message','trim|required');
+        if($this->form_validation->run()==FALSE){
+             $this->contact();
+        }
+        else{
+            $data=array(
+                'name'=>$this->input->post('user_name'),
+                'email'=>$this->input->post('user_email'),
+                'message'=>$this->input->post('message')
+                );
+
+            $insert=$this->home_model->add_comment($data);
+            redirect(base_url().'index.php/home/');
+        }
+    }
+
+    function checkemail($em){
+        $email=$this->home_model->get_email();
+        if($em==$email){
+             $this->form_validation->set_message('checkemail','The email entered already exists');
+            return FALSE;
+        }
+        else{
+            return TRUE;
+        }
+    }
 	
 }
 

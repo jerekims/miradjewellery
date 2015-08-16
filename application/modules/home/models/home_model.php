@@ -57,7 +57,7 @@ class Home_model extends MY_Model {
             p.prodname AS 'Product Name',
             p.proddescription AS 'Description',
             p.prodprice AS 'Price',
-            p.prodimage AS 'Image'
+            p.prodimage AS 'image'
             FROM products p, category c
             WHERE p.catid= c.catid AND c.catid ='$catid'";
 
@@ -123,18 +123,26 @@ class Home_model extends MY_Model {
         }
     }
 
+    /*inserting user comment
+    ___________________________________________________*/
+
+    public function add_comment($data){
+      $insert=$this->db->insert('comments',$data);
+      return $insert;
+    }
+
+    /*getting all email in the comments table
+    ______________________________________________________*/
+    public function get_email($em=NULL)
+    {
+      $emails="SELECT email FROM comments WHERE email=$em";
+      return $email->result_array();
+    }
 
     /*function for adding new customer
     ___________________________________________________*/
 
-    public function add_customer($cname,$ctitle,$cemail,$cpass){
-        $customer=array(
-            'cust_name'=>$cname,
-            'title_id'=>$ctitle,
-            'cust_email'=>$cemail,
-            'cust_password'=>$cpass,
-        );
-
+    public function add_customer($customer){
         $insert=$this->db->insert('customers', $customer);
        return $insert;
     }
