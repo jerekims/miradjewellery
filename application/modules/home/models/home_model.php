@@ -135,8 +135,8 @@ class Home_model extends MY_Model {
             'cust_password'=>$cpass,
         );
 
-    $insert=$this->db->insert('customers', $customer);
-    return $insert;
+        $insert=$this->db->insert('customers', $customer);
+       return $insert;
     }
 
     /*login function to user account
@@ -145,9 +145,6 @@ class Home_model extends MY_Model {
         
          //echo '<pre>';print_r($passw1);echo'</pre>';die;
         $sql = "SELECT * FROM customers WHERE cust_email = '". $cname ."' AND cust_password = '". $cpass ."' LIMIT 1";
-
-
-
 
         $result = $this->db->query($sql);
         
@@ -227,10 +224,8 @@ class Home_model extends MY_Model {
             'prod_id'=>$prodid
         );
 
-    $insert=$this->db->insert('cart', $cart);
-    return $insert;
-
-       
+      $insert=$this->db->insert('cart', $cart);
+      return $insert;
     }
 
     public function opencart($custid){
@@ -241,9 +236,9 @@ class Home_model extends MY_Model {
        p.proddescription as Product_description,
        p.prodprice as Product_price,
        p.prodimage as Product_image
-FROM customers cu, products p
-JOIN cart c ON p.prodid = c.prod_id 
-WHERE cu.cust_id = 4";
+      FROM customers cu, products p
+      JOIN cart c ON p.prodid = c.prod_id 
+      WHERE cu.cust_id =$custid";
       $result=$this->db->query($sql);
       return $result->result_array();
     }

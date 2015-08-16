@@ -8,7 +8,7 @@ html, body {
 _______________________________________________________*/
 body
 {
-	/*background-color: #C1BDB1;*/
+	background-color: #C1BDB1;
 }
 .home-body{
 	width: 1200px;
@@ -16,16 +16,17 @@ body
 
 }
 .two.columns{
-	width: 15.3333%;
+	width: 17.3333%;
 }
 .ten.columns{
-	margin-left: 2%;
+	margin-left: 0;
 }
 .three.columns{
-	height: 350px;
+	height: 329px;
 	margin-left: 0;
-	margin-right: 2%;
+	margin-right:2%;
 	margin-bottom: 2%;
+	border: 1px solid  gray;
 }
 .three.columns:first-child{
 	margin-left: 0px;
@@ -34,6 +35,7 @@ body
 top bar  navgation
 ______________________________________________________*/
 .top-nav {
+
     height: 60px;
     margin-top: 5px;
 }
@@ -65,27 +67,51 @@ ______________________________________________________*/
 	color: #EBF2F2;
 }
 
+/*sidebar styles*/
+
+.nav-wrapper ul h5{
+	margin-bottom: 0px;
+	font-size:1.9rem;
+	font-weight: bold;
+	padding: 5%;
+	background-color: black;
+	color: white;
+	font-family:'Montserrat:700',GEORGIA;
+	border: 1px solid gray;
+}
+
+.nav-wrapper ul h5 span {
+	color:orange;
+}
+
+.nav-wrapper ul{
+	margin-bottom: 0px;
+}
+
+
 .nav-wrapper ul li{
-	border-right: 1px solid gray;
 	margin-bottom: 0px;
 	list-style-type: none;
 	padding: 5%;
+	border-bottom: 1px solid gray;
 }
+
 .nav-wrapper ul li a{
 	color: maroon;
 	text-decoration: none;
-	font-size: 20px;
+	font-size: 24px;
 	text-align: center;
 }
+
 .nav-wrapper ul li a:hover{
-	color: white;
-	font-size: 2px;
-}
-.nav-wrapper ul li a:visited{
-	color:tomato ;
+	color: tomato;
+	cursor:pointer;
 }
 
-
+/*products styles*/
+.products.singleproduct a:lasr-child{
+	margin-right: 0px;
+}
 /*carousel*/
 .billboard{
 	margin-top: 0px;
@@ -98,12 +124,6 @@ ______________________________________________________*/
       width: 100%;
       height: 100%;
       margin: auto;
-}
-
- /*login page*/
-.loginform{
-}
-.registerform{
 
   }
 
@@ -136,8 +156,6 @@ ______________________________________________________*/
 .btn {
 	margin-bottom:12px; 
 	font-size: 13px;
-	
-
 }
 
 .button, button, input[type="submit"], input[type="reset"], input[type="button"] 
@@ -150,32 +168,4 @@ ______________________________________________________*/
 	margin-left: -15px;
 }
 
-/*.carousel .row
-{
-	width: 100%;
-	margin-left: 100px;
-	margin-bottom:0px;
-}
 
-.products .row
-{
-	width: 100%;
-	margin-left: 102px;
-	margin-right: 50px;
-	margin-bottom:0px;
-}
-.products .row .categories{
-	border:1px solid green;
-	background-color: blue;
-	margin-right: 15px;
-	width: 400px;
-	height: 100px;
-}
-.products .row .display{
-	width: 675px;
-	background-color: yellow;
-	height: 500px;
-	border:1px solid red;
-}*/
-/*login page*/
-.loginform

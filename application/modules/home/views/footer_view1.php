@@ -1,4 +1,4 @@
-<div id="footer" style="position:relative;margin-top:850px;">
+<div id="footer" style="position:relative; margin-top:1000px;">
 <div class="container" style="width:100%;height:300px;position:absolute;">
 	<div class="row">
 		<div class="four columns " >

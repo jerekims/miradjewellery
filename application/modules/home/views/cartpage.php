@@ -1,81 +1,81 @@
-<div class="homecontent">
-  <div class="four columns">
-    <nav class="navbar navigation" style="border-radius:0px;"><!--Navbar for main items--> 
-
-        <div class="nav-wrapper" class="categories">
-          <ul>
-          <?php echo $navbarcategory;?> 
-          </ul>
-        </div><!-- end of the nav-wrapper -->
-   </nav><!--End of navbar main items-->
-  </div>
-  <div class="eight columns">
-  <div class="billboard">
-   <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators" >
-          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-          <li data-target="#myCarousel" data-slide-to="1"></li>
-          <li data-target="#myCarousel" data-slide-to="2"></li>
-          <li data-target="#myCarousel" data-slide-to="3"></li>
-        </ol>
-
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner" role="listbox">
-          <div class="item active">
-            <img src="<?php echo base_url().'assets/images/bangles_UK_1.jpg'?>" alt="">
-            
-          </div>
-        </div>
-        
-  </div> <!--end of the carousel div  -->
-
-</div><!-- end of the billboard  div -->
-     <?php 
-     foreach ($cart_products as $key => $value) {
-      foreach ($value as $p => $data) {
-        for ($i=0; $i <= $key ; $i++) {   ?>
-
-      <div class="three columns" style="height:250px;" style="border:1px solid yellow;">
-        
-        <div class="form-group image-profile">
-             <img style="width:250px;height:250px;" src="<?php echo $data['Product_image']; ?>" alt="Product pic">
-        </div>
-        <div class="des_price" >
-          <h5 style="color:#F2F2F2;font-size:15px; font-family:'Montserrat:700',GEORGIA;margin:10px 20px;"><?php echo $data['Product_id'];?></h5>
-          <h5 style="color:#F2F2F2;font-size:15px; font-family:'Montserrat:700',GEORGIA;margin:10px 20px;"><?php echo $data['Category_id'];?></h5>
-          <h5 style="color:#F2F2F2;font-size:15px; font-family:'Montserrat:700',GEORGIA;margin:10px 20px;"><?php echo $data['Product_name'];?></h5>
-          <h5 style="color:#F2F2F2;font-size:15px; font-family:'Montserrat:700',GEORGIA;margin:10px 20px;"><?php echo $data['Product_name'];?></h5>
-          <h5 style="color:#F2F2F2;font-size:15px; font-family:'Montserrat:700',GEORGIA;margin:10px 20px;"><?php echo $data['Product_description'];?></h5>
-          <h6 style="color:#F2F2F2;font-size:20px; font-family:'ABEL',CURSIVE;margin:10px 20px;">Price Kshs:&nbsp;<?php echo $data['Product_price'];?></h6>
-        </div>
-
-        </a>
-        
+<?php if(isset($cart_products)){?>
+<div class="twelve columns">
+        <table class="table" style="width:100%;margin-top:0.1%;" >
+          <tr>
+            <th style="text-align:center;">Item</th>
+            <th style="text-align:center;">Product Name</th>
+            <th style="text-align:center;">Description</th>
+            <th style="text-align:center;">Quantity</th>
+            <th style="text-align:center;">Price</th>
+          </tr>
+             <?php 
+            foreach ($cart_products as $key => $value) {
+              foreach ($value as $p => $data) {
+               for ($i=0; $i <= $key ; $i++) {   ?>
+               <tr>
+               <td>
+                  <div class="form-group image-profile">
+                    <img style="width:100px;height:100px;"src="<?php echo base_url().'assets/images/ring1.jpg'?>" alt="Product pic">
+                  </div>
+               </td>
+               <td>
+                <h5 style="color:#F2F2F2;font-size:15px; font-family:'Montserrat:700',GEORGIA;margin:10px 20px;text-align:center;"><?php echo $data['Product_name'];?></h5>
+               </td>
+               <td>
+                  <h5 style="color:#F2F2F2;font-size:15px; font-family:'Montserrat:700',GEORGIA;margin:10px 20px;text-align:center;"><?php echo $data['Product_description'];?></h5>
+                  <a href="delete_product?empty=<?php echo $data['Product_id'];?>" style="text-align:center;">(X)Remove</a>
+               </td>
+               <td>
+                 <input value="1" style="width:40px;">
+               </td>
+               <td>
+                 <h5 style="color:#F2F2F2;font-size:15px; font-family:'Montserrat:700',GEORGIA;margin:10px 20px; text-align:center;">Kshs:&nbsp;<?php echo $data['Product_price'];?></h5>
+               </td>
+               </tr>
+                <?php }
+              }
+            } ?>
+            <tr>
+              
+            </tr>
+        </table>
+</div>
+  <div class="twelve columns">
+      <div class="total" style="float:right;">
+        <h5 style="margin-right:200px;color:black;">Subtotal:</h5>
+        <h3 style="margin-right:200px;">Total:</h3>
       </div>
-
-      <?php } 
-
-        }    
-
-      }
-
-     // echo "<pre>";print_r($key);echo "</pre>";die();
-      ?>
   </div>
-  
-</div>
-<!-- <div class="row">
-  
-</div>
 
-<div class="product" Style="margin-top:10px;margin-bottom:10px;">
-    <div class="row">
-    
+  <div class="twelve columns">
+    <div class="continue_shopping" style="float:left;margin-left:750px;">
+      <a href="<?php echo base_url().'index.php/home/'?>"><button class="btn btn-default" style="width:200px;">CONTINUE SHOPPING</button></a>
+    </div>
+    <div class="payment" style="float:right;">
+      <a href="<?php echo base_url().'index.php/paypal/payment'?>"><button class="btn btn-warning" style="width:200px;">CHECKOUT</button></a>
+    </div>
+  </div>
 
-   
-   
-
-    
+<div class="clearfix"></div>
+        <?php } else {?>
+<div class="twelve columns"style="border:1px solid yellow;">
+      <table class="table-striped" style="width:100%;">
+      <tr>
+        <th style="text-align:center;">Item</th>
+        <th style="text-align:center;">Product Name</th>
+        <th style="text-align:center;">Description</th>
+        <th style="text-align:center;">Quantity</th>
+        <th style="text-align:center;">Price</th>
+      </tr>
+      <tr><?php echo "Your cart is Empty";?></tr>
+      <tr>
+        <div>
+        <a href="<?php echo base_url().'index.php/home/'?>" style="color:#F2F2F2;font-size:15px; font-family:'Montserrat:700',GEORGIA;margin:10px 20px;">
+        <button class="btn btn-default">CONTINUE SHOPPING</button>
+        </div>
+      </tr>
+  <?php } ?>
 </div>
+ 
+
 

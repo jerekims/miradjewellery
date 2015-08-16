@@ -1,6 +1,3 @@
-<div class="product_category" style="margin-top:10px; ">
-
-  <div class="eight columns">
   <div class="billboard">
    <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
@@ -39,7 +36,7 @@
         </div>
 
         </a>
-        <div><a href="<?php echo base_url().'index.php/home/addcart/'.$data['Product ID']?>"><button type="primary">Add To Cart</button></a></div>
+        <div><a href="<?php echo base_url().'index.php/home/addcart/'?><?php echo $data['Product ID']?>"><button type="primary">Add To Cart</button></a></div>
       </div>
 
       <?php } 

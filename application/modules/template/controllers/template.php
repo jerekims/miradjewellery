@@ -37,6 +37,10 @@ class Template extends MY_Controller
 		$this->load->view('template_view2', $data);
 	}
 
+	function call_single_template($data = NULL){
+		//echo "<pre>";print_r($data);die();
+		$this->load->view('single',$data);
+	}
 	
 
 }

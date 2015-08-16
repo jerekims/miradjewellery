@@ -40,7 +40,7 @@ class Admin extends MY_Controller {
    function log_check(){
       if($this->session->userdata('logged_in') == 0){
 
-          redirect(base_url().'admin');
+          redirect(base_url().'index.php/admin');
           //redirect(base_url().'index.php/admin');
       }else{
         return "logged_in";

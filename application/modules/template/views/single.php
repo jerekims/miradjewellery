@@ -30,45 +30,26 @@
   
 </head>
 <body>
- 
-  <div class="home-body">
+ <div class="home-body">
       <div class="top-nav" >
           <?php
              $this->load->view($top_navbar1);
           ?>
       </div>
-      <div class="billboard">
-        <?php 
 
-         $this->load->view($billboard);
-
-        ?>
-      </div>
-
-       <div class="side-body">
-         <?php 
-              $this->load->view($side_bar); 
-         ?>
-      </div>
-
-      <div class="right-body">
+      <div class="main">
          <?php 
               $this->load->view($content_page); 
          ?>
       </div>
-
       <div class="home-footer">
          <?php
              $this->load->view($main_footer);
          ?>
       </div>
-    
  </div>
 
-       
-
-        
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.js" type="text/javascript"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.js" type="text/javascript"></script>
    <script type="text/javascript" src="<?php echo base_url().'assets/js/jquery.js'?>"></script>
    <script type="text/javascript" src="<?php echo base_url().'assets/js/jquery-2.1.3.min.js'?>"></script>
    <script type="text/javascript" src="<?php echo base_url().'assets/js/jquery-ui-1.11.4.custom/jquery-ui.min.js'?>"></script>

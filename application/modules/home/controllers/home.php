@@ -49,6 +49,8 @@ class Home extends MY_Controller {
         //$data['products']=$this->allproduct();
 
         $data['top_navbar1']='home/navbar_view1';
+        $data['billboard']='home/v_billboard';
+        $data['side_bar']='home/v_sidebar';
         $data['content_page']='home/v_home';
         $data['main_footer']='home/footer_view1';
 
@@ -68,10 +70,7 @@ class Home extends MY_Controller {
         $data.='<a href="'.base_url().'index.php/home">View All</a></li>';
         if( !empty($categories)){
             foreach ($categories as $key => $category) {
-               $data.='<li><a href="'.base_url().'index.php/home/product_category/'.$category['Category id'].'">'.$category['Category Name'].'</a></li>';
-                 //$data.='<li><a href="'.base_url().'index.php/home/product_category/'.$category['Category id'].'">'.$category['Category Name'].'</a></li>';
-             echo "<hr";
-            }
+               $data.='<li><a href="'.base_url().'index.php/home/product_category/'.$category['Category id'].'">'.$category['Category Name'].'</a></li>';            }
         }
         return $data;
     }
@@ -107,6 +106,7 @@ class Home extends MY_Controller {
     
         $data['navbarcategory'] = $this->create_category_nav();
         $data['top_navbar1']='home/navbar_view1';
+        $data['side_bar']='home/v_sidebar';
         $data['content_page']='home/v_product_category';
         $data['main_footer']='home/footer_view1';
         //echo "<pre>";print_r($data);echo "</pre>";die();
@@ -130,7 +130,7 @@ class Home extends MY_Controller {
         $data['content_page']='home/v_product';
         $data['main_footer']='home/footer_view1';
         //echo "<pre>";print_r($data);echo "</pre>";die();
-        $this->template->call_home_template($data);
+        $this->template->call_single_template($data);
     }
 
    
@@ -141,13 +141,13 @@ class Home extends MY_Controller {
         $result = $this->home_model->addtocart($custid, $prodid);
 
            if($result){
-              redirect(base_url().'home/shopcart');
+              redirect(base_url().'index.php/home/shopcart');
            }else{
               redirect(base_url());
            }
 
         }else{
-            redirect(base_url().'home/login');
+            redirect(base_url().'index.php/home/login');
         }
     }
 
@@ -159,7 +159,7 @@ class Home extends MY_Controller {
 
             if( !empty( $result)){
             foreach ($result as $key => $product) {
-            $prod_cat['prod_category'][]=$product;
+            $prod_cat['prod_details'][]=$product;
             // echo "<pre>";print_r($product);echo "</pre>";die();
             }
          
@@ -172,7 +172,7 @@ class Home extends MY_Controller {
         $data['content_page']='home/cartpage';
         $data['main_footer']='home/footer_view1';
         //echo "<pre>";print_r($data);echo "</pre>";die();
-        $this->template->call_home_template($data);
+        $this->template->call_single_template($data);
          } else {
           //$this->logged_in = FASLE;
          }
@@ -205,23 +205,23 @@ class Home extends MY_Controller {
         $data['content_page']='home/v_login';
         $data['main_footer']='home/footer_view1';
 
-        $this->template->call_home_template($data);
+        $this->template->call_single_template($data);
     }
 
     function logout()
     {
         $sess_log = $this->session->userdata('session_id');
-        $log = $this->home_model->logoutuser($sess_log);
+        $this->home_model->logoutuser($sess_log);
 
         $this->session->sess_destroy();
-        redirect(base_url().'home');
+        redirect(base_url().'index.php/home');
         //redirect(base_url().'index.php/admin');
     }
 
     function log_check(){
       if($this->session->userdata('logged_in') == 0){
 
-          redirect(base_url().'home');
+          redirect(base_url().'index.php/home');
           //redirect(base_url().'index.php/admin');
       }else{
         return "logged_in";
@@ -271,7 +271,7 @@ class Home extends MY_Controller {
          //echo'<pre>';print_r($categoryname);echo'</pre>';die();
          $insert = $this->home_model->add_customer($cname,$ctitle,$cemail,$cpass);
 
-         redirect(base_url().'admin/login');
+         redirect(base_url().'index.php/home/login');
     }
 
 
