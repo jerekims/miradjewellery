@@ -260,7 +260,6 @@ class Home extends MY_Controller {
     ____________________________________________________________*/
 
     function addcustomer(){
-
         $this->form_validation->set_rules('customername','Name','trim|required|min_length[5]|max_length[12]|xss_clean');
         $this->form_validation->set_rules('customeremail','Email','trim|required|valid_email|is_unique[comments.email]');
         $this->form_validation->set_rules('customerpassword','Password','trim|required|min_length[6]');
@@ -273,7 +272,7 @@ class Home extends MY_Controller {
             'cust_name'=>$this->input->post('customername'),
             'title_id'=>$this->input->post('customertitle'),
             'cust_email'=>$this->input->post('customeremail'),
-            'cust_password'=>$this->input->post('customerpassword')
+            'cust_password'=>md5($this->input->post('customerpassword'))
             );
          $insert = $this->home_model->add_customer($customer);
          redirect(base_url().'index.php/home/login');
