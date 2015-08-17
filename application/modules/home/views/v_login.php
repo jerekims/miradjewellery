@@ -17,7 +17,7 @@
                     <input type="password" required class="form-control validate[required]" name="customer_pass" id="customer_pass">
                   </div>
                   <div>
-                    <button type="submit" class="btn btn-primary">Login</button>
+                    <button type="submit" class="btn btn-primary" style="background-color:gray;">Login</button>
                   </div>
                   <a href="#">Forgot Password</a>
               </form>
@@ -53,7 +53,7 @@
                   <input type="password" class="form-control validate[required]" name="confirmpassword" value="<?php echo set_value('confirmpassword');?>">
                 </div>
                 <div>
-                  <button type="submit" class="btn btn-primary">JOIN TODAY</button>
+                  <button type="submit" class="btn btn-primary" style="background-color:gray;">JOIN TODAY</button>
                 </div>
               </form>
       </div>

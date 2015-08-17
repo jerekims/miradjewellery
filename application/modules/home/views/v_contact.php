@@ -19,7 +19,7 @@
       <input  class="form-control" type="text" id="captcha" name="captcha" value="<?php echo set_value('captcha');?>"> 
     </div> -->
     <div>
-      <input type="submit" class="btn btn-primary" value="SEND COMMENT">
+      <input type="submit" class="btn btn-primary" value="SEND COMMENT" style="width:150px;background-color:gray;">
     </div>
   </form>
 </div>

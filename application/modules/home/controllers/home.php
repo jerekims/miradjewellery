@@ -285,7 +285,7 @@ class Home extends MY_Controller {
         $productquantity = $this->input->post('productquantity');
        $result = $this->home_model->update_product($updatetype,$prodid,$cust_id,$productquantity);
 
-       redirect(base_url(). 'home/shopcart');
+       redirect(base_url(). 'index.php/home/shopcart');
     }
 
 
