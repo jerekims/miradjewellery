@@ -229,18 +229,39 @@ class Home_model extends MY_Model {
     }
 
     public function opencart($custid){
-        $sql="SELECT cu.cust_id as Customer_id,
+      $sql="SELECT cu.cust_id as Customer_id,
        p.prodid as Product_id,
        p.catid as Category_id,
        p.prodname as Product_name,
        p.proddescription as Product_description,
        p.prodprice as Product_price,
-       p.prodimage as Product_image
+       p.prodimage as Product_image,
+       c.quantity as Product_quantity
       FROM customers cu, products p
       JOIN cart c ON p.prodid = c.prod_id 
       WHERE cu.cust_id = c.cust_id AND c.cust_id = $custid";
+
       $result=$this->db->query($sql);
       return $result->result_array();
+    }
+
+    public function update_product($updatetype,$prodid,$cust_id,$productquantity){
+        switch ($updatetype) {
+            case 'removeproduct':
+                $sql = "DELETE FROM cart WHERE cust_id = $cust_id AND prod_id = $prodid";
+                $results = $this->db->query($sql);
+                break;
+
+            case 'addquantity':
+                $sql1 = "UPDATE cart SET quantity = '$productquantity' WHERE cust_id = $cust_id AND prod_id = $prodid";
+                $results = $this->db->query($sql1);
+                break;
+            
+            default:
+                echo "Failed to update the cart"; die();
+                break;
+        }
+
     }
 
 

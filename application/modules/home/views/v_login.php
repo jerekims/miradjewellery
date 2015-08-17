@@ -23,7 +23,7 @@
       </div>
       <div class="six columns registerform">
       <h5>CREATE AN ACCOUNT</h5>
-         <form id="createuser" action="<?php echo base_url(). 'index.php/home/addcustomer'?>" name="loginuser" role="form" enctype="multipart/form-data" method="POST">
+         <form id="createuser" action="<?php echo base_url(). 'index.php/home/addcustomer'?>" name="createuser" role="form" enctype="multipart/form-data" method="POST">
 
                 <div class="form-group">
                   <label for="customer_name" class="control-label">Customer Name:</label>

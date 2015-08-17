@@ -273,6 +273,16 @@ class Home extends MY_Controller {
          redirect(base_url().'index.php/home/login');
     }
 
+    function cartupdate($updatetype,$prodid){
+
+        $cust_id = $this->session->userdata('cust_id');
+        $productquantity = $this->input->post('productquantity');
+        //echo'<pre>';print_r($productquantity);echo'</pre>';die();
+       $result = $this->home_model->update_product($updatetype,$prodid,$cust_id,$productquantity);
+
+       redirect(base_url(). 'home/shopcart');
+    }
+
 
      /* contact function
     ____________________________________________________________*/
