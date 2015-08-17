@@ -69,6 +69,8 @@ class Admin extends MY_Controller {
 
         if($passcheck == 'e10adc3949ba59abbe56e057f20f883e'){
             $passmessage = "Remember to change your password";
+        }else{
+            $passmessage="";
         }
 
         $data['clientnumber'] = $this->getclientnumber();
