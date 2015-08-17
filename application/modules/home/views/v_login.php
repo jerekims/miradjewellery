@@ -1,6 +1,7 @@
 <div class="forms " style="margin-top:2%;margin-left:5%;">
       <div class="twelve columns">
-        <h3 style="text-align:center;font-size:30px;line-height:10px;margin-bottom:25px;">Login or Sign Up</h3>
+        <h4 style="font-weight:bold;text-align:center;font-size:30px;margin-bottom:2%;">Mirad Jewellery</h4>
+        <h3 style="text-align:center;font-size:26px;line-height:10px;margin-bottom:25px;">Login or Sign Up</h3>
       </div>
       <div class="twelve columns" style="box-shadow:-2px 5px 8px 2px #888888;">
          <div class="five columns loginform">
