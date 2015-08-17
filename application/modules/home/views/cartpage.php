@@ -32,7 +32,6 @@
                <td>
 
                  <input name="productquantity" value="<?php echo $data['Product_quantity']?>" style="width:40px;">
-                 <!-- <a href="<?php echo base_url().'index.php/home/cartupdate/addquantity/'?><?php echo $data['Product_id']?>" style="text-align:center;">Update</a> -->
                  <button type="submit" class="btn btn-primary">Update</button>
                </td>
                <td>
@@ -50,10 +49,12 @@
                   <a href="<?php echo base_url().'index.php/home/cartupdate/removeproduct/'?><?php echo $data['Product_id']?>" style="text-align:center;">Remove</a>
                </td>
                </form>
+               
                </tr>
                 <?php }
-              }
-            } ?>
+                  }
+              } 
+            ?>
             <tr>
               
             </tr>

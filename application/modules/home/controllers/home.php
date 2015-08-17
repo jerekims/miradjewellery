@@ -163,6 +163,8 @@ class Home extends MY_Controller {
          
            $data['cart_products']=$prod_cat;
            //echo "<pre>";print_r($prod_cat);echo "</pre>";die();
+        }else{
+             $data['cart_products']="";
         }
 
         $data['navbarcategory'] = $this->create_category_nav();
