@@ -47,7 +47,7 @@
                  ?>
                </td>
                <td>
-                  <a href="<?php echo base_url().'index.php/home/cartupdate/removeproduct/'?><?php echo $data['Product_id']?>" style="text-align:center;"><button class="btn btn-alert">Remove</button></a>
+                  <a href="<?php echo base_url().'index.php/home/cartupdate/removeproduct/'?><?php echo $data['Product_id']?>" style="text-align:center;">Remove</a>
                </td>
                </form>
                </tr>
