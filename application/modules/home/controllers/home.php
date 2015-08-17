@@ -173,7 +173,7 @@ class Home extends MY_Controller {
         //echo "<pre>";print_r($data);echo "</pre>";die();
         $this->template->call_single_template($data);
          } else {
-          //$this->logged_in = FASLE;
+          $this->login();
          }
     }
 
@@ -231,7 +231,7 @@ class Home extends MY_Controller {
     ____________________________________________________________*/
     function user_login(){
          $cname = $this->input->post('customer_email');
-         $cpass = $this->input->post('customer_pass');
+         $cpass = md5($this->input->post('customer_pass'));
          $insert = $this->home_model->user_login($cname,$cpass);
 
          switch($insert){
@@ -265,7 +265,7 @@ class Home extends MY_Controller {
          $cname = $this->input->post('customername');
          $ctitle = $this->input->post('customertitle');
          $cemail = $this->input->post('customeremail');
-         $cpass = $this->input->post('customerpassword');
+         $cpass = md5($this->input->post('customerpassword'));
          //$image=$this->input->post('image');
          //echo'<pre>';print_r($categoryname);echo'</pre>';die();
          $insert = $this->home_model->add_customer($cname,$ctitle,$cemail,$cpass);

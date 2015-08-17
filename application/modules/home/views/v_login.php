@@ -32,7 +32,7 @@
 
                  <div class="form-group">
                   <label for="customer_title" class="control-label">Customer title:</label>
-                  <select class="form-control">
+                  <select class="form-control" name="customertitle">
                     <?php echo $titles?>
                   </select>
                 </div>

@@ -238,7 +238,7 @@ class Home_model extends MY_Model {
        p.prodimage as Product_image
       FROM customers cu, products p
       JOIN cart c ON p.prodid = c.prod_id 
-      WHERE cu.cust_id =$custid";
+      WHERE cu.cust_id = c.cust_id AND c.cust_id = $custid";
       $result=$this->db->query($sql);
       return $result->result_array();
     }
