@@ -19,17 +19,17 @@
                   </div>
                </td>
                <td>
-                <h5 style="color:#F2F2F2;font-size:15px; font-family:'Montserrat:700',GEORGIA;margin:10px 20px;text-align:center;"><?php echo $data['Product_name'];?></h5>
+                <h5 style="color:tomato;font-size:15px; font-family:'Montserrat:700',GEORGIA;margin:10px 20px;text-align:center;"><?php echo $data['Product_name'];?></h5>
                </td>
                <td>
-                  <h5 style="color:#F2F2F2;font-size:15px; font-family:'Montserrat:700',GEORGIA;margin:10px 20px;text-align:center;"><?php echo $data['Product_description'];?></h5>
+                  <h5 style="color:tomato;font-size:15px; font-family:'Montserrat:700',GEORGIA;margin:10px 20px;text-align:center;"><?php echo $data['Product_description'];?></h5>
                   <a href="delete_product?empty=<?php echo $data['Product_id'];?>" style="text-align:center;">(X)Remove</a>
                </td>
                <td>
                  <input value="1" style="width:40px;">
                </td>
                <td>
-                 <h5 style="color:#F2F2F2;font-size:15px; font-family:'Montserrat:700',GEORGIA;margin:10px 20px; text-align:center;">Kshs:&nbsp;<?php echo $data['Product_price'];?></h5>
+                 <h5 style="color:tomato;font-size:15px; font-family:'Montserrat:700',GEORGIA;margin:10px 20px; text-align:center;">Kshs:&nbsp;<?php echo $data['Product_price'];?></h5>
                </td>
                </tr>
                 <?php }

@@ -62,8 +62,14 @@ ______________________________________________________*/
 .navbar{
 	margin-bottom: 0px;
 }
-.navbar-brand,.nav > li > a{
+.navbar-brand{
 	color: #EBF2F2;
+}
+.nav > li > a{
+	color: white;
+}
+.nav > li > a:hover{
+	opacity: 1;
 }
 
 /*sidebar styles*/
@@ -110,11 +116,11 @@ ______________________________________________________*/
 /*products styles*/
 .products .singleproduct a{
 	text-decoration: none;
-	cursor:crosshair;
+	cursor:pointer;
 	outline: none;
 }
-.products .singleproduct a:active{
-	outline: none;
+.products .singleproduct a:hover{
+	opacity: 0.55;
 }
 /*carousel*/
 .billboard{

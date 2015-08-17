@@ -22,7 +22,7 @@ class Home_model extends MY_Model {
             catname AS 'Category Name'
             FROM 
             `category`
-            WHERE catstatus=1 ORDER BY catname";
+            WHERE catstatus=1 ORDER BY catname DESC";
 
             $result = $this->db->query($stmt);
             if($result->num_rows > 0){

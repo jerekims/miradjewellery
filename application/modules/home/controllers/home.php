@@ -12,7 +12,7 @@ class Home extends MY_Controller {
         $this->load->model('home_model');
        // $this->load->model('product_model');
         $this->load->helper(array('form', 'url','captcha'));
-        $this->load->driver("session");
+        $this->load->driver('session');
         $this->load->library('form_validation');
         $this->form_validation->set_error_delimiters('<span class="error" style="color:red;">', '</span>');
 
@@ -298,7 +298,7 @@ class Home extends MY_Controller {
         $this->form_validation->set_rules('user_name','Name','trim|required|min_length[5]|max_length[12]|xss_clean');
         $this->form_validation->set_rules('user_email','Email','trim|required|valid_email|is_unique[comments.email]');
         $this->form_validation->set_rules('message','Message','trim|required');
-        $this->form_validation->set_rules('captcha', "Captcha", 'required');
+        // $this->form_validation->set_rules('captcha', "Captcha", 'required');
         if($this->form_validation->run()==FALSE){
              $this->contact();
         }
@@ -308,9 +308,15 @@ class Home extends MY_Controller {
                 'email'=>$this->input->post('user_email'),
                 'message'=>$this->input->post('message'),
                 );
-
+             // print_r($data)or die();    
             $insert=$this->home_model->add_comment($data);
-            redirect(base_url().'index.php/home/');
+            if($insert){
+                redirect(base_url().'index.php/home/');
+            }
+            else{
+                $this->contact();
+            }
+            
         }
     }
 
