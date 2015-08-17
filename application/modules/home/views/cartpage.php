@@ -24,10 +24,10 @@
                   </div>
                </td>
                <td>
-                  <h5 name="productname" style="color:#F2F2F2;font-size:15px; font-family:'Montserrat:700',GEORGIA;margin:10px 20px;text-align:center;"><?php echo $data['Product_name'];?></h5>
+                  <h5 name="productname" style="color:tomato;font-size:15px; font-family:'Montserrat:700',GEORGIA;margin:10px 20px;text-align:center;"><?php echo $data['Product_name'];?></h5>
                </td>
                <td>
-                  <h5 name="productdescription" style="color:#F2F2F2;font-size:15px; font-family:'Montserrat:700',GEORGIA;margin:10px 20px;text-align:center;"><?php echo $data['Product_description'];?></h5>
+                  <h5 name="productdescription" style="color:tomato;font-size:15px; font-family:'Montserrat:700',GEORGIA;margin:10px 20px;text-align:center;"><?php echo $data['Product_description'];?></h5>
                </td>
                <td>
 
@@ -36,7 +36,7 @@
                  <button type="submit" class="btn btn-primary">Update</button>
                </td>
                <td>
-                 <h5 name="productprice" style="color:#F2F2F2;font-size:15px; font-family:'Montserrat:700',GEORGIA;margin:10px 20px; text-align:center;">Kshs:&nbsp;<?php echo $data['Product_price'];?></h5>
+                 <h5 name="productprice" style="color:tomato;font-size:15px; font-family:'Montserrat:700',GEORGIA;margin:10px 20px; text-align:center;">Kshs:&nbsp;<?php echo $data['Product_price'];?></h5>
                </td>
                <td>
                  <?php
