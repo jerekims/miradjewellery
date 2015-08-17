@@ -24,7 +24,7 @@
           </div>
       <div class="seven columns registerform">
       <h5 style=" margin-left:2%; margin-top:2%;">CREATE AN ACCOUNT</h5>
-         <form style="width:85%;"id="createuser" action="<?php echo base_url(). 'index.php/home/addcustomer'?>" name="loginuser" role="form" enctype="multipart/form-data" method="POST">
+         <form style="width:85%;"id="createuser" action="<?php echo base_url(). 'index.php/home/addcustomer'?>" name="createuser" role="form" enctype="multipart/form-data" method="POST">
 
                 <div class="form-group">
                   <label for="customer_name" class="control-label">Customer Name:</label><?php echo form_error('customername');?>
@@ -33,7 +33,7 @@
 
                  <div class="form-group">
                   <label for="customer_title" class="control-label">Customer title:</label>
-                  <select class="form-control">
+                  <select class="form-control" name="customertitle">
                     <?php echo $titles?>
                   </select>
                 </div>

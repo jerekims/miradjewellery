@@ -31,8 +31,8 @@
                             ?>
 
                 <!-- The form that allows viewing and editing of category It uses admin.js into a function with form ID -> #categoryediting -->
-                        <form id="productediting" action="<?php echo base_url(). 'admin/editproduct'?>" name="productediting" role="form" enctype="multipart/form-data" method="POST">
-                        <!-- <form id="productediting" action="<?php echo base_url(). 'index.php/admin/editproduct'?>" name="productediting" role="form" enctype="multipart/form-data" method="POST"> -->
+                        <!-- <form id="productediting" action="<?php echo base_url(). 'admin/editproduct'?>" name="productediting" role="form" enctype="multipart/form-data" method="POST"> -->
+                        <form id="productediting" action="<?php echo base_url(). 'index.php/admin/editproduct'?>" name="productediting" role="form" enctype="multipart/form-data" method="POST">
 
                         <div class="control-group">
                                 <label class="control-label">Product ID: <?php echo $data['prodid']; ?></label>
@@ -85,8 +85,8 @@
                             </div>
 
                             <button type="submit" class="btn btn-success">Submit Button</button>
-                            <a href="<?php echo base_url(). 'admin/products'?>" class="btn btn-warning">Back</a>
-                            <!-- <a href="<?php echo base_url(). 'index.php/admin/products'?>" class="btn btn-warning">Back</a> -->
+                            <!-- <a href="<?php echo base_url(). 'admin/products'?>" class="btn btn-warning">Back</a> -->
+                            <a href="<?php echo base_url(). 'index.php/admin/products'?>" class="btn btn-warning">Back</a>
                             
                             <!-- <button type="reset" class="btn btn-warning">Reset Button</button> -->
 

@@ -172,7 +172,7 @@ class Home extends MY_Controller {
         //echo "<pre>";print_r($data);echo "</pre>";die();
         $this->template->call_single_template($data);
          } else {
-          //$this->logged_in = FASLE;
+          $this->login();
          }
     }
 
@@ -230,7 +230,7 @@ class Home extends MY_Controller {
     ____________________________________________________________*/
     function user_login(){
          $cname = $this->input->post('customer_email');
-         $cpass = $this->input->post('customer_pass');
+         $cpass = md5($this->input->post('customer_pass'));
          $insert = $this->home_model->user_login($cname,$cpass);
 
          switch($insert){
@@ -260,6 +260,7 @@ class Home extends MY_Controller {
     ____________________________________________________________*/
 
     function addcustomer(){
+
         $this->form_validation->set_rules('customername','Name','trim|required|min_length[5]|max_length[12]|xss_clean');
         $this->form_validation->set_rules('customeremail','Email','trim|required|valid_email|is_unique[comments.email]');
         $this->form_validation->set_rules('customerpassword','Password','trim|required|min_length[6]');
@@ -277,6 +278,15 @@ class Home extends MY_Controller {
          $insert = $this->home_model->add_customer($customer);
          redirect(base_url().'index.php/home/login');
         }
+    }
+
+    function cartupdate($updatetype,$prodid){
+
+        $cust_id = $this->session->userdata('cust_id');
+        $productquantity = $this->input->post('productquantity');
+       $result = $this->home_model->update_product($updatetype,$prodid,$cust_id,$productquantity);
+
+       redirect(base_url(). 'home/shopcart');
     }
 
 

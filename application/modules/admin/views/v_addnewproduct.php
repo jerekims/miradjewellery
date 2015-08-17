@@ -11,12 +11,12 @@
                         <ol class="breadcrumb">
                             <li class="active">
                                 <i class="fa fa-dashboard"></i> 
-                                   <a class="crumbs" href="<?php echo base_url(). 'admin'?>">Manager Dashboard</a> > 
+                                   <!-- <a class="crumbs" href="<?php echo base_url(). 'admin'?>">Manager Dashboard</a> > 
                                    <a class="crumbs" href="<?php echo base_url(). 'admin/products'?>">Product</a> > 
-                                   <a class="crumbs" href="<?php echo base_url(). 'admin/addproduct'?>"><?php echo $admin_subtitle?></a>
-                                   <!-- <a class="crumbs" href="<?php echo base_url(). 'index.php/admin'?>">Manager Dashboard</a> > 
+                                   <a class="crumbs" href="<?php echo base_url(). 'admin/addproduct'?>"><?php echo $admin_subtitle?></a> -->
+                                   <a class="crumbs" href="<?php echo base_url(). 'index.php/admin'?>">Manager Dashboard</a> > 
                                    <a class="crumbs" href="<?php echo base_url(). 'index.php/admin/products'?>">Product</a> > 
-                                   <a class="crumbs" href="<?php echo base_url(). 'index.php/admin/addproduct'?>"><?php echo $admin_subtitle?></a> -->
+                                   <a class="crumbs" href="<?php echo base_url(). 'index.php/admin/addproduct'?>"><?php echo $admin_subtitle?></a> 
                             </li>
                         </ol>
                     </div>
@@ -27,8 +27,8 @@
                   <div class="col-lg-5">
                   
                   <!-- The form that adds a new category into database. It uses admin.js into a function with form ID -> #formaddcategory -->
-                     <form id="formaddproduct" action="<?php echo base_url(). 'admin/addnewproduct'?>" name="formaddproduct" role="form" enctype="multipart/form-data" method="POST">
-                     <!-- <form id="formaddproduct" action="<?php echo base_url(). 'index.php/admin/addnewproduct'?>" name="formaddproduct" role="form" enctype="multipart/form-data" method="POST"> -->
+                     <!-- <form id="formaddproduct" action="<?php echo base_url(). 'admin/addnewproduct'?>" name="formaddproduct" role="form" enctype="multipart/form-data" method="POST"> -->
+                     <form id="formaddproduct" action="<?php echo base_url(). 'index.php/admin/addnewproduct'?>" name="formaddproduct" role="form" enctype="multipart/form-data" method="POST">
 
                             <div class="form-group">
                                 <label>Category Name</label>
@@ -66,8 +66,8 @@
 
                             <button type="submit" class="btn btn-success">Submit Button</button>
                             <button type="reset" class="btn btn-warning">Reset Button</button>
-                            <a class="adminback" href="<?php echo base_url(). 'admin/products'?>">Back</a>
-                            <!-- <a class="adminback" href="<?php echo base_url(). 'index.php/admin/products'?>">Back</a> -->
+                            <!-- <a class="adminback" href="<?php echo base_url(). 'admin/products'?>">Back</a> -->
+                            <a class="adminback" href="<?php echo base_url(). 'index.php/admin/products'?>">Back</a>
 
                         </form>
                   </div>
