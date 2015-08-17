@@ -73,8 +73,8 @@ $(document).ready(function(){
           // takes the data into the admin controller, into a function called categoryregistration()
          $.ajax({
            type: "POST",
-           // url: base_url + 'admin/categoryregistration',
-            url: base_url + 'admin/categoryregistration',
+            // url: base_url + 'admin/categoryregistration',
+            url: base_url + 'index.php/admin/categoryregistration',
            data: formData,
            async: false,
            cache: false,
@@ -150,8 +150,8 @@ $(document).ready(function(){
           // takes the data into the admin controller, into a function called categoryregistration()
          $.ajax({
            type: "POST",
-           url: base_url + 'admin/editproduct',
-           //url: base_url + 'index.php/admin/editproduct',
+           //url: base_url + 'admin/editproduct',
+           url: base_url + 'index.php/admin/editproduct',
            data: formData,
            async: false,
            cache: false,
@@ -184,8 +184,8 @@ $(document).ready(function(){
           // takes the data into the admin controller, into a function called categoryregistration()
          $.ajax({
            type: "POST",
-            url: base_url + 'admin/employeeregistration',
-           // url: base_url + 'index.php/admin/employeeregistration',
+            // url: base_url + 'admin/employeeregistration',
+           url: base_url + 'index.php/admin/employeeregistration',
            data: formData,
            async: false,
            cache: false,
@@ -220,8 +220,8 @@ $(document).ready(function(){
  
          $.ajax({
            type: "POST",
-           url: base_url + 'admin/editcategory',
-           // url: base_url + 'index.php/admin/editcategory',
+           // url: base_url + 'admin/editcategory',
+           url: base_url + 'index.php/admin/editcategory',
            data: formData,
            async: false,
            cache: false,
@@ -279,8 +279,8 @@ $(document).ready(function(){
  
          $.ajax({
            type: "POST",
-           url: base_url + 'admin/editcomment',
-           // url: base_url + 'index.php/admin/editcomment',
+           // url: base_url + 'admin/editcomment',
+           url: base_url + 'index.php/admin/editcomment',
            data: formData,
            async: false,
            cache: false,
@@ -312,8 +312,8 @@ $(document).ready(function(){
  
          $.ajax({
            type: "POST",
-           url: base_url + 'admin/editemployee',
-           // url: base_url + 'index.php/admin/editemployee',
+           // url: base_url + 'admin/editemployee',
+           url: base_url + 'index.php/admin/editemployee',
            data: formData,
            async: false,
            cache: false,
@@ -349,8 +349,8 @@ $(document).ready(function(){
  
          $.ajax({
            type: "POST",
-           url: base_url + 'admin/editclient',
-           // url: base_url + 'index.php/admin/editclient',
+           // url: base_url + 'admin/editclient',
+           url: base_url + 'index.php/admin/editclient',
            data: formData,
            async: false,
            cache: false,

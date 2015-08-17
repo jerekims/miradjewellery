@@ -28,11 +28,14 @@ $(function(){
                    swal({   title: response.subject,   text: response.message,   timer: 3000 });
                }else if(response.state === "success"){
                  if(response.level === "superadmin"){
-                   window.location.href = 'superadmin/dashboard' ;
+                   // window.location.href = 'superadmin/dashboard' ;
+                   window.location.href = 'index.php/superadmin/dashboard' ;
                  }else if(response.level === "manager"){
-                   window.location.href = 'admin/dashboard' ;
+                   // window.location.href = 'admin/dashboard' ;
+                   window.location.href = 'index.php/admin/dashboard' ;
                  }else if(response.level === "stockmanager"){
-                   window.location.href = 'stockmanager/dashboard' ;
+                   // window.location.href = 'stockmanager/dashboard' ;
+                   window.location.href = 'index.php/stockmanager/dashboard' ;
                  }
                }
               

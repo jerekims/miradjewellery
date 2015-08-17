@@ -11,12 +11,11 @@
                         <ol class="breadcrumb">
                             <li class="active">
                                  <i class="fa fa-dashboard"></i>
-                                   <a class="crumbs" href="<?php echo base_url(). 'admin'?>">Manager Dashboard</a> > 
-                                   <a class="crumbs" href="<?php echo base_url(). 'admin/comments'?>">Employee</a> >
+                                   <!-- <a class="crumbs" href="<?php echo base_url(). 'admin'?>">Manager Dashboard</a> > 
+                                   <a class="crumbs" href="<?php echo base_url(). 'admin/comments'?>">Employee</a> > -->
 
-                                   <!-- <a class="crumbs" href="<?php echo base_url(). 'index.php/admin'?>">Manager Dashboard</a> > 
-                                   <a class="crumbs" href="<?php echo base_url(). 'index.php/admin/comments'?>">Employee</a> > -->
-                                   <a class="crumbs" href="#'?>"><?php echo $admin_subtitle?></a>
+                                   <a class="crumbs" href="<?php echo base_url(). 'index.php/admin'?>">Manager Dashboard</a> > 
+                                   <a class="crumbs" href="<?php echo base_url(). 'index.php/admin/comments'?>">Employee</a> >                                   <a class="crumbs" href="#'?>"><?php echo $admin_subtitle?></a>
                             </li>
                         </ol>
                     </div>

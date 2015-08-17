@@ -277,7 +277,6 @@ class Home extends MY_Controller {
 
         $cust_id = $this->session->userdata('cust_id');
         $productquantity = $this->input->post('productquantity');
-        //echo'<pre>';print_r($productquantity);echo'</pre>';die();
        $result = $this->home_model->update_product($updatetype,$prodid,$cust_id,$productquantity);
 
        redirect(base_url(). 'home/shopcart');
