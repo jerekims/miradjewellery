@@ -122,6 +122,9 @@ ______________________________________________________*/
 .products .singleproduct a:hover{
 	opacity: 0.55;
 }
+.products .singleproduct a:visited{
+	color: tomato;
+}
 /*carousel*/
 .billboard{
 	margin-top: 0px;

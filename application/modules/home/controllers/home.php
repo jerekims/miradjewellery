@@ -304,7 +304,6 @@ class Home extends MY_Controller {
     /*getting user comments
     _______________________________________________________________*/
     function sendcomment(){
-        $this->form_validation->set_rules('user_name','Name','trim|required|min_length[5]|max_length[12]|xss_clean');
         $this->form_validation->set_rules('user_email','Email','trim|required|valid_email|is_unique[comments.email]');
         $this->form_validation->set_rules('message','Message','trim|required');
         // $this->form_validation->set_rules('captcha', "Captcha", 'required');
@@ -313,7 +312,6 @@ class Home extends MY_Controller {
         }
         else{
             $data=array(
-                'name'=>$this->input->post('user_name'),
                 'email'=>$this->input->post('user_email'),
                 'message'=>$this->input->post('message'),
                 );

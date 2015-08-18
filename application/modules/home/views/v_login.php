@@ -5,7 +5,7 @@
       </div>
       <div class="twelve columns" style="box-shadow:-2px 5px 8px 2px #888888;">
          <div class="five columns loginform">
-            <h5 style=" margin-left:2%; margin-top:2%;">REGISTRED CUSTOMERS</h5>
+            <h5 style=" margin-left:2%; margin-top:2%;">REGISTERED CUSTOMERS</h5>
                 <form style=" margin-left:2%;width:85%;"id="loginuser" action="<?php echo base_url(). 'index.php/home/user_login'?>" name="loginuser" role="form" enctype="multipart/form-data" method="POST">
                   <div class="form-group">
                     <label for="customer_email" class="control-label">Customer Email:</label>

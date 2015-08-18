@@ -3,10 +3,6 @@
   <form name="contactform" method="POST" action="<?php echo base_url().'index.php/home/sendcomment'?>" style="margin-left:10%;width:80%;">
     <h5>Let's keep in touch</h5> 
     <div class="form-group">
-      <label>Name :</label><?php echo form_error('user_name');?>
-      <input type="text" name="user_name" value="<?php echo set_value('user_name');?>"class="form-control">
-    </div>
-    <div class="form-group">
       <label>Email :</label><?php echo form_error('user_email');?>
       <input type="text" name="user_email" value="<?php echo set_value('user_email');?>" class="form-control">
     </div>
