@@ -66,10 +66,15 @@ ______________________________________________________*/
 	color: #EBF2F2;
 }
 .nav > li > a{
+	text-decoration: none;
+	font-size:inherit;
 	color: white;
 }
 .nav > li > a:hover{
 	opacity: 1;
+	box-shadow: none;
+	color: black;
+	
 }
 
 /*sidebar styles*/

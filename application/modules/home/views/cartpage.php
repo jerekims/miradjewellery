@@ -32,7 +32,7 @@
                <td>
 
                  <input name="productquantity" value="<?php echo $data['Product_quantity']?>" style="width:40px;">
-                 <button type="submit" class="btn btn-primary" style="">Update</button>
+                 <button type="submit" class="btn btn-default" style="width:70px;background-color:#968477;text-align:center;">Update</button>
                </td>
                <td>
                  <h5 name="productprice" style="color:#968477;font-size:15px; font-family:'Montserrat:700',GEORGIA;margin:10px 20px; text-align:center;">Kshs:&nbsp;<?php echo $data['Product_price'];?></h5>
@@ -49,10 +49,12 @@
                   <a href="<?php echo base_url().'index.php/home/cartupdate/removeproduct/'?><?php echo $data['Product_id']?>" style="text-align:center;">Remove</a>
                </td>
                </form>
+               
                </tr>
                 <?php }
-              }
-            } ?>
+                  }
+              } 
+            ?>
             <tr>
               
             </tr>
@@ -74,25 +76,25 @@
   </div>
 
 <div class="clearfix"></div>
-        <?php } else {?>
+        <?php } else if(isset($empty_cart)) {?>
 <div class="twelve columns">
       <table class="table-striped" style="width:100%;">
-      <tr>
-        <th style="text-align:center;">Item</th>
-        <th style="text-align:center;">Product Name</th>
-        <th style="text-align:center;">Description</th>
-        <th style="text-align:center;">Quantity</th>
-        <th style="text-align:center;">Price</th>
-      </tr>
-      <tr><?php echo "Your cart is Empty";?></tr>
-      <tr>
-        <div>
-        <a href="<?php echo base_url().'index.php/home/'?>" style="color:#F2F2F2;font-size:15px; font-family:'Montserrat:700',GEORGIA;margin:10px 20px;">
-        <button class="btn btn-default">CONTINUE SHOPPING</button>
-        </div>
-      </tr>
-  <?php } ?>
+        <tr>
+          <th style="text-align:center;">Item</th>
+          <th style="text-align:center;">Product Name</th>
+          <th style="text-align:center;">Description</th>
+          <th style="text-align:center;">Quantity</th>
+          <th style="text-align:center;">Price</th>
+        </tr>
+       </table>
 </div>
- 
+<div class="twelve columns">
+   <h3 style="margin-left:10px;margin-top:10px;text-align:center;"><?php echo $empty_cart;?></h3>
+</div>
+       
+<div class="two columns" style="border-radius:2px 2px 2px 2px;padding:5px;margin-left:42%;background-color:gray;text-align:center;">
+  <a href="<?php echo base_url().'index.php/home/'?>" style="outline:0;text-decoration:none;color:#F2F2F2;font-size:15px; font-family:'Montserrat:700',GEORGIA;">CONTINUE SHOPPING</a>
+</div>
+ <?php } ?>
 
 

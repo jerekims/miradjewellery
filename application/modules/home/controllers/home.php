@@ -2,7 +2,7 @@
 
 class Home extends MY_Controller {
 
-	public $logged_in;
+	//public $logged_in;
 
      /* class constructor
     ____________________________________________________________*/
@@ -10,10 +10,9 @@ class Home extends MY_Controller {
 	function __construct()
     {
         $this->load->model('home_model');
-       // $this->load->model('product_model');
+       $this->load->model('stockmanager/stockmanager_model');
         $this->load->helper(array('form', 'url','captcha'));
         $this->load->driver('session');
-        $this->load->library('form_validation');
         $this->form_validation->set_error_delimiters('<span class="error" style="color:red;">', '</span>');
 
         parent::__construct();
@@ -29,27 +28,60 @@ class Home extends MY_Controller {
     /* index function
     ____________________________________________________________*/
 
-
     function index()
     {
-        $products=$this->home_model->category_product($catid=Null);
-       //echo "<pre>";print_r($products);echo "</pre>";die();
-        if( !empty( $products)){
-            foreach ($products as $key => $product) {
-            $prod_cat['prod_category'][]=$product;
-            // echo "<pre>";print_r($product);echo "</pre>";die();
-            }
-         
-           $data['all_product_category']=$prod_cat;
-           //echo "<pre>";print_r($prod_cat);echo "</pre>";die();
-        }
-        $data['navbarcategory'] = $this->create_category_nav();
+      $config=array();
+      $config["base_url"]=base_url().'index.php/home/index';
+      $total_row=$this->home_model->countproduct();
+      $config["total_rows"]=$total_row;
+      $config["per_page"]=4;
+      $config["uri_segment"]=3;
+      $choice = $config["total_rows"] / $config["per_page"];
+      $config["num_links"] = floor($choice);
 
-        //$data['products']=$this->allproduct();
+      //config for bootstrap pagination class integration
+      $config['full_tag_open'] = '<ul class="pager ">';
+      $config['full_tag_close'] = '</ul>';
+      $config['first_link'] = false;
+      $config['last_link'] = false;
+      $config['first_tag_open'] = '<li>';
+      $config['first_tag_close'] = '</li>';
+      $config['prev_link'] = 'Prev';
+      $config['prev_tag_open'] = '<li class="prev">';
+      $config['prev_tag_close'] = '</li>';
+      $config['next_link'] = 'Next';
+      $config['next_tag_open'] = '<li>';
+      $config['next_tag_close'] = '</li>';
+      $config['last_tag_open'] = '<li>';
+      $config['last_tag_close'] = '</li>';
+      $config['cur_tag_open'] = '<li class="active"><a href="#">';
+      $config['cur_tag_close'] = '</a></li>';
+      $config['num_tag_open'] = '<li>';
+      $config['num_tag_close'] = '</li>';
+
+
+      $this->pagination->initialize($config);
+      $page=($this->uri->segment(3)) ? $this->uri->segment(3) :0;
+  
+      $data["results"]=$this->home_model->getproducts($config["per_page"],$page);
+      $data["links"]=$this->pagination->create_links();
+
+      //echo "<pre>";print_r($data);echo "</pre>";die();
+
+
+        //$products=$this->home_model->category_product($catid=NULL);
+        $categ=$this->home_model->get_categories();
+        if(!empty($categ)){
+            foreach ($categ as $key => $cate) {
+                $data['navigations'][]=$cate;
+            }
+        }
+
+        $data['navbarcategory'] = $this->create_category_nav();
+       // $data['searchresult']=$this->searchproduct();
+       // $data['products']=$this->allproduct();
 
         $data['top_navbar1']='home/navbar_view1';
-        $data['billboard']='home/v_billboard';
-        $data['side_bar']='home/v_sidebar';
         $data['content_page']='home/v_home';
         $data['main_footer']='home/footer_view1';
 
@@ -58,6 +90,7 @@ class Home extends MY_Controller {
     }
     
 
+
     /*
     function for displaying the navigation bar
     ________________________________________________________________*/
@@ -65,11 +98,10 @@ class Home extends MY_Controller {
     function create_category_nav(){
         $categories=$this->home_model->get_categories();
         $data ='';
-        $data.='<li>';
-        $data.='<a href="'.base_url().'index.php/home">View All</a></li>';
+        $data.='<a href="'.base_url().'index.php/home" class="list-group-item"><i class="fa fa-chevron-right"></i>View All</a>';
         if( !empty($categories)){
             foreach ($categories as $key => $category) {
-               $data.='<li><a href="'.base_url().'index.php/home/product_category/'.$category['Category id'].'">'.$category['Category Name'].'</a></li>';            }
+               $data.='<a href="'.base_url().'index.php/home/product_category/'.$category['Category id'].'" class="list-group-item"><i class="fa fa-chevron-right"></i>'.$category['Category Name'].'</a>';            }
         }
         return $data;
     }
@@ -89,18 +121,31 @@ class Home extends MY_Controller {
     /*dispaly of product based on the category
     _______________________________________________________*/
 
-    function product_category($catid){
-
-        $products=$this->home_model->category_product($catid);
-       //echo "<pre>";print_r($products);echo "</pre>";die();
-        if( !empty( $products)){
+    function product_category($catid=NULL){
+        if( ! empty($catid)){
+          $products=$this->home_model->category_product($catid);
+        }
+        else{
+          redirect('index.php/home');
+        }
+        
+        $categ=$this->home_model->get_categories();
+        if(!empty($categ)){
+            foreach ($categ as $key => $cate) {
+                $data['navigations'][]=$cate;
+            }
+        }
+       //echo "<pre>";print_r($product);echo "</pre>";die();
+        if( is_array( $products)){
             foreach ($products as $key => $product) {
             $prod_cat['prod_category'][]=$product;
             // echo "<pre>";print_r($product);echo "</pre>";die();
             }
          
-           $data['all_product_category']=$prod_cat;
+           $data['all_products']=$prod_cat;
            //echo "<pre>";print_r($prod_cat);echo "</pre>";die();
+        }else{
+           $data['no_product']=$products;
         }
     
         $data['navbarcategory'] = $this->create_category_nav();
@@ -109,7 +154,7 @@ class Home extends MY_Controller {
         $data['main_footer']='home/footer_view1';
         //echo "<pre>";print_r($data);echo "</pre>";die();
 
-        $this->template->call_single_template($data);
+        $this->template->call_home_template($data);
          
     }
 
@@ -118,8 +163,18 @@ class Home extends MY_Controller {
     ___________________________________________________________*/
 
     function individual_product($pid=NULL){
-
-        $sproduct=$this->home_model->getproduct($pid);
+        if( ! empty($pid)){
+          $sproduct=$this->home_model->getproduct($pid);
+        }
+        else{
+          redirect(base_url().'index.php/home');
+        }
+        $categ=$this->home_model->get_categories();
+        if( ! empty($categ)){
+            foreach ($categ as $key => $cate) {
+                $data['navigations'][]=$cate;
+            }
+        }
         //echo "<pre>";print_r($sproduct);echo "</pre>";die();
         $data['single_product']=$sproduct;
         //echo "<pre>";print_r($sproduct);echo "</pre>";die();
@@ -128,7 +183,7 @@ class Home extends MY_Controller {
         $data['content_page']='home/v_product';
         $data['main_footer']='home/footer_view1';
         //echo "<pre>";print_r($data);echo "</pre>";die();
-        $this->template->call_single_template($data);
+        $this->template->call_home_template($data);
     }
 
    
@@ -154,29 +209,50 @@ class Home extends MY_Controller {
             $custid = $this->session->userdata('cust_id');
 
             $result = $this->home_model->opencart($custid);
-
-            if( !empty( $result)){
-            foreach ($result as $key => $product) {
-            $prod_cat['prod_details'][]=$product;
-            // echo "<pre>";print_r($product);echo "</pre>";die();
+            $categ=$this->home_model->get_categories();
+            if(!empty($categ)){
+                foreach ($categ as $key => $cate) {
+                    $data['navigations'][]=$cate;
+                }
             }
-         
-           $data['cart_products']=$prod_cat;
-           //echo "<pre>";print_r($prod_cat);echo "</pre>";die();
-        }
+
+            if(is_array($result)){
+                foreach ($result as $key => $product) {
+                $prod_cat['prod_details'][]=$product;
+                // echo "<pre>";print_r($product);echo "</pre>";die();
+                $data['cart_products']=$prod_cat;
+                }
+                //echo "<pre>";print_r($prod_cat);echo "</pre>";die();
+            }
+            else{
+                 $data['empty_cart']="Your cart is empty!";
+            }
 
         $data['navbarcategory'] = $this->create_category_nav();
         $data['top_navbar1']='home/navbar_view1';
         $data['content_page']='home/cartpage';
         $data['main_footer']='home/footer_view1';
         //echo "<pre>";print_r($data);echo "</pre>";die();
-        $this->template->call_single_template($data);
-         } else {
+        $this->template->call_home_template($data);
+       } 
+       else {
           $this->login();
          }
     }
 
-
+    /* search function
+    _____________________________________________________________*/
+    function searchproduct(){
+        $search_term=$this->input->post('search');
+        $data='';
+        $data['results']=$this->home_model->get_results($search_term);
+        if($results==''){
+            echo "no product";
+        }
+        else{
+            echo "There are product";
+        }
+    }
    
     /* login function
     ____________________________________________________________*/
@@ -184,13 +260,19 @@ class Home extends MY_Controller {
     function login(){
          $products=$this->home_model->category_product($catid=Null);
        //echo "<pre>";print_r($products);echo "</pre>";die();
+         $categ=$this->home_model->get_categories();
+        if(!empty($categ)){
+            foreach ($categ as $key => $cate) {
+                $data['navigations'][]=$cate;
+            }
+        }
         if( !empty( $products)){
             foreach ($products as $key => $product) {
             $prod_cat['prod_category'][]=$product;
             // echo "<pre>";print_r($product);echo "</pre>";die();
             }
          
-           $data['all_product_category']=$prod_cat;
+           $data['all_products']=$prod_cat;
            //echo "<pre>";print_r($prod_cat);echo "</pre>";die();
         }
 
@@ -198,12 +280,12 @@ class Home extends MY_Controller {
 
         $data['navbarcategory'] = $this->create_category_nav();
 
-        //$data['products']=$this->allproduct();
+       // $data['products']=$this->allproduct();
         $data['top_navbar1']='home/navbar_view1';
         $data['content_page']='home/v_login';
         $data['main_footer']='home/footer_view1';
 
-        $this->template->call_single_template($data);
+        $this->template->call_home_template($data);
     }
 
     function logout()
@@ -232,7 +314,6 @@ class Home extends MY_Controller {
          $cname = $this->input->post('customer_email');
          $cpass = md5($this->input->post('customer_pass'));
          $insert = $this->home_model->user_login($cname,$cpass);
-
          switch($insert){
 
                 case 'logged_in':
@@ -261,29 +342,80 @@ class Home extends MY_Controller {
 
     function addcustomer(){
         $this->form_validation->set_rules('customername','Name','trim|required|min_length[5]|max_length[12]|xss_clean');
-        $this->form_validation->set_rules('customeremail','Email','trim|required|valid_email|is_unique[comments.email]');
-        $this->form_validation->set_rules('customerpassword','Password','trim|required|min_length[6]');
+        $this->form_validation->set_rules('customeremail','Email','trim|required|valid_email|is_unique[customers.cust_email]');
+        $this->form_validation->set_rules('customerpassword','Password','trim|required|min_length[3]');
         $this->form_validation->set_rules('confirmpassword','Confirmation password','trim|required|matches[customerpassword]');
+        // die("Valid");
         if($this->form_validation->run()==FALSE){
             $this->login();
         }
         else{
-         $customer=array(
+            $customer=array(
             'cust_name'=>$this->input->post('customername'),
             'title_id'=>$this->input->post('customertitle'),
             'cust_email'=>$this->input->post('customeremail'),
             'cust_password'=>md5($this->input->post('customerpassword'))
             );
-         $insert = $this->home_model->add_customer($customer);
-         redirect(base_url().'index.php/home/login');
+
+            
+
+            $insert = $this->home_model->add_customer($customer);
+
+           // redirect(base_url().'index.php/home/login');
+            //mwanzo wa mailgun
+            //echo "<pre>";print_r("reached0");echo "</pre>";die();
+
+                 require_once 'init.php';
+                 $name = $this->input->post('customername');
+                  $email = $this->input->post('customeremail');
+            
+                if(isset($name , $email))
+                {
+            
+
+                  $validate = $mailgunValidate->get('address/validate', ['address' => $email])->http_response_body;
+            echo "<pre>";print_r("reached0");echo "</pre>";
+
+                 if($validate->is_valid){
+                    $hash = $mailgunOptIn->generateHash(MAILGUN_LIST, MAILGUN_SECRET, $email);
+                        $mailgun->sendMessage(MAILGUN_DOMAIN, [
+                           'from'  => 'ian.leslie18@gmail.com',
+                           'to'   => $email,
+                           'subject' => 'Confirm your account',
+                           'html'   => "Hello {$name} , Please  <a href='".base_url()."home/user_registered/$hash'>Click here </a> to confirm your account</p>"
+
+
+                          ]);
+            echo "<pre>";print_r("reached0");echo "</pre>";
+
+                        $mailgun -> post('lists/'. MAILGUN_LIST .'/members',[
+                              'name' => $name,
+                              'address' => $email,
+                              'subscribed'=> 'no'
+                          ]);
+                        header('location ./');
+            echo "<pre>";print_r("reached0");echo "</pre>";die();
+
+                 }
+                }
+
         }
     }
+    /* function for redirecting to the user
+    ________________________________________________________________*/
 
+    function user_registered(){
+      redirect(base_url().'index.php/home/login');
+    }
+
+    /*function for updating cart
+    ___________________________________________________________________*/
+    
     function cartupdate($updatetype,$prodid){
 
         $cust_id = $this->session->userdata('cust_id');
         $productquantity = $this->input->post('productquantity');
-       $result = $this->home_model->update_product($updatetype,$prodid,$cust_id,$productquantity);
+        $result = $this->home_model->update_product($updatetype,$prodid,$cust_id,$productquantity);
 
        redirect(base_url(). 'index.php/home/shopcart');
     }

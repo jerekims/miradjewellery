@@ -30,7 +30,7 @@
   
 </head>
 <body>
- <div class="home-body">
+ <div class="container">
       <div class="top-nav" >
           <?php
              $this->load->view($top_navbar1);

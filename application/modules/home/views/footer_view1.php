@@ -1,40 +1,71 @@
-<div id="footer" style="position:relative; margin-top:1000px;">
-<div class="container" style="width:100%;height:300px;position:absolute;">
-	<div class="row">
-		<div class="four columns " >
-			<h6 style="color:white;">ASSISTANCE</h6 >
-			<ul class="list-unstyled">
-				<li><a href="#">Contact Support</a></li>
-				<li><a href="#">About Us</a></li>
-				<li><a href="#">SiteMap</a></li>
-			</ul>
+	<!-- Footer Links Starts -->
+		<div class="footer-links">
+		<!-- Container Starts -->
+			<div class="container">
+				<!-- Information Links Starts -->
+					<div class="col-md-2 col-sm-6">
+						<h5>Information</h5>
+						<ul>
+							<li><a href="about.html">About Us</a></li>
+							<li><a href="#">Terms &amp; Conditions</a></li>
+						</ul>
+					</div>
+				<!-- Information Links Ends -->
+				<!-- My Account Links Starts -->
+					<div class="col-md-2 col-sm-6">
+						<h5>My Account</h5>
+						<ul>
+							<li><a href="#">My orders</a></li>
+						</ul>
+					</div>
+				<!-- My Account Links Ends -->					
+				<!-- Customer Service Links Starts -->
+					<div class="col-md-2 col-sm-6">
+						<h5>Service</h5>
+						<ul>
+							<li><a href="contact.html">Contact Us</a></li>
+							<li><a href="#">Site Map</a></li>
+							
+						</ul>
+					</div>
+				<!-- Customer Service Links Ends -->
+				<!-- Follow Us Links Starts -->
+					<div class="col-md-2 col-sm-6">
+						<h5>Follow Us</h5>
+						<ul>
+							<li><a href="#">Facebook</a></li>
+							<li><a href="#">Twitter</a></li>
+						</ul>
+					</div>
+				<!-- Follow Us Links Ends -->
+				<!-- Contact Us Starts -->
+					<div class="col-md-4 col-sm-12 last">
+						<h5>Contact Us</h5>
+						<ul>
+							<li>Mirad Jewellery</li>
+							<li>
+								Email: <a href="#">info@miradjewellery.com</a>
+							</li>								
+						</ul>
+						<h4 class="lead">
+							Tel: <span>+25472345674</span>
+						</h4>
+					</div>
+				<!-- Contact Us Ends -->
+			</div>
+		<!-- Container Ends -->
 		</div>
-		<div class="four columns">
-			<h6 style="color:white;">MIRAD JEWELLERY</h6>
-			<ul class="list-unstyled">
-				<li><a href="">Rings</a></li>
-				<li><a href="">Necklaces</a></li>
-				<li><a href="">Watches</a></li>
-				<li><a href="">Bangles</a></li>
-			</ul>
+	<!-- Footer Links Ends -->
+	<!-- Copyright Area Starts -->
+		<div class="copyright">
+		<!-- Container Starts -->
+			<div class="container">
+			<!-- Starts -->
+				<p class="pull-left">
+					&copy; 2015 Mirad Jewellery Stores.
+				</p>
+			<!-- Ends -->
+			</div>
+		<!-- Container Ends -->
 		</div>
-		<div class="four columns" style="height:100%;">
-			<h6 style="color:white;" >MIRAD EMAIL NEWSLETTER</h6>
-			<form class="navbar-form navbar-left" role="search">
-            <div class="form-group">
-            <input type="text" class="form-control" placeholder="Email address">
-            </div>
-            <button type="submit" class="btn btn-default">Subscribe</button>
-            </form>
-			<ul class="list-unstyled">
-			<h5>You can also follow us on:</h5>
-			<!-- <li><a href=""><img src="<?php echo base_url().'assets/images/Fb.png'?>"></a></li>
-			<li><a href=""><img src="<?php echo base_url().'assets/images/Fb.png'?>"></a></li>
-			<li><a href=""><img src="<?php echo base_url().'assets/images/Fb.png'?>"></a></li> -->
-			<li><a href="">miradjewellery.co.ke</a></li>
-		    </ul>
-			
-		</div>
-	</div>
-</div>
-</div>
+	<!-- Copyright Area Ends -->

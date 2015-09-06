@@ -49,9 +49,34 @@ class Home_model extends MY_Model {
         return $data->result_array();
     }
 
+    /*getting the count of all product
+    _____________________________________________*/
+    
+    public function countproduct(){
+      return $this->db->count_all("products");
+    }
+
+    /*getting products based on page limit
+    _____________________________________________*/
+    public function getproducts($limit,$offset){
+        $this->db->limit($limit,$offset);
+        $products=$this->db->get("products");
+        if($products->num_rows()>0){
+            foreach ($products->result() as $product) {
+              $data[]=$product;
+            }
+            return $data;
+        }
+        
+        return false;
+    }
+
+    /*getting  products  that belongs  to a given category
+    _______________________________________________________*/
+
     public function category_product($catid=NULL){
 
-            if(!empty($catid)){
+            if( ! empty($catid)){
             $sql="SELECT 
             p.prodid AS 'Product ID',
             p.prodname AS 'Product Name',
@@ -61,20 +86,20 @@ class Home_model extends MY_Model {
             FROM products p, category c
             WHERE p.catid= c.catid AND c.catid ='$catid'";
 
-            $result=$this->db->query($sql);
-            if($result->num_rows()>0){
-                return $result->result_array();
-            }
-            else{
-                $result="Product for that category are currently out of  stock";
-                return $result;
-            }
+               $result=$this->db->query($sql);
+                if($result->num_rows()> 0){
+                  return $result->result_array();
+              }
+              else{
+                  $result="Jewelleries in this category are currently out of stock";
+                  return $result;
+              }
 
             //echo "<pre>";print_r($result);echo "</pre>";die();
             
             }
 
-            else if(empty($catid)){
+            else if( empty($catid)){
              $sql="SELECT 
             p.prodid AS 'Product ID',
             p.prodname AS 'Product Name',
@@ -92,14 +117,32 @@ class Home_model extends MY_Model {
     
     }
     
+    /* search for product from the  database
+    _____________________________________________________*/
+
+    public function get_results($search){
+        if (! empty($search)) {
+          $sql="SELECT prodname 
+                      FROM products
+                      WHERE prodname LIKE '%search%';";
+                       $result=$this->db->query($sql);
+                      return $result->result_array();
+        }
+        else{
+          $result="";
+          return $result;
+        }
+        return $result;
+    }
+
     /*getting all the products  from the database
     ______________________________________________________*/
 
-    public function getproduct($pid=NULL){
+    public function getproduct( $pid=NULL){
 
         //$data=array();
 
-        if( !empty($pid)){
+        if( ! empty($pid)){
             //get specific product
             $sql="SELECT 
             p.prodid AS 'Product ID',
@@ -119,7 +162,7 @@ class Home_model extends MY_Model {
                 }
         }
         else{
-            $this->category_product();
+           // $this->category_product();
         }
     }
 
@@ -250,7 +293,14 @@ class Home_model extends MY_Model {
       WHERE cu.cust_id = c.cust_id AND c.cust_id = $custid";
 
       $result=$this->db->query($sql);
-      return $result->result_array();
+      if($result->num_rows()>0){
+        return $result->result_array();
+      }
+      else{
+        $result="Your shopping cart is empty";
+        return $result;
+      }
+      
     }
 
     public function update_product($updatetype,$prodid,$cust_id,$productquantity){

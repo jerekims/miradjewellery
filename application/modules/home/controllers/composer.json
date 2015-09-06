@@ -1,0 +1,6 @@
+{
+"require": {
+      "mailgun/mailgun-php": "dev-master"
+}
+
+}
