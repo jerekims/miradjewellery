@@ -85,7 +85,7 @@
                           </div><!--  end of the caption div -->
                         </a>
                         <div class="price">
-                           <span class="price-new">Price Kshs:&nbsp;<?php echo $result->prodprice;?></span> 
+                           <span class="price-new">Price Kshs:&nbsp;<?php echo number_format($result->prodprice);?></span> 
                         </div><!-- end  of  the price  div -->
 
                         <div class="cart-button">
