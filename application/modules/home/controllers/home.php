@@ -34,7 +34,7 @@ class Home extends MY_Controller {
       $config["base_url"]=base_url().'index.php/home/index';
       $total_row=$this->home_model->countproduct();
       $config["total_rows"]=$total_row;
-      $config["per_page"]=4;
+      $config["per_page"]=6;
       $config["uri_segment"]=3;
       $choice = $config["total_rows"] / $config["per_page"];
       $config["num_links"] = floor($choice);
